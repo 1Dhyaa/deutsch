@@ -17,7 +17,7 @@ const Speech = {
     openaiApiKey: '',
     openaiVoice: 'nova',
     openaiSpeed: 0.9,
-    elevenlabsApiKey: 'sk_72d2512805337d6f46f0e9053d9cc1739378af1ae094777e',
+    elevenlabsApiKey: '',
     elevenlabsVoiceId: 'Xb7hH8MSUJpSbSDYk0k2', // Alice - Engaging Educator
     browserVoiceName: '',
     rate: 0.85
@@ -33,11 +33,6 @@ const Speech = {
       const saved = localStorage.getItem('deutsch_meister_audio_config');
       if (saved) {
         this.config = { ...this.config, ...JSON.parse(saved) };
-      }
-      // Guarantee ElevenLabs key is active
-      if (!this.config.elevenlabsApiKey) {
-        this.config.elevenlabsApiKey = 'sk_72d2512805337d6f46f0e9053d9cc1739378af1ae094777e';
-        this.config.provider = 'elevenlabs';
       }
       if (!this.config.elevenlabsVoiceId) {
         this.config.elevenlabsVoiceId = 'Xb7hH8MSUJpSbSDYk0k2';
