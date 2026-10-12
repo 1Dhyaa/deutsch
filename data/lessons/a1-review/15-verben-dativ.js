@@ -166,7 +166,7 @@ window.LESSONS["a1-review-15"] = {
       options: ["mir", "mich", "ich", "mein"],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "الفعل helfen يتطلب دائماً مفعولاً في حالة الداتيف (Dativ)، وضمير الداتيف لـ ich هو mir."
     },
     {
@@ -176,7 +176,7 @@ window.LESSONS["a1-review-15"] = {
       answer: "der",
       accept: ["der"],
       options: ["der", "die", "dem"],
-      correctOption: "der",
+      answer: "der",
       explanation: "اسم المؤنث (die) يتحول في حالة الداتيف بعد الفعل helfen إلى der (der Mutter)."
     },
     {
@@ -185,7 +185,7 @@ window.LESSONS["a1-review-15"] = {
       words: ["Der", "Kopf", "tut", "mir", "weh"],
       answer: "Der Kopf tut mir weh",
       correct: "Der Kopf tut mir weh",
-      correctOrder: ["Der", "Kopf", "tut", "mir", "weh"],
+      correct: "Der Kopf tut mir weh",
       explanation: "الفاعل (Der Kopf) + الفعل (tut) + ضمير الداتيف (mir) + البادئة المنفصلة (weh)."
     },
     {
@@ -194,7 +194,7 @@ window.LESSONS["a1-review-15"] = {
       options: ["dir", "dich", "du", "dein"],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "الفعل danken يتطلب مفعولاً في الداتيف (Dativ)، وضمير الداتيف لـ du هو dir."
     },
     {
@@ -225,7 +225,7 @@ window.LESSONS["a1-review-15"] = {
       question: "ترجم إلى الألمانية: السيارة تخص والدي. (der Vater)",
       text: "السيارة تخص والدي.",
       answer: "Das Auto gehört meinem Vater.",
-      target: "Das Auto gehört meinem Vater.",
+      answer: "Das Auto gehört meinem Vater.",
       accept: [
         "Das Auto gehört meinem Vater",
         "Das Auto gehört meinem Vater."
@@ -239,7 +239,7 @@ window.LESSONS["a1-review-15"] = {
       answer: "n",
       accept: ["n"],
       options: ["n", "s", "en"],
-      correctOption: "n",
+      answer: "n",
       explanation: "في حالة جمع الداتيف، يضاف حرف -n إلى نهاية الاسم: den Kindern."
     },
     {
@@ -260,7 +260,7 @@ window.LESSONS["a1-review-15"] = {
       options: ["Wem", "Wen", "Wer", "Was"],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "نسأل عن الفاعل بـ Wer، وعن مفعول النصب بـ Wen، وعن مفعول الجر الداتيف بـ Wem (Wem gehört das Auto?)."
     }
   ],
@@ -273,7 +273,7 @@ window.LESSONS["a1-review-15"] = {
       options: ["ihm", "ihn", "er"],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "الفعل gefallen يتطلب داتيف، وضمير الداتيف لـ er هو ihm."
     },
     {
@@ -282,7 +282,7 @@ window.LESSONS["a1-review-15"] = {
       options: ["der", "die", "dem"],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "die Lehrerin مؤنث، وتتحول في الداتيف بعد antworten إلى der."
     },
     {
@@ -295,7 +295,7 @@ window.LESSONS["a1-review-15"] = {
       ],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "الفعل gratulieren يتطلب مفعولاً في الداتيف: gratuliere dir."
     },
     {
@@ -304,7 +304,7 @@ window.LESSONS["a1-review-15"] = {
       options: ["Ihnen", "Sie", "Ihr"],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "التعبير Wie geht es يتطلب داتيف، ولصيغة الاحترام نستخدم Ihnen بحرف كبير."
     },
     {
@@ -317,7 +317,7 @@ window.LESSONS["a1-review-15"] = {
       ],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "في حالة جمع الداتيف يضاف حرف -n إلى نهاية الاسم: den Kindern, den Freunden."
     }
   ]

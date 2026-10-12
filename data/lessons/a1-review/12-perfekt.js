@@ -158,7 +158,7 @@ window.LESSONS["a1-review-12"] = {
       options: ["habe", "bin", "hat", "ist"],
       answer: 1,
       correct: 1,
-      correctIndex: 1,
+      correct: 1,
       explanation: "الفعل fahren يعبر عن حركة وانتقال من مكان إلى آخر (Ortswechsel)، لذا يأخذ الفعل المساعد sein (مع ich تصبح bin)."
     },
     {
@@ -168,7 +168,7 @@ window.LESSONS["a1-review-12"] = {
       answer: "haben",
       accept: ["haben"],
       options: ["haben", "sind", "hat"],
-      correctOption: "haben",
+      answer: "haben",
       explanation: "الفعل essen يأخذ مفعولاً به منصوباً (eine Pizza)، وبالتالي فهو فعل متعدٍ يتطلب الفعل المساعد haben (ومع wir يكون haben)."
     },
     {
@@ -177,7 +177,7 @@ window.LESSONS["a1-review-12"] = {
       words: ["Ich", "habe", "ein", "Buch", "gelesen", "gestern"],
       answer: "Ich habe gestern ein Buch gelesen",
       correct: "Ich habe gestern ein Buch gelesen",
-      correctOrder: ["Ich", "habe", "gestern", "ein", "Buch", "gelesen"],
+      correct: "Ich habe gestern ein Buch gelesen",
       explanation: "الفعل المساعد habe يأتي ثانياً، واسم المفعول gelesen يأتي في نهاية الجملة تماماً."
     },
     {
@@ -186,7 +186,7 @@ window.LESSONS["a1-review-12"] = {
       options: ["hat", "ist", "wird", "kann"],
       answer: 1,
       correct: 1,
-      correctIndex: 1,
+      correct: 1,
       explanation: "الفعل bleiben استثناء قاعدي: يدل على البقاء والسكون لكنه يأخذ دائماً الفعل المساعد sein (ist geblieben)."
     },
     {
@@ -217,7 +217,7 @@ window.LESSONS["a1-review-12"] = {
       question: "ترجم إلى الألمانية: لقد سافرنا إلى ألمانيا.",
       text: "لقد سافرنا إلى ألمانيا.",
       answer: "Wir sind nach Deutschland gereist.",
-      target: "Wir sind nach Deutschland gereist.",
+      answer: "Wir sind nach Deutschland gereist.",
       accept: [
         "Wir sind nach Deutschland gereist",
         "Wir sind nach Deutschland gereist.",
@@ -233,7 +233,7 @@ window.LESSONS["a1-review-12"] = {
       answer: "bist",
       accept: ["bist"],
       options: ["hast", "bist", "ist"],
-      correctOption: "bist",
+      answer: "bist",
       explanation: "الفعل einschlafen يعني يغفو أو ينام وهو تغير حالة، لذلك يأخذ sein (ومع du يكون bist)."
     },
     {
@@ -259,7 +259,7 @@ window.LESSONS["a1-review-12"] = {
       ],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "قاعدة صارمة بلا استثناء: جميع الأفعال الانعكاسية (reflexive Verben) تأخذ دائماً الفعل المساعد haben."
     }
   ],
@@ -272,7 +272,7 @@ window.LESSONS["a1-review-12"] = {
       options: ["hat", "ist", "wird"],
       answer: 1,
       correct: 1,
-      correctIndex: 1,
+      correct: 1,
       explanation: "الفعل kommen يدل على حركة وانتقال مكاني، فيأخذ sein (mein Kollege ist gekommen)."
     },
     {
@@ -285,7 +285,7 @@ window.LESSONS["a1-review-12"] = {
       ],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "الفعل besuchen متعدٍ يأخذ haben، واسم المفعول besucht يأتي في نهاية الجملة (Satzklammer)."
     },
     {
@@ -294,7 +294,7 @@ window.LESSONS["a1-review-12"] = {
       options: ["haben", "sein", "beide sind möglich"],
       answer: 1,
       correct: 1,
-      correctIndex: 1,
+      correct: 1,
       explanation: "الفعل bleiben استثناء مشهور: يدل على السكون لكنه يأخذ sein دائماً (ist geblieben)."
     },
     {
@@ -303,7 +303,7 @@ window.LESSONS["a1-review-12"] = {
       options: ["ist", "hat", "wird"],
       answer: 1,
       correct: 1,
-      correctIndex: 1,
+      correct: 1,
       explanation: "النوم (schlafen) حالة مستمرة بدون تغير حالة أو انتقال مكاني، لذلك يأخذ haben (hat geschlafen)."
     },
     {
@@ -316,7 +316,7 @@ window.LESSONS["a1-review-12"] = {
       ],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "في زمن Perfekt، يأتي الفعل المساعد في المركز الثاني، واسم المفعول (Partizip II) في نهاية الجملة تماماً."
     }
   ]

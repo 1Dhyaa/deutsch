@@ -114,28 +114,28 @@ window.LESSONS["a1-review-04"] = {
       type: "multiple-choice",
       question: "Ich brauche ____ Computer (der).",
       options: ["ein", "einen", "eine"],
-      correctIndex: 1,
+      correct: 1,
       explanation: "Computer مذكر (der)، والفعل brauchen يأخذ Akkusativ، لذا ein تصبح einen."
     },
     {
       type: "multiple-choice",
       question: "Sie hat ____ Schwester (die).",
       options: ["eine", "einen", "ein"],
-      correctIndex: 0,
+      correct: 0,
       explanation: "Schwester مؤنث (die)، الأداة لا تتغير في الـ Akkusativ."
     },
     {
       type: "multiple-choice",
       question: "Er sucht ____ Auto (das).",
       options: ["einen", "ein", "eine"],
-      correctIndex: 1,
+      correct: 1,
       explanation: "Auto محايد (das)، الأداة لا تتغير في الـ Akkusativ."
     },
     {
       type: "fill-blank",
       question: "Wir kaufen ____ Tisch (der).",
       options: ["den", "der", "das"],
-      correctOption: "den",
+      answer: "den",
       explanation: "Tisch مذكر (der). في حالة الأكوزاتيف (مفعول به لـ kaufen) der تصبح den."
     },
     {
@@ -148,7 +148,7 @@ window.LESSONS["a1-review-04"] = {
     {
       type: "translate",
       question: "ترجم: أنا أرى الرجل.",
-      target: "Ich sehe den Mann.",
+      answer: "Ich sehe den Mann.",
       explanation: "الرجل (der Mann) يقع عليه فعل الرؤية (Akkusativ) فيصبح den Mann."
     },
     {
@@ -166,21 +166,21 @@ window.LESSONS["a1-review-04"] = {
       type: "multiple-choice",
       question: "____ fragst du? - Den Lehrer.",
       options: ["Wer", "Was", "Wen"],
-      correctIndex: 2,
+      correct: 2,
       explanation: "نسأل عن شخص في حالة الأكوزاتيف (Den Lehrer) باستخدام Wen."
     },
     {
       type: "fill-blank",
       question: "Trinkst du ____ Wasser? (das)",
       options: ["ein", "einen", "eine"],
-      correctOption: "ein",
+      answer: "ein",
       explanation: "Wasser محايد (das)، لذا نستخدم ein وهي لا تتغير."
     },
     {
       type: "word-order",
       question: "رتب الجملة (الفاعل، الفعل، المفعول به):",
       words: ["kauft", "Er", "einen", "Kaffee"],
-      correctOrder: ["Er", "kauft", "einen", "Kaffee"],
+      correct: "Er kauft einen Kaffee",
       explanation: "Er (فاعل)، kauft (فعل)، einen Kaffee (مفعول به - أكوزاتيف)."
     }
   ],
@@ -188,31 +188,31 @@ window.LESSONS["a1-review-04"] = {
     {
       question: "أي جنس تتغير أداته في حالة الـ Akkusativ؟",
       options: ["المحايد (das)", "المؤنث (die)", "الجمع (die)", "المذكر (der)"],
-      correctIndex: 3,
+      correct: 3,
       explanation: "المذكر فقط (der) يتغير ويصبح (den)."
     },
     {
       question: "ما هي أداة الاستفهام المناسبة للسؤال عن شخص في حالة الـ Akkusativ؟",
       options: ["Wer", "Wo", "Wen", "Wem"],
-      correctIndex: 2,
+      correct: 2,
       explanation: "Wen تعني (مَن؟) في حالة الأكوزاتيف المفعول به."
     },
     {
       question: "كيف تصبح (mein) للمذكر في حالة الـ Akkusativ؟",
       options: ["meine", "meinen", "meinem", "mein"],
-      correctIndex: 1,
+      correct: 1,
       explanation: "تأخذ نفس النهاية مثل (einen) أو (den)، فتصبح meinen."
     },
     {
       question: "اختر الجملة الصحيحة:",
       options: ["Ich habe der Schlüssel.", "Ich habe das Schlüssel.", "Ich habe den Schlüssel.", "Ich habe die Schlüssel."],
-      correctIndex: 2,
+      correct: 2,
       explanation: "Schlüssel مذكر (der). مع الفعل haben يصبح den Schlüssel."
     },
     {
       question: "هل تتغير أداة المؤنث (die) في حالة الـ Akkusativ؟",
       options: ["نعم، تصبح den", "نعم، تصبح der", "لا، تبقى die", "نعم، تصبح das"],
-      correctIndex: 2,
+      correct: 2,
       explanation: "أدوات المؤنث والمحايد والجمع لا تتغير أبداً في الأكوزاتيف."
     }
   ]

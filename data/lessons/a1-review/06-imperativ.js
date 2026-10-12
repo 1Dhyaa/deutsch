@@ -127,28 +127,28 @@ window.LESSONS["a1-review-06"] = {
       type: "multiple-choice",
       question: "ما هي صيغة الأمر (du) من الفعل kommen؟",
       options: ["Kommst", "Komm", "Kommen"],
-      correctIndex: 1,
+      correct: 1,
       explanation: "du kommst -> نحذف du و st -> Komm"
     },
     {
       type: "multiple-choice",
       question: "ما هي صيغة الأمر (ihr) من الفعل trinken؟",
       options: ["Trinken", "Trink", "Trinkt"],
-      correctIndex: 2,
+      correct: 2,
       explanation: "ihr trinkt -> نحذف ihr -> Trinkt"
     },
     {
       type: "multiple-choice",
       question: "ما هي صيغة الأمر (Sie) من الفعل gehen؟",
       options: ["Geh Sie", "Gehen Sie", "Geht Sie"],
-      correctIndex: 1,
+      correct: 1,
       explanation: "المصدر (Gehen) متبوعاً بـ Sie."
     },
     {
       type: "fill-blank",
       question: "____ (du - sprechen) Deutsch mit mir!",
       options: ["Sprech", "Sprichst", "Sprich"],
-      correctOption: "Sprich",
+      answer: "Sprich",
       explanation: "sprechen يتغير إلى sprichst، ونحذف st فتبقى Sprich."
     },
     {
@@ -161,7 +161,7 @@ window.LESSONS["a1-review-06"] = {
     {
       type: "translate",
       question: "ترجم: كونوا هادئين! (أنتم - ihr)",
-      target: "Seid ruhig!",
+      answer: "Seid ruhig!",
       explanation: "الأمر من الفعل sein للضمير ihr هو Seid."
     },
     {
@@ -178,21 +178,21 @@ window.LESSONS["a1-review-06"] = {
       type: "multiple-choice",
       question: "____ (du - lesen) den Text bitte.",
       options: ["Lies", "Lese", "Liest"],
-      correctIndex: 0,
+      correct: 0,
       explanation: "lesen يتغير إلى liest، ونحذف st فتبقى Lies."
     },
     {
       type: "fill-blank",
       question: "____ (Sie - sein) bitte leise!",
       options: ["Sind Sie", "Sein Sie", "Seien Sie"],
-      correctOption: "Seien Sie",
+      answer: "Seien Sie",
       explanation: "صيغة الاحترام من الفعل sein هي Seien Sie."
     },
     {
       type: "word-order",
       question: "رتب كلمات جملة الأمر (Sie):",
       words: ["bitte", "Sie", "hier", "Unterschreiben"],
-      correctOrder: ["Unterschreiben", "Sie", "bitte", "hier"],
+      correct: "Unterschreiben Sie bitte hier",
       explanation: "نبداً بالفعل (Unterschreiben) ثم الضمير (Sie)."
     }
   ],
@@ -200,31 +200,31 @@ window.LESSONS["a1-review-06"] = {
     {
       question: "كيف نصيغ الأمر للمفرد (du) بشكل عام؟",
       options: ["نستخدم المصدر فقط", "نصرف الفعل مع du ونحذف (st) والضمير (du)", "نضيف (t) لنهاية الفعل", "نضع Sie بعد الفعل"],
-      correctIndex: 1,
+      correct: 1,
       explanation: "هذه هي القاعدة العامة لأمر المفرد (du)."
     },
     {
       question: "ما هو الأمر (du) من الفعل schlafen (ينام)؟",
       options: ["Schläf!", "Schlafe!", "Schlaf!", "Schläfst!"],
-      correctIndex: 2,
+      correct: 2,
       explanation: "رغم أننا نقول (du schläfst)، إلا أن الـ Umlaut تُحذف في الأمر فتصبح Schlaf!"
     },
     {
       question: "ما هو الأمر (ihr) من الفعل lernen؟",
       options: ["Lernt!", "Lern!", "Lernen Sie!", "Lernet!"],
-      correctIndex: 0,
+      correct: 0,
       explanation: "نصرف مع ihr (ihr lernt) ونحذف الضمير فقط."
     },
     {
       question: "ما هي صيغة الأمر (du) الصحيحة من الفعل sein؟",
       options: ["Bist!", "Sei!", "Sind!", "Sein!"],
-      correctIndex: 1,
+      correct: 1,
       explanation: "الفعل sein شاذ والأمر للمفرد منه هو Sei!"
     },
     {
       question: "اختر الجملة الصحيحة للأمر بصيغة الاحترام (Sie):",
       options: ["Gehen Sie bitte!", "Geh Sie bitte!", "Geht Sie bitte!", "Sie gehen bitte!"],
-      correctIndex: 0,
+      correct: 0,
       explanation: "صيغة الاحترام تتكون من مصدر الفعل متبوعاً بالضمير Sie."
     }
   ]

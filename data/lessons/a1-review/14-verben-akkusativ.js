@@ -166,7 +166,7 @@ window.LESSONS["a1-review-14"] = {
       options: ["den", "der", "das", "dem"],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "Tisch مذكر (der)، ومع الفعل brauchen يقع مفعولاً به منصوباً (Akkusativ)، فتتحول der إلى den."
     },
     {
@@ -176,7 +176,7 @@ window.LESSONS["a1-review-14"] = {
       answer: "ihn",
       accept: ["ihn"],
       options: ["ihn", "er", "ihm"],
-      correctOption: "ihn",
+      answer: "ihn",
       explanation: "الضمير er يتحول في حالة النصب (Akkusativ) كمفعول به للفعل kennen إلى ihn."
     },
     {
@@ -185,7 +185,7 @@ window.LESSONS["a1-review-14"] = {
       words: ["Ich", "rufe", "morgen", "dich", "an"],
       answer: "Ich rufe dich morgen an",
       correct: "Ich rufe dich morgen an",
-      correctOrder: ["Ich", "rufe", "dich", "morgen", "an"],
+      correct: "Ich rufe dich morgen an",
       explanation: "الفاعل (Ich) + الفعل المصرّف (rufe) + ضمير النصب (dich) + الظرف (morgen) + البادئة المنفصلة في النهاية (an)."
     },
     {
@@ -194,7 +194,7 @@ window.LESSONS["a1-review-14"] = {
       options: ["mich", "mir", "ich", "mein"],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "الفعل anrufen يأخذ مفعولاً به في حالة النصب (Akkusativ)، وضمير النصب لـ ich هو mich."
     },
     {
@@ -225,7 +225,7 @@ window.LESSONS["a1-review-14"] = {
       question: "ترجم إلى الألمانية: هل تحتاج القلم؟ (der Stift)",
       text: "هل تحتاج القلم؟",
       answer: "Brauchst du den Stift?",
-      target: "Brauchst du den Stift?",
+      answer: "Brauchst du den Stift?",
       accept: [
         "Brauchst du den Stift",
         "Brauchst du den Stift?",
@@ -241,7 +241,7 @@ window.LESSONS["a1-review-14"] = {
       answer: "unseren",
       accept: ["unseren"],
       options: ["unseren", "unser", "unsere"],
-      correctOption: "unseren",
+      answer: "unseren",
       explanation: "der Onkel مذكر ومفعول به بعد besuchen، فيأخذ ضمير الملكية نهاية -en تصبح unseren."
     },
     {
@@ -262,7 +262,7 @@ window.LESSONS["a1-review-14"] = {
       options: ["Wen", "Wer", "Wem", "Was"],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "نسأل عن الفاعل العاقل بـ Wer، وعن المفعول به المنصوب العاقل بـ Wen؟ (Wen hast du gesehen?)."
     }
   ],
@@ -275,7 +275,7 @@ window.LESSONS["a1-review-14"] = {
       options: ["einen", "ein", "eine"],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "Tee اسم مذكر (der Tee)، وفي حالة Akkusativ مع trinken يأخذ einen."
     },
     {
@@ -284,7 +284,7 @@ window.LESSONS["a1-review-14"] = {
       options: ["ihn", "er", "es"],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "der Schlüssel مذكر، والضمير العائد عليه في حالة النصب هو ihn."
     },
     {
@@ -297,7 +297,7 @@ window.LESSONS["a1-review-14"] = {
       ],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "الفعل einladen يأخذ Akkusativ، والمذكر der Freund يأخذ meinen Freund."
     },
     {
@@ -306,7 +306,7 @@ window.LESSONS["a1-review-14"] = {
       options: ["sie", "ihr", "ihn"],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "Frau Müller مؤنث، وضمير النصب العائد عليها هو sie."
     },
     {
@@ -319,7 +319,7 @@ window.LESSONS["a1-review-14"] = {
       ],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "في حالة Akkusativ، يتغير المذكر فقط (der → den, ein → einen)، بينما تبقى باقي الأجناس كما هي."
     }
   ]

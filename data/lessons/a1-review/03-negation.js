@@ -124,28 +124,28 @@ window.LESSONS["a1-review-03"] = {
       type: "multiple-choice",
       question: "Ich habe ____ Zeit.",
       options: ["nicht", "keine", "kein"],
-      correctIndex: 1,
+      correct: 1,
       explanation: "Zeit اسم مؤنث (die Zeit) بدون أداة هنا، لذا نستخدم keine."
     },
     {
       type: "multiple-choice",
       question: "Das ist ____ der Lehrer.",
       options: ["nicht", "kein", "keine"],
-      correctIndex: 0,
+      correct: 0,
       explanation: "der Lehrer اسم معرف بأداة المعرفة (der)، لذا نستخدم nicht."
     },
     {
       type: "multiple-choice",
       question: "Er ist ____ groß.",
       options: ["kein", "nicht", "keine"],
-      correctIndex: 1,
+      correct: 1,
       explanation: "groß هي صفة (كبير)، الصفات تُنفى بـ nicht."
     },
     {
       type: "fill-blank",
       question: "Das ist ___ Auto.",
       options: ["nicht", "kein", "keine"],
-      correctOption: "kein",
+      answer: "kein",
       explanation: "Auto اسم محايد (das) وكان يمكن أن يسبق بـ ein، لذا ننفيه بـ kein."
     },
     {
@@ -158,14 +158,14 @@ window.LESSONS["a1-review-03"] = {
     {
       type: "translate",
       question: "ترجم: هذه ليست قطتي.",
-      target: "Das ist nicht meine Katze.",
+      answer: "Das ist nicht meine Katze.",
       explanation: "نحن ننفي اسماً مسبوقاً بضمير ملكية (meine)، لذا نستخدم nicht."
     },
     {
       type: "word-order",
       question: "رتب كلمات الجملة المنفية:",
       words: ["verstehe", "ich", "das", "nicht"],
-      correctOrder: ["ich", "verstehe", "das", "nicht"],
+      correct: "ich verstehe das nicht",
       explanation: "nicht تأتي في نهاية الجملة عند نفي الجملة بأكملها/الفعل."
     },
     {
@@ -183,14 +183,14 @@ window.LESSONS["a1-review-03"] = {
       type: "multiple-choice",
       question: "أي جملة صحيحة؟",
       options: ["Ich arbeite kein heute.", "Ich arbeite heute nicht.", "Ich nicht arbeite heute."],
-      correctIndex: 1,
+      correct: 1,
       explanation: "ننفي الفعل (arbeite)، فتوضع nicht في نهاية الجملة."
     },
     {
       type: "fill-blank",
       question: "Wir haben ____ Geld.",
       options: ["nicht", "keine", "kein"],
-      correctOption: "kein",
+      answer: "kein",
       explanation: "Geld اسم محايد (das) بدون أداة هنا، لذا نستخدم kein."
     }
   ],
@@ -198,31 +198,31 @@ window.LESSONS["a1-review-03"] = {
     {
       question: "متى نستخدم 'kein'؟",
       options: ["لنفي الصفات", "لنفي الأفعال", "لنفي الأسماء النكرة أو بدون أداة", "لنفي الأسماء المعرفة"],
-      correctIndex: 2,
+      correct: 2,
       explanation: "kein تستخدم فقط للأسماء التي تأتي مع (ein/eine) أو بدون أداة."
     },
     {
       question: "اختر النفي الصحيح: Das ist ___ mein Haus.",
       options: ["kein", "nicht", "keine", "nichts"],
-      correctIndex: 1,
+      correct: 1,
       explanation: "mein Haus تحتوي على ضمير ملكية، لذا نستخدم nicht."
     },
     {
       question: "أين نضع 'nicht' عند نفي صفة؟",
       options: ["في بداية الجملة", "بعد الصفة مباشرة", "قبل الصفة مباشرة", "في نهاية الجملة دائماً"],
-      correctIndex: 2,
+      correct: 2,
       explanation: "nicht تأتي قبل الكلمة التي تنفيها إذا كانت صفة أو حرف جر (مثال: nicht gut)."
     },
     {
       question: "اختر النفي الصحيح للجمع: Ich habe ___ Kinder.",
       options: ["kein", "nicht", "keinen", "keine"],
-      correctIndex: 3,
+      correct: 3,
       explanation: "Kinder اسم جمع، ليس له أداة نكرة في الإثبات، وينفى بـ keine."
     },
     {
       question: "ما هو الخطأ في جملة: 'Ich spreche nicht Deutsch'؟",
       options: ["لا يوجد خطأ", "يجب استخدام kein", "يجب وضع nicht في البداية", "يجب استخدام nichts"],
-      correctIndex: 0,
+      correct: 0,
       explanation: "الجملة صحيحة تماماً. Deutsch اسم لغة يعتبر مثل الصفة/الظرف وينفى بـ nicht."
     }
   ]

@@ -174,7 +174,7 @@ window.LESSONS["a1-review-08"] = {
       ],
       answer: 2,
       correct: 2,
-      correctIndex: 2,
+      correct: 2,
       explanation: "في الجملة الرئيسية البسيطة، يوضع الفعل المصرف في المركز الثاني، وتذهب السابقة المنفصلة إلى آخر الجملة تماماً."
     },
     {
@@ -191,7 +191,7 @@ window.LESSONS["a1-review-08"] = {
       words: ["Er", "ruft", "heute", "seine", "Mutter", "an"],
       answer: "Er ruft heute seine Mutter an",
       correct: "Er ruft heute seine Mutter an",
-      correctOrder: ["Er", "ruft", "heute", "seine", "Mutter", "an"],
+      correct: "Er ruft heute seine Mutter an",
       explanation: "الفاعل Er (1)، الفعل المصرف ruft (2)، باقي الجملة heute seine Mutter، والسابقة an في النهاية."
     },
     {
@@ -205,7 +205,7 @@ window.LESSONS["a1-review-08"] = {
       ],
       answer: 1,
       correct: 1,
-      correctIndex: 1,
+      correct: 1,
       explanation: "مع الأفعال الناقصة (können) يأتي الفعل المنفصل ككلمة واحدة متصلة بصيغة المصدر (anrufen) في نهاية الجملة."
     },
     {
@@ -263,7 +263,7 @@ window.LESSONS["a1-review-08"] = {
       ],
       answer: 2,
       correct: 2,
-      correctIndex: 2,
+      correct: 2,
       explanation: "السابقة be- هي سابقة غير منفصلة دائماً، فالفعل bezahlen لا ينفصل أبداً (Ich bezahle)."
     },
     {
@@ -292,7 +292,7 @@ window.LESSONS["a1-review-08"] = {
       ],
       answer: 1,
       correct: 1,
-      correctIndex: 1,
+      correct: 1,
       explanation: "القاعدة: الفعل المصرف stehe في المركز 2 والسابقة auf في نهاية الجملة تماماً."
     },
     {
@@ -306,7 +306,7 @@ window.LESSONS["a1-review-08"] = {
       ],
       answer: 2,
       correct: 2,
-      correctIndex: 2,
+      correct: 2,
       explanation: "الفعل fernsehen شاذ يتغير فيه حرف e إلى ie (er sieht) والسابقة fern تذهب إلى آخر الجملة."
     },
     {
@@ -320,7 +320,7 @@ window.LESSONS["a1-review-08"] = {
       ],
       answer: 2,
       correct: 2,
-      correctIndex: 2,
+      correct: 2,
       explanation: "السابقة ver- هي سابقة غير منفصلة دائماً (مثل verstehen, verkaufen, verlieren)."
     },
     {
@@ -334,7 +334,7 @@ window.LESSONS["a1-review-08"] = {
       ],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "anfangen شاذ (er fängt) والسابقة an تأتي في نهاية جملة السؤال."
     },
     {
@@ -348,7 +348,7 @@ window.LESSONS["a1-review-08"] = {
       ],
       answer: 1,
       correct: 1,
-      correctIndex: 1,
+      correct: 1,
       explanation: "مع الفعل الناقص müsst، يأتي الفعل في نهاية الجملة بصيغة المصدر متصلاً بالكامل (mitkommen)."
     }
   ]

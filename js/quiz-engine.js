@@ -103,7 +103,8 @@ const QuizEngine = {
         target.classList.add('active');
         
         const selectedIdx = parseInt(target.getAttribute('data-idx'));
-        const correctIdx = (exercise.answer !== undefined) ? exercise.answer : exercise.correct;
+        const correctIdx = (exercise.correct !== undefined) ? exercise.correct : 
+          ((exercise.correctIndex !== undefined) ? exercise.correctIndex : exercise.answer);
         const isCorrect = (selectedIdx === correctIdx);
         
         this.checkAnswer(isCorrect, target, btns, exercise);
@@ -112,7 +113,11 @@ const QuizEngine = {
   },
   
   renderFillBlank(exercise, container) {
-    let html = `<div style="font-size: 18px; margin-bottom: 15px; direction: ltr; text-align: left;" class="de-text">`;
+    let html = '';
+    if (exercise.sentence && exercise.question) {
+      html += `<p style="font-size: 16px; margin-bottom: 12px; font-weight: 600; color: var(--text-primary);">${Utils.escapeHtml(exercise.question)}</p>`;
+    }
+    html += `<div style="font-size: 18px; margin-bottom: 15px; direction: ltr; text-align: left;" class="de-text">`;
     const sentenceText = exercise.sentence || exercise.question || '';
     const parts = sentenceText.split('___');
     html += `${Utils.escapeHtml(parts[0])} <input type="text" id="blank-input" class="form-input" style="width: 120px; display: inline-block; text-align: center; font-weight: bold;" autocomplete="off"> ${Utils.escapeHtml(parts[1] || '')}`;
@@ -131,7 +136,8 @@ const QuizEngine = {
         
         let isCorrect = false;
         const acceptList = exercise.accept || [];
-        const targetAns = exercise.answer !== undefined ? exercise.answer : exercise.correct;
+        const targetAns = exercise.answer !== undefined ? exercise.answer : 
+          (exercise.correctOption !== undefined ? exercise.correctOption : exercise.correct);
         if (Array.isArray(targetAns)) {
             isCorrect = targetAns.some(ans => Utils.compareAnswers(val, ans, acceptList));
         } else {
@@ -203,7 +209,9 @@ const QuizEngine = {
     checkBtn.addEventListener('click', () => {
         if (this.isAnswered || chosenWords.length === 0) return;
         const userSentence = chosenWords.join(' ');
-        const targetAns = exercise.answer !== undefined ? exercise.answer : exercise.correct;
+        let targetAns = exercise.correct !== undefined ? exercise.correct : 
+          (exercise.answer !== undefined ? exercise.answer : exercise.correctOrder);
+        if (Array.isArray(targetAns)) targetAns = targetAns.join(' ');
         const isCorrect = Utils.compareAnswers(userSentence, targetAns, exercise.accept);
         
         this.checkAnswer(isCorrect, null, null, exercise, isCorrect ? '' : `الترتيب الصحيح: ${targetAns}`);
@@ -321,7 +329,8 @@ const QuizEngine = {
         
         let isCorrect = false;
         const acceptList = exercise.accept || [];
-        const targetAns = exercise.answer !== undefined ? exercise.answer : exercise.correct;
+        const targetAns = exercise.target !== undefined ? exercise.target : 
+          (exercise.answer !== undefined ? exercise.answer : exercise.correct);
         if (Array.isArray(targetAns)) {
             isCorrect = targetAns.some(ans => Utils.compareAnswers(val, ans, acceptList));
         } else {
@@ -339,7 +348,7 @@ const QuizEngine = {
   
   renderErrorCorrection(exercise, container) {
     let html = `<div style="margin-bottom: 15px;">`;
-    const wrongText = exercise.text || exercise.sentence || exercise.question || '';
+    const wrongText = exercise.incorrect || exercise.text || exercise.sentence || exercise.question || '';
     html += `<div style="padding: 15px; background: rgba(239, 68, 68, 0.1); border-right: 4px solid var(--danger); margin-bottom: 15px; border-radius: 4px;">
         <p class="de-text" style="direction: ltr; font-size: 18px; text-decoration: line-through; color: var(--danger);">${Utils.escapeHtml(wrongText)}</p>
     </div>`;
@@ -359,7 +368,8 @@ const QuizEngine = {
         
         let isCorrect = false;
         const acceptList = exercise.accept || [];
-        const targetAns = exercise.answer !== undefined ? exercise.answer : exercise.corrected;
+        const targetAns = exercise.corrected !== undefined ? exercise.corrected : 
+          (exercise.correct !== undefined ? exercise.correct : exercise.answer);
         if (Array.isArray(targetAns)) {
             isCorrect = targetAns.some(ans => Utils.compareAnswers(val, ans, acceptList));
         } else {

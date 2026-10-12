@@ -154,7 +154,7 @@ window.LESSONS["a1-review-11"] = {
       options: ["der", "das", "die", "den"],
       answer: 2,
       correct: 2,
-      correctIndex: 2,
+      correct: 2,
       explanation: "قاعدة عامة: أداة التعريف لجميع صيغ الجمع في حالتي الفاعل والنصب هي دائماً die."
     },
     {
@@ -171,7 +171,7 @@ window.LESSONS["a1-review-11"] = {
       words: ["Die", "Kinder", "spielen", "gerne", "im", "Garten"],
       answer: "Die Kinder spielen gerne im Garten",
       correct: "Die Kinder spielen gerne im Garten",
-      correctOrder: ["Die", "Kinder", "spielen", "gerne", "im", "Garten"],
+      correct: "Die Kinder spielen gerne im Garten",
       explanation: "الفاعل الجمع Die Kinder (1) + الفعل spielen بصيغة الجمع (2) + بقية الجملة."
     },
     {
@@ -180,7 +180,7 @@ window.LESSONS["a1-review-11"] = {
       options: ["die Auton", "die Autoe", "die Autos", "die Auten"],
       answer: 2,
       correct: 2,
-      correctIndex: 2,
+      correct: 2,
       explanation: "الكلمات المنتهية بحرف علة صريح والكلمات الأجنبية تجمع بإضافة -s: die Autos."
     },
     {
@@ -233,7 +233,7 @@ window.LESSONS["a1-review-11"] = {
       options: ["die Apfeln", "die Äpfel", "die Apfels", "die Äpfele"],
       answer: 1,
       correct: 1,
-      correctIndex: 1,
+      correct: 1,
       explanation: "الاسم der Apfel ينتهي بـ -el ويجمع بتحويل a إلى أوملاوت ä فقط بدون أي لاحقة: die Äpfel."
     },
     {
@@ -262,7 +262,7 @@ window.LESSONS["a1-review-11"] = {
       ],
       answer: 1,
       correct: 1,
-      correctIndex: 1,
+      correct: 1,
       explanation: "جميع الأسماء في صيغة الجمع تأخذ أداة التعريف die بغض النظر عن جنسها في المفرد."
     },
     {
@@ -271,7 +271,7 @@ window.LESSONS["a1-review-11"] = {
       options: ["die Buche", "die Büchen", "die Bücher", "die Buchs"],
       answer: 2,
       correct: 2,
-      correctIndex: 2,
+      correct: 2,
       explanation: "جمع das Buch هو die Bücher (لاحقة -er مع تحول u إلى ü)."
     },
     {
@@ -280,7 +280,7 @@ window.LESSONS["a1-review-11"] = {
       options: ["-nen", "-s", "-e", "-er"],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "تضاعف الـ n وتضاف -en فتصبح النهاية -nen: die Studentinnen."
     },
     {
@@ -289,7 +289,7 @@ window.LESSONS["a1-review-11"] = {
       options: ["die Wohnunger", "die Wohnungs", "die Wohnungen", "die Wöhnunge"],
       answer: 2,
       correct: 2,
-      correctIndex: 2,
+      correct: 2,
       explanation: "الأسماء المنتهية بـ -ung تجمع دائماً بإضافة -en وبدون أي أوملاوت: die Wohnungen."
     },
     {
@@ -298,7 +298,7 @@ window.LESSONS["a1-review-11"] = {
       options: ["das Kind", "der Lehrer", "das Handy", "die Stadt"],
       answer: 2,
       correct: 2,
-      correctIndex: 2,
+      correct: 2,
       explanation: "das Handy كلمة دخيلة تنتهي بحرف علة، فتجمع بـ -s: die Handys."
     }
   ]

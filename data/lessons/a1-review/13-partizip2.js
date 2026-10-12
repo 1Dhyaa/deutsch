@@ -163,7 +163,7 @@ window.LESSONS["a1-review-13"] = {
       options: ["gesprecht", "gesprochen", "gesprechtet", "gesprechen"],
       answer: 1,
       correct: 1,
-      correctIndex: 1,
+      correct: 1,
       explanation: "الفعل sprechen فعل قوي يتحول حرف العلة فيه من e إلى o ويختم بـ -en: gesprochen."
     },
     {
@@ -173,7 +173,7 @@ window.LESSONS["a1-review-13"] = {
       answer: "studiert",
       accept: ["studiert"],
       options: ["studiert", "gestudiert", "gestudieren"],
-      correctOption: "studiert",
+      answer: "studiert",
       explanation: "الأفعال المنتهية بـ -ieren لا تأخذ ge- وتنتهي بـ -t، فالصحيح: studiert."
     },
     {
@@ -182,7 +182,7 @@ window.LESSONS["a1-review-13"] = {
       words: ["Er", "ist", "um", "sechs", "Uhr", "aufgestanden"],
       answer: "Er ist um sechs Uhr aufgestanden",
       correct: "Er ist um sechs Uhr aufgestanden",
-      correctOrder: ["Er", "ist", "um", "sechs", "Uhr", "aufgestanden"],
+      correct: "Er ist um sechs Uhr aufgestanden",
       explanation: "ترتيب صحيح: الفاعل (Er) + المساعد (ist) + الظرف (um sechs Uhr) + اسم المفعول في النهاية (aufgestanden)."
     },
     {
@@ -191,7 +191,7 @@ window.LESSONS["a1-review-13"] = {
       options: ["verstehen", "aufstehen", "einkaufen", "mitkommen"],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "البادئة ver- بادئة غير منفصلة (untrennbar)، واسم المفعول منها هو verstanden بدون ge-."
     },
     {
@@ -222,7 +222,7 @@ window.LESSONS["a1-review-13"] = {
       question: "ترجم إلى الألمانية: لقد كتبتُ رسالة.",
       text: "لقد كتبتُ رسالة.",
       answer: "Ich habe einen Brief geschrieben.",
-      target: "Ich habe einen Brief geschrieben.",
+      answer: "Ich habe einen Brief geschrieben.",
       accept: [
         "Ich habe einen Brief geschrieben",
         "Ich habe einen Brief geschrieben."
@@ -236,7 +236,7 @@ window.LESSONS["a1-review-13"] = {
       answer: "bekommen",
       accept: ["bekommen"],
       options: ["bekommen", "gebekommen", "bekommt"],
-      correctOption: "bekommen",
+      answer: "bekommen",
       explanation: "الفعل bekommen يبدأ بالبادئة غير المنفصلة be- ويبقى كما هو في اسم المفعول: bekommen."
     },
     {
@@ -257,7 +257,7 @@ window.LESSONS["a1-review-13"] = {
       options: ["gebracht", "gebringt", "gebrungen", "bringen"],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "الفعل bringen من الأفعال المختلطة الشاذة؛ يتغير حرف العلة ويأخذ النهاية -t: gebracht."
     }
   ],
@@ -270,7 +270,7 @@ window.LESSONS["a1-review-13"] = {
       options: ["geholfen", "gehelft", "gehelfen"],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "الفعل helfen يتحول صوتياً من e إلى o ويختم بـ -en: geholfen."
     },
     {
@@ -279,7 +279,7 @@ window.LESSONS["a1-review-13"] = {
       options: ["organisiert", "georganisiert", "georganisieret"],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "الأفعال المنتهية بـ -ieren لا تأخذ ge- مطلقاً: organisiert."
     },
     {
@@ -288,7 +288,7 @@ window.LESSONS["a1-review-13"] = {
       options: ["bekommen", "verstehen", "fahren"],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "الفعل bekommen في اسم المفعول يبقى bekommen بنفس شكل المصدر."
     },
     {
@@ -297,7 +297,7 @@ window.LESSONS["a1-review-13"] = {
       options: ["angerufen", "geanruft", "anruft"],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "الأفعال المنفصلة تحشر -ge- بين البادئة وجذر الفعل: an-ge-rufen."
     },
     {
@@ -310,7 +310,7 @@ window.LESSONS["a1-review-13"] = {
       ],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "sehen فعل قوي اسم مفعوله gesehen ويأتي في نهاية الجملة تماماً."
     }
   ]

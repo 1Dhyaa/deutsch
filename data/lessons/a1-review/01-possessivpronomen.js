@@ -237,8 +237,8 @@ window.LESSONS["a1-review-01"] = {
       type: "multiple-choice",
       question: "Monika fährt mit ___ Auto zur Arbeit. (das Auto = محايد)",
       options: ["sein", "ihr", "ihrem"],
-      correct: 1,
-      explanation: "Monika مؤنث يعود عليها الضمير ihr."
+      correct: 2,
+      explanation: "حرف الجر mit يطلب دائماً حالة المجرور (Dativ). الاسم محايد (das Auto) والضمير لـ Monika هو ihr مع نهاية الداتيف -em ← ihrem Auto."
     },
     {
       type: "multiple-choice",

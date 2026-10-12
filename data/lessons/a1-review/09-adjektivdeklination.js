@@ -163,7 +163,7 @@ window.LESSONS["a1-review-09"] = {
       options: ["alte", "alter", "alten", "altes"],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "بعد أداة التعريف der في حالة الفاعل (Nominativ)، تأخذ الصفة النهاية -e فتصبح: Der alte Mann."
     },
     {
@@ -180,7 +180,7 @@ window.LESSONS["a1-review-09"] = {
       words: ["Ich", "habe", "einen", "neuen", "Laptop", "gekauft"],
       answer: "Ich habe einen neuen Laptop gekauft",
       correct: "Ich habe einen neuen Laptop gekauft",
-      correctOrder: ["Ich", "habe", "einen", "neuen", "Laptop", "gekauft"],
+      correct: "Ich habe einen neuen Laptop gekauft",
       explanation: "der Laptop مذكر مفعول به بعد einen فتأخذ الصفة -en: einen neuen Laptop."
     },
     {
@@ -189,7 +189,7 @@ window.LESSONS["a1-review-09"] = {
       options: ["heiße", "heißer", "heißen", "heißes"],
       answer: 2,
       correct: 2,
-      correctIndex: 2,
+      correct: 2,
       explanation: "مع أداة النصب للمذكر den، تأخذ الصفة دائماً النهاية -en: den heißen Kaffee."
     },
     {
@@ -242,7 +242,7 @@ window.LESSONS["a1-review-09"] = {
       ],
       answer: 2,
       correct: 2,
-      correctIndex: 2,
+      correct: 2,
       explanation: "الصفة هنا خبرية تقع بعد فعل الكينونة ist وليس بعدها اسم، لذا تبقى مجردة بدون أي نهاية: schön."
     },
     {
@@ -266,7 +266,7 @@ window.LESSONS["a1-review-09"] = {
       options: ["-en", "-er", "-e", "-es"],
       answer: 2,
       correct: 2,
-      correctIndex: 2,
+      correct: 2,
       explanation: "بعد der في حالة الرفع تأخذ الصفة دائماً -e (مثل: der junge Mann)."
     },
     {
@@ -275,7 +275,7 @@ window.LESSONS["a1-review-09"] = {
       options: ["-e", "-en", "-em", "-es"],
       answer: 1,
       correct: 1,
-      correctIndex: 1,
+      correct: 1,
       explanation: "مع den في Akkusativ تأخذ الصفة دائماً النهاية -en (مثل: den roten Apfel)."
     },
     {
@@ -289,7 +289,7 @@ window.LESSONS["a1-review-09"] = {
       ],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "der Mann مذكر فاعل بعد أداة النكرة ein، فتعوض الصفة علامة المذكر بأخذ النهاية -er: ein guter Mann."
     },
     {
@@ -298,7 +298,7 @@ window.LESSONS["a1-review-09"] = {
       options: ["-e", "-en", "-er", "-es"],
       answer: 1,
       correct: 1,
-      correctIndex: 1,
+      correct: 1,
       explanation: "الصفة مع جمع أداة التعريف die تأخذ دائماً النهاية -en (مثل: die neuen Bücher)."
     },
     {
@@ -312,7 +312,7 @@ window.LESSONS["a1-review-09"] = {
       ],
       answer: 2,
       correct: 2,
-      correctIndex: 2,
+      correct: 2,
       explanation: "الصفة الخبرية بعد الفعل ist لا تصرف وتبقى في شكلها الأساسي بدون أي لواحق: schnell."
     }
   ]

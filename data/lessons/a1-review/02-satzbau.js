@@ -122,42 +122,42 @@ window.LESSONS["a1-review-02"] = {
       type: "multiple-choice",
       question: "اختر الجملة الصحيحة (الفاعل في البداية):",
       options: ["Wir lernen heute Deutsch.", "Wir heute lernen Deutsch.", "Lernen wir heute Deutsch."],
-      correctIndex: 0,
+      correct: 0,
       explanation: "الفعل 'lernen' يجب أن يكون في المركز الثاني."
     },
     {
       type: "multiple-choice",
       question: "اختر الجملة الصحيحة (ظرف الزمان في البداية):",
       options: ["Heute ich spiele Fußball.", "Heute spiele ich Fußball.", "Spiele heute ich Fußball."],
-      correctIndex: 1,
+      correct: 1,
       explanation: "عندما نبدأ بـ Heute (المركز 1)، يجب أن يأتي الفعل spiele (المركز 2)، ثم الفاعل ich (المركز 3)."
     },
     {
       type: "word-order",
       question: "رتب الكلمات لتكوين جملة خبرية تبدأ بـ 'Ich':",
       words: ["kaufe", "ich", "Brot", "heute"],
-      correctOrder: ["ich", "kaufe", "heute", "Brot"],
+      correct: "ich kaufe heute Brot",
       explanation: "الفاعل ich في المركز 1، الفعل kaufe في المركز 2."
     },
     {
       type: "word-order",
       question: "رتب الكلمات لتكوين سؤال (W-Frage):",
       words: ["wohnt", "wo", "er", "?"],
-      correctOrder: ["wo", "wohnt", "er", "?"],
+      correct: "wo wohnt er ?",
       explanation: "كلمة الاستفهام wo (المركز 1)، الفعل wohnt (المركز 2)، الفاعل er (المركز 3)."
     },
     {
       type: "word-order",
       question: "رتب الكلمات لتكوين سؤال (Ja/Nein-Frage):",
       words: ["trinkst", "Kaffee", "du", "gern", "?"],
-      correctOrder: ["trinkst", "du", "gern", "Kaffee", "?"],
+      correct: "trinkst du gern Kaffee ?",
       explanation: "في أسئلة نعم/لا، الفعل يأتي في المركز الأول: Trinkst du..."
     },
     {
       type: "fill-blank",
       question: "Am Wochenende ___ ich gerne.",
       options: ["schlafe", "ich", "lange"],
-      correctOption: "schlafe",
+      answer: "schlafe",
       explanation: "Am Wochenende هو المركز 1، لذا نحتاج الفعل في المركز 2."
     },
     {
@@ -170,7 +170,7 @@ window.LESSONS["a1-review-02"] = {
     {
       type: "translate",
       question: "ترجم: هل تأتي من سوريا؟ (باستخدام صيغة الاحترام Sie)",
-      target: "Kommen Sie aus Syrien?",
+      answer: "Kommen Sie aus Syrien?",
       explanation: "سؤال نعم/لا يبدأ بالفعل Kommen."
     },
     {
@@ -187,7 +187,7 @@ window.LESSONS["a1-review-02"] = {
       type: "multiple-choice",
       question: "أي عنصر يمثل المركز الأول في هذه الجملة: 'Meine gute Freundin kommt aus Spanien.'",
       options: ["Meine", "Meine gute", "Meine gute Freundin"],
-      correctIndex: 2,
+      correct: 2,
       explanation: "الاسم مع أداته وصفته 'Meine gute Freundin' يشكلون معاً عنصراً واحداً (المركز 1)."
     }
   ],
@@ -195,31 +195,31 @@ window.LESSONS["a1-review-02"] = {
     {
       question: "أين يقع الفعل المصرف في الجملة الخبرية الألمانية؟",
       options: ["في نهاية الجملة", "في المركز الثاني دائماً", "في المركز الأول", "حسب رغبة المتحدث"],
-      correctIndex: 1,
+      correct: 1,
       explanation: "القاعدة الذهبية: الفعل المصرف دائماً في المركز الثاني في الجملة الخبرية."
     },
     {
       question: "كيف نسأل سؤالاً إجابته نعم أو لا (Ja/Nein-Frage)؟",
       options: ["نضع الفعل في المركز الأول", "نضع الفعل في المركز الثاني", "نستخدم أداة استفهام", "نضع الفعل في النهاية"],
-      correctIndex: 0,
+      correct: 0,
       explanation: "في أسئلة نعم/لا، نبدأ بالفعل (المركز الأول)."
     },
     {
       question: "اختر الترتيب الصحيح:",
       options: ["Oft spiele ich Tennis.", "Oft ich spiele Tennis.", "Ich oft spiele Tennis.", "Spiele oft ich Tennis."],
-      correctIndex: 0,
+      correct: 0,
       explanation: "المركز 1 (Oft)، المركز 2 الفعل (spiele)، المركز 3 الفاعل (ich)."
     },
     {
       question: "ما هو المركز الأول في جملة 'Am Sonntag besuchen wir Oma.'؟",
       options: ["Am", "Sonntag", "Am Sonntag", "besuchen"],
-      correctIndex: 2,
+      correct: 2,
       explanation: "حرف الجر والاسم المرتبط به يشكلان معاً المركز الأول."
     },
     {
       question: "أي جملة هي سؤال W (W-Frage) صحيح؟",
       options: ["Wo du wohnst?", "Wohnst du wo?", "Wo wohnst du?", "Du wohnst wo?"],
-      correctIndex: 2,
+      correct: 2,
       explanation: "كلمة الاستفهام (Wo) في المركز 1، الفعل (wohnst) في المركز 2."
     }
   ]

@@ -161,7 +161,7 @@ window.LESSONS["a1-review-10"] = {
       options: ["er konnt", "er kannt", "er kann", "er könne"],
       answer: 2,
       correct: 2,
-      correctIndex: 2,
+      correct: 2,
       explanation: "تصريف er يماثل تصريف ich تماماً وبدون أي نهاية (-t): er kann."
     },
     {
@@ -178,7 +178,7 @@ window.LESSONS["a1-review-10"] = {
       words: ["Wir", "müssen", "morgen", "die", "Prüfung", "schreiben"],
       answer: "Wir müssen morgen die Prüfung schreiben",
       correct: "Wir müssen morgen die Prüfung schreiben",
-      correctOrder: ["Wir", "müssen", "morgen", "die", "Prüfung", "schreiben"],
+      correct: "Wir müssen morgen die Prüfung schreiben",
       explanation: "الفعل الناقص müssen في المركز 2، والمصدر schreiben في نهاية الجملة تماماً."
     },
     {
@@ -192,7 +192,7 @@ window.LESSONS["a1-review-10"] = {
       ],
       answer: 1,
       correct: 1,
-      correctIndex: 1,
+      correct: 1,
       explanation: "nicht dürfen تدل على الحظر التام والمنع القاطع (ممنوع التدخين)."
     },
     {
@@ -250,7 +250,7 @@ window.LESSONS["a1-review-10"] = {
       ],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "لأن جذر möchten ينتهي بـ t، نضيف e للتيسير الصوتي قبل st: du möchtest."
     },
     {
@@ -274,7 +274,7 @@ window.LESSONS["a1-review-10"] = {
       options: ["könne", "kann", "kannst", "konnte"],
       answer: 1,
       correct: 1,
-      correctIndex: 1,
+      correct: 1,
       explanation: "تصريف können مع ich هو kann بسقوط الأوملاوت وبدون أي نهاية."
     },
     {
@@ -288,7 +288,7 @@ window.LESSONS["a1-review-10"] = {
       ],
       answer: 2,
       correct: 2,
-      correctIndex: 2,
+      correct: 2,
       explanation: "حسب قاعدة Satzklammer يوضع الفعل الأساسي في المصدر في نهاية الجملة تماماً."
     },
     {
@@ -297,7 +297,7 @@ window.LESSONS["a1-review-10"] = {
       options: ["ihr müsst", "ihr muss", "ihr musst", "ihr müssen"],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "مع ihr يصرف الفعل بانتظام بإضافة -t مع الحفاظ على الأوملاوت: ihr müsst."
     },
     {
@@ -306,7 +306,7 @@ window.LESSONS["a1-review-10"] = {
       options: ["du wollt", "du willst", "du wöllst", "du wilst"],
       answer: 1,
       correct: 1,
-      correctIndex: 1,
+      correct: 1,
       explanation: "الفعل wollen يتغير حرف العلة فيه مع المفرد إلى i، فيصبح مع du: du willst."
     },
     {
@@ -320,7 +320,7 @@ window.LESSONS["a1-review-10"] = {
       ],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "الجملة الصحيحة هي 'Er muss jeden Tag arbeiten.' لأن er muss بدون -t والمصدر arbeiten في نهاية الجملة."
     }
   ]

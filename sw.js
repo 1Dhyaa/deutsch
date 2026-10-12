@@ -1,5 +1,5 @@
 // Service Worker for Deutsch Meister — 100% Offline PWA for iPhone & PC
-const CACHE_NAME = 'deutsch-meister-v1';
+const CACHE_NAME = 'deutsch-meister-v2';
 
 const STATIC_ASSETS = [
   './',
@@ -25,6 +25,14 @@ const STATIC_ASSETS = [
   './js/verbs-renderer.js',
   './js/exam-engine.js',
   './js/exams-renderer.js',
+  './js/games/article-game.js',
+  './js/games/perfekt-game.js',
+  './js/games/praeteritum-game.js',
+  './js/games/kasus-game.js',
+  './js/games/phrases-game.js',
+  './js/games/fehler-game.js',
+  './js/games/satzbau-game.js',
+  './js/games/dialog-game.js',
   './js/app.js',
   './images/icon-192.png',
   './images/icon-512.png'

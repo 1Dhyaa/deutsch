@@ -164,7 +164,7 @@ window.LESSONS["a1-review-07"] = {
       options: ["du sprechst", "du sprichst", "du sprecht", "du spricht"],
       answer: 1,
       correct: 1,
-      correctIndex: 1,
+      correct: 1,
       explanation: "الفعل sprechen يتحول فيه حرف e إلى i مع الضمير du، وتضاف النهاية -st فتصبح du sprichst."
     },
     {
@@ -181,7 +181,7 @@ window.LESSONS["a1-review-07"] = {
       words: ["du", "Liest", "gerne", "deutsche", "Bücher", "?"],
       answer: "Liest du gerne deutsche Bücher ?",
       correct: "Liest du gerne deutsche Bücher ?",
-      correctOrder: ["Liest", "du", "gerne", "deutsche", "Bücher", "?"],
+      correct: "Liest du gerne deutsche Bücher ?",
       explanation: "في السؤال بنعم/لا يبدأ السؤال بالفعل المصرف (Liest)، يليه الفاعل (du)."
     },
     {
@@ -195,7 +195,7 @@ window.LESSONS["a1-review-07"] = {
       ],
       answer: 2,
       correct: 2,
-      correctIndex: 2,
+      correct: 2,
       explanation: "الجملة الصحيحة هي 'Sie sieht...' لأن sehen يتحول e→ie مع الغائب المفرد. في بقية الخيارات: ich fahre بدون أوملاوت، er hilft وليس helft، و ihr sprecht بالـ e."
     },
     {
@@ -243,7 +243,7 @@ window.LESSONS["a1-review-07"] = {
       options: ["du nehmst", "du niehmst", "du nimmst", "du nehmt"],
       answer: 2,
       correct: 2,
-      correctIndex: 2,
+      correct: 2,
       explanation: "الفعل nehmen شاذ واستثنائي: e تتحول إلى i مع مضاعفة m، فيصبح: du nimmst."
     },
     {
@@ -272,7 +272,7 @@ window.LESSONS["a1-review-07"] = {
       ],
       answer: 1,
       correct: 1,
-      correctIndex: 1,
+      correct: 1,
       explanation: "قاعدة أساسية: تغير حرف العلة في المضارع محصور فقط بضمير المخاطب المفرد (du) والغائب المفرد (er/sie/es/man)."
     },
     {
@@ -281,7 +281,7 @@ window.LESSONS["a1-review-07"] = {
       options: ["er seht", "er siht", "er sieht", "er sehet"],
       answer: 2,
       correct: 2,
-      correctIndex: 2,
+      correct: 2,
       explanation: "الفعل sehen ينتمي لنمط e→ie، فيصبح تصريفه er sieht."
     },
     {
@@ -295,7 +295,7 @@ window.LESSONS["a1-review-07"] = {
       ],
       answer: 0,
       correct: 0,
-      correctIndex: 0,
+      correct: 0,
       explanation: "الصحيح هو 'Du sprichst' لأن e تتحول إلى i مع du. مع ich يبقى أصل الفعل 'ich spreche'."
     },
     {
@@ -304,7 +304,7 @@ window.LESSONS["a1-review-07"] = {
       options: ["gebt", "gebit", "gibt", "giebt"],
       answer: 2,
       correct: 2,
-      correctIndex: 2,
+      correct: 2,
       explanation: "الفعل geben يتحول من e إلى i مع الغائب المفرد Maria (sie)، فتصبح gibt."
     },
     {
@@ -313,7 +313,7 @@ window.LESSONS["a1-review-07"] = {
       options: ["du tragst", "du trägst", "du traggst", "du trägest"],
       answer: 1,
       correct: 1,
-      correctIndex: 1,
+      correct: 1,
       explanation: "الفعل tragen يأخذ أوملاوت a→ä مع du فتصبح du trägst."
     }
   ]

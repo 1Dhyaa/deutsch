@@ -112,28 +112,28 @@ window.LESSONS["a1-review-05"] = {
       type: "multiple-choice",
       question: "Ich helfe ____ Mann (der).",
       options: ["den", "dem", "der"],
-      correctIndex: 1,
+      correct: 1,
       explanation: "Mann مذكر (der). الفعل helfen يأخذ Dativ، فيصبح dem."
     },
     {
       type: "multiple-choice",
       question: "Das Buch gehört ____ Frau (die).",
       options: ["den", "die", "der"],
-      correctIndex: 2,
+      correct: 2,
       explanation: "Frau مؤنث (die). الفعل gehören يأخذ Dativ، المؤنث يصبح der."
     },
     {
       type: "multiple-choice",
       question: "Der Ball gefällt ____ Kind (das).",
       options: ["dem", "das", "den"],
-      correctIndex: 0,
+      correct: 0,
       explanation: "Kind محايد (das). الفعل gefallen يأخذ Dativ، المحايد يصبح dem."
     },
     {
       type: "fill-blank",
       question: "Ich danke ____ Freunden (die Freunde).",
       options: ["die", "den", "dem"],
-      correctOption: "den",
+      answer: "den",
       explanation: "Freunde جمع. في حالة Dativ يصبح الجمع den مع إضافة n للاسم."
     },
     {
@@ -146,7 +146,7 @@ window.LESSONS["a1-review-05"] = {
     {
       type: "translate",
       question: "ترجم: أنا أجيب المعلم (der Lehrer).",
-      target: "Ich antworte dem Lehrer.",
+      answer: "Ich antworte dem Lehrer.",
       explanation: "الفعل antworten يأخذ Dativ، المذكر (der) يصبح (dem)."
     },
     {
@@ -164,21 +164,21 @@ window.LESSONS["a1-review-05"] = {
       type: "multiple-choice",
       question: "____ gehört das Handy? - Dem Vater.",
       options: ["Wer", "Wen", "Wem"],
-      correctIndex: 2,
+      correct: 2,
       explanation: "نسأل عن شخص في حالة الـ Dativ باستخدام Wem (لِمَن)."
     },
     {
       type: "fill-blank",
       question: "Die Suppe schmeckt ____ Gästen (die Gäste).",
       options: ["dem", "den", "der"],
-      correctOption: "den",
+      answer: "den",
       explanation: "Gäste جمع. في الـ Dativ الجمع يأخذ den."
     },
     {
       type: "word-order",
       question: "رتب الجملة (الفاعل، الفعل، الـ Dativ):",
       words: ["helfe", "Ich", "dem", "Kind"],
-      correctOrder: ["Ich", "helfe", "dem", "Kind"],
+      correct: "Ich helfe dem Kind",
       explanation: "Ich (فاعل)، helfe (فعل)، dem Kind (مفعول به في حالة الجر)."
     }
   ],
@@ -186,31 +186,31 @@ window.LESSONS["a1-review-05"] = {
     {
       question: "ما هي الأداة المناسبة للمؤنث (die) في حالة الـ Dativ؟",
       options: ["dem", "den", "der", "das"],
-      correctIndex: 2,
+      correct: 2,
       explanation: "في الـ Dativ، تتحول (die) المؤنثة إلى (der)."
     },
     {
       question: "ما هي إضافة الـ Dativ التي تلحق باسم الجمع في نهايته؟",
       options: ["حرف s", "حرف e", "حرف n", "لا توجد إضافة"],
-      correctIndex: 2,
+      correct: 2,
       explanation: "الأسماء في حالة الجمع غالباً ما تأخذ حرف (n) في نهايتها في الـ Dativ."
     },
     {
       question: "أي من هذه الأفعال يأخذ دائماً Dativ؟",
       options: ["haben", "helfen", "brauchen", "kaufen"],
-      correctIndex: 1,
+      correct: 1,
       explanation: "helfen (يساعد) هو من أهم الأفعال التي تأخذ Dativ."
     },
     {
       question: "اختر الجملة الصحيحة:",
       options: ["Ich danke den Mann.", "Ich danke der Mann.", "Ich danke dem Mann.", "Ich danke das Mann."],
-      correctIndex: 2,
+      correct: 2,
       explanation: "Mann مذكر (der)، والفعل danken يأخذ Dativ -> dem Mann."
     },
     {
       question: "ما هي الكلمة المناسبة للسؤال عن الـ Dativ؟",
       options: ["Wer", "Wo", "Wen", "Wem"],
-      correctIndex: 3,
+      correct: 3,
       explanation: "Wem تُستخدم للسؤال عن الشخص في حالة الـ Dativ (لِمَن؟)."
     }
   ]

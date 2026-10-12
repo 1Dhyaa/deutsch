@@ -228,6 +228,14 @@ const App = {
         PraeteritumGame.render(content);
       } else if (gameId === 'kasus') {
         KasusGame.render(content);
+      } else if (gameId === 'phrases') {
+        PhrasesGame.render(content);
+      } else if (gameId === 'fehler') {
+        FehlerGame.render(content);
+      } else if (gameId === 'satzbau') {
+        SatzbauGame.render(content);
+      } else if (gameId === 'dialog') {
+        DialogGame.render(content);
       } else {
         this.renderGamesHub();
       }
@@ -556,18 +564,71 @@ const App = {
     const praeteritumHighScore = (data.games && data.games.praeteritumGame) ? data.games.praeteritumGame.highScore : 0;
     const kasusHighScore = (data.games && data.games.kasusGame) ? data.games.kasusGame.highScore : 0;
 
+    const phrasesHighScore = (data.games && data.games.phrasesGame) ? data.games.phrasesGame.highScore : 0;
+    const fehlerHighScore = (data.games && data.games.fehlerGame) ? data.games.fehlerGame.highScore : 0;
+    const satzbauHighScore = (data.games && data.games.satzbauGame) ? data.games.satzbauGame.highScore : 0;
+    const dialogHighScore = (data.games && data.games.dialogGame) ? data.games.dialogGame.highScore : 0;
+
     const content = document.getElementById('app-content');
     content.innerHTML = `
       <div class="content-container fade-in">
         <div class="section-header">
           <div>
-            <h1 class="section-title">منطقة الألعاب التعليمية التفاعلية</h1>
-            <p class="section-subtitle">ألعاب تدريبية سريعة لتثبيت القواعد، والمفردات، وتصريف أفعال الماضي مع كسب نقاط XP لسلسلتك اليومية</p>
+            <h1 class="section-title">منطقة الألعاب والتدريبات التفاعلية</h1>
+            <p class="section-subtitle">ألعاب سريعة لتثبيت المفردات، بناء الجملة V2، الجمل الفرعية، كشف الأخطاء، وفنون المحادثة</p>
           </div>
         </div>
 
         <div class="games-grid">
-          <!-- Game 1: Article Game (Active & Playable) -->
+          <!-- Game: Phrases Trainer (New!) -->
+          <div class="game-card" style="border: 2px solid var(--accent); background: linear-gradient(135deg, rgba(99,102,241,0.06), rgba(59,130,246,0.04));">
+            <div class="game-icon">💬</div>
+            <h3>تحدي المفردات والترجمة الفورية (Phrasen-Trainer)</h3>
+            <p>تُعرض عليك عبارة عربية يومية، ومهمتك تركيب الجملة الألمانية الصحيحة باستخدام بنك الكلمات مع نطق صوتي فوري!</p>
+            <div class="game-meta">
+              <span>أعلى نتيجة: ${phrasesHighScore} نقطة</span>
+              <span class="badge badge-success">جديد ومميز ⚡</span>
+            </div>
+            <a href="#/game/phrases" class="btn btn-primary" style="width: 100%;">العب الآن ➔</a>
+          </div>
+
+          <!-- Game: Fehlerkorrektur (New!) -->
+          <div class="game-card" style="border: 2px solid var(--danger); background: linear-gradient(135deg, rgba(239,68,68,0.05), rgba(245,158,11,0.04));">
+            <div class="game-icon">🔍</div>
+            <h3>تحدي اكتشف الخطأ وصححه (What's Wrong?)</h3>
+            <p>جمَل ألمانية تحتوي على أخطاء شائعة في الإعراب ومواقع الأفعال. اكتشف الخطأ واختر التصحيح السليم مع شرح نحوي!</p>
+            <div class="game-meta">
+              <span>أعلى نتيجة: ${fehlerHighScore} نقطة</span>
+              <span class="badge badge-danger">تحدي الذكاء 🎯</span>
+            </div>
+            <a href="#/game/fehler" class="btn btn-primary" style="width: 100%;">العب الآن ➔</a>
+          </div>
+
+          <!-- Game: Satzbau & Nebensatz Master (New!) -->
+          <div class="game-card" style="border: 2px solid #10B981; background: linear-gradient(135deg, rgba(16,185,129,0.06), rgba(59,130,246,0.04));">
+            <div class="game-icon">🏗️</div>
+            <h3>مهندس بناء الجملة (Satzbau & Nebensatz)</h3>
+            <p>تدريب مكثف على موقع الفعل (V2)، قلب الفاعل عند تقديم الظرف، روابط ADUSO، والجمل الفرعية (weil, dass, wenn)!</p>
+            <div class="game-meta">
+              <span>أعلى نتيجة: ${satzbauHighScore} نقطة</span>
+              <span class="badge badge-success">أساسي للامتحان ⚡</span>
+            </div>
+            <a href="#/game/satzbau" class="btn btn-primary" style="width: 100%;">العب الآن ➔</a>
+          </div>
+
+          <!-- Game: Dialog & Sprechen Studio (New!) -->
+          <div class="game-card" style="border: 2px solid #8B5CF6; background: linear-gradient(135deg, rgba(139,92,246,0.06), rgba(236,72,153,0.04));">
+            <div class="game-icon">🎭</div>
+            <h3>استوديو السؤال والجواب (Fragen & Antworten)</h3>
+            <p>تعلم كيف تسأل بدقة (W-Fragen وأدوات الاستفهام) وكيف تجيب بأفضل التعبيرات اليومية المعتمدة في Goethe Sprechen!</p>
+            <div class="game-meta">
+              <span>أعلى نتيجة: ${dialogHighScore} نقطة</span>
+              <span class="badge badge-primary">محادثة حقيقية 💬</span>
+            </div>
+            <a href="#/game/dialog" class="btn btn-primary" style="width: 100%;">العب الآن ➔</a>
+          </div>
+
+          <!-- Game 1: Article Game -->
           <div class="game-card">
             <div class="game-icon">🎯</div>
             <h3>تحدي أدوات التعريف (der / die / das)</h3>
@@ -579,7 +640,7 @@ const App = {
             <a href="#/game/article" class="btn btn-primary" style="width: 100%;">العب الآن ➔</a>
           </div>
 
-          <!-- Game 2: Perfekt Game (haben oder sein?) -->
+          <!-- Game 2: Perfekt Game -->
           <div class="game-card">
             <div class="game-icon">⏳</div>
             <h3>تحدي الماضي التام: haben أم sein؟</h3>
@@ -603,14 +664,14 @@ const App = {
             <a href="#/game/praeteritum" class="btn btn-primary" style="width: 100%;">العب الآن ➔</a>
           </div>
 
-          <!-- Game 4: Kasus Trainer (Grammar) -->
+          <!-- Game 4: Kasus Trainer -->
           <div class="game-card">
             <div class="game-icon">🛡️</div>
             <h3>تحدي الإعراب الألماني (Kasus Trainer)</h3>
             <p>أتقن حالات الإعراب الثلاث: Akkusativ و Dativ و Genitiv وحروف الجر المشتركة تحت ضغط الوقت (60 ثانية)!</p>
             <div class="game-meta">
               <span>أعلى نتيجة: ${kasusHighScore} نقطة</span>
-              <span class="badge badge-success">جديد ⚡</span>
+              <span class="badge badge-success">متاح للعب ⚡</span>
             </div>
             <a href="#/game/kasus" class="btn btn-primary" style="width: 100%;">العب الآن ➔</a>
           </div>

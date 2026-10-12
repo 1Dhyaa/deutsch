@@ -220,7 +220,7 @@ window.LESSONS["a2-2-10"] = {
     {
       type: "word-order",
       question: "رتب الكلمات لتكوين جملة:",
-      words: ["ist", "Jacke", "Diese", "waschbar", "Grad", "bei 40"],
+      words: ["ist", "Jacke", "Diese", "waschbar", "Grad", "40", "bei"],
       correct: "Diese Jacke ist bei 40 Grad waschbar",
       accept: [
         "Diese Jacke ist bei 40 Grad waschbar",
