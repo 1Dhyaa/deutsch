@@ -292,13 +292,15 @@ const PhrasesGame = {
 
         <!-- Question Card -->
         <div class="card" style="padding: 28px 24px; margin-bottom: 20px;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
             <span class="badge badge-secondary">${item.category}</span>
-            <span style="font-size: 0.85rem; color: var(--text-muted);">ركّب الجملة الألمانية</span>
+            <button class="btn btn-secondary btn-sm audio-btn" style="width:auto; height:auto; border-radius:var(--radius-sm); padding:6px 14px; gap:6px;" onclick="Speech.speak('${item.de.replace(/'/g, "\\'")}')" title="استمع للجملة بالصوت الطبيعي">
+              🔊 استمع للجملة
+            </button>
           </div>
 
           <!-- Prompt in Arabic -->
-          <div style="background: var(--bg-primary); border-right: 4px solid var(--accent); padding: 16px 20px; border-radius: var(--radius-sm); margin-bottom: 24px;">
+          <div style="background: var(--bg-primary); border-right: 4px solid var(--accent); padding: 16px 20px; border-radius: var(--radius-sm); margin-bottom: 20px;">
             <div style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); line-height: 1.5;">
               ${Utils.escapeHtml(item.ar)}
             </div>
@@ -306,34 +308,59 @@ const PhrasesGame = {
 
           <!-- Chosen Words Dropzone -->
           <div style="margin-bottom: 8px; font-size: 0.88rem; font-weight: 600; color: var(--text-secondary);">
-            ترتيبك للجملة:
+            1️⃣ ركّب الجملة بالنقر على الكلمات:
           </div>
-          <div id="phrases-dropzone" style="min-height: 56px; border: 2px dashed var(--border); border-radius: var(--radius-md); padding: 10px; margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 8px; direction: ltr; justify-content: flex-start; align-items: center; background: var(--bg-card);">
+          <div id="phrases-dropzone" style="min-height: 56px; border: 2px dashed var(--border); border-radius: var(--radius-md); padding: 10px; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 8px; direction: ltr; justify-content: flex-start; align-items: center; background: var(--bg-card);">
             ${this.renderDropzoneContent()}
           </div>
 
           <!-- Available Words Bank -->
           <div style="margin-bottom: 8px; font-size: 0.88rem; font-weight: 600; color: var(--text-secondary);">
-            بنك الكلمات (انقر على الكلمة لإضافتها بالترتيب):
+            بنك الكلمات (انقر على الكلمة لإضافتها وسماع نطقها):
           </div>
-          <div id="phrases-wordbank" style="display: flex; flex-wrap: wrap; gap: 8px; direction: ltr; justify-content: flex-start; margin-bottom: 24px;">
+          <div id="phrases-wordbank" style="display: flex; flex-wrap: wrap; gap: 8px; direction: ltr; justify-content: flex-start; margin-bottom: 18px;">
             ${this.renderWordbankContent()}
+          </div>
+
+          <!-- Direct Text / Whisper / Voice Input Box -->
+          <div style="margin-bottom: 20px; background: var(--bg-primary); padding: 12px 14px; border-radius: var(--radius-md); border: 1px solid var(--border);">
+            <div style="margin-bottom: 6px; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px;">
+              <span>2️⃣ أو اكتب / تكلّم مباشرة بالألمانية (يدعم Whisper و Win+H والميكروفون):</span>
+            </div>
+            <div style="display: flex; gap: 8px; align-items: center;">
+              <input
+                type="text"
+                id="phrases-text-input"
+                class="form-input de-text"
+                dir="ltr"
+                lang="de"
+                autocomplete="off"
+                placeholder="Schreibe oder sprich den deutschen Satz hier..."
+                style="flex: 1; padding: 10px 14px; font-size: 1rem; border-radius: var(--radius-sm); border: 1.5px solid var(--border); background: var(--bg-card); color: var(--text-primary);"
+                oninput="PhrasesGame.handleTextInput(this.value)"
+                onkeydown="if(event.key === 'Enter') PhrasesGame.checkAnswer()"
+              />
+              <button type="button" class="btn btn-secondary btn-sm" onclick="Speech.listen('phrases-text-input', this, (val) => PhrasesGame.handleTextInput(val))" title="تحدث بالألمانية (إملاء صوتي)" style="min-height: 42px; padding: 0 14px;">
+                🎤 تحدث
+              </button>
+            </div>
           </div>
 
           <!-- Controls -->
           <div style="display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap;">
-            <div style="display: flex; gap: 10px;">
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
               <button class="btn btn-primary" id="phrases-check-btn" onclick="PhrasesGame.checkAnswer()" ${this.chosenTokens.length === 0 ? 'disabled' : ''}>
                 تحقق من الإجابة ✅
               </button>
-              <button class="btn btn-secondary btn-sm" onclick="PhrasesGame.resetTokens()" ${this.chosenTokens.length === 0 ? 'disabled' : ''}>
+              <button class="btn btn-secondary btn-sm" id="phrases-reset-btn" onclick="PhrasesGame.resetTokens()" ${this.chosenTokens.length === 0 ? 'disabled' : ''}>
                 إعادة تعيين ↺
               </button>
             </div>
 
-            <button class="btn btn-secondary btn-sm" onclick="Speech.speak('${item.de.replace(/'/g, "\\'")}')" title="استمع للحل">
-              🔊 استمع للجملة
-            </button>
+            <div style="display: flex; gap: 8px;">
+              ${this.currentIndex > 0 ? `<button class="btn btn-secondary btn-sm" onclick="PhrasesGame.prevQuestion()">⬅ السابق</button>` : ''}
+              <button class="btn btn-outline btn-sm" onclick="PhrasesGame.nextQuestion()">تخطي ⏭️</button>
+            </div>
           </div>
 
           <!-- Feedback Box -->
@@ -341,6 +368,15 @@ const PhrasesGame = {
         </div>
       </div>
     `;
+  },
+
+  handleTextInput(val) {
+    if (this.isAnswered) return;
+    const checkBtn = document.getElementById('phrases-check-btn');
+    const resetBtn = document.getElementById('phrases-reset-btn');
+    const hasText = (val && val.trim().length > 0) || this.chosenTokens.length > 0;
+    if (checkBtn) checkBtn.disabled = !hasText;
+    if (resetBtn) resetBtn.disabled = !hasText;
   },
 
   renderDropzoneContent() {
@@ -367,6 +403,10 @@ const PhrasesGame = {
     const word = this.availableTokens[idx];
     this.chosenTokens.push(word);
     this.availableTokens.splice(idx, 1);
+    const cleanWord = word.replace(/[.!?,;:]/g, '').trim();
+    if (cleanWord && window.Speech) {
+      window.Speech.speak(cleanWord);
+    }
     this.updateTokenViews();
   },
 
@@ -383,6 +423,8 @@ const PhrasesGame = {
     const item = this.pool[this.currentIndex];
     this.chosenTokens = [];
     this.availableTokens = Utils.shuffle([...item.words]);
+    const textInput = document.getElementById('phrases-text-input');
+    if (textInput) textInput.value = '';
     this.updateTokenViews();
   },
 
@@ -390,29 +432,40 @@ const PhrasesGame = {
     const dropzone = document.getElementById('phrases-dropzone');
     const wordbank = document.getElementById('phrases-wordbank');
     const checkBtn = document.getElementById('phrases-check-btn');
+    const resetBtn = document.getElementById('phrases-reset-btn');
+    const textInput = document.getElementById('phrases-text-input');
     if (dropzone) dropzone.innerHTML = this.renderDropzoneContent();
     if (wordbank) wordbank.innerHTML = this.renderWordbankContent();
-    if (checkBtn) checkBtn.disabled = (this.chosenTokens.length === 0);
+    if (textInput) textInput.value = this.chosenTokens.join(' ');
+    const hasContent = this.chosenTokens.length > 0 || (textInput && textInput.value.trim().length > 0);
+    if (checkBtn) checkBtn.disabled = !hasContent;
+    if (resetBtn) resetBtn.disabled = !hasContent;
   },
 
   checkAnswer() {
-    if (this.isAnswered || this.chosenTokens.length === 0) return;
+    const textInput = document.getElementById('phrases-text-input');
+    const typedVal = textInput ? textInput.value.trim() : '';
+    const userSentence = this.chosenTokens.length > 0 ? this.chosenTokens.join(' ').trim() : typedVal;
+
+    if (this.isAnswered || !userSentence) return;
     this.isAnswered = true;
+    if (textInput) textInput.disabled = true;
 
     const item = this.pool[this.currentIndex];
-    const userSentence = this.chosenTokens.join(' ').trim();
     const isCorrect = Utils.compareAnswers(userSentence, item.de);
 
     const feedbackEl = document.getElementById('phrases-feedback');
     const checkBtn = document.getElementById('phrases-check-btn');
     if (checkBtn) checkBtn.style.display = 'none';
 
+    // Always play neural pronunciation of the German sentence
+    Speech.speak(item.de);
+
     if (isCorrect) {
       this.score += 20 + (this.streak * 5);
       this.streak++;
       this.bestStreak = Math.max(this.bestStreak, this.streak);
       Storage.addXP(15);
-      Speech.speak(item.de);
 
       feedbackEl.className = 'card fade-in';
       feedbackEl.style.display = 'block';
@@ -429,9 +482,14 @@ const PhrasesGame = {
             <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 14px;">
               💡 ${Utils.escapeHtml(item.tip)}
             </p>
-            <button class="btn btn-success btn-sm" onclick="PhrasesGame.nextQuestion()">
-              العبارة التالية ➔
-            </button>
+            <div style="display: flex; gap: 10px;">
+              <button class="btn btn-secondary btn-sm" onclick="Speech.speak('${item.de.replace(/'/g, "\\'")}')">
+                🔊 إعادة الاستماع
+              </button>
+              <button class="btn btn-success btn-sm" onclick="PhrasesGame.nextQuestion()">
+                العبارة التالية ➔
+              </button>
+            </div>
           </div>
         </div>
       `;
@@ -478,6 +536,13 @@ const PhrasesGame = {
 
     const scoreEl = document.getElementById('phrases-score');
     if (scoreEl) scoreEl.textContent = this.score;
+  },
+
+  prevQuestion() {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+      this.showNext();
+    }
   },
 
   nextQuestion() {

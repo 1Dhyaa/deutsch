@@ -326,6 +326,11 @@ const FehlerGame = {
 
           <!-- Feedback Box -->
           <div id="fehler-feedback" style="display: none;"></div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
+            <button class="btn btn-secondary btn-sm" onclick="FehlerGame.prevQuestion()" ${this.currentIndex === 0 ? 'disabled style="opacity:0.4;pointer-events:none;"' : ''}>⬅ السابق</button>
+            <button class="btn btn-secondary btn-sm" onclick="FehlerGame.nextQuestion()">تخطي ⏭️</button>
+          </div>
         </div>
       </div>
     `;
@@ -351,14 +356,14 @@ const FehlerGame = {
       }
     });
 
+    const correctText = item.options[item.correctIndex];
+    Speech.speak(correctText);
+
     if (isCorrect) {
       this.score += 20 + (this.streak * 5);
       this.streak++;
       this.bestStreak = Math.max(this.bestStreak, this.streak);
       Storage.addXP(15);
-      
-      const correctText = item.options[item.correctIndex];
-      Speech.speak(correctText);
 
       feedbackEl.className = 'card fade-in';
       feedbackEl.style.display = 'block';
@@ -376,9 +381,14 @@ const FehlerGame = {
             <div style="font-size: 0.88rem; color: var(--text-secondary); background: var(--bg-primary); padding: 8px 12px; border-radius: var(--radius-sm); margin-bottom: 14px;">
               💡 <strong>القاعدة:</strong> ${Utils.escapeHtml(item.rule)}
             </div>
-            <button class="btn btn-success btn-sm" onclick="FehlerGame.nextQuestion()">
-              السؤال التالي ➔
-            </button>
+            <div style="display: flex; gap: 10px;">
+              <button class="btn btn-secondary btn-sm" onclick="Speech.speak('${correctText.replace(/'/g, "\\'")}')">
+                🔊 استمع للجملة الصحيحة
+              </button>
+              <button class="btn btn-success btn-sm" onclick="FehlerGame.nextQuestion()">
+                السؤال التالي ➔
+              </button>
+            </div>
           </div>
         </div>
       `;
@@ -423,6 +433,13 @@ const FehlerGame = {
 
     const scoreEl = document.getElementById('fehler-score');
     if (scoreEl) scoreEl.textContent = this.score;
+  },
+
+  prevQuestion() {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+      this.showNext();
+    }
   },
 
   nextQuestion() {

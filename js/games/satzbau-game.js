@@ -235,13 +235,19 @@ const SatzbauGame = {
 
         <!-- Challenge Card -->
         <div class="card" style="padding: 28px 24px; margin-bottom: 20px;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
             <span class="badge badge-primary">${item.title}</span>
-            <span style="font-size: 0.85rem; color: var(--text-muted);">${item.instruction}</span>
+            <button class="btn btn-secondary btn-sm audio-btn" style="width:auto; height:auto; border-radius:var(--radius-sm); padding:6px 14px; gap:6px;" onclick="Speech.speak('${item.correct.replace(/'/g, "\\'")}')" title="استمع للحل الصحيح">
+              🔊 استمع للجملة
+            </button>
+          </div>
+
+          <div style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 10px; font-weight: 600;">
+            ${Utils.escapeHtml(item.instruction)}
           </div>
 
           <!-- Meaning Banner -->
-          <div style="background: var(--bg-primary); border-right: 4px solid var(--accent); padding: 16px 20px; border-radius: var(--radius-sm); margin-bottom: 24px;">
+          <div style="background: var(--bg-primary); border-right: 4px solid var(--accent); padding: 16px 20px; border-radius: var(--radius-sm); margin-bottom: 20px;">
             <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 4px;">المعنى المقصود:</div>
             <div style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); line-height: 1.5;">
               ${Utils.escapeHtml(item.arMeaning)}
@@ -250,35 +256,60 @@ const SatzbauGame = {
 
           <!-- Satz Dropzone -->
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="font-size: 0.88rem; font-weight: 600; color: var(--text-secondary);">ترتيبك للجملة:</span>
+            <span style="font-size: 0.88rem; font-weight: 600; color: var(--text-secondary);">1️⃣ رتب الجملة بالنقر على الكلمات:</span>
             <span style="font-size: 0.8rem; color: var(--accent); font-weight: 600;">(انقر على الكلمة لإزالتها)</span>
           </div>
-          <div id="satzbau-dropzone" style="min-height: 60px; border: 2px dashed var(--border); border-radius: var(--radius-md); padding: 12px; margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 8px; direction: ltr; justify-content: flex-start; align-items: center; background: var(--bg-card);">
+          <div id="satzbau-dropzone" style="min-height: 60px; border: 2px dashed var(--border); border-radius: var(--radius-md); padding: 12px; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 8px; direction: ltr; justify-content: flex-start; align-items: center; background: var(--bg-card);">
             ${this.renderDropzone()}
           </div>
 
           <!-- Available Word Bank -->
           <div style="margin-bottom: 8px; font-size: 0.88rem; font-weight: 600; color: var(--text-secondary);">
-            الكلمات المتاحة:
+            الكلمات المتاحة (انقر على الكلمة لإضافتها وسماع نطقها):
           </div>
-          <div id="satzbau-wordbank" style="display: flex; flex-wrap: wrap; gap: 8px; direction: ltr; justify-content: flex-start; margin-bottom: 24px;">
+          <div id="satzbau-wordbank" style="display: flex; flex-wrap: wrap; gap: 8px; direction: ltr; justify-content: flex-start; margin-bottom: 18px;">
             ${this.renderWordbank()}
+          </div>
+
+          <!-- Direct Text / Whisper / Voice Input Box -->
+          <div style="margin-bottom: 20px; background: var(--bg-primary); padding: 12px 14px; border-radius: var(--radius-md); border: 1px solid var(--border);">
+            <div style="margin-bottom: 6px; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">
+              2️⃣ أو اكتب / تكلّم مباشرة بالألمانية (يدعم Whisper و Win+H والميكروفون):
+            </div>
+            <div style="display: flex; gap: 8px; align-items: center;">
+              <input
+                type="text"
+                id="satzbau-text-input"
+                class="form-input de-text"
+                dir="ltr"
+                lang="de"
+                autocomplete="off"
+                placeholder="Schreibe oder sprich den deutschen Satz hier..."
+                style="flex: 1; padding: 10px 14px; font-size: 1rem; border-radius: var(--radius-sm); border: 1.5px solid var(--border); background: var(--bg-card); color: var(--text-primary);"
+                oninput="SatzbauGame.handleTextInput(this.value)"
+                onkeydown="if(event.key === 'Enter') SatzbauGame.checkAnswer()"
+              />
+              <button type="button" class="btn btn-secondary btn-sm" onclick="Speech.listen('satzbau-text-input', this, (val) => SatzbauGame.handleTextInput(val))" title="تحدث بالألمانية (إملاء صوتي)" style="min-height: 42px; padding: 0 14px;">
+                🎤 تحدث
+              </button>
+            </div>
           </div>
 
           <!-- Action Buttons -->
           <div style="display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap;">
-            <div style="display: flex; gap: 10px;">
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
               <button class="btn btn-primary" id="satzbau-check-btn" onclick="SatzbauGame.checkAnswer()" ${this.chosenTokens.length === 0 ? 'disabled' : ''}>
                 فحص ترتيب الجملة 🎯
               </button>
-              <button class="btn btn-secondary btn-sm" onclick="SatzbauGame.resetTokens()" ${this.chosenTokens.length === 0 ? 'disabled' : ''}>
+              <button class="btn btn-secondary btn-sm" id="satzbau-reset-btn" onclick="SatzbauGame.resetTokens()" ${this.chosenTokens.length === 0 ? 'disabled' : ''}>
                 إعادة ضبط ↺
               </button>
             </div>
 
-            <button class="btn btn-secondary btn-sm" onclick="Speech.speak('${item.correct.replace(/'/g, "\\'")}')" title="استمع للحل الصحيح">
-              🔊 استمع
-            </button>
+            <div style="display: flex; gap: 8px;">
+              ${this.currentIndex > 0 ? `<button class="btn btn-secondary btn-sm" onclick="SatzbauGame.prevQuestion()">⬅ السابق</button>` : ''}
+              <button class="btn btn-outline btn-sm" onclick="SatzbauGame.nextQuestion()">تخطي ⏭️</button>
+            </div>
           </div>
 
           <!-- Feedback Box -->
@@ -288,13 +319,22 @@ const SatzbauGame = {
     `;
   },
 
+  handleTextInput(val) {
+    if (this.isAnswered) return;
+    const checkBtn = document.getElementById('satzbau-check-btn');
+    const resetBtn = document.getElementById('satzbau-reset-btn');
+    const hasText = (val && val.trim().length > 0) || this.chosenTokens.length > 0;
+    if (checkBtn) checkBtn.disabled = !hasText;
+    if (resetBtn) resetBtn.disabled = !hasText;
+  },
+
   renderDropzone() {
     if (this.chosenTokens.length === 0) {
       return `<span style="color: var(--text-muted); width: 100%; text-align: center; direction: rtl; font-size: 0.9rem;">انقر على الكلمات بالترتيب الصحيح لبناء الجملة</span>`;
     }
     return this.chosenTokens.map((w, idx) => `
       <button class="btn btn-sm btn-primary chosen-token de-text" onclick="SatzbauGame.removeToken(${idx})">
-        ${Utils.escapeHtml(w)}
+        ${Utils.escapeHtml(w)} ✕
       </button>
     `).join('');
   },
@@ -312,6 +352,10 @@ const SatzbauGame = {
     const word = this.availableTokens[idx];
     this.chosenTokens.push(word);
     this.availableTokens.splice(idx, 1);
+    const cleanWord = word.replace(/[.!?,;:]/g, '').trim();
+    if (cleanWord && window.Speech) {
+      window.Speech.speak(cleanWord);
+    }
     this.updateViews();
   },
 
@@ -328,6 +372,8 @@ const SatzbauGame = {
     const item = this.pool[this.currentIndex];
     this.chosenTokens = [];
     this.availableTokens = Utils.shuffle([...item.words]);
+    const textInput = document.getElementById('satzbau-text-input');
+    if (textInput) textInput.value = '';
     this.updateViews();
   },
 
@@ -335,29 +381,40 @@ const SatzbauGame = {
     const dropzone = document.getElementById('satzbau-dropzone');
     const wordbank = document.getElementById('satzbau-wordbank');
     const checkBtn = document.getElementById('satzbau-check-btn');
+    const resetBtn = document.getElementById('satzbau-reset-btn');
+    const textInput = document.getElementById('satzbau-text-input');
     if (dropzone) dropzone.innerHTML = this.renderDropzone();
     if (wordbank) wordbank.innerHTML = this.renderWordbank();
-    if (checkBtn) checkBtn.disabled = (this.chosenTokens.length === 0);
+    if (textInput) textInput.value = this.chosenTokens.join(' ');
+    const hasContent = this.chosenTokens.length > 0 || (textInput && textInput.value.trim().length > 0);
+    if (checkBtn) checkBtn.disabled = !hasContent;
+    if (resetBtn) resetBtn.disabled = !hasContent;
   },
 
   checkAnswer() {
-    if (this.isAnswered || this.chosenTokens.length === 0) return;
+    const textInput = document.getElementById('satzbau-text-input');
+    const typedVal = textInput ? textInput.value.trim() : '';
+    const userSentence = this.chosenTokens.length > 0 ? this.chosenTokens.join(' ').trim() : typedVal;
+
+    if (this.isAnswered || !userSentence) return;
     this.isAnswered = true;
+    if (textInput) textInput.disabled = true;
 
     const item = this.pool[this.currentIndex];
-    const userSentence = this.chosenTokens.join(' ').trim();
     const isCorrect = Utils.compareAnswers(userSentence, item.correct);
 
     const feedbackEl = document.getElementById('satzbau-feedback');
     const checkBtn = document.getElementById('satzbau-check-btn');
     if (checkBtn) checkBtn.style.display = 'none';
 
+    // Always play neural pronunciation of the German sentence
+    Speech.speak(item.correct);
+
     if (isCorrect) {
       this.score += 20 + (this.streak * 5);
       this.streak++;
       this.bestStreak = Math.max(this.bestStreak, this.streak);
       Storage.addXP(15);
-      Speech.speak(item.correct);
 
       feedbackEl.className = 'card fade-in';
       feedbackEl.style.display = 'block';
@@ -374,9 +431,14 @@ const SatzbauGame = {
             <p style="font-size: 0.9rem; color: var(--text-secondary); background: var(--bg-primary); padding: 8px 12px; border-radius: var(--radius-sm); margin-bottom: 14px;">
               💡 <strong>التحليل النحوي:</strong> ${Utils.escapeHtml(item.rule)}
             </p>
-            <button class="btn btn-success btn-sm" onclick="SatzbauGame.nextQuestion()">
-              الجملة التالية ➔
-            </button>
+            <div style="display: flex; gap: 10px;">
+              <button class="btn btn-secondary btn-sm" onclick="Speech.speak('${item.correct.replace(/'/g, "\\'")}')">
+                🔊 إعادة الاستماع
+              </button>
+              <button class="btn btn-success btn-sm" onclick="SatzbauGame.nextQuestion()">
+                الجملة التالية ➔
+              </button>
+            </div>
           </div>
         </div>
       `;
@@ -423,6 +485,13 @@ const SatzbauGame = {
 
     const scoreEl = document.getElementById('satzbau-score');
     if (scoreEl) scoreEl.textContent = this.score;
+  },
+
+  prevQuestion() {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+      this.showNext();
+    }
   },
 
   nextQuestion() {

@@ -383,6 +383,7 @@ const KasusGame = {
       if (feedbackBox) {
         feedbackBox.innerHTML = `<span style="color: var(--danger); font-weight: 700;">❌ الإجابة الصحيحة: ${item.correct} — ${item.rule}</span>`;
       }
+      if (window.Speech) Speech.speak(item.fullSentence);
       if (window.Storage) {
         Storage.addMistake({
           lessonId: "grammatik-kasus",

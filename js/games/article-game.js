@@ -161,7 +161,12 @@ const ArticleGame = {
         </div>
 
         <div class="word-display-card" id="word-card">
-          <div class="current-noun" id="target-noun">...</div>
+          <div style="display:flex; align-items:center; justify-content:center; gap:10px;">
+            <div class="current-noun" id="target-noun">...</div>
+            <button class="audio-btn" onclick="ArticleGame.speakCurrent()" title="استمع للنطق" style="flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.08"/></svg>
+            </button>
+          </div>
           <div class="noun-meaning" id="target-meaning">...</div>
           <div class="noun-plural-hint" id="target-plural"></div>
         </div>
@@ -177,6 +182,11 @@ const ArticleGame = {
         </div>
       </div>
     `;
+  },
+
+  speakCurrent() {
+    const item = this.nounPool[this.currentIndex];
+    if (item) Speech.speak(item.noun);
   },
 
   showNextNoun() {

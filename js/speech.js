@@ -130,6 +130,9 @@ const Speech = {
       .trim();
   },
 
+  missingWavs: new Set(),
+  wavFailCount: 0,
+
   // Main Speak Entrypoint
   async speak(text, isSlow = false) {
     const cleaned = this.cleanText(text);
@@ -146,12 +149,10 @@ const Speech = {
     const useEleven = (this.config.provider === 'elevenlabs' || (this.config.provider === 'auto' && this.config.elevenlabsApiKey)) && this.config.elevenlabsApiKey;
     if (useEleven) {
       try {
-        console.log(`[Speech] Synthesizing via ElevenLabs (${this.config.elevenlabsVoiceId}): "${cleaned}"`);
         await this.speakWithElevenLabs(cleaned, onFinish);
         return;
       } catch (err) {
         console.warn('[Speech] ElevenLabs failed (quota/network):', err);
-        // Fall back to pre-recorded manifest or browser
       }
     }
 
@@ -159,7 +160,6 @@ const Speech = {
     const useOpenAI = (this.config.provider === 'openai') && this.config.openaiApiKey;
     if (useOpenAI) {
       try {
-        console.log(`[Speech] Synthesizing via OpenAI (${this.config.openaiVoice}): "${cleaned}"`);
         await this.speakWithOpenAI(cleaned, isSlow, onFinish);
         return;
       } catch (err) {
@@ -167,54 +167,30 @@ const Speech = {
       }
     }
 
-    // 3. Check pre-generated high-quality audio from manifest
+    // 3. Check pre-generated high-quality neural audio from manifest
     const manifest = window.AUDIO_MANIFEST;
-    if (manifest) {
+    const isRemoteNoWav = (typeof location !== 'undefined' && location.hostname.includes('github.io') && this.wavFailCount >= 2);
+    if (manifest && !isRemoteNoWav) {
       const normalize = (s) => s.toLowerCase().replace(/[.!?,;:"'»«\(\)]/g, '').replace(/\s+/g, ' ').trim();
       const normKey = normalize(cleaned);
-      const audioFile = manifest[cleaned] || manifest[normKey];
-      if (audioFile) {
+      const bareKey = normKey.replace(/^(der|die|das)\s+/i, '').trim();
+      const audioFile = manifest[cleaned] || manifest[normKey] || (normKey !== bareKey ? manifest[bareKey] : null);
+      if (audioFile && !this.missingWavs.has(audioFile)) {
         const audioPath = `audio/${audioFile}`;
-        console.log(`[Speech] Playing pre-recorded audio: "${cleaned}" -> ${audioPath}`);
-        this.playAudioUrl(audioPath, onFinish, isSlow, (err) => {
-          console.warn(`[Speech] Failed to load "${audioPath}":`, err, 'Falling back to browser...');
+        this.playAudioUrl(audioPath, onFinish, isSlow, () => {
+          this.missingWavs.add(audioFile);
+          this.wavFailCount++;
           this.speakWithBrowser(cleaned, isSlow, onFinish);
         });
         return;
       }
     }
 
-    // 4. Fallback to browser voice
+    // 4. Fallback to Microsoft / Browser Neural Voice
     this.speakWithBrowser(cleaned, isSlow, onFinish);
   },
 
   async speakFallback(cleaned, isSlow, onFinish) {
-    // 1. Check if user configured OpenAI TTS
-    const useOpenAI = (this.config.provider === 'openai' || (this.config.provider === 'auto' && this.config.openaiApiKey)) && this.config.openaiApiKey;
-    if (useOpenAI) {
-      try {
-        await this.speakWithOpenAI(cleaned, isSlow, onFinish);
-        return;
-      } catch (err) {
-        console.warn('OpenAI TTS failed, falling back to neural browser voice:', err);
-        if (window.Utils && window.Utils.showToast) {
-          window.Utils.showToast('تعذر الاتصال بـ OpenAI TTS، يتم استخدام الصوت الطبيعي للمتصفح.', 'warning', 2500);
-        }
-      }
-    }
-
-    // 2. Check if user configured ElevenLabs
-    const useEleven = this.config.provider === 'elevenlabs' && this.config.elevenlabsApiKey;
-    if (useEleven) {
-      try {
-        await this.speakWithElevenLabs(cleaned, onFinish);
-        return;
-      } catch (err) {
-        console.warn('ElevenLabs failed, falling back to browser voice:', err);
-      }
-    }
-
-    // 3. High quality browser voice
     this.speakWithBrowser(cleaned, isSlow, onFinish);
   },
 
@@ -322,31 +298,97 @@ const Speech = {
     });
   },
 
-  // Browser Speech Synthesis
+  // Browser Speech Synthesis (Prioritizing Microsoft Natural / Neural voices)
   speakWithBrowser(text, isSlow, onFinish) {
     if (!this.synth) {
       if (onFinish) onFinish();
       return;
     }
 
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'de-DE';
-    utterance.rate = isSlow ? 0.6 : (this.config.rate || 0.85);
-    utterance.pitch = 1;
-
-    if (this.voice) {
-      utterance.voice = this.voice;
+    if (!this.voice) {
+      this.initBrowserVoices();
     }
 
-    utterance.onend = () => {
-      if (onFinish) onFinish();
+    const doSpeak = () => {
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'de-DE';
+      utterance.rate = isSlow ? 0.65 : (this.config.rate || 0.88);
+      utterance.pitch = 1;
+
+      if (this.voice) {
+        utterance.voice = this.voice;
+      }
+
+      utterance.onend = () => {
+        if (onFinish) onFinish();
+      };
+
+      utterance.onerror = () => {
+        if (onFinish) onFinish();
+      };
+
+      this.synth.speak(utterance);
     };
 
-    utterance.onerror = () => {
-      if (onFinish) onFinish();
+    if (this.synth.speaking || this.synth.pending) {
+      this.synth.cancel();
+      setTimeout(doSpeak, 25);
+    } else {
+      doSpeak();
+    }
+  },
+
+  // Voice Dictation / Speech-to-Text helper (German de-DE)
+  listen(inputId, btnEl, onUpdate) {
+    const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const input = document.getElementById(inputId);
+    if (input) input.focus();
+
+    if (!SpeechRec) {
+      if (window.Utils && window.Utils.showToast) {
+        window.Utils.showToast('تم تفعيل مربع الكتابة — يمكنك الإملاء الصوتي مباشرة عبر Win + H أو ميكروفون لوحة المفاتيح 🎤', 'info', 3000);
+      }
+      return;
+    }
+
+    if (this.activeRecognition) {
+      try { this.activeRecognition.stop(); } catch (e) {}
+      this.activeRecognition = null;
+      if (btnEl) btnEl.classList.remove('playing');
+      return;
+    }
+
+    const rec = new SpeechRec();
+    this.activeRecognition = rec;
+    rec.lang = 'de-DE';
+    rec.interimResults = false;
+    rec.maxAlternatives = 1;
+
+    if (btnEl) btnEl.classList.add('playing');
+    if (window.Utils && window.Utils.showToast) {
+      window.Utils.showToast('🎤 تحدث الآن بالألمانية...', 'info', 2000);
+    }
+
+    rec.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      if (input) {
+        input.value = transcript;
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+      if (onUpdate) onUpdate(transcript);
     };
 
-    this.synth.speak(utterance);
+    rec.onerror = () => {
+      if (btnEl) btnEl.classList.remove('playing');
+      this.activeRecognition = null;
+    };
+
+    rec.onend = () => {
+      if (btnEl) btnEl.classList.remove('playing');
+      this.activeRecognition = null;
+    };
+
+    rec.start();
   },
 
   setButtonState(text, isPlaying) {
@@ -365,7 +407,7 @@ const Speech = {
       this.currentAudio.pause();
       this.currentAudio = null;
     }
-    if (this.synth) {
+    if (this.synth && (this.synth.speaking || this.synth.pending)) {
       this.synth.cancel();
     }
     document.querySelectorAll('.audio-btn.playing').forEach(b => b.classList.remove('playing'));

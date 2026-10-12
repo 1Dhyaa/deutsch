@@ -490,12 +490,22 @@ const QuizEngine = {
         });
         html += `</div>`;
 
+        // Direct text / voice input field
+        html += `<div style="display:flex; gap:8px; align-items:center;">
+          <input type="text" id="order-text-input" class="form-input de-text" dir="ltr" lang="de"
+            value="${Utils.escapeHtml(chosenWords.join(' '))}"
+            placeholder="أو اكتب الجملة أو تحدث بالمايكروفون (Whisper / Win+H)..."
+            style="flex:1; padding:10px 14px; border-radius:var(--radius-sm); border:1.5px solid var(--border); background:var(--bg-primary); color:var(--text-primary); font-size:0.98rem; text-align:left;"
+            ${this.isAnswered ? 'disabled' : ''} />
+          <button type="button" class="btn btn-secondary btn-sm" onclick="Speech.listen('order-text-input', this)" title="تحدث بالألمانية" ${this.isAnswered ? 'disabled' : ''}>🎤</button>
+        </div>`;
+
         // Action controls
         html += `<div style="display: flex; gap: 10px; margin-top: 6px;">
-          <button type="button" id="order-check-btn" class="btn btn-primary" style="flex: 1; min-height: 44px;" ${chosenWords.length === 0 || this.isAnswered ? 'disabled' : ''}>
+          <button type="button" id="order-check-btn" class="btn btn-primary" style="flex: 1; min-height: 44px;" ${this.isAnswered ? 'disabled' : ''}>
             تحقق من الترتيب ✓
           </button>
-          <button type="button" id="order-reset-btn" class="btn btn-secondary" style="min-height: 44px; padding: 0 16px;" ${chosenWords.length === 0 || this.isAnswered ? 'disabled' : ''} title="إعادة الكلمات">
+          <button type="button" id="order-reset-btn" class="btn btn-secondary" style="min-height: 44px; padding: 0 16px;" ${this.isAnswered ? 'disabled' : ''} title="إعادة الكلمات">
             🔄 إعادة
           </button>
         </div>`;
@@ -511,7 +521,9 @@ const QuizEngine = {
             container.querySelectorAll('.avail-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     const idx = parseInt(e.currentTarget.getAttribute('data-idx'));
-                    chosenWords.push(availableWords[idx]);
+                    const w = availableWords[idx];
+                    if (window.Speech && w) Speech.speak(w);
+                    chosenWords.push(w);
                     availableWords.splice(idx, 1);
                     render();
                 });
@@ -535,23 +547,37 @@ const QuizEngine = {
                 });
             }
 
+            const evaluateOrder = () => {
+                if (this.isAnswered) return;
+                const textInput = document.getElementById('order-text-input');
+                const typedVal = textInput ? textInput.value.trim() : '';
+                const userSentence = chosenWords.length > 0 ? chosenWords.join(' ') : typedVal;
+                if (!userSentence) return;
+
+                let targetAns = exercise.correct !== undefined ? exercise.correct : 
+                  (exercise.answer !== undefined ? exercise.answer : exercise.correctOrder);
+                if (Array.isArray(targetAns)) targetAns = targetAns.join(' ');
+                const isCorrect = Utils.compareAnswers(userSentence, targetAns, exercise.accept);
+                if (window.Speech && targetAns) Speech.speak(targetAns);
+                
+                this.checkAnswer(isCorrect, null, null, exercise, isCorrect ? '' : `الترتيب الصحيح: ${targetAns}`, {
+                    myAnswer: userSentence,
+                    correctAnswer: targetAns
+                });
+                
+                if (checkBtn) checkBtn.disabled = true;
+                if (resetBtn) resetBtn.disabled = true;
+                if (textInput) textInput.disabled = true;
+            };
+
             const checkBtn = document.getElementById('order-check-btn');
             if (checkBtn) {
-                checkBtn.addEventListener('click', () => {
-                    if (this.isAnswered || chosenWords.length === 0) return;
-                    const userSentence = chosenWords.join(' ');
-                    let targetAns = exercise.correct !== undefined ? exercise.correct : 
-                      (exercise.answer !== undefined ? exercise.answer : exercise.correctOrder);
-                    if (Array.isArray(targetAns)) targetAns = targetAns.join(' ');
-                    const isCorrect = Utils.compareAnswers(userSentence, targetAns, exercise.accept);
-                    
-                    this.checkAnswer(isCorrect, null, null, exercise, isCorrect ? '' : `الترتيب الصحيح: ${targetAns}`, {
-                        myAnswer: userSentence,
-                        correctAnswer: targetAns
-                    });
-                    
-                    checkBtn.disabled = true;
-                    if (resetBtn) resetBtn.disabled = true;
+                checkBtn.addEventListener('click', evaluateOrder);
+            }
+            const textInput = document.getElementById('order-text-input');
+            if (textInput) {
+                textInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') evaluateOrder();
                 });
             }
         }
@@ -609,6 +635,8 @@ const QuizEngine = {
                         leftSelected = leftSelected === id ? null : id;
                     } else {
                         rightSelected = rightSelected === id ? null : id;
+                        const rItem = rightItems.find(i => i.id === id);
+                        if (rItem && window.Speech) Speech.speak(rItem.text);
                     }
                     
                     render();
@@ -655,7 +683,10 @@ const QuizEngine = {
     let html = `<div style="margin-bottom: 15px;">`;
     const promptText = exercise.text || exercise.from || exercise.question || '';
     html += `<p style="font-size: 18px; margin-bottom: 10px; font-weight: bold;">${Utils.escapeHtml(promptText)}</p>`;
-    html += `<textarea id="translate-input" class="form-input de-text" style="width: 100%; height: 80px; direction: ltr; font-size: 16px; padding: 12px; border-radius: var(--radius-sm); border: 2px solid var(--border); resize: none;" placeholder="اكتب الترجمة الألمانية هنا..."></textarea>`;
+    html += `<div style="display:flex; gap:8px; align-items:flex-start;">
+      <textarea id="translate-input" class="form-input de-text" lang="de" style="flex: 1; height: 80px; direction: ltr; font-size: 16px; padding: 12px; border-radius: var(--radius-sm); border: 2px solid var(--border); resize: none;" placeholder="اكتب الترجمة الألمانية هنا أو تحدث بالمايكروفون (Whisper / Win+H)..."></textarea>
+      <button type="button" class="btn btn-secondary" onclick="Speech.listen('translate-input', this)" title="تحدث بالألمانية" style="height:80px;">🎤</button>
+    </div>`;
     html += `</div>`;
     html += `<div style="display: flex; gap: 10px; margin-top: 14px;">
       <button type="button" id="trans-check-btn" class="btn btn-primary" style="flex: 1; min-height: 44px;">تحقق من الترجمة ✓</button>
@@ -682,12 +713,14 @@ const QuizEngine = {
         } else {
             isCorrect = Utils.compareAnswers(val, targetAns, acceptList);
         }
+        const bestAns = Array.isArray(targetAns) ? targetAns[0] : targetAns;
+        if (window.Speech && bestAns) Speech.speak(bestAns);
         
         input.disabled = true;
         transCheckBtn.disabled = true;
-        this.checkAnswer(isCorrect, null, null, exercise, isCorrect ? '' : `الإجابة الصحيحة هي: ${Array.isArray(targetAns) ? targetAns[0] : targetAns}`, {
+        this.checkAnswer(isCorrect, null, null, exercise, isCorrect ? '' : `الإجابة الصحيحة هي: ${bestAns}`, {
             myAnswer: val,
-            correctAnswer: Array.isArray(targetAns) ? targetAns[0] : targetAns
+            correctAnswer: bestAns
         });
     };
     
@@ -707,7 +740,10 @@ const QuizEngine = {
     html += `<div style="padding: 15px; background: rgba(239, 68, 68, 0.1); border-right: 4px solid var(--danger); margin-bottom: 15px; border-radius: 4px;">
         <p class="de-text" style="direction: ltr; font-size: 18px; text-decoration: line-through; color: var(--danger);">${Utils.escapeHtml(wrongText)}</p>
     </div>`;
-    html += `<input type="text" id="correction-input" class="form-input de-text" style="width: 100%; direction: ltr; font-size: 16px; padding: 12px; border-radius: var(--radius-sm); border: 2px solid var(--border);" placeholder="اكتب الجملة الصحيحة هنا..." autocomplete="off">`;
+    html += `<div style="display:flex; gap:8px; align-items:center;">
+      <input type="text" id="correction-input" class="form-input de-text" lang="de" style="flex: 1; direction: ltr; font-size: 16px; padding: 12px; border-radius: var(--radius-sm); border: 2px solid var(--border);" placeholder="اكتب الجملة الصحيحة هنا أو تحدث بالمايكروفون (Whisper / Win+H)..." autocomplete="off">
+      <button type="button" class="btn btn-secondary" onclick="Speech.listen('correction-input', this)" title="تحدث بالألمانية">🎤</button>
+    </div>`;
     html += `</div>`;
     html += `<div style="display: flex; gap: 10px; margin-top: 14px;">
       <button type="button" id="corr-check-btn" class="btn btn-primary" style="flex: 1; min-height: 44px;">تحقق من التصحيح ✓</button>
@@ -734,12 +770,14 @@ const QuizEngine = {
         } else {
             isCorrect = Utils.compareAnswers(val, targetAns, acceptList);
         }
+        const bestAns = Array.isArray(targetAns) ? targetAns[0] : targetAns;
+        if (window.Speech && bestAns) Speech.speak(bestAns);
         
         input.disabled = true;
         corrCheckBtn.disabled = true;
-        this.checkAnswer(isCorrect, null, null, exercise, isCorrect ? '' : `التصحيح هو: ${Array.isArray(targetAns) ? targetAns[0] : targetAns}`, {
+        this.checkAnswer(isCorrect, null, null, exercise, isCorrect ? '' : `التصحيح هو: ${bestAns}`, {
             myAnswer: val,
-            correctAnswer: Array.isArray(targetAns) ? targetAns[0] : targetAns
+            correctAnswer: bestAns
         });
     };
     
