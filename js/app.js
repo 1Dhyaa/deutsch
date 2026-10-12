@@ -42,6 +42,123 @@ const App = {
 
     // 6. Initialize Router
     Router.init();
+
+    // 7. Automatic Cloud Sync on startup & when returning to tab (PC <-> Phone)
+    Storage.syncWithCloud(false);
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) {
+        Storage.syncWithCloud(false);
+      }
+    });
+
+    const userOverlay = document.getElementById('user-modal-overlay');
+    if (userOverlay) {
+      userOverlay.addEventListener('click', (e) => {
+        if (e.target === userOverlay) userOverlay.style.display = 'none';
+      });
+    }
+  },
+
+  openUserModal() {
+    const overlay = document.getElementById('user-modal-overlay');
+    const body = document.getElementById('user-modal-body');
+    if (!overlay || !body) return;
+
+    const isDe = window.I18n && window.I18n.isGerman();
+    const activeUser = Storage.getCurrentUser();
+    const data = Storage.load(activeUser);
+    const completed = Storage.getCompletedCount();
+    const mistakesCount = Storage.getActiveMistakes().length;
+    const usersList = Storage.getUsersList();
+
+    body.innerHTML = `
+      <div style="background: var(--bg-primary); border: 1.5px solid var(--accent); border-radius: var(--radius-md); padding: 16px; margin-bottom: 18px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+          <div>
+            <span style="font-size:0.82rem; color:var(--text-muted); display:block;">${isDe ? 'Aktives Konto' : 'الحساب النشط حالياً'}</span>
+            <strong style="font-size:1.3rem; color:var(--accent);">👤 ${Utils.escapeHtml(activeUser)}</strong>
+          </div>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="App.triggerManualSync()">
+            ☁️🔄 ${isDe ? 'Jetzt synchronisieren' : 'مزامنة الآن'}
+          </button>
+        </div>
+        <div style="display:flex; gap:14px; flex-wrap:wrap; font-size:0.88rem; color:var(--text-secondary); margin-bottom:8px;">
+          <span>⚡ <strong>${data.xp} XP</strong></span>
+          <span>📚 <strong>${completed}</strong> ${isDe ? 'Lektionen' : 'دروس مكتملة'}</span>
+          <span>🎯 <strong>${mistakesCount}</strong> ${isDe ? 'Fehler' : 'أخطاء للمراجعة'}</span>
+        </div>
+        <div id="user-modal-sync-status" style="font-size:0.82rem; color:var(--success); font-weight:600;">
+          ✅ ${isDe ? 'Mit der Cloud verbunden (PC ⇄ Handy)' : 'متصل ومتزامن سحابياً (الكمبيوتر ⇄ الهاتف)'}
+        </div>
+      </div>
+
+      <div style="margin-bottom: 18px;">
+        <label style="display:block; font-weight:700; font-size:0.95rem; margin-bottom:8px;">
+          ${isDe ? 'Benutzername eingeben / Konto wechseln:' : 'ادخل اسم المستخدم (لفتح تقدمك على أي جهاز أو هاتف):'}
+        </label>
+        <div style="display:flex; gap:8px;">
+          <input type="text" id="switch-username-input" class="form-input de-text" dir="ltr"
+            value="${Utils.escapeHtml(activeUser)}"
+            placeholder="Dhyaa"
+            style="flex:1; padding:10px 14px; border:1.5px solid var(--border); border-radius:var(--radius-sm); background:var(--bg-primary); color:var(--text-primary); font-size:1rem; font-weight:600;"
+            onkeypress="if(event.key==='Enter') App.submitUserSwitch()" />
+          <button type="button" class="btn btn-primary" onclick="App.submitUserSwitch()">
+            ${isDe ? 'Anmelden ➔' : 'دخول / حفظ ➔'}
+          </button>
+        </div>
+        <small style="display:block; color:var(--text-muted); margin-top:6px; font-size:0.82rem;">
+          ${isDe 
+            ? 'Gib auf deinem Handy einfach "Dhyaa" ein, um sofort deine Punkte und Lektionen zu laden!' 
+            : 'اكتب اسمك (مثلاً Dhyaa) على هاتفك أو أي جهاز آخر وستظهر نقاطك ودروسك فوراً!'}
+        </small>
+      </div>
+
+      <div style="margin-bottom: 10px;">
+        <div style="font-size:0.85rem; font-weight:700; color:var(--text-secondary); margin-bottom:8px;">
+          ${isDe ? 'Gespeicherte Konten:' : 'الحسابات المحفوظة للوصول السريع:'}
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          ${usersList.map(u => {
+            const isCurrent = Storage.normalizeUsername(u) === Storage.normalizeUsername(activeUser);
+            return `
+              <button type="button" class="btn btn-sm ${isCurrent ? 'btn-primary' : 'btn-secondary'}"
+                onclick="App.quickSwitchUser('${u.replace(/'/g, "\\'")}')"
+                style="border-radius:20px; padding:6px 14px;">
+                👤 ${Utils.escapeHtml(u)} ${isCurrent ? '✓' : ''}
+              </button>
+            `;
+          }).join('')}
+        </div>
+      </div>
+    `;
+
+    overlay.style.display = 'flex';
+  },
+
+  async submitUserSwitch() {
+    const input = document.getElementById('switch-username-input');
+    const name = input ? input.value.trim() : '';
+    if (!name) return;
+    await this.quickSwitchUser(name);
+  },
+
+  async quickSwitchUser(name) {
+    const cleanName = String(name || 'Dhyaa').trim() || 'Dhyaa';
+    await Storage.switchUser(cleanName);
+    this.updateHeaderStats();
+    const overlay = document.getElementById('user-modal-overlay');
+    if (overlay && overlay.style.display !== 'none') {
+      this.openUserModal();
+    }
+  },
+
+  async triggerManualSync() {
+    await Storage.syncWithCloud(true);
+    this.updateHeaderStats();
+    const overlay = document.getElementById('user-modal-overlay');
+    if (overlay && overlay.style.display !== 'none') {
+      this.openUserModal();
+    }
   },
 
   setupAudioSettingsModal() {
@@ -154,9 +271,11 @@ const App = {
     const data = Storage.load();
     const streakEl = document.getElementById('streak-count');
     const xpEl = document.getElementById('xp-count');
+    const userLabelEl = document.getElementById('current-username-label');
     const streakSuffix = (window.I18n && I18n.isGerman()) ? 'Tage' : 'يوم';
     if (streakEl) streakEl.textContent = `${data.streak.current} ${streakSuffix}`;
     if (xpEl) xpEl.textContent = `${data.xp} XP`;
+    if (userLabelEl) userLabelEl.textContent = Storage.getCurrentUser();
   },
 
   // Dynamic lesson script loader (works flawlessly under file:// and http://)
@@ -995,6 +1114,7 @@ const App = {
     const completed = Storage.getCompletedCount();
     const percent = Math.round((completed / totalLessons) * 100);
 
+    const activeUser = Storage.getCurrentUser();
     const content = document.getElementById('app-content');
     content.innerHTML = `
       <div class="content-container fade-in">
@@ -1002,6 +1122,27 @@ const App = {
           <div>
             <h1 class="section-title">${isDe ? 'Mein Lernfortschritt & Datensicherung' : 'لوحة تقدمي والنسخ الاحتياطي'}</h1>
             <p class="text-secondary">${isDe ? 'Deine Lernerfolge, Statistiken und Optionen zur Datensicherung' : 'تفاصيل إنجازك الأكاديمي، وخيارات حفظ ونقل بياناتك'}</p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 24px; border: 1.5px solid var(--accent);">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;">
+            <div>
+              <h3 style="margin-bottom:4px;">👤 ${isDe ? 'Benutzerkonto & Cloud-Synchronisation' : 'حساب المستخدم والمزامنة السحابية (الكمبيوتر ⇄ الهاتف)'}</h3>
+              <p class="text-secondary" style="font-size:0.92rem; margin:0;">
+                ${isDe 
+                  ? `Aktiver Benutzer: <strong>${Utils.escapeHtml(activeUser)}</strong> — Gib denselben Namen auf deinem Handy ein, um deine Punkte automatisch zu sehen.` 
+                  : `الحساب النشط حالياً: <strong>${Utils.escapeHtml(activeUser)}</strong> — اكتب نفس الاسم على هاتفك بالخارج وستظهر نقاطك ودروسك تلقائياً.`}
+              </p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <button class="btn btn-secondary" onclick="App.triggerManualSync()">
+                ☁️🔄 ${isDe ? 'Jetzt synchronisieren' : 'مزامنة مع السحابة الآن'}
+              </button>
+              <button class="btn btn-primary" onclick="App.openUserModal()">
+                👤 ${isDe ? 'Benutzername ändern / wechseln' : 'تبديل / إدخال اسم المستخدم'}
+              </button>
+            </div>
           </div>
         </div>
 
