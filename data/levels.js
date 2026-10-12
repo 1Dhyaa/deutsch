@@ -6,6 +6,7 @@ window.LEVELS = [
     id: "a1-review",
     title: { de: "A1 Wiederholung", ar: "مراجعة A1" },
     description: "مراجعة أهم مواضيع المستوى الأول",
+    description_de: "Wiederholung der wichtigsten A1-Themen (15 Lektionen)",
     color: "#3B82F6",
     icon: "🔄",
     lessons: [
@@ -30,6 +31,7 @@ window.LEVELS = [
     id: "a2-1",
     title: { de: "A2.1", ar: "A2 — الجزء الأول" },
     description: "المستوى الثاني: الجزء الأول (30 درسًا)",
+    description_de: "Grundstufe A2.1: Reflexivverben, Präpositionen & Nebensätze (30 Lektionen)",
     color: "#10B981",
     icon: "📗",
     lessons: [
@@ -69,6 +71,7 @@ window.LEVELS = [
     id: "a2-2",
     title: { de: "A2.2", ar: "A2 — الجزء الثاني" },
     description: "المستوى الثاني: الجزء الثاني (12 درسًا)",
+    description_de: "Aufbaustufe A2.2: Passiv, Relativsätze & Komparativ (12 Lektionen)",
     color: "#8B5CF6",
     icon: "📘",
     lessons: [

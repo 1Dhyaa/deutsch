@@ -224,6 +224,13 @@ const ArticleGame = {
         cardEl.style.borderColor = 'var(--danger)';
         cardEl.style.background = 'rgba(239, 68, 68, 0.1)';
       }
+      Storage.addMistake({
+        lessonId: 'article-game',
+        question: `أداة التعريف للاسم: ${currentItem.noun}`,
+        myAnswer: `${selected} ${currentItem.noun}`,
+        correctAnswer: `${currentItem.article} ${currentItem.noun}`,
+        explanation: `الأداة الصحيحة هي ${currentItem.article}. المعنى: ${currentItem.ar || ''}`
+      });
       Utils.showToast(`خطأ! الأداة هي: ${currentItem.article} ${currentItem.noun}`, 'error', 1500);
     }
 

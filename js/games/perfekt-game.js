@@ -149,6 +149,13 @@ const PerfektGame = {
         cardEl.style.borderColor = 'var(--danger)';
         cardEl.style.background = 'rgba(239, 68, 68, 0.08)';
       }
+      Storage.addMistake({
+        lessonId: 'perfekt-game',
+        question: `الفعل المساعد في الماضي التام: ${currentItem.verb} (${currentItem.ar})`,
+        myAnswer: `${selected} ${currentItem.partizip2}`,
+        correctAnswer: `${currentItem.hilfsverb} ${currentItem.partizip2}`,
+        explanation: `الصحيح هو ${currentItem.hilfsverb} ${currentItem.partizip2}. القاعدة: ${currentItem.hilfsverb === 'ist' ? 'أفعال الحركة وتغير الحالة تأخذ sein' : 'الأفعال المتعدية والسكون تأخذ haben'}.`
+      });
       Utils.showToast(`خطأ! الصحيح هو: ${currentItem.hilfsverb} ${currentItem.partizip2}`, 'error', 1600);
     }
 

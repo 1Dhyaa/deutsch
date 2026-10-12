@@ -1,5 +1,5 @@
 // Service Worker for Deutsch Meister — 100% Offline PWA for iPhone & PC
-const CACHE_NAME = 'deutsch-meister-v2';
+const CACHE_NAME = 'deutsch-meister-v3';
 
 const STATIC_ASSETS = [
   './',
@@ -18,6 +18,7 @@ const STATIC_ASSETS = [
   './audio/manifest.js?v=20261011',
   './js/utils.js',
   './js/storage.js',
+  './js/i18n.js',
   './js/speech.js?v=20261011',
   './js/router.js',
   './js/quiz-engine.js',

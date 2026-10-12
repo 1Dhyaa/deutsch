@@ -550,3 +550,74 @@ body {
 .fade-in {
   animation: fadeIn 0.35s ease forwards;
 }
+
+/* ========================================= */
+/* LANGUAGE TOGGLE & GERMAN (LTR) OVERRIDES  */
+/* ========================================= */
+
+.lang-toggle-btn {
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+  font-family: var(--font-de);
+}
+
+.lang-toggle-btn:hover {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* German Mode (LTR) */
+html[lang="de"] body,
+body[dir="ltr"] {
+  direction: ltr;
+  text-align: left;
+  font-family: var(--font-de);
+}
+
+html[lang="de"] .sidebar,
+body[dir="ltr"] .sidebar {
+  right: auto;
+  left: 0;
+  border-left: none;
+  border-right: 1px solid var(--border);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.02);
+}
+
+html[lang="de"] .topbar,
+body[dir="ltr"] .topbar {
+  right: 0;
+  left: var(--sidebar-width);
+}
+
+html[lang="de"] .main-content,
+body[dir="ltr"] .main-content {
+  margin-right: 0;
+  margin-left: var(--sidebar-width);
+}
+
+@media (max-width: 1024px) {
+  html[lang="de"] .topbar,
+  body[dir="ltr"] .topbar {
+    left: 0;
+  }
+  html[lang="de"] .main-content,
+  body[dir="ltr"] .main-content {
+    margin-left: 0;
+  }
+}
+

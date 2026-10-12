@@ -106,8 +106,10 @@ const QuizEngine = {
         const correctIdx = (exercise.correct !== undefined) ? exercise.correct : 
           ((exercise.correctIndex !== undefined) ? exercise.correctIndex : exercise.answer);
         const isCorrect = (selectedIdx === correctIdx);
+        const myAnswer = (exercise.options && exercise.options[selectedIdx]) ? exercise.options[selectedIdx] : '';
+        const correctAnswer = (exercise.options && exercise.options[correctIdx]) ? exercise.options[correctIdx] : '';
         
-        this.checkAnswer(isCorrect, target, btns, exercise);
+        this.checkAnswer(isCorrect, target, btns, exercise, '', { myAnswer, correctAnswer });
       });
     });
   },
@@ -145,7 +147,10 @@ const QuizEngine = {
         }
         
         input.disabled = true;
-        this.checkAnswer(isCorrect, null, null, exercise, isCorrect ? '' : `الإجابة الصحيحة هي: ${Array.isArray(targetAns) ? targetAns[0] : targetAns}`);
+        this.checkAnswer(isCorrect, null, null, exercise, isCorrect ? '' : `الإجابة الصحيحة هي: ${Array.isArray(targetAns) ? targetAns[0] : targetAns}`, {
+            myAnswer: val,
+            correctAnswer: Array.isArray(targetAns) ? targetAns[0] : targetAns
+        });
         checkBtn.style.display = 'none';
     };
     
@@ -214,7 +219,10 @@ const QuizEngine = {
         if (Array.isArray(targetAns)) targetAns = targetAns.join(' ');
         const isCorrect = Utils.compareAnswers(userSentence, targetAns, exercise.accept);
         
-        this.checkAnswer(isCorrect, null, null, exercise, isCorrect ? '' : `الترتيب الصحيح: ${targetAns}`);
+        this.checkAnswer(isCorrect, null, null, exercise, isCorrect ? '' : `الترتيب الصحيح: ${targetAns}`, {
+            myAnswer: userSentence,
+            correctAnswer: targetAns
+        });
         checkBtn.style.display = 'none';
     });
   },
@@ -338,7 +346,10 @@ const QuizEngine = {
         }
         
         input.disabled = true;
-        this.checkAnswer(isCorrect, null, null, exercise, isCorrect ? '' : `الإجابة الصحيحة هي: ${Array.isArray(targetAns) ? targetAns[0] : targetAns}`);
+        this.checkAnswer(isCorrect, null, null, exercise, isCorrect ? '' : `الإجابة الصحيحة هي: ${Array.isArray(targetAns) ? targetAns[0] : targetAns}`, {
+            myAnswer: val,
+            correctAnswer: Array.isArray(targetAns) ? targetAns[0] : targetAns
+        });
         checkBtn.style.display = 'none';
     };
     
@@ -377,7 +388,10 @@ const QuizEngine = {
         }
         
         input.disabled = true;
-        this.checkAnswer(isCorrect, null, null, exercise, isCorrect ? '' : `التصحيح هو: ${Array.isArray(targetAns) ? targetAns[0] : targetAns}`);
+        this.checkAnswer(isCorrect, null, null, exercise, isCorrect ? '' : `التصحيح هو: ${Array.isArray(targetAns) ? targetAns[0] : targetAns}`, {
+            myAnswer: val,
+            correctAnswer: Array.isArray(targetAns) ? targetAns[0] : targetAns
+        });
         checkBtn.style.display = 'none';
     };
     
@@ -388,7 +402,7 @@ const QuizEngine = {
     input.focus();
   },
   
-  checkAnswer(isCorrect, targetElement, allElements, exercise, customMsg = '') {
+  checkAnswer(isCorrect, targetElement, allElements, exercise, customMsg = '', meta = {}) {
     this.isAnswered = true;
     
     if (isCorrect) {
@@ -411,13 +425,35 @@ const QuizEngine = {
       
       // Highlight correct answer for multiple choice
       if (allElements && exercise.type === 'multiple-choice') {
-        const correctIdx = (exercise.answer !== undefined) ? exercise.answer : exercise.correct;
+        const correctIdx = (exercise.correct !== undefined) ? exercise.correct : 
+          ((exercise.correctIndex !== undefined) ? exercise.correctIndex : exercise.answer);
         allElements.forEach((btn, idx) => {
           if (idx === correctIdx) {
             btn.style.backgroundColor = 'var(--success)';
             btn.style.color = 'white';
             btn.style.borderColor = 'var(--success)';
           }
+        });
+      }
+
+      // Record to Mistakes Log!
+      if (typeof Storage !== 'undefined' && Storage.addMistake) {
+        let userAns = meta.myAnswer;
+        let rightAns = meta.correctAnswer;
+        if (!userAns && targetElement) {
+          userAns = targetElement.textContent.trim();
+        }
+        if (!rightAns && exercise.type === 'multiple-choice') {
+          const correctIdx = (exercise.correct !== undefined) ? exercise.correct : 
+            ((exercise.correctIndex !== undefined) ? exercise.correctIndex : exercise.answer);
+          rightAns = (exercise.options && exercise.options[correctIdx]) ? exercise.options[correctIdx] : '';
+        }
+        Storage.addMistake({
+          lessonId: this.lesson ? this.lesson.id : 'practice',
+          question: exercise.question || exercise.sentence || exercise.from || 'سؤال بدون عنوان',
+          myAnswer: userAns || 'إجابة غير صحيحة',
+          correctAnswer: rightAns || (exercise.answer || exercise.correct || 'الإجابة الصحيحة'),
+          explanation: exercise.explanation || customMsg || ''
         });
       }
       

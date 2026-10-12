@@ -168,6 +168,13 @@ const PraeteritumGame = {
         cardEl.style.borderColor = 'var(--danger)';
         cardEl.style.background = 'rgba(239, 68, 68, 0.08)';
       }
+      Storage.addMistake({
+        lessonId: 'praeteritum-game',
+        question: `تصريف Präteritum للفعل: ${currentItem.infinitive} (${currentItem.ar})`,
+        myAnswer: selected,
+        correctAnswer: currentItem.praeteritum,
+        explanation: `صيغة الماضي البسيط الصحيحة هي: ${currentItem.praeteritum}.`
+      });
       Utils.showToast(`خطأ! Präteritum لـ ${currentItem.infinitive} هو: ${currentItem.praeteritum}`, 'error', 1600);
     }
 

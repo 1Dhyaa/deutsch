@@ -2,13 +2,28 @@
 
 const App = {
   init() {
+    // 0. Initialize I18n & Language Switcher
+    if (window.I18n) {
+      I18n.init();
+      const langBtn = document.getElementById('lang-toggle-btn');
+      if (langBtn) {
+        langBtn.addEventListener('click', () => {
+          I18n.toggleLang();
+          this.updateHeaderStats();
+        });
+      }
+    }
+
     // 1. Initialize Theme
     Storage.applyTheme();
     const themeBtn = document.getElementById('theme-toggle');
     if (themeBtn) {
       themeBtn.addEventListener('click', () => {
         const newTheme = Storage.toggleTheme();
-        Utils.showToast(newTheme === 'dark' ? 'تم تفعيل الوضع الليلي 🌙' : 'تم تفعيل الوضع النهاري ☀️', 'info', 1500);
+        const msg = (window.I18n && I18n.isGerman())
+          ? (newTheme === 'dark' ? 'Dunkelmodus aktiviert 🌙' : 'Hellmodus aktiviert ☀️')
+          : (newTheme === 'dark' ? 'تم تفعيل الوضع الليلي 🌙' : 'تم تفعيل الوضع النهاري ☀️');
+        Utils.showToast(msg, 'info', 1500);
       });
     }
 
@@ -139,7 +154,8 @@ const App = {
     const data = Storage.load();
     const streakEl = document.getElementById('streak-count');
     const xpEl = document.getElementById('xp-count');
-    if (streakEl) streakEl.textContent = `${data.streak.current} يوم`;
+    const streakSuffix = (window.I18n && I18n.isGerman()) ? 'Tage' : 'يوم';
+    if (streakEl) streakEl.textContent = `${data.streak.current} ${streakSuffix}`;
     if (xpEl) xpEl.textContent = `${data.xp} XP`;
   },
 
@@ -298,21 +314,24 @@ const App = {
   // VIEW: HOME PAGE
   // ==========================================
   renderHome() {
-    this.setBreadcrumb('الرئيسية / لوحة التحكم والمتابعة');
+    const isDe = window.I18n && window.I18n.isGerman();
+    this.setBreadcrumb(isDe ? 'Startseite / Übersicht & Dashboard' : 'الرئيسية / لوحة التحكم والمتابعة');
     const data = Storage.load();
     const totalLessons = window.TOTAL_LESSONS || 57;
     const completedLessons = Storage.getCompletedCount();
     const percent = Math.round((completedLessons / totalLessons) * 100);
     const lastLessonId = Storage.getLastLesson() || 'a1-review-01';
 
-    let lastLessonTitle = 'ضمائر الملكية (Possessivpronomen)';
-    let lastLessonSubtitle = 'مراجعة A1 — الدرس 1';
+    let lastLessonTitle = isDe ? 'Possessivpronomen' : 'ضمائر الملكية (Possessivpronomen)';
+    let lastLessonSubtitle = isDe ? 'A1 Wiederholung — Lektion 1' : 'مراجعة A1 — الدرس 1';
     if (window.LEVELS) {
       for (const lvl of window.LEVELS) {
         const found = lvl.lessons.find(l => l.id === lastLessonId);
         if (found) {
-          lastLessonTitle = `${found.title.ar} (${found.title.de})`;
-          lastLessonSubtitle = `${lvl.title.ar} — درس رقم ${lvl.lessons.indexOf(found) + 1}`;
+          lastLessonTitle = isDe ? found.title.de : `${found.title.ar} (${found.title.de})`;
+          lastLessonSubtitle = isDe 
+            ? `${lvl.title.de} — Lektion ${lvl.lessons.indexOf(found) + 1}`
+            : `${lvl.title.ar} — درس رقم ${lvl.lessons.indexOf(found) + 1}`;
           break;
         }
       }
@@ -321,21 +340,23 @@ const App = {
     const content = document.getElementById('app-content');
     content.innerHTML = `
       <div class="content-container fade-in">
-        <!-- 1. Hero Banner (Spacious Desktop & Mobile Adaptive) -->
+        <!-- 1. Hero Banner -->
         <div class="hero-banner">
           <div class="hero-content">
-            <span class="hero-pill">🇩🇪 خطتك المكثفة للوصول إلى B1 و Ausbildung</span>
-            <h1 class="hero-title">جاهز لمواصلة خطتك الدراسية؟</h1>
+            <span class="hero-pill">${isDe ? '🇩🇪 Intensivkurs bis Goethe B1 & Ausbildung' : '🇩🇪 خطتك المكثفة للوصول إلى B1 و Ausbildung'}</span>
+            <h1 class="hero-title">${isDe ? 'Bereit für deine nächste Deutsch-Lektion?' : 'جاهز لمواصلة خطتك الدراسية؟'}</h1>
             <p class="hero-subtitle">
-              مراجعة شاملة لقواعد A1 ودراسة كامل منهج A2 خطوة بخطوة مع شروحات عربية مبسطة، تمارين تفاعلية، وسجل لحفظ الأخطاء.
+              ${isDe 
+                ? 'Strukturierte A1-Wiederholung und vollständiger A2-Lehrplan mit interaktiven Übungen, muttersprachlicher Aussprache und automatischem Fehlerbuch.' 
+                : 'مراجعة شاملة لقواعد A1 ودراسة كامل منهج A2 خطوة بخطوة مع شروحات عربية مبسطة، تمارين تفاعلية، وسجل لحفظ الأخطاء.'}
             </p>
           </div>
           <div class="hero-actions">
             <a href="#/lesson/${lastLessonId}" class="btn btn-white btn-lg" style="width: 100%;">
-              ▶ متابعة من حيث توقفت
+              ${isDe ? '▶ Lektion fortsetzen' : '▶ متابعة من حيث توقفت'}
             </a>
             <a href="#/game/article" class="btn" style="background: rgba(255,255,255,0.18); color: white; width: 100%;">
-              🎯 تحدي اليوم: der / die / das
+              ${isDe ? '🎯 Tages-Challenge: der / die / das' : '🎯 تحدي اليوم: der / die / das'}
             </a>
           </div>
         </div>
@@ -345,65 +366,74 @@ const App = {
           <div class="stat-box">
             <div class="stat-icon" style="background: rgba(234, 88, 12, 0.1); color: var(--streak-color);">🔥</div>
             <div class="stat-info">
-              <h4>سلسلة المذاكرة اليومية</h4>
-              <div class="stat-value">${data.streak.current} يوم</div>
-              <span style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">أفضل سلسلة: ${data.streak.best || data.streak.current} يوم</span>
+              <h4>${isDe ? 'Tägliche Lernserie' : 'سلسلة المذاكرة اليومية'}</h4>
+              <div class="stat-value">${data.streak.current} ${isDe ? 'Tage' : 'يوم'}</div>
+              <span style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">
+                ${isDe ? `Beste Serie: ${data.streak.best || data.streak.current} Tage` : `أفضل سلسلة: ${data.streak.best || data.streak.current} يوم`}
+              </span>
             </div>
           </div>
 
           <div class="stat-box">
             <div class="stat-icon" style="background: rgba(217, 119, 6, 0.1); color: var(--xp-color);">⚡</div>
             <div class="stat-info">
-              <h4>مجموع نقاط الخبرة</h4>
+              <h4>${isDe ? 'Erfahrungspunkte' : 'مجموع نقاط الخبرة'}</h4>
               <div class="stat-value">${data.xp} XP</div>
-              <span style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">اربح XP مع كل تمرين واختبار</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">
+                ${isDe ? 'Sammle XP mit jeder Übung & Test' : 'اربح XP مع كل تمرين واختبار'}
+              </span>
             </div>
           </div>
 
           <div class="stat-box">
             <div class="stat-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--success);">🎯</div>
             <div class="stat-info">
-              <h4>إجمالي إنجاز المنهج</h4>
+              <h4>${isDe ? 'Gesamter Lehrplan-Fortschritt' : 'إجمالي إنجاز المنهج'}</h4>
               <div class="stat-value">${percent}%</div>
-              <span style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">أكملت ${completedLessons} من ${totalLessons} درساً</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">
+                ${isDe ? `${completedLessons} von ${totalLessons} Lektionen abgeschlossen` : `أكملت ${completedLessons} من ${totalLessons} درساً`}
+              </span>
             </div>
           </div>
         </div>
 
         <!-- 3. Current Active Lesson Quick Action -->
-        <div class="card" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; border-right: 6px solid var(--accent);">
+        <div class="card" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; border-inline-start: 6px solid var(--accent);">
           <div>
-            <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 4px;">الدرس الحالي المقترح:</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 4px;">${isDe ? 'Empfohlene Lektion:' : 'الدرس الحالي المقترح:'}</div>
             <h3 style="font-size: 1.25rem; color: var(--text-primary); margin-bottom: 2px;">${Utils.escapeHtml(lastLessonTitle)}</h3>
             <span style="font-size: 0.85rem; color: var(--accent); font-weight: 600;">${Utils.escapeHtml(lastLessonSubtitle)}</span>
           </div>
-          <a href="#/lesson/${lastLessonId}" class="btn btn-primary">ابدأ الدرس الآن ➔</a>
+          <a href="#/lesson/${lastLessonId}" class="btn btn-primary">${isDe ? 'Lektion jetzt starten ➔' : 'ابدأ الدرس الآن ➔'}</a>
         </div>
 
         <!-- 4. Curriculum Level Cards -->
         <div class="section-header">
           <div>
-            <h2 class="section-title">مستويات المنهج الدراسي</h2>
-            <p class="section-subtitle">انقر على أي مستوى لعرض قائمة دروسه وتمارينه</p>
+            <h2 class="section-title">${isDe ? 'Lehrplan & Niveaustufen' : 'مستويات المنهج الدراسي'}</h2>
+            <p class="section-subtitle">${isDe ? 'Wähle eine Niveaustufe, um alle 57 Lektionen und Übungen zu öffnen' : 'انقر على أي مستوى لعرض قائمة دروسه وتمارينه'}</p>
           </div>
-          <a href="#/lessons" class="btn btn-secondary btn-sm">عرض كل الدروس (57 درس)</a>
+          <a href="#/lessons" class="btn btn-secondary btn-sm">${isDe ? 'Alle 57 Lektionen anzeigen' : 'عرض كل الدروس (57 درس)'}</a>
         </div>
 
         <div class="grid-3">
           ${(window.LEVELS || []).map(lvl => {
             const lvlCompleted = lvl.lessons.filter(l => data.lessons[l.id] && data.lessons[l.id].completed).length;
             const lvlPercent = Math.round((lvlCompleted / lvl.lessons.length) * 100);
+            const lvlTitle = isDe ? lvl.title.de : lvl.title.ar;
+            const lvlSub = isDe ? lvl.title.ar : lvl.title.de;
+            const lvlDesc = (isDe && lvl.description_de) ? lvl.description_de : lvl.description;
             return `
               <div class="level-card" style="--level-color: ${lvl.color}; --level-bg: ${lvl.color}15;">
                 <div>
                   <div class="level-top">
                     <div class="level-icon-badge">${lvl.icon}</div>
-                    <span class="badge" style="background: ${lvl.color}15; color: ${lvl.color};">${lvl.lessons.length} درساً</span>
+                    <span class="badge" style="background: ${lvl.color}15; color: ${lvl.color};">${lvl.lessons.length} ${isDe ? 'Lektionen' : 'درساً'}</span>
                   </div>
                   <div class="level-info">
-                    <h3>${lvl.title.ar}</h3>
-                    <div class="level-de-title de-text">${lvl.title.de}</div>
-                    <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 16px;">${lvl.description}</p>
+                    <h3>${lvlTitle}</h3>
+                    <div class="level-de-title de-text">${lvlSub}</div>
+                    <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 16px;">${lvlDesc}</p>
                   </div>
                 </div>
                 <div>
@@ -411,11 +441,11 @@ const App = {
                     <div class="progress-bar-fill" style="width: ${lvlPercent}%; background: ${lvl.color};"></div>
                   </div>
                   <div class="level-meta">
-                    <span>مكتمل: ${lvlCompleted} من ${lvl.lessons.length}</span>
+                    <span>${isDe ? 'Abgeschlossen:' : 'مكتمل:'} ${lvlCompleted} / ${lvl.lessons.length}</span>
                     <span>${lvlPercent}%</span>
                   </div>
                   <div style="margin-top: 18px;">
-                    <a href="#/lessons" class="btn btn-secondary btn-sm" style="width: 100%;">استعراض الدروس</a>
+                    <a href="#/lessons" class="btn btn-secondary btn-sm" style="width: 100%;">${isDe ? 'Lektionen anzeigen' : 'استعراض الدروس'}</a>
                   </div>
                 </div>
               </div>
@@ -423,32 +453,38 @@ const App = {
           }).join('')}
         </div>
 
-        <!-- 5. Two-Column Dashboard Section (Desktop Wide Layout) -->
+        <!-- 5. Two-Column Dashboard Section -->
         <div class="grid-2">
           <!-- Study Focus Priorities -->
           <div class="card" style="margin-bottom: 0;">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
               <h3 style="font-size: 1.15rem; color: var(--text-primary); display: flex; align-items: center; gap: 8px;">
-                <span>🎯</span> نقاط التركيز الأساسية للناطق بالعربية
+                <span>🎯</span> ${isDe ? 'Die 3 goldenen Grammatikregeln' : 'نقاط التركيز الأساسية للناطق بالعربية'}
               </h3>
             </div>
             <div style="display: flex; flex-direction: column; gap: 12px; font-size: 0.92rem;">
               <div style="display: flex; gap: 12px; align-items: flex-start; padding: 10px; background: var(--bg-primary); border-radius: var(--radius-sm);">
                 <span class="badge badge-danger">1</span>
                 <div>
-                  <strong>موقع الفعل ثانياً (V2):</strong> في الجملة الألمانية الرئيسية يكون الفعل دائماً في الموقع الثاني، حتى لو بدأت بالظرف الزمني!
+                  ${isDe 
+                    ? '<strong>Verbposition 2 (V2):</strong> Im deutschen Hauptsatz steht das konjugierte Verb immer an zweiter Position, auch wenn ein Adverb am Satzanfang steht!' 
+                    : '<strong>موقع الفعل ثانياً (V2):</strong> في الجملة الألمانية الرئيسية يكون الفعل دائماً في الموقع الثاني، حتى لو بدأت بالظرف الزمني!'}
                 </div>
               </div>
               <div style="display: flex; gap: 12px; align-items: flex-start; padding: 10px; background: var(--bg-primary); border-radius: var(--radius-sm);">
                 <span class="badge badge-warning">2</span>
                 <div>
-                  <strong>الجمل الفرعية (Nebensätze):</strong> بعد روابط مثل <em>weil, dass, wenn</em> يذهب الفعل المصرف إلى <strong>نهاية الجملة</strong> مباشرة.
+                  ${isDe 
+                    ? '<strong>Nebensätze (Verb-Letzt):</strong> Nach Konjunktionen wie <em>weil, dass, wenn</em> wandert das Verb ans Satzende.' 
+                    : '<strong>الجمل الفرعية (Nebensätze):</strong> بعد روابط مثل <em>weil, dass, wenn</em> يذهب الفعل المصرف إلى <strong>نهاية الجملة</strong> مباشرة.'}
                 </div>
               </div>
               <div style="display: flex; gap: 12px; align-items: flex-start; padding: 10px; background: var(--bg-primary); border-radius: var(--radius-sm);">
                 <span class="badge badge-primary">3</span>
                 <div>
-                  <strong>أدوات التعريف (der/die/das):</strong> احفظ كل اسم دائماً مع أداته بصرياً بالألوان لتفادي أخطاء Akkusativ و Dativ.
+                  ${isDe 
+                    ? '<strong>Artikel (der/die/das):</strong> Lerne jedes Nomen immer mit seinem Artikel und seiner Pluralform!' 
+                    : '<strong>أدوات التعريف (der/die/das):</strong> احفظ كل اسم دائماً مع أداته بصرياً بالألوان لتفادي أخطاء Akkusativ و Dativ.'}
                 </div>
               </div>
             </div>
@@ -457,12 +493,16 @@ const App = {
           <!-- Quick Games Launcher -->
           <div class="card" style="margin-bottom: 0; background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(59, 130, 246, 0.08) 100%); border-color: var(--accent);">
             <div style="font-size: 2.2rem; margin-bottom: 10px;">⚡</div>
-            <h3 style="font-size: 1.25rem; color: var(--text-primary); margin-bottom: 8px;">تحدي سرعة أدوات التعريف</h3>
+            <h3 style="font-size: 1.25rem; color: var(--text-primary); margin-bottom: 8px;">
+              ${isDe ? 'Artikel-Schnelltest (der / die / das)' : 'تحدي سرعة أدوات التعريف'}
+            </h3>
             <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px; line-height: 1.6;">
-              تحدَّ نفسك في تصنيف 30 اسماً شائعاً بين der أو die أو das خلال 45 ثانية واكسب نقاط XP لسلسلتك اليومية.
+              ${isDe 
+                ? 'Trainiere 30 häufige Nomen in 45 Sekunden und sammle XP für deine tägliche Serie!' 
+                : 'تحدَّ نفسك في تصنيف 30 اسماً شائعاً بين der أو die أو das خلال 45 ثانية واكسب نقاط XP لسلسلتك اليومية.'}
             </p>
             <a href="#/game/article" class="btn btn-primary" style="width: 100%;">
-              العب التحدي الآن 🎯
+              ${isDe ? 'Jetzt spielen 🎯' : 'العب التحدي الآن 🎯'}
             </a>
           </div>
         </div>
@@ -474,7 +514,8 @@ const App = {
   // VIEW: LESSONS CURRICULUM MAP
   // ==========================================
   renderLessonsMap() {
-    this.setBreadcrumb('المنهج الدراسي / خريطة الدروس الـ 57');
+    const isDe = window.I18n && window.I18n.isGerman();
+    this.setBreadcrumb(isDe ? 'Lehrplan / Alle 57 Lektionen' : 'المنهج الدراسي / خريطة الدروس الـ 57');
     const data = Storage.load();
     const content = document.getElementById('app-content');
 
@@ -482,22 +523,27 @@ const App = {
       <div class="content-container fade-in">
         <div class="section-header">
           <div>
-            <h1 class="section-title">خريطة المنهج والدروس</h1>
-            <p class="section-subtitle">57 درساً مُنظماً خطوة بخطوة مع شروحات وتمارين واختبارات فورية</p>
+            <h1 class="section-title">${isDe ? 'Lehrplan & Lektionsübersicht' : 'خريطة المنهج والدروس'}</h1>
+            <p class="section-subtitle">${isDe ? '57 strukturierte Lektionen mit Grammatikerklärungen, Beispielen und Quiz' : '57 درساً مُنظماً خطوة بخطوة مع شروحات وتمارين واختبارات فورية'}</p>
           </div>
         </div>
     `;
 
     for (const lvl of (window.LEVELS || [])) {
       const lvlCompleted = lvl.lessons.filter(l => data.lessons[l.id] && data.lessons[l.id].completed).length;
+      const lvlHeaderTitle = isDe ? `${lvl.title.de} — ${lvl.title.ar}` : `${lvl.title.ar} — <span class="de-text">${lvl.title.de}</span>`;
+      const lvlHeaderDesc = isDe 
+        ? `${lvl.description_de || lvl.description} (${lvlCompleted}/${lvl.lessons.length} abgeschlossen)`
+        : `${lvl.description} (${lvlCompleted}/${lvl.lessons.length} مكتمل)`;
+
       html += `
         <div class="card" style="margin-bottom: 24px;">
           <div class="level-header" style="border-bottom: 2px solid var(--border-light); padding-bottom: 14px; margin-bottom: 16px;">
             <div class="level-title-wrap">
               <span style="font-size: 1.8rem;">${lvl.icon}</span>
               <div>
-                <h2 style="font-size: 1.35rem; color: var(--text-primary);">${lvl.title.ar} — <span class="de-text">${lvl.title.de}</span></h2>
-                <span style="font-size: 0.85rem; color: var(--text-muted);">${lvl.description} (${lvlCompleted}/${lvl.lessons.length} مكتمل)</span>
+                <h2 style="font-size: 1.35rem; color: var(--text-primary);">${lvlHeaderTitle}</h2>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">${lvlHeaderDesc}</span>
               </div>
             </div>
           </div>
@@ -511,13 +557,13 @@ const App = {
         const isCompleted = status && status.completed;
         const isReady = !!(window.LESSONS && window.LESSONS[lesson.id]);
         
-        let scoreText = '🔒 قريباً';
+        let scoreText = isDe ? '🔒 Demnächst' : '🔒 قريباً';
         let badgeClass = 'badge-secondary';
         if (isCompleted) {
-          scoreText = `✅ مكتمل (${status.bestScore}/${status.totalQuestions || 5})`;
+          scoreText = isDe ? `✅ Abgeschlossen (${status.bestScore}/${status.totalQuestions || 5})` : `✅ مكتمل (${status.bestScore}/${status.totalQuestions || 5})`;
           badgeClass = 'badge-success';
         } else if (isReady) {
-          scoreText = '⭐ جاهز للدراسة';
+          scoreText = isDe ? '⭐ Bereit zum Lernen' : '⭐ جاهز للدراسة';
           badgeClass = 'badge-primary';
         }
 
@@ -557,7 +603,8 @@ const App = {
   // VIEW: GAMES HUB
   // ==========================================
   renderGamesHub() {
-    this.setBreadcrumb('الأنشطة / الألعاب التعليمية التفاعلية');
+    const isDe = window.I18n && window.I18n.isGerman();
+    this.setBreadcrumb(isDe ? 'Aktivitäten / Interaktive Lernspiele' : 'الأنشطة / الألعاب التعليمية التفاعلية');
     const data = Storage.load();
     const articleHighScore = (data.games && data.games.articleGame) ? data.games.articleGame.highScore : 0;
     const perfektHighScore = (data.games && data.games.perfektGame) ? data.games.perfektGame.highScore : 0;
@@ -569,123 +616,126 @@ const App = {
     const satzbauHighScore = (data.games && data.games.satzbauGame) ? data.games.satzbauGame.highScore : 0;
     const dialogHighScore = (data.games && data.games.dialogGame) ? data.games.dialogGame.highScore : 0;
 
+    const scoreLabel = isDe ? 'Beste Punktzahl:' : 'أعلى نتيجة:';
+    const playBtn = isDe ? 'Jetzt spielen ➔' : 'العب الآن ➔';
+
     const content = document.getElementById('app-content');
     content.innerHTML = `
       <div class="content-container fade-in">
         <div class="section-header">
           <div>
-            <h1 class="section-title">منطقة الألعاب والتدريبات التفاعلية</h1>
-            <p class="section-subtitle">ألعاب سريعة لتثبيت المفردات، بناء الجملة V2، الجمل الفرعية، كشف الأخطاء، وفنون المحادثة</p>
+            <h1 class="section-title">${isDe ? 'Interaktive Lernspiele & Training' : 'منطقة الألعاب والتدريبات التفاعلية'}</h1>
+            <p class="section-subtitle">${isDe ? 'Kurze Trainingsspiele für Wortschatz, Satzbau (V2), Nebensätze, Fehlerkorrektur und Konversation' : 'ألعاب سريعة لتثبيت المفردات، بناء الجملة V2، الجمل الفرعية، كشف الأخطاء، وفنون المحادثة'}</p>
           </div>
         </div>
 
         <div class="games-grid">
-          <!-- Game: Phrases Trainer (New!) -->
+          <!-- Game: Phrases Trainer -->
           <div class="game-card" style="border: 2px solid var(--accent); background: linear-gradient(135deg, rgba(99,102,241,0.06), rgba(59,130,246,0.04));">
             <div class="game-icon">💬</div>
-            <h3>تحدي المفردات والترجمة الفورية (Phrasen-Trainer)</h3>
-            <p>تُعرض عليك عبارة عربية يومية، ومهمتك تركيب الجملة الألمانية الصحيحة باستخدام بنك الكلمات مع نطق صوتي فوري!</p>
+            <h3>${isDe ? 'Phrasen-Trainer & Sofort-Übersetzung' : 'تحدي المفردات والترجمة الفورية (Phrasen-Trainer)'}</h3>
+            <p>${isDe ? 'Bilde den richtigen deutschen Satz aus dem Wortkasten mit direkter Audio-Aussprache!' : 'تُعرض عليك عبارة عربية يومية، ومهمتك تركيب الجملة الألمانية الصحيحة باستخدام بنك الكلمات مع نطق صوتي فوري!'}</p>
             <div class="game-meta">
-              <span>أعلى نتيجة: ${phrasesHighScore} نقطة</span>
-              <span class="badge badge-success">جديد ومميز ⚡</span>
+              <span>${scoreLabel} ${phrasesHighScore} ${isDe ? 'Pkt.' : 'نقطة'}</span>
+              <span class="badge badge-success">${isDe ? 'Neu & Beliebt ⚡' : 'جديد ومميز ⚡'}</span>
             </div>
-            <a href="#/game/phrases" class="btn btn-primary" style="width: 100%;">العب الآن ➔</a>
+            <a href="#/game/phrases" class="btn btn-primary" style="width: 100%;">${playBtn}</a>
           </div>
 
-          <!-- Game: Fehlerkorrektur (New!) -->
+          <!-- Game: Fehlerkorrektur -->
           <div class="game-card" style="border: 2px solid var(--danger); background: linear-gradient(135deg, rgba(239,68,68,0.05), rgba(245,158,11,0.04));">
             <div class="game-icon">🔍</div>
-            <h3>تحدي اكتشف الخطأ وصححه (What's Wrong?)</h3>
-            <p>جمَل ألمانية تحتوي على أخطاء شائعة في الإعراب ومواقع الأفعال. اكتشف الخطأ واختر التصحيح السليم مع شرح نحوي!</p>
+            <h3>${isDe ? 'Fehlerdetektiv: Was ist falsch?' : 'تحدي اكتشف الخطأ وصححه (What\'s Wrong?)'}</h3>
+            <p>${isDe ? 'Finde typische Grammatikfehler im Satzbau, Kasus oder Konjugation und wähle die richtige Version mit Erklärung!' : 'جمَل ألمانية تحتوي على أخطاء شائعة في الإعراب ومواقع الأفعال. اكتشف الخطأ واختر التصحيح السليم مع شرح نحوي!'}</p>
             <div class="game-meta">
-              <span>أعلى نتيجة: ${fehlerHighScore} نقطة</span>
-              <span class="badge badge-danger">تحدي الذكاء 🎯</span>
+              <span>${scoreLabel} ${fehlerHighScore} ${isDe ? 'Pkt.' : 'نقطة'}</span>
+              <span class="badge badge-danger">${isDe ? 'IQ-Challenge 🎯' : 'تحدي الذكاء 🎯'}</span>
             </div>
-            <a href="#/game/fehler" class="btn btn-primary" style="width: 100%;">العب الآن ➔</a>
+            <a href="#/game/fehler" class="btn btn-primary" style="width: 100%;">${playBtn}</a>
           </div>
 
-          <!-- Game: Satzbau & Nebensatz Master (New!) -->
+          <!-- Game: Satzbau & Nebensatz Master -->
           <div class="game-card" style="border: 2px solid #10B981; background: linear-gradient(135deg, rgba(16,185,129,0.06), rgba(59,130,246,0.04));">
             <div class="game-icon">🏗️</div>
-            <h3>مهندس بناء الجملة (Satzbau & Nebensatz)</h3>
-            <p>تدريب مكثف على موقع الفعل (V2)، قلب الفاعل عند تقديم الظرف، روابط ADUSO، والجمل الفرعية (weil, dass, wenn)!</p>
+            <h3>${isDe ? 'Satzbau-Meister (V2 & Nebensatz)' : 'مهندس بناء الجملة (Satzbau & Nebensatz)'}</h3>
+            <p>${isDe ? 'Intensivtraining für Verbposition 2 (V2), Inversion, ADUSO-Konnektoren und Nebensätze mit weil, dass, wenn!' : 'تدريب مكثف على موقع الفعل (V2)، قلب الفاعل عند تقديم الظرف، روابط ADUSO، والجمل الفرعية (weil, dass, wenn)!'}</p>
             <div class="game-meta">
-              <span>أعلى نتيجة: ${satzbauHighScore} نقطة</span>
-              <span class="badge badge-success">أساسي للامتحان ⚡</span>
+              <span>${scoreLabel} ${satzbauHighScore} ${isDe ? 'Pkt.' : 'نقطة'}</span>
+              <span class="badge badge-success">${isDe ? 'Prüfungsrelevant ⚡' : 'أساسي للامتحان ⚡'}</span>
             </div>
-            <a href="#/game/satzbau" class="btn btn-primary" style="width: 100%;">العب الآن ➔</a>
+            <a href="#/game/satzbau" class="btn btn-primary" style="width: 100%;">${playBtn}</a>
           </div>
 
-          <!-- Game: Dialog & Sprechen Studio (New!) -->
+          <!-- Game: Dialog & Sprechen Studio -->
           <div class="game-card" style="border: 2px solid #8B5CF6; background: linear-gradient(135deg, rgba(139,92,246,0.06), rgba(236,72,153,0.04));">
             <div class="game-icon">🎭</div>
-            <h3>استوديو السؤال والجواب (Fragen & Antworten)</h3>
-            <p>تعلم كيف تسأل بدقة (W-Fragen وأدوات الاستفهام) وكيف تجيب بأفضل التعبيرات اليومية المعتمدة في Goethe Sprechen!</p>
+            <h3>${isDe ? 'Fragen & Antworten Studio (Sprechen)' : 'استوديو السؤال والجواب (Fragen & Antworten)'}</h3>
+            <p>${isDe ? 'Lerne präzise W-Fragen zu stellen und mit bewährten Redemitteln wie im Goethe-Sprechen flüssig zu antworten!' : 'تعلم كيف تسأل بدقة (W-Fragen وأدوات الاستفهام) وكيف تجيب بأفضل التعبيرات اليومية المعتمدة في Goethe Sprechen!'}</p>
             <div class="game-meta">
-              <span>أعلى نتيجة: ${dialogHighScore} نقطة</span>
-              <span class="badge badge-primary">محادثة حقيقية 💬</span>
+              <span>${scoreLabel} ${dialogHighScore} ${isDe ? 'Pkt.' : 'نقطة'}</span>
+              <span class="badge badge-primary">${isDe ? 'Echte Dialoge 💬' : 'محادثة حقيقية 💬'}</span>
             </div>
-            <a href="#/game/dialog" class="btn btn-primary" style="width: 100%;">العب الآن ➔</a>
+            <a href="#/game/dialog" class="btn btn-primary" style="width: 100%;">${playBtn}</a>
           </div>
 
           <!-- Game 1: Article Game -->
           <div class="game-card">
             <div class="game-icon">🎯</div>
-            <h3>تحدي أدوات التعريف (der / die / das)</h3>
-            <p>اختر الأداة الصحيحة للاسم بأقصى سرعة قبل نفاد الوقت (45 ثانية). كل إجابة صحيحة تمنحك نقاطاً وسلسلة فوز!</p>
+            <h3>${isDe ? 'Artikel-Sprint (der / die / das)' : 'تحدي أدوات التعريف (der / die / das)'}</h3>
+            <p>${isDe ? 'Wähle den richtigen Artikel für jedes Nomen unter Zeitdruck (45 Sekunden)!' : 'اختر الأداة الصحيحة للاسم بأقصى سرعة قبل نفاد الوقت (45 ثانية). كل إجابة صحيحة تمنحك نقاطاً وسلسلة فوز!'}</p>
             <div class="game-meta">
-              <span>أعلى نتيجة: ${articleHighScore} نقطة</span>
-              <span class="badge badge-success">جاهز للعب ⚡</span>
+              <span>${scoreLabel} ${articleHighScore} ${isDe ? 'Pkt.' : 'نقطة'}</span>
+              <span class="badge badge-success">${isDe ? 'Bereit zum Spielen ⚡' : 'جاهز للعب ⚡'}</span>
             </div>
-            <a href="#/game/article" class="btn btn-primary" style="width: 100%;">العب الآن ➔</a>
+            <a href="#/game/article" class="btn btn-primary" style="width: 100%;">${playBtn}</a>
           </div>
 
           <!-- Game 2: Perfekt Game -->
           <div class="game-card">
             <div class="game-icon">⏳</div>
-            <h3>تحدي الماضي التام: haben أم sein؟</h3>
-            <p>هل يأخذ الفعل hat أم ist؟ اختبر سرعتك في التمييز بين أفعال الحركة والتحول وبقية الأفعال تحت ضغط الوقت!</p>
+            <h3>${isDe ? 'Perfekt-Trainer: haben oder sein?' : 'تحدي الماضي التام: haben أم sein؟'}</h3>
+            <p>${isDe ? 'Hat oder ist? Teste deine Reflexe bei Bewegungsverben, Zustandswechseln und Ausnahmen!' : 'هل يأخذ الفعل hat أم ist؟ اختبر سرعتك في التمييز بين أفعال الحركة والتحول وبقية الأفعال تحت ضغط الوقت!'}</p>
             <div class="game-meta">
-              <span>أعلى نتيجة: ${perfektHighScore} نقطة</span>
-              <span class="badge badge-success">جاهز للعب ⚡</span>
+              <span>${scoreLabel} ${perfektHighScore} ${isDe ? 'Pkt.' : 'نقطة'}</span>
+              <span class="badge badge-success">${isDe ? 'Bereit zum Spielen ⚡' : 'جاهز للعب ⚡'}</span>
             </div>
-            <a href="#/game/perfekt" class="btn btn-primary" style="width: 100%;">العب الآن ➔</a>
+            <a href="#/game/perfekt" class="btn btn-primary" style="width: 100%;">${playBtn}</a>
           </div>
 
           <!-- Game 3: Präteritum Sprint -->
           <div class="game-card">
             <div class="game-icon">⚡</div>
-            <h3>سباق الماضي البسيط (Präteritum)</h3>
-            <p>اختر تصريف Präteritum الصحيح من بين 4 خيارات للأفعال الشاذة والأساسية المعتمدة في امتحانات A2 و B1.</p>
+            <h3>${isDe ? 'Präteritum-Sprint' : 'سباق الماضي البسيط (Präteritum)'}</h3>
+            <p>${isDe ? 'Wähle die richtige Präteritum-Form für die wichtigsten unregelmäßigen Verben.' : 'اختر تصريف Präteritum الصحيح من بين 4 خيارات للأفعال الشاذة والأساسية المعتمدة في امتحانات A2 و B1.'}</p>
             <div class="game-meta">
-              <span>أعلى نتيجة: ${praeteritumHighScore} نقطة</span>
-              <span class="badge badge-success">جاهز للعب ⚡</span>
+              <span>${scoreLabel} ${praeteritumHighScore} ${isDe ? 'Pkt.' : 'نقطة'}</span>
+              <span class="badge badge-success">${isDe ? 'Bereit zum Spielen ⚡' : 'جاهز للعب ⚡'}</span>
             </div>
-            <a href="#/game/praeteritum" class="btn btn-primary" style="width: 100%;">العب الآن ➔</a>
+            <a href="#/game/praeteritum" class="btn btn-primary" style="width: 100%;">${playBtn}</a>
           </div>
 
           <!-- Game 4: Kasus Trainer -->
           <div class="game-card">
             <div class="game-icon">🛡️</div>
-            <h3>تحدي الإعراب الألماني (Kasus Trainer)</h3>
-            <p>أتقن حالات الإعراب الثلاث: Akkusativ و Dativ و Genitiv وحروف الجر المشتركة تحت ضغط الوقت (60 ثانية)!</p>
+            <h3>${isDe ? 'Kasus-Trainer (Akkusativ, Dativ & Genitiv)' : 'تحدي الإعراب الألماني (Kasus Trainer)'}</h3>
+            <p>${isDe ? 'Meistere die Fälle und Wechselpräpositionen unter Zeitdruck (60 Sekunden)!' : 'أتقن حالات الإعراب الثلاث: Akkusativ و Dativ و Genitiv وحروف الجر المشتركة تحت ضغط الوقت (60 ثانية)!'}</p>
             <div class="game-meta">
-              <span>أعلى نتيجة: ${kasusHighScore} نقطة</span>
-              <span class="badge badge-success">متاح للعب ⚡</span>
+              <span>${scoreLabel} ${kasusHighScore} ${isDe ? 'Pkt.' : 'نقطة'}</span>
+              <span class="badge badge-success">${isDe ? 'Verfügbar ⚡' : 'متاح للعب ⚡'}</span>
             </div>
-            <a href="#/game/kasus" class="btn btn-primary" style="width: 100%;">العب الآن ➔</a>
+            <a href="#/game/kasus" class="btn btn-primary" style="width: 100%;">${playBtn}</a>
           </div>
 
           <!-- Game 5: Verbtabelle Quick Trainer -->
           <div class="game-card">
             <div class="game-icon">📖</div>
-            <h3>جدول تصريف الأفعال الشامل</h3>
-            <p>استعرض وابحث في جدول الأفعال الشامل (Infinitiv - Präteritum - Perfekt) واستمع لنطقها بالألمانية.</p>
+            <h3>${isDe ? 'Vollständige Verbtabelle' : 'جدول تصريف الأفعال الشامل'}</h3>
+            <p>${isDe ? 'Durchsuche die Verbtabelle (Infinitiv - Präteritum - Perfekt) mit nativer Audio-Aussprache.' : 'استعرض وابحث في جدول الأفعال الشامل (Infinitiv - Präteritum - Perfekt) واستمع لنطقها بالألمانية.'}</p>
             <div class="game-meta">
-              <span>136 فعلاً مسجلاً</span>
-              <span class="badge badge-primary">متاح الآن</span>
+              <span>${isDe ? '136 Verben erfasst' : '136 فعلاً مسجلاً'}</span>
+              <span class="badge badge-primary">${isDe ? 'Jetzt verfügbar' : 'متاح الآن'}</span>
             </div>
-            <a href="#/verbs" class="btn btn-secondary" style="width: 100%;">فتح جدول الأفعال ➔</a>
+            <a href="#/verbs" class="btn btn-secondary" style="width: 100%;">${isDe ? 'Verbtabelle öffnen ➔' : 'فتح جدول الأفعال ➔'}</a>
           </div>
         </div>
       </div>
@@ -864,27 +914,35 @@ const App = {
   // VIEW: MISTAKES LOG
   // ==========================================
   renderMistakes() {
-    this.setBreadcrumb('المراجعة / سجل أخطائي الذكي');
+    const isDe = window.I18n && window.I18n.isGerman();
+    this.setBreadcrumb(isDe ? 'Wiederholung / Mein Fehlerbuch' : 'المراجعة / سجل أخطائي الذكي');
     const mistakes = Storage.getActiveMistakes();
     const content = document.getElementById('app-content');
+
+    const activeCountText = isDe ? `${mistakes.length} aktive Fehler` : `${mistakes.length} خطأ نشط`;
+    const masterBtnText = isDe ? '✓ Als gemeistert' : '✓ تم الإتقان';
+    const myAnsText = isDe ? '❌ Meine Antwort:' : '❌ إجابتي:';
+    const noAnsText = isDe ? 'Keine Antwort' : 'بدون إجابة';
+    const correctAnsText = isDe ? '✅ Richtige Antwort:' : '✅ الإجابة الصحيحة:';
+    const reasonText = isDe ? '💡 Erklärung:' : '💡 السبب:';
 
     content.innerHTML = `
       <div class="content-container fade-in">
         <div class="section-header">
           <div>
-            <h1 class="section-title">سجل أخطائي للمراجعة (Fehlerdatenbank)</h1>
-            <p class="section-subtitle">الأسئلة التي أخطأت فيها خلال الاختبارات لتتدرب عليها حتى تتقنها تماماً</p>
+            <h1 class="section-title">${isDe ? 'Mein Fehlerbuch (Fehlerdatenbank)' : 'سجل أخطائي للمراجعة (Fehlerdatenbank)'}</h1>
+            <p class="section-subtitle">${isDe ? 'Fragen und Aufgaben, die du wiederholen solltest, bis du sie perfekt beherrschst' : 'الأسئلة التي أخطأت فيها خلال الاختبارات لتتدرب عليها حتى تتقنها تماماً'}</p>
           </div>
           <span class="badge ${mistakes.length === 0 ? 'badge-success' : 'badge-danger'}">
-            ${mistakes.length} خطأ نشط
+            ${activeCountText}
           </span>
         </div>
 
         ${mistakes.length === 0 ? `
           <div class="card text-center" style="padding: 40px;">
             <div style="font-size: 3rem; margin-bottom: 12px;">🎉</div>
-            <h2 style="font-size: 1.4rem; margin-bottom: 8px;">رائع جداً! لا توجد أخطاء مسجلة حالياً</h2>
-            <p class="text-secondary">عندما تخطئ في أي اختبار، سيظهر الخطأ هنا تلقائياً مع الشرح والتصحيح.</p>
+            <h2 style="font-size: 1.4rem; margin-bottom: 8px;">${isDe ? 'Hervorragend! Keine offenen Fehler vorhanden' : 'رائع جداً! لا توجد أخطاء مسجلة حالياً'}</h2>
+            <p class="text-secondary">${isDe ? 'Sobald du bei einer Übung oder einem Test einen Fehler machst, wird er hier automatisch mit Erklärung gespeichert.' : 'عندما تخطئ في أي اختبار، سيظهر الخطأ هنا تلقائياً مع الشرح والتصحيح.'}</p>
           </div>
         ` : `
           <div class="item-list">
@@ -895,19 +953,19 @@ const App = {
                     <span class="de-text" dir="ltr">${Utils.escapeHtml(m.question)}</span>
                   </h4>
                   <button class="btn btn-secondary btn-sm" onclick="App.masterMistake('${m.id}')">
-                    ✓ تم الإتقان
+                    ${masterBtnText}
                   </button>
                 </div>
                 <div style="display: flex; flex-direction: column; gap: 6px; font-size: 0.95rem;">
                   <div style="color: var(--danger);">
-                    ❌ إجابتي: <span class="de-text" dir="ltr">${Utils.escapeHtml(m.myAnswer || 'بدون إجابة')}</span>
+                    ${myAnsText} <span class="de-text" dir="ltr">${Utils.escapeHtml(m.myAnswer || noAnsText)}</span>
                   </div>
                   <div style="color: var(--success); font-weight: 600;">
-                    ✅ الإجابة الصحيحة: <span class="de-text" dir="ltr">${Utils.escapeHtml(m.correctAnswer || '')}</span>
+                    ${correctAnsText} <span class="de-text" dir="ltr">${Utils.escapeHtml(m.correctAnswer || '')}</span>
                   </div>
                   ${m.explanation ? `
                     <div style="background: var(--bg-primary); padding: 8px 12px; border-radius: var(--radius-sm); margin-top: 6px; color: var(--text-secondary);">
-                      💡 <strong>السبب:</strong> ${Utils.escapeHtml(m.explanation)}
+                      ${reasonText} ${Utils.escapeHtml(m.explanation)}
                     </div>
                   ` : ''}
                 </div>
@@ -920,8 +978,9 @@ const App = {
   },
 
   masterMistake(id) {
+    const isDe = window.I18n && window.I18n.isGerman();
     Storage.markMistakeMastered(id);
-    Utils.showToast('أحسنت! تم نقل الخطأ إلى المتقنات 🎯', 'success');
+    Utils.showToast(isDe ? 'Super! Fehler als gemeistert markiert 🎯' : 'أحسنت! تم نقل الخطأ إلى المتقنات 🎯', 'success');
     this.renderMistakes();
   },
 
@@ -929,7 +988,8 @@ const App = {
   // VIEW: PROGRESS & BACKUP
   // ==========================================
   renderProgress() {
-    this.setBreadcrumb('الإحصائيات / لوحة تقدمي والنسخ الاحتياطي');
+    const isDe = window.I18n && window.I18n.isGerman();
+    this.setBreadcrumb(isDe ? 'Statistiken / Mein Lernfortschritt & Datensicherung' : 'الإحصائيات / لوحة تقدمي والنسخ الاحتياطي');
     const data = Storage.load();
     const totalLessons = window.TOTAL_LESSONS || 57;
     const completed = Storage.getCompletedCount();
@@ -940,50 +1000,52 @@ const App = {
       <div class="content-container fade-in">
         <div class="section-header">
           <div>
-            <h1 class="section-title">لوحة تقدمي والنسخ الاحتياطي</h1>
-            <p class="text-secondary">تفاصيل إنجازك الأكاديمي، وخيارات حفظ ونقل بياناتك</p>
+            <h1 class="section-title">${isDe ? 'Mein Lernfortschritt & Datensicherung' : 'لوحة تقدمي والنسخ الاحتياطي'}</h1>
+            <p class="text-secondary">${isDe ? 'Deine Lernerfolge, Statistiken und Optionen zur Datensicherung' : 'تفاصيل إنجازك الأكاديمي، وخيارات حفظ ونقل بياناتك'}</p>
           </div>
         </div>
 
         <div class="grid-2" style="margin-bottom: 24px;">
           <div class="card">
-            <h3>📊 إحصائيات المنهج</h3>
+            <h3>${isDe ? '📊 Lernstatistiken' : '📊 إحصائيات المنهج'}</h3>
             <div style="margin: 20px 0;">
               <div style="display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 6px;">
-                <span>إجمالي إكمال الدروس</span>
+                <span>${isDe ? 'Gesamter Lehrplan-Fortschritt' : 'إجمالي إكمال الدروس'}</span>
                 <span>${percent}%</span>
               </div>
               <div class="progress-bar">
                 <div class="progress-bar-fill" style="width: ${percent}%;"></div>
               </div>
               <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 8px;">
-                أكملت ${completed} من أصل ${totalLessons} درساً.
+                ${isDe ? `${completed} von ${totalLessons} Lektionen abgeschlossen.` : `أكملت ${completed} من أصل ${totalLessons} درساً.`}
               </p>
             </div>
             <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.95rem;">
-              <div>🔥 <strong>السلسلة الحالية:</strong> ${data.streak.current} يوم</div>
-              <div>🏆 <strong>أطول سلسلة متتالية:</strong> ${data.streak.best} يوم</div>
-              <div>⚡ <strong>مجموع نقاط XP:</strong> ${data.xp} نقطة</div>
+              <div>🔥 <strong>${isDe ? 'Aktuelle Serie:' : 'السلسلة الحالية:'}</strong> ${data.streak.current} ${isDe ? 'Tage' : 'يوم'}</div>
+              <div>🏆 <strong>${isDe ? 'Längste Serie:' : 'أطول سلسلة متتالية:'}</strong> ${data.streak.best} ${isDe ? 'Tage' : 'يوم'}</div>
+              <div>⚡ <strong>${isDe ? 'Gesamte XP:' : 'مجموع نقاط XP:'}</strong> ${data.xp} ${isDe ? 'Punkte' : 'نقطة'}</div>
             </div>
           </div>
 
           <div class="card">
-            <h3>💾 النسخ الاحتياطي والنقل</h3>
+            <h3>${isDe ? '💾 Datensicherung & Übertragung' : '💾 النسخ الاحتياطي والنقل'}</h3>
             <p class="text-secondary" style="margin: 10px 0 16px 0; font-size: 0.95rem;">
-              يمكنك تصدير كل تقدمك في ملف JSON واستيراده في أي وقت أو على أي جهاز آخر دون أن تفقد درجاتك.
+              ${isDe 
+                ? 'Du kannst deinen gesamten Lernfortschritt als JSON-Datei exportieren und jederzeit auf einem anderen Gerät wiederherstellen.' 
+                : 'يمكنك تصدير كل تقدمك في ملف JSON واستيراده في أي وقت أو على أي جهاز آخر دون أن تفقد درجاتك.'}
             </p>
             <div style="display: flex; flex-direction: column; gap: 12px;">
               <button class="btn btn-primary" onclick="Storage.exportProgress()">
-                ⬇️ تصدير تقدمي كملف (JSON)
+                ${isDe ? '⬇️ Fortschritt exportieren (JSON)' : '⬇️ تصدير تقدمي كملف (JSON)'}
               </button>
               
               <label class="btn btn-secondary" style="cursor: pointer; text-align: center;">
-                ⬆️ استيراد تقدم من ملف (JSON)
+                ${isDe ? '⬆️ Fortschritt importieren (JSON)' : '⬆️ استيراد تقدم من ملف (JSON)'}
                 <input type="file" id="import-file-input" accept=".json" style="display:none;" onchange="App.handleImport(event)">
               </label>
 
               <button class="btn btn-danger btn-sm" onclick="App.handleReset()" style="margin-top: 10px;">
-                ⚠️ إعادة تعيين كل التقدم
+                ${isDe ? '⚠️ Gesamten Fortschritt zurücksetzen' : '⚠️ إعادة تعيين كل التقدم'}
               </button>
             </div>
           </div>
@@ -993,21 +1055,26 @@ const App = {
   },
 
   handleImport(e) {
+    const isDe = window.I18n && window.I18n.isGerman();
     const file = e.target.files[0];
     if (!file) return;
     Storage.importProgress(file).then(() => {
-      Utils.showToast('تم استيراد تقدمك بنجاح! 🚀', 'success');
+      Utils.showToast(isDe ? 'Fortschritt erfolgreich importiert! 🚀' : 'تم استيراد تقدمك بنجاح! 🚀', 'success');
       this.updateHeaderStats();
       this.renderProgress();
     }).catch(err => {
-      Utils.showToast('خطأ في قراءة ملف التقدم: ' + err.message, 'error');
+      Utils.showToast((isDe ? 'Fehler beim Laden: ' : 'خطأ في قراءة ملف التقدم: ') + err.message, 'error');
     });
   },
 
   handleReset() {
-    if (confirm('هل أنت متأكد من رغبتك في حذف كل التقدم وإعادة البدء من الصفر؟')) {
+    const isDe = window.I18n && window.I18n.isGerman();
+    const confirmMsg = isDe 
+      ? 'Möchtest du wirklich deinen gesamten Fortschritt löschen und von vorne beginnen?' 
+      : 'هل أنت متأكد من رغبتك في حذف كل التقدم وإعادة البدء من الصفر؟';
+    if (confirm(confirmMsg)) {
       Storage.resetAll();
-      Utils.showToast('تمت إعادة تعيين التقدم بنجاح', 'info');
+      Utils.showToast(isDe ? 'Fortschritt zurückgesetzt' : 'تمت إعادة تعيين التقدم بنجاح', 'info');
       this.updateHeaderStats();
       this.renderProgress();
     }

@@ -27,8 +27,9 @@ const LessonRenderer = {
     
     this.currentLesson = lesson;
     Storage.markLessonStarted(lessonId);
+    const isDe = window.I18n && window.I18n.isGerman();
     if (window.App && window.App.setBreadcrumb) {
-      window.App.setBreadcrumb(`الدروس / ${lesson.title.ar}`);
+      window.App.setBreadcrumb(isDe ? `Lektionen / ${lesson.title.de}` : `الدروس / ${lesson.title.ar}`);
     }
     
     const content = document.getElementById('app-content');
@@ -62,11 +63,10 @@ const LessonRenderer = {
   },
   
   renderHeader(lesson) {
-    // Level badge + German title + Arabic title
-    // Level badge color from LEVELS data
+    const isDe = window.I18n && window.I18n.isGerman();
     const levelInfo = window.LEVELS ? window.LEVELS.find(l => l.id === lesson.level) : null;
     const levelColor = levelInfo ? levelInfo.color : 'var(--accent)';
-    const levelName = levelInfo ? levelInfo.title.ar : lesson.level;
+    const levelName = levelInfo ? (isDe ? levelInfo.title.de : levelInfo.title.ar) : lesson.level;
     
     return `
       <div class="lesson-header">
@@ -80,10 +80,11 @@ const LessonRenderer = {
   },
   
   renderGoal(lesson) {
+    const isDe = window.I18n && window.I18n.isGerman();
     return `
       <div class="card lesson-goal">
         <div class="section-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg></div>
-        <h3>الهدف من الدرس</h3>
+        <h3>${isDe ? 'Lernziel der Lektion' : 'الهدف من الدرس'}</h3>
         <p>${Utils.escapeHtml(lesson.goal)}</p>
       </div>
     `;
@@ -92,8 +93,9 @@ const LessonRenderer = {
   renderExplanation(lesson) {
     if (!lesson.explanation || !lesson.explanation.length) return '';
     
+    const isDe = window.I18n && window.I18n.isGerman();
     let html = `<div class="card lesson-explanation">
-      <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> الشرح</h3>`;
+      <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> ${isDe ? 'Erklärung & Grammatik' : 'الشرح والقواعد'}</h3>`;
     
     for (const block of lesson.explanation) {
       switch (block.type) {
@@ -136,9 +138,9 @@ const LessonRenderer = {
   
   renderExamples(lesson) {
     if (!lesson.examples || !lesson.examples.length) return '';
-    
+    const isDe = window.I18n && window.I18n.isGerman();
     let html = `<div class="card lesson-examples">
-      <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> أمثلة</h3>
+      <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> ${isDe ? 'Beispielsätze' : 'أمثلة عملية'}</h3>
       <div class="examples-list">`;
     
     for (const ex of lesson.examples) {
@@ -151,7 +153,7 @@ const LessonRenderer = {
         <div class="example-item">
           <div class="example-de">
             <span class="de-text" dir="ltr">${Utils.colorArticles(deText)}</span>
-            ${ex.audio !== false ? `<button class="audio-btn" onclick="Speech.speak('${ex.de.replace(/\*\*/g, '').replace(/'/g, "\\'")}')" title="استمع">
+            ${ex.audio !== false ? `<button class="audio-btn" onclick="Speech.speak('${ex.de.replace(/\*\*/g, '').replace(/'/g, "\\'")}')" title="${isDe ? 'Anhören' : 'استمع'}">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.08"/></svg>
             </button>` : ''}
           </div>
@@ -167,9 +169,9 @@ const LessonRenderer = {
   
   renderArabicTips(lesson) {
     if (!lesson.arabicTips || !lesson.arabicTips.length) return '';
-    
+    const isDe = window.I18n && window.I18n.isGerman();
     let html = `<div class="card lesson-tips">
-      <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg> نصائح للناطقين بالعربية</h3>
+      <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg> ${isDe ? 'Wichtige Lerntipps & Hinweise' : 'نصائح للناطقين بالعربية'}</h3>
       <ul class="tips-list">`;
     
     for (const tip of lesson.arabicTips) {
@@ -182,9 +184,9 @@ const LessonRenderer = {
   
   renderSummary(lesson) {
     if (!lesson.summary || !lesson.summary.length) return '';
-    
+    const isDe = window.I18n && window.I18n.isGerman();
     let html = `<div class="card lesson-summary">
-      <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> ملخص سريع</h3>
+      <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> ${isDe ? 'Zusammenfassung & Merksätze' : 'ملخص سريع'}</h3>
       <ul class="summary-list">`;
     
     for (const item of lesson.summary) {
@@ -197,9 +199,9 @@ const LessonRenderer = {
   
   renderVocabulary(lesson) {
     if (!lesson.vocabulary || !lesson.vocabulary.length) return '';
-    
+    const isDe = window.I18n && window.I18n.isGerman();
     let html = `<div class="card lesson-vocab">
-      <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> مفردات الدرس</h3>
+      <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> ${isDe ? 'Wortschatz der Lektion' : 'مفردات الدرس'}</h3>
       <div class="vocab-grid">`;
     
     for (const word of lesson.vocabulary) {
@@ -208,7 +210,7 @@ const LessonRenderer = {
         <div class="vocab-card">
           <div class="vocab-word">
             <span class="de-text ${articleClass}" dir="ltr">${Utils.escapeHtml(word.de)}</span>
-            <button class="audio-btn" onclick="Speech.speak('${word.de.replace(/'/g, "\\'")}')" title="استمع">
+            <button class="audio-btn" onclick="Speech.speak('${word.de.replace(/'/g, "\\'")}')" title="${isDe ? 'Anhören' : 'استمع'}">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.08"/></svg>
             </button>
           </div>
@@ -224,20 +226,22 @@ const LessonRenderer = {
   },
   
   renderExercisesPlaceholder(lesson) {
+    const isDe = window.I18n && window.I18n.isGerman();
     return `
       <div class="card">
-        <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg> تمارين</h3>
-        <p class="text-secondary">أكمل التمارين التالية لتثبيت ما تعلمته:</p>
+        <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg> ${isDe ? 'Interaktive Übungen' : 'تمارين تفاعلية'}</h3>
+        <p class="text-secondary">${isDe ? 'Mache die folgenden Übungen, um das Gelernte zu vertiefen:' : 'أكمل التمارين التالية لتثبيت ما تعلمته:'}</p>
         <div id="exercises-container"></div>
       </div>
     `;
   },
   
   renderQuizPlaceholder(lesson) {
+    const isDe = window.I18n && window.I18n.isGerman();
     return `
       <div class="card">
-        <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> الاختبار النهائي</h3>
-        <p class="text-secondary">اختبر نفسك في 5 أسئلة:</p>
+        <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> ${isDe ? 'Abschlusstest' : 'الاختبار النهائي'}</h3>
+        <p class="text-secondary">${isDe ? 'Teste dein Wissen mit 5 Fragen:' : 'اختبر نفسك في 5 أسئلة:'}</p>
         <div id="quiz-container"></div>
       </div>
     `;
@@ -246,6 +250,7 @@ const LessonRenderer = {
   renderNavigation(lesson) {
     // Find prev/next lesson
     if (!window.LEVELS) return '';
+    const isDe = window.I18n && window.I18n.isGerman();
     
     let allLessons = [];
     for (const level of window.LEVELS) {
@@ -260,12 +265,17 @@ const LessonRenderer = {
     const prev = currentIndex > 0 ? allLessons[currentIndex - 1] : null;
     const next = currentIndex < allLessons.length - 1 ? allLessons[currentIndex + 1] : null;
     
+    const prevTitle = prev ? (isDe ? prev.title.de : prev.title.ar) : '';
+    const nextTitle = next ? (isDe ? next.title.de : next.title.ar) : '';
+    const allText = isDe ? 'Alle Lektionen' : 'العودة للدروس';
+    
     return `
       <div class="lesson-nav">
-        ${prev ? `<a href="#/lesson/${prev.id}" class="btn btn-secondary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg> ${Utils.escapeHtml(prev.title.ar)}</a>` : '<div></div>'}
-        <a href="#/lessons" class="btn btn-secondary">العودة للدروس</a>
-        ${next ? `<a href="#/lesson/${next.id}" class="btn btn-primary">${Utils.escapeHtml(next.title.ar)} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></a>` : '<div></div>'}
+        ${prev ? `<a href="#/lesson/${prev.id}" class="btn btn-secondary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="${isDe ? '15 18 9 12 15 6' : '9 18 15 12 9 6'}"/></svg> ${Utils.escapeHtml(prevTitle)}</a>` : '<div></div>'}
+        <a href="#/lessons" class="btn btn-secondary">${allText}</a>
+        ${next ? `<a href="#/lesson/${next.id}" class="btn btn-primary">${Utils.escapeHtml(nextTitle)} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="${isDe ? '9 18 15 12 9 6' : '15 18 9 12 15 6'}"/></svg></a>` : '<div></div>'}
       </div>
     `;
   }
+};
 };
