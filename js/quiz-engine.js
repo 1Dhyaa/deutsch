@@ -121,15 +121,46 @@ const QuizEngine = {
     }
     html += `<div style="font-size: 18px; margin-bottom: 15px; direction: ltr; text-align: left;" class="de-text">`;
     const sentenceText = exercise.sentence || exercise.question || '';
-    const parts = sentenceText.split('___');
-    html += `${Utils.escapeHtml(parts[0])} <input type="text" id="blank-input" class="form-input" style="width: 120px; display: inline-block; text-align: center; font-weight: bold;" autocomplete="off"> ${Utils.escapeHtml(parts[1] || '')}`;
+    const parts = sentenceText.includes('___') ? sentenceText.split('___') : [sentenceText, ''];
+    html += `${Utils.escapeHtml(parts[0])} <input type="text" id="blank-input" class="form-input" style="width: 140px; display: inline-block; text-align: center; font-weight: bold; padding: 8px 12px; font-size: 1rem; border-radius: var(--radius-sm); border: 2px solid var(--border);" autocomplete="off"> ${Utils.escapeHtml(parts[1] || '')}`;
     html += `</div>`;
+    
+    if (exercise.options && Array.isArray(exercise.options) && exercise.options.length > 0) {
+      html += `<div style="margin-top: 14px; margin-bottom: 10px;">
+        <span style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 8px;">اختر من الخيارات أو اكتب الإجابة:</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; direction: ltr; justify-content: flex-start;">
+          ${exercise.options.map(opt => `
+            <button type="button" class="btn btn-secondary fill-chip de-text" data-val="${Utils.escapeHtml(opt)}" style="padding: 6px 16px; min-height: 38px; border-radius: 20px; font-size: 0.95rem; border: 1.5px solid var(--border); background: var(--bg-card); cursor: pointer;">
+              ${Utils.escapeHtml(opt)}
+            </button>
+          `).join('')}
+        </div>
+      </div>`;
+    }
+
+    html += `<div style="display: flex; gap: 10px; margin-top: 16px;">
+      <button type="button" id="fill-check-btn" class="btn btn-primary" style="flex: 1; min-height: 44px;">تحقق من الإجابة ✓</button>
+    </div>`;
     
     container.innerHTML = html;
     const input = document.getElementById('blank-input');
-    const checkBtn = document.getElementById('check-btn');
-    
-    checkBtn.style.display = 'inline-block';
+    const fillCheckBtn = document.getElementById('fill-check-btn');
+    const footerCheckBtn = document.getElementById('check-btn');
+    if (footerCheckBtn) footerCheckBtn.style.display = 'none';
+
+    container.querySelectorAll('.fill-chip').forEach(chip => {
+      chip.addEventListener('click', (e) => {
+        if (this.isAnswered) return;
+        const val = e.currentTarget.getAttribute('data-val');
+        input.value = val;
+        container.querySelectorAll('.fill-chip').forEach(c => {
+          c.style.borderColor = 'var(--border)';
+          c.style.backgroundColor = 'var(--bg-card)';
+        });
+        e.currentTarget.style.borderColor = 'var(--accent)';
+        e.currentTarget.style.backgroundColor = 'var(--accent-light)';
+      });
+    });
     
     const evaluate = () => {
         if (this.isAnswered) return;
@@ -147,14 +178,15 @@ const QuizEngine = {
         }
         
         input.disabled = true;
+        fillCheckBtn.disabled = true;
+        container.querySelectorAll('.fill-chip').forEach(c => c.disabled = true);
         this.checkAnswer(isCorrect, null, null, exercise, isCorrect ? '' : `الإجابة الصحيحة هي: ${Array.isArray(targetAns) ? targetAns[0] : targetAns}`, {
             myAnswer: val,
             correctAnswer: Array.isArray(targetAns) ? targetAns[0] : targetAns
         });
-        checkBtn.style.display = 'none';
     };
     
-    checkBtn.addEventListener('click', evaluate);
+    fillCheckBtn.addEventListener('click', evaluate);
     input.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') evaluate();
     });
@@ -167,24 +199,48 @@ const QuizEngine = {
     let availableWords = [...exercise.words];
     
     const render = () => {
-        let html = `<div class="chosen-words" style="min-height: 50px; border: 2px dashed var(--border-color); border-radius: 8px; padding: 10px; margin-bottom: 15px; display: flex; flex-wrap: wrap; gap: 8px; direction: ltr; justify-content: flex-start;">`;
+        let html = `<div class="word-order-container" style="display: flex; flex-direction: column; gap: 14px;">`;
+        
+        // Chosen words dropzone
+        html += `<div class="chosen-words drop-area" style="min-height: 60px; border: 2px dashed var(--border); border-radius: var(--radius-md); padding: 12px; display: flex; flex-wrap: wrap; gap: 8px; direction: ltr; justify-content: flex-start; align-items: center; background: var(--bg-primary);">`;
         if (chosenWords.length === 0) {
-            html += `<span style="color: var(--text-muted); width: 100%; text-align: center; direction: rtl;">رتب الكلمات هنا</span>`;
+            html += `<span style="color: var(--text-muted); width: 100%; text-align: center; direction: rtl; font-size: 0.95rem;">اضغط على الكلمات بالترتيب لتكوين الجملة</span>`;
         } else {
             chosenWords.forEach((word, idx) => {
-                html += `<button class="btn btn-sm btn-primary chosen-btn de-text" data-idx="${idx}">${Utils.escapeHtml(word)}</button>`;
+                html += `<button type="button" class="btn btn-primary chosen-btn de-text" data-idx="${idx}" style="padding: 8px 16px; min-height: 40px; border-radius: 20px; font-size: 1rem; display: inline-flex; align-items: center; gap: 6px; cursor: pointer;">
+                  <span>${Utils.escapeHtml(word)}</span>
+                  <span style="font-size: 11px; opacity: 0.75; margin-left: 2px;">✕</span>
+                </button>`;
             });
         }
         html += `</div>`;
         
-        html += `<div class="available-words" style="display: flex; flex-wrap: wrap; gap: 8px; direction: ltr; justify-content: flex-start; margin-bottom: 15px;">`;
+        // Available words bank
+        html += `<div class="available-words word-bank" style="display: flex; flex-wrap: wrap; gap: 8px; direction: ltr; justify-content: flex-start; min-height: 48px; padding: 4px 0;">`;
         availableWords.forEach((word, idx) => {
-            html += `<button class="btn btn-sm btn-outline avail-btn de-text" data-idx="${idx}">${Utils.escapeHtml(word)}</button>`;
+            html += `<button type="button" class="btn btn-secondary avail-btn de-text" data-idx="${idx}" style="padding: 8px 16px; min-height: 40px; border-radius: 20px; font-size: 1rem; border: 1.5px solid var(--border); background: var(--bg-card); cursor: pointer;">
+              ${Utils.escapeHtml(word)}
+            </button>`;
         });
+        html += `</div>`;
+
+        // Action controls
+        html += `<div style="display: flex; gap: 10px; margin-top: 6px;">
+          <button type="button" id="order-check-btn" class="btn btn-primary" style="flex: 1; min-height: 44px;" ${chosenWords.length === 0 || this.isAnswered ? 'disabled' : ''}>
+            تحقق من الترتيب ✓
+          </button>
+          <button type="button" id="order-reset-btn" class="btn btn-secondary" style="min-height: 44px; padding: 0 16px;" ${chosenWords.length === 0 || this.isAnswered ? 'disabled' : ''} title="إعادة الكلمات">
+            🔄 إعادة
+          </button>
+        </div>`;
+
         html += `</div>`;
         
         container.innerHTML = html;
         
+        const footerCheckBtn = document.getElementById('check-btn');
+        if (footerCheckBtn) footerCheckBtn.style.display = 'none';
+
         if (!this.isAnswered) {
             container.querySelectorAll('.avail-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
@@ -192,7 +248,6 @@ const QuizEngine = {
                     chosenWords.push(availableWords[idx]);
                     availableWords.splice(idx, 1);
                     render();
-                    document.getElementById('check-btn').style.display = chosenWords.length > 0 ? 'inline-block' : 'none';
                 });
             });
             
@@ -202,29 +257,41 @@ const QuizEngine = {
                     availableWords.push(chosenWords[idx]);
                     chosenWords.splice(idx, 1);
                     render();
-                    document.getElementById('check-btn').style.display = chosenWords.length > 0 ? 'inline-block' : 'none';
                 });
             });
+
+            const resetBtn = document.getElementById('order-reset-btn');
+            if (resetBtn) {
+                resetBtn.addEventListener('click', () => {
+                    availableWords = [...exercise.words];
+                    chosenWords = [];
+                    render();
+                });
+            }
+
+            const checkBtn = document.getElementById('order-check-btn');
+            if (checkBtn) {
+                checkBtn.addEventListener('click', () => {
+                    if (this.isAnswered || chosenWords.length === 0) return;
+                    const userSentence = chosenWords.join(' ');
+                    let targetAns = exercise.correct !== undefined ? exercise.correct : 
+                      (exercise.answer !== undefined ? exercise.answer : exercise.correctOrder);
+                    if (Array.isArray(targetAns)) targetAns = targetAns.join(' ');
+                    const isCorrect = Utils.compareAnswers(userSentence, targetAns, exercise.accept);
+                    
+                    this.checkAnswer(isCorrect, null, null, exercise, isCorrect ? '' : `الترتيب الصحيح: ${targetAns}`, {
+                        myAnswer: userSentence,
+                        correctAnswer: targetAns
+                    });
+                    
+                    checkBtn.disabled = true;
+                    if (resetBtn) resetBtn.disabled = true;
+                });
+            }
         }
     };
     
     render();
-    
-    const checkBtn = document.getElementById('check-btn');
-    checkBtn.addEventListener('click', () => {
-        if (this.isAnswered || chosenWords.length === 0) return;
-        const userSentence = chosenWords.join(' ');
-        let targetAns = exercise.correct !== undefined ? exercise.correct : 
-          (exercise.answer !== undefined ? exercise.answer : exercise.correctOrder);
-        if (Array.isArray(targetAns)) targetAns = targetAns.join(' ');
-        const isCorrect = Utils.compareAnswers(userSentence, targetAns, exercise.accept);
-        
-        this.checkAnswer(isCorrect, null, null, exercise, isCorrect ? '' : `الترتيب الصحيح: ${targetAns}`, {
-            myAnswer: userSentence,
-            correctAnswer: targetAns
-        });
-        checkBtn.style.display = 'none';
-    });
   },
   
   renderMatch(exercise, container) {
@@ -245,7 +312,7 @@ const QuizEngine = {
         leftItems.forEach(item => {
             const isMatched = item.matched;
             const isSelected = leftSelected === item.id;
-            html += `<button class="btn ${isMatched ? 'btn-success' : isSelected ? 'btn-primary' : 'btn-outline'} match-btn" data-id="${item.id}" data-type="left" ${isMatched ? 'disabled' : ''} style="text-align: center; padding: 10px; opacity: ${isMatched ? '0.6' : '1'}">
+            html += `<button class="btn ${isMatched ? 'btn-success' : isSelected ? 'btn-primary' : 'btn-secondary'} match-btn" data-id="${item.id}" data-type="left" ${isMatched ? 'disabled' : ''} style="text-align: center; padding: 10px; opacity: ${isMatched ? '0.6' : '1'}">
                 ${Utils.escapeHtml(item.text)}
             </button>`;
         });
@@ -256,12 +323,13 @@ const QuizEngine = {
         rightItems.forEach(item => {
             const isMatched = item.matched;
             const isSelected = rightSelected === item.id;
-            html += `<button class="btn ${isMatched ? 'btn-success' : isSelected ? 'btn-primary' : 'btn-outline'} match-btn de-text" data-id="${item.id}" data-type="right" ${isMatched ? 'disabled' : ''} style="text-align: center; padding: 10px; opacity: ${isMatched ? '0.6' : '1'}">
+            html += `<button class="btn ${isMatched ? 'btn-success' : isSelected ? 'btn-primary' : 'btn-secondary'} match-btn de-text" data-id="${item.id}" data-type="right" ${isMatched ? 'disabled' : ''} style="text-align: center; padding: 10px; opacity: ${isMatched ? '0.6' : '1'}">
                 ${Utils.escapeHtml(item.text)}
             </button>`;
         });
         html += `</div>`;
         html += `</div>`;
+
         
         container.innerHTML = html;
         
@@ -321,14 +389,18 @@ const QuizEngine = {
     let html = `<div style="margin-bottom: 15px;">`;
     const promptText = exercise.text || exercise.from || exercise.question || '';
     html += `<p style="font-size: 18px; margin-bottom: 10px; font-weight: bold;">${Utils.escapeHtml(promptText)}</p>`;
-    html += `<textarea id="translate-input" class="form-input de-text" style="width: 100%; height: 80px; direction: ltr; font-size: 16px; padding: 10px; resize: none;" placeholder="اكتب الترجمة الألمانية هنا..."></textarea>`;
+    html += `<textarea id="translate-input" class="form-input de-text" style="width: 100%; height: 80px; direction: ltr; font-size: 16px; padding: 12px; border-radius: var(--radius-sm); border: 2px solid var(--border); resize: none;" placeholder="اكتب الترجمة الألمانية هنا..."></textarea>`;
     html += `</div>`;
+    html += `<div style="display: flex; gap: 10px; margin-top: 14px;">
+      <button type="button" id="trans-check-btn" class="btn btn-primary" style="flex: 1; min-height: 44px;">تحقق من الترجمة ✓</button>
+    </div>`;
     
     container.innerHTML = html;
     
     const input = document.getElementById('translate-input');
-    const checkBtn = document.getElementById('check-btn');
-    checkBtn.style.display = 'inline-block';
+    const transCheckBtn = document.getElementById('trans-check-btn');
+    const footerCheckBtn = document.getElementById('check-btn');
+    if (footerCheckBtn) footerCheckBtn.style.display = 'none';
     
     const evaluate = () => {
         if (this.isAnswered) return;
@@ -346,14 +418,20 @@ const QuizEngine = {
         }
         
         input.disabled = true;
+        transCheckBtn.disabled = true;
         this.checkAnswer(isCorrect, null, null, exercise, isCorrect ? '' : `الإجابة الصحيحة هي: ${Array.isArray(targetAns) ? targetAns[0] : targetAns}`, {
             myAnswer: val,
             correctAnswer: Array.isArray(targetAns) ? targetAns[0] : targetAns
         });
-        checkBtn.style.display = 'none';
     };
     
-    checkBtn.addEventListener('click', evaluate);
+    transCheckBtn.addEventListener('click', evaluate);
+    input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            evaluate();
+        }
+    });
     input.focus();
   },
   
@@ -363,14 +441,18 @@ const QuizEngine = {
     html += `<div style="padding: 15px; background: rgba(239, 68, 68, 0.1); border-right: 4px solid var(--danger); margin-bottom: 15px; border-radius: 4px;">
         <p class="de-text" style="direction: ltr; font-size: 18px; text-decoration: line-through; color: var(--danger);">${Utils.escapeHtml(wrongText)}</p>
     </div>`;
-    html += `<input type="text" id="correction-input" class="form-input de-text" style="width: 100%; direction: ltr; font-size: 16px; padding: 10px;" placeholder="اكتب الجملة الصحيحة هنا..." autocomplete="off">`;
+    html += `<input type="text" id="correction-input" class="form-input de-text" style="width: 100%; direction: ltr; font-size: 16px; padding: 12px; border-radius: var(--radius-sm); border: 2px solid var(--border);" placeholder="اكتب الجملة الصحيحة هنا..." autocomplete="off">`;
     html += `</div>`;
+    html += `<div style="display: flex; gap: 10px; margin-top: 14px;">
+      <button type="button" id="corr-check-btn" class="btn btn-primary" style="flex: 1; min-height: 44px;">تحقق من التصحيح ✓</button>
+    </div>`;
     
     container.innerHTML = html;
     
     const input = document.getElementById('correction-input');
-    const checkBtn = document.getElementById('check-btn');
-    checkBtn.style.display = 'inline-block';
+    const corrCheckBtn = document.getElementById('corr-check-btn');
+    const footerCheckBtn = document.getElementById('check-btn');
+    if (footerCheckBtn) footerCheckBtn.style.display = 'none';
     
     const evaluate = () => {
         if (this.isAnswered) return;
@@ -388,14 +470,14 @@ const QuizEngine = {
         }
         
         input.disabled = true;
+        corrCheckBtn.disabled = true;
         this.checkAnswer(isCorrect, null, null, exercise, isCorrect ? '' : `التصحيح هو: ${Array.isArray(targetAns) ? targetAns[0] : targetAns}`, {
             myAnswer: val,
             correctAnswer: Array.isArray(targetAns) ? targetAns[0] : targetAns
         });
-        checkBtn.style.display = 'none';
     };
     
-    checkBtn.addEventListener('click', evaluate);
+    corrCheckBtn.addEventListener('click', evaluate);
     input.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') evaluate();
     });

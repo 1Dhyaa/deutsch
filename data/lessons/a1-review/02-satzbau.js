@@ -135,53 +135,89 @@ window.LESSONS["a1-review-02"] = {
     {
       type: "word-order",
       question: "رتب الكلمات لتكوين جملة خبرية تبدأ بـ 'Ich':",
-      words: ["kaufe", "ich", "Brot", "heute"],
-      correct: "ich kaufe heute Brot",
-      explanation: "الفاعل ich في المركز 1، الفعل kaufe في المركز 2."
+      words: ["kaufe", "Ich", "Brot", "heute"],
+      correct: "Ich kaufe heute Brot",
+      accept: [
+        "Ich kaufe heute Brot",
+        "Ich kaufe Brot heute",
+        "ich kaufe heute brot",
+        "ich kaufe brot heute"
+      ],
+      explanation: "الفاعل Ich في المركز 1، والفعل kaufe في المركز 2 (Aussagesatz)."
     },
     {
       type: "word-order",
       question: "رتب الكلمات لتكوين سؤال (W-Frage):",
-      words: ["wohnt", "wo", "er", "?"],
-      correct: "wo wohnt er ?",
-      explanation: "كلمة الاستفهام wo (المركز 1)، الفعل wohnt (المركز 2)، الفاعل er (المركز 3)."
+      words: ["wohnt", "Wo", "er?"],
+      correct: "Wo wohnt er?",
+      accept: [
+        "Wo wohnt er?",
+        "Wo wohnt er",
+        "wo wohnt er?",
+        "wo wohnt er"
+      ],
+      explanation: "أداة الاستفهام Wo في المركز 1، ثم الفعل wohnt في المركز 2، ثم الفاعل er في المركز 3."
     },
     {
       type: "word-order",
       question: "رتب الكلمات لتكوين سؤال (Ja/Nein-Frage):",
-      words: ["trinkst", "Kaffee", "du", "gern", "?"],
-      correct: "trinkst du gern Kaffee ?",
-      explanation: "في أسئلة نعم/لا، الفعل يأتي في المركز الأول: Trinkst du..."
+      words: ["Trinkst", "Kaffee?", "du", "gern"],
+      correct: "Trinkst du gern Kaffee?",
+      accept: [
+        "Trinkst du gern Kaffee?",
+        "Trinkst du gern Kaffee",
+        "Trinkst du Kaffee gern?",
+        "Trinkst du Kaffee gern",
+        "trinkst du gern kaffee?",
+        "trinkst du gern kaffee"
+      ],
+      explanation: "في أسئلة نعم/لا (Ja/Nein-Frage)، يأتي الفعل المصرف في المركز الأول: Trinkst du gern Kaffee?"
     },
     {
       type: "fill-blank",
-      question: "Am Wochenende ___ ich gerne.",
-      options: ["schlafe", "ich", "lange"],
+      question: "أكمل الفراغ بتصريف الفعل المناسب:",
+      sentence: "Am Wochenende ___ ich gerne.",
+      options: ["schlafe", "schlafen", "schläfst"],
       answer: "schlafe",
-      explanation: "Am Wochenende هو المركز 1، لذا نحتاج الفعل في المركز 2."
+      accept: ["schlafe"],
+      explanation: "Am Wochenende في المركز 1، لذا يجب أن يأتي الفعل المصرف مع ich في المركز 2: schlafe."
     },
     {
       type: "error-correction",
-      question: "صحح الخطأ في الجملة: Morgen ich gehe zur Arbeit.",
+      question: "صحح الخطأ في موقع الفعل:",
       incorrect: "Morgen ich gehe zur Arbeit.",
       correct: "Morgen gehe ich zur Arbeit.",
-      explanation: "الفعل 'gehe' يجب أن يكون في المركز الثاني، والفاعل 'ich' ينتقل للمركز الثالث."
+      accept: [
+        "Morgen gehe ich zur Arbeit.",
+        "Morgen gehe ich zur Arbeit",
+        "morgen gehe ich zur arbeit.",
+        "morgen gehe ich zur arbeit"
+      ],
+      explanation: "عندما نبدأ بظرف الزمان Morgen (المركز 1)، يجب أن يتقدم الفعل gehe إلى المركز 2، والفاعل ich إلى المركز 3."
     },
     {
       type: "translate",
-      question: "ترجم: هل تأتي من سوريا؟ (باستخدام صيغة الاحترام Sie)",
+      question: "ترجم إلى الألمانية (باستخدام صيغة الاحترام Sie): هل تأتي من سوريا؟",
       answer: "Kommen Sie aus Syrien?",
-      explanation: "سؤال نعم/لا يبدأ بالفعل Kommen."
+      accept: [
+        "Kommen Sie aus Syrien?",
+        "Kommen Sie aus Syrien",
+        "kommen Sie aus Syrien?",
+        "kommen Sie aus Syrien",
+        "kommen sie aus syrien?",
+        "kommen sie aus syrien"
+      ],
+      explanation: "سؤال نعم/لا يبدأ بالفعل المصرف Kommen في المركز 1، يليه الفاعل Sie في المركز 2."
     },
     {
       type: "match",
-      question: "طابق بين الكلمة وموقعها في الجملة (Heute lerne ich Deutsch):",
+      question: "طابق بين الكلمة وموقعها النحوي في الجملة (Heute lerne ich Deutsch):",
       pairs: [
-        { left: "Heute", right: "Position 1" },
+        { left: "Heute", right: "Position 1 (Angabe)" },
         { left: "lerne", right: "Position 2 (Verb)" },
         { left: "ich", right: "Position 3 (Subjekt)" }
       ],
-      explanation: "الظرف في المركز 1، الفعل في 2، والفاعل في 3."
+      explanation: "ظرف الزمان في المركز 1، الفعل المصرف دائماً في المركز 2، والفاعل ينتقل للمركز 3."
     },
     {
       type: "multiple-choice",

@@ -313,6 +313,25 @@
   border-color: var(--text-muted);
 }
 
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1.5px solid var(--border);
+}
+
+.btn-outline:hover:not(:disabled) {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn-sm {
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  min-height: 36px;
+  border-radius: var(--radius-sm);
+}
+
 .btn-white {
   background: #FFFFFF;
   color: var(--accent);
