@@ -6,84 +6,354 @@ const QuizEngine = {
   mode: 'exercises', // 'exercises' or 'quiz'
   isAnswered: false,
   wrongAnswers: [],
+  states: { exercises: {}, quiz: {} },
   
   init(lesson) {
     this.lesson = lesson;
-    this.exercises = lesson.exercises || [];
-    this.currentIndex = 0;
-    this.score = 0;
-    this.mode = 'exercises';
-    this.isAnswered = false;
     this.wrongAnswers = [];
     
-    const exSection = document.getElementById('exercises-section');
-    const quizSection = document.getElementById('quiz-section');
-    
-    if (exSection) exSection.style.display = 'block';
-    if (quizSection) quizSection.style.display = 'none';
+    // Load saved session state if available
+    const saved = (typeof Storage !== 'undefined' && Storage.getLessonSession)
+      ? Storage.getLessonSession(lesson.id)
+      : null;
+
+    if (saved && saved.states) {
+      this.mode = (saved.mode === 'quiz' && lesson.quiz && lesson.quiz.length > 0) ? 'quiz' : 'exercises';
+      this.states = {
+        exercises: saved.states.exercises || {},
+        quiz: saved.states.quiz || {}
+      };
+      this.exercises = (this.mode === 'quiz') ? (lesson.quiz || []) : (lesson.exercises || []);
+      this.currentIndex = Math.min(saved.currentIndex || 0, Math.max(0, this.exercises.length - 1));
+    } else {
+      this.mode = 'exercises';
+      this.states = { exercises: {}, quiz: {} };
+      this.exercises = lesson.exercises || [];
+      this.currentIndex = 0;
+    }
+
+    this.recalculateScore();
+    this.syncSectionsVisibility();
     
     if (this.exercises.length > 0) {
       this.renderExercise();
     } else {
       const container = document.getElementById('exercises-container');
       if (container) {
-          container.innerHTML = '<p>لا توجد تمارين حاليا.</p>';
-          this.showQuizStartButton(container);
+        container.innerHTML = '<p>لا توجد تمارين حاليا.</p>';
+        this.showQuizStartButton(container);
       }
     }
+  },
+
+  syncSectionsVisibility() {
+    const exSection = document.getElementById('exercises-section');
+    const quizSection = document.getElementById('quiz-section');
+    if (this.mode === 'quiz') {
+      if (exSection) exSection.style.display = 'none';
+      if (quizSection) quizSection.style.display = 'block';
+    } else {
+      if (exSection) exSection.style.display = 'block';
+      if (quizSection) quizSection.style.display = 'none';
+    }
+  },
+
+  recalculateScore() {
+    const modeStates = this.states[this.mode] || {};
+    this.score = Object.values(modeStates).filter(s => s && s.status === 'correct').length;
+  },
+
+  saveSession() {
+    if (!this.lesson || typeof Storage === 'undefined' || !Storage.saveLessonSession) return;
+    Storage.saveLessonSession(this.lesson.id, {
+      mode: this.mode,
+      currentIndex: this.currentIndex,
+      states: this.states
+    });
+  },
+
+  switchMode(newMode) {
+    if (newMode === 'quiz' && (!this.lesson.quiz || this.lesson.quiz.length === 0)) return;
+    this.mode = newMode;
+    this.exercises = (this.mode === 'quiz') ? (this.lesson.quiz || []) : (this.lesson.exercises || []);
+    this.currentIndex = 0;
+    this.recalculateScore();
+    this.syncSectionsVisibility();
+    this.saveSession();
+    this.renderExercise();
+  },
+
+  resetCurrentMode() {
+    const isDe = window.I18n && window.I18n.isGerman();
+    const msg = isDe
+      ? 'Möchtest du alle Antworten in diesem Abschnitt zurücksetzen und von Frage 1 starten?'
+      : 'هل تريد مسح إجابات هذا القسم والبدء من السؤال الأول؟';
+    if (!confirm(msg)) return;
+    this.states[this.mode] = {};
+    this.currentIndex = 0;
+    this.recalculateScore();
+    this.saveSession();
+    this.renderExercise();
+  },
+
+  goToQuestion(index) {
+    if (index < 0 || index >= this.exercises.length) return;
+    this.currentIndex = index;
+    this.saveSession();
+    this.renderExercise();
+  },
+
+  skipQuestion() {
+    const modeStates = this.states[this.mode] || {};
+    const curState = modeStates[this.currentIndex];
+    if (!curState || curState.status === 'unanswered') {
+      this.states[this.mode][this.currentIndex] = { status: 'skipped' };
+    }
+    this.saveSession();
+    this.nextExercise();
+  },
+
+  retryCurrentQuestion() {
+    delete this.states[this.mode][this.currentIndex];
+    this.recalculateScore();
+    this.saveSession();
+    this.renderExercise();
   },
   
   getContainer() {
     const containerId = this.mode === 'exercises' ? 'exercises-container' : 'quiz-container';
     return document.getElementById(containerId);
   },
+
+  buildNavigatorHTML() {
+    const isDe = window.I18n && window.I18n.isGerman();
+    const total = this.exercises.length;
+    const modeStates = this.states[this.mode] || {};
+
+    let correctCount = 0;
+    let wrongCount = 0;
+    let skippedCount = 0;
+
+    for (let i = 0; i < total; i++) {
+      const st = modeStates[i] ? modeStates[i].status : 'unanswered';
+      if (st === 'correct') correctCount++;
+      else if (st === 'wrong') wrongCount++;
+      else if (st === 'skipped') skippedCount++;
+    }
+    const remainingCount = total - correctCount - wrongCount;
+
+    const exTotal = (this.lesson.exercises || []).length;
+    const qzTotal = (this.lesson.quiz || []).length;
+
+    let pillsHTML = '';
+    for (let i = 0; i < total; i++) {
+      const st = modeStates[i] ? modeStates[i].status : 'unanswered';
+      const isCurrent = (i === this.currentIndex);
+      let bg = 'var(--bg-primary)';
+      let color = 'var(--text-secondary)';
+      let border = '1.5px solid var(--border)';
+      let icon = '';
+
+      if (st === 'correct') {
+        bg = 'var(--success)';
+        color = '#FFFFFF';
+        border = '1.5px solid var(--success)';
+        icon = ' ✓';
+      } else if (st === 'wrong') {
+        bg = 'var(--danger)';
+        color = '#FFFFFF';
+        border = '1.5px solid var(--danger)';
+        icon = ' ✗';
+      } else if (st === 'skipped') {
+        bg = 'rgba(245, 158, 11, 0.12)';
+        color = 'var(--warning)';
+        border = '1.5px dashed var(--warning)';
+        icon = ' ⏭';
+      }
+
+      if (isCurrent) {
+        border = '2.5px solid var(--accent)';
+      }
+
+      pillsHTML += `
+        <button type="button" class="q-map-pill" data-qidx="${i}" style="
+          min-width: 40px; height: 38px; padding: 0 10px; border-radius: 10px;
+          background: ${bg}; color: ${color}; border: ${border};
+          font-weight: 700; font-size: 0.9rem; cursor: pointer;
+          display: inline-flex; align-items: center; justify-content: center;
+          box-shadow: ${isCurrent ? '0 0 0 3px var(--accent-light)' : 'none'};
+          transition: all 0.15s ease;
+        " title="${isDe ? 'Frage' : 'سؤال'} ${i + 1}">
+          ${i + 1}${icon}
+        </button>
+      `;
+    }
+
+    return `
+      <div class="quiz-navigator-box" style="background: var(--bg-primary); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 14px 16px; margin-bottom: 20px;">
+        <!-- Top Mode Switcher & Reset -->
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--border-light);">
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <button type="button" id="switch-to-ex-btn" class="btn btn-sm ${this.mode === 'exercises' ? 'btn-primary' : 'btn-secondary'}" style="border-radius: 20px;">
+              📝 ${isDe ? `Übungen (${exTotal})` : `التمارين (${exTotal})`}
+            </button>
+            ${qzTotal > 0 ? `
+              <button type="button" id="switch-to-qz-btn" class="btn btn-sm ${this.mode === 'quiz' ? 'btn-primary' : 'btn-secondary'}" style="border-radius: 20px;">
+                🏆 ${isDe ? `Abschlusstest (${qzTotal})` : `الاختبار النهائي (${qzTotal})`}
+              </button>
+            ` : ''}
+          </div>
+          <button type="button" id="reset-mode-btn" class="btn btn-sm btn-outline" style="font-size: 0.82rem; padding: 4px 12px;">
+            🔄 ${isDe ? 'Neu starten' : 'إعادة البدء'}
+          </button>
+        </div>
+
+        <!-- Status Summary Badges -->
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; color: var(--text-secondary);">
+          <span style="color: var(--success);">✅ ${isDe ? 'Richtig' : 'صحيحة'}: ${correctCount}</span>
+          <span style="color: var(--danger);">❌ ${isDe ? 'Falsch' : 'خاطئة'}: ${wrongCount}</span>
+          <span style="color: var(--warning);">⏭️ ${isDe ? 'Übersprungen' : 'متخطاة'}: ${skippedCount}</span>
+          <span>⏳ ${isDe ? 'Offen' : 'متبقية'}: ${remainingCount}</span>
+        </div>
+
+        <!-- Numbered Question Pills -->
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+          ${pillsHTML}
+        </div>
+      </div>
+    `;
+  },
   
   renderExercise() {
-    this.isAnswered = false;
     const container = this.getContainer();
     if (!container) return;
     
     const exercise = this.exercises[this.currentIndex];
-    
     if (!exercise) return;
+
+    const isDe = window.I18n && window.I18n.isGerman();
+    const savedQState = (this.states[this.mode] && this.states[this.mode][this.currentIndex]) || null;
+    this.isAnswered = !!(savedQState && (savedQState.status === 'correct' || savedQState.status === 'wrong'));
+    const isLast = (this.currentIndex === this.exercises.length - 1);
     
     let html = `
-      <div class="exercise-header">
-        <span class="progress-badge">سؤال ${this.currentIndex + 1} من ${this.exercises.length}</span>
+      ${this.buildNavigatorHTML()}
+
+      <div class="exercise-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+        <span class="progress-badge">
+          ${isDe ? `Frage ${this.currentIndex + 1} von ${this.exercises.length}` : `سؤال ${this.currentIndex + 1} من ${this.exercises.length}`}
+        </span>
+        ${this.isAnswered ? `
+          <button type="button" id="retry-q-btn" class="btn btn-sm btn-secondary" style="font-size: 0.85rem;">
+            🔄 ${isDe ? 'Frage nochmal lösen' : 'حل هذا السؤال مجدداً'}
+          </button>
+        ` : ''}
       </div>
+
       <div class="exercise-question">
-        <h4 style="margin-bottom: 15px;">${Utils.escapeHtml(exercise.question || 'أجب عن السؤال التالي:')}</h4>
+        <h4 style="margin-bottom: 15px;">${Utils.escapeHtml(exercise.question || (isDe ? 'Beantworte die folgende Frage:' : 'أجب عن السؤال التالي:'))}</h4>
       </div>
+
       <div id="exercise-body" class="exercise-body" style="margin-bottom: 20px;"></div>
       <div id="exercise-feedback" class="exercise-feedback" style="display:none; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-weight: bold;"></div>
-      <div class="exercise-footer" style="text-align: left;">
-        <button id="check-btn" class="btn btn-primary" style="display:none;">تحقق</button>
-        <button id="next-btn" class="btn btn-primary" style="display:none;">التالي <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button>
+
+      <div class="exercise-footer" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; padding-top: 14px; border-top: 1px solid var(--border-light);">
+        <div style="display: flex; gap: 8px;">
+          <button type="button" id="prev-btn" class="btn btn-secondary" ${this.currentIndex === 0 ? 'disabled' : ''}>
+            ${isDe ? '⬅ Zurück' : '⬅ السابق'}
+          </button>
+          ${!this.isAnswered ? `
+            <button type="button" id="skip-btn" class="btn btn-outline" style="color: var(--warning); border-color: var(--warning);">
+              ⏭️ ${isDe ? 'Überspringen' : 'تخطي'}
+            </button>
+          ` : ''}
+        </div>
+
+        <div style="display: flex; gap: 8px;">
+          <button type="button" id="check-btn" class="btn btn-primary" style="display:none;">
+            ${isDe ? 'Prüfen' : 'تحقق'}
+          </button>
+          <button type="button" id="next-btn" class="btn btn-primary">
+            ${isLast 
+              ? (this.mode === 'exercises' 
+                  ? (isDe ? 'Zum Abschlusstest 🏆' : 'الانتقال للاختبار النهائي 🏆') 
+                  : (isDe ? 'Ergebnis anzeigen 🏁' : 'إنهاء وعرض النتيجة 🏁'))
+              : (isDe ? 'Weiter ➡' : 'التالي ➡')}
+          </button>
+        </div>
       </div>
     `;
     
     container.innerHTML = html;
+
+    // Bind Navigator Controls
+    container.querySelectorAll('.q-map-pill').forEach(pill => {
+      pill.addEventListener('click', (e) => {
+        const idx = parseInt(e.currentTarget.getAttribute('data-qidx'), 10);
+        this.goToQuestion(idx);
+      });
+    });
+
+    const swExBtn = document.getElementById('switch-to-ex-btn');
+    if (swExBtn) swExBtn.addEventListener('click', () => this.switchMode('exercises'));
+
+    const swQzBtn = document.getElementById('switch-to-qz-btn');
+    if (swQzBtn) swQzBtn.addEventListener('click', () => this.switchMode('quiz'));
+
+    const resetBtn = document.getElementById('reset-mode-btn');
+    if (resetBtn) resetBtn.addEventListener('click', () => this.resetCurrentMode());
+
+    const retryBtn = document.getElementById('retry-q-btn');
+    if (retryBtn) retryBtn.addEventListener('click', () => this.retryCurrentQuestion());
+
+    const prevBtn = document.getElementById('prev-btn');
+    if (prevBtn) prevBtn.addEventListener('click', () => this.goToQuestion(this.currentIndex - 1));
+
+    const skipBtn = document.getElementById('skip-btn');
+    if (skipBtn) skipBtn.addEventListener('click', () => this.skipQuestion());
+
+    const nextBtn = document.getElementById('next-btn');
+    if (nextBtn) nextBtn.addEventListener('click', () => this.nextExercise());
     
     const bodyContainer = document.getElementById('exercise-body');
-    const nextBtn = document.getElementById('next-btn');
+    const exType = exercise.type || 'multiple-choice';
     
-    nextBtn.addEventListener('click', () => this.nextExercise());
-    
-    switch(exercise.type) {
+    switch(exType) {
       case 'multiple-choice': this.renderMultipleChoice(exercise, bodyContainer); break;
       case 'fill-blank': this.renderFillBlank(exercise, bodyContainer); break;
       case 'word-order': this.renderWordOrder(exercise, bodyContainer); break;
       case 'match': this.renderMatch(exercise, bodyContainer); break;
       case 'translate': this.renderTranslate(exercise, bodyContainer); break;
       case 'error-correction': this.renderErrorCorrection(exercise, bodyContainer); break;
-      default: bodyContainer.innerHTML = '<p>نوع تمرين غير معروف</p>';
+      default: this.renderMultipleChoice(exercise, bodyContainer); break;
+    }
+
+    // If this question was already answered previously, restore visual feedback immediately
+    if (this.isAnswered && savedQState) {
+      const isCorrect = (savedQState.status === 'correct');
+      const ansInfo = savedQState.myAnswer 
+        ? `${isDe ? 'Deine Antwort' : 'إجابتك المسجلة'}: ${savedQState.myAnswer}${!isCorrect && savedQState.correctAnswer ? ` | ${isDe ? 'Richtig' : 'الصحيح'}: ${savedQState.correctAnswer}` : ''}`
+        : (savedQState.customMsg || '');
+      this.showFeedback(isCorrect, exercise.explanation || '', ansInfo);
     }
   },
   
   renderMultipleChoice(exercise, container) {
+    const savedQState = (this.states[this.mode] && this.states[this.mode][this.currentIndex]) || null;
+    const correctIdx = (exercise.correct !== undefined) ? exercise.correct : 
+      ((exercise.correctIndex !== undefined) ? exercise.correctIndex : exercise.answer);
+
     let html = '<div class="options-grid" style="display:grid; grid-template-columns: 1fr; gap: 10px;">';
-    exercise.options.forEach((opt, idx) => {
-      html += `<button class="btn btn-outline option-btn" data-idx="${idx}" style="text-align: right; padding: 12px; font-size: 16px;">
+    (exercise.options || []).forEach((opt, idx) => {
+      let extraStyle = '';
+      if (this.isAnswered && savedQState) {
+        if (idx === correctIdx) {
+          extraStyle = 'background-color: var(--success); color: white; border-color: var(--success);';
+        } else if (savedQState.myAnswer === opt && savedQState.status === 'wrong') {
+          extraStyle = 'background-color: var(--danger); color: white; border-color: var(--danger);';
+        }
+      }
+      html += `<button class="btn btn-outline option-btn" data-idx="${idx}" ${this.isAnswered ? 'disabled' : ''} style="text-align: right; padding: 12px; font-size: 16px; ${extraStyle}">
         <span class="de-text" dir="ltr">${Utils.escapeHtml(opt)}</span>
       </button>`;
     });
@@ -96,15 +366,11 @@ const QuizEngine = {
       btn.addEventListener('click', (e) => {
         if (this.isAnswered) return;
         
-        // Remove active class from all
         btns.forEach(b => b.classList.remove('active'));
-        // Add to selected
         const target = e.currentTarget;
         target.classList.add('active');
         
         const selectedIdx = parseInt(target.getAttribute('data-idx'));
-        const correctIdx = (exercise.correct !== undefined) ? exercise.correct : 
-          ((exercise.correctIndex !== undefined) ? exercise.correctIndex : exercise.answer);
         const isCorrect = (selectedIdx === correctIdx);
         const myAnswer = (exercise.options && exercise.options[selectedIdx]) ? exercise.options[selectedIdx] : '';
         const correctAnswer = (exercise.options && exercise.options[correctIdx]) ? exercise.options[correctIdx] : '';
@@ -486,9 +752,34 @@ const QuizEngine = {
   
   checkAnswer(isCorrect, targetElement, allElements, exercise, customMsg = '', meta = {}) {
     this.isAnswered = true;
-    
+    const exType = exercise.type || 'multiple-choice';
+
+    let userAns = meta.myAnswer || '';
+    let rightAns = meta.correctAnswer || '';
+    if (!userAns && targetElement) {
+      userAns = targetElement.textContent.trim();
+    }
+    if (!rightAns && exType === 'multiple-choice') {
+      const correctIdx = (exercise.correct !== undefined) ? exercise.correct : 
+        ((exercise.correctIndex !== undefined) ? exercise.correctIndex : exercise.answer);
+      rightAns = (exercise.options && exercise.options[correctIdx]) ? exercise.options[correctIdx] : '';
+    }
+    if (!rightAns) {
+      rightAns = (typeof exercise.answer === 'string' ? exercise.answer : '') ||
+                 (typeof exercise.correct === 'string' ? exercise.correct : '');
+    }
+
+    if (!this.states[this.mode]) this.states[this.mode] = {};
+    this.states[this.mode][this.currentIndex] = {
+      status: isCorrect ? 'correct' : 'wrong',
+      myAnswer: userAns,
+      correctAnswer: rightAns,
+      customMsg: customMsg || ''
+    };
+    this.recalculateScore();
+    this.saveSession();
+
     if (isCorrect) {
-      this.score++;
       if (targetElement) {
         targetElement.style.backgroundColor = 'var(--success)';
         targetElement.style.color = 'white';
@@ -506,7 +797,7 @@ const QuizEngine = {
       }
       
       // Highlight correct answer for multiple choice
-      if (allElements && exercise.type === 'multiple-choice') {
+      if (allElements && exType === 'multiple-choice') {
         const correctIdx = (exercise.correct !== undefined) ? exercise.correct : 
           ((exercise.correctIndex !== undefined) ? exercise.correctIndex : exercise.answer);
         allElements.forEach((btn, idx) => {
@@ -520,21 +811,11 @@ const QuizEngine = {
 
       // Record to Mistakes Log!
       if (typeof Storage !== 'undefined' && Storage.addMistake) {
-        let userAns = meta.myAnswer;
-        let rightAns = meta.correctAnswer;
-        if (!userAns && targetElement) {
-          userAns = targetElement.textContent.trim();
-        }
-        if (!rightAns && exercise.type === 'multiple-choice') {
-          const correctIdx = (exercise.correct !== undefined) ? exercise.correct : 
-            ((exercise.correctIndex !== undefined) ? exercise.correctIndex : exercise.answer);
-          rightAns = (exercise.options && exercise.options[correctIdx]) ? exercise.options[correctIdx] : '';
-        }
         Storage.addMistake({
           lessonId: this.lesson ? this.lesson.id : 'practice',
           question: exercise.question || exercise.sentence || exercise.from || 'سؤال بدون عنوان',
           myAnswer: userAns || 'إجابة غير صحيحة',
-          correctAnswer: rightAns || (exercise.answer || exercise.correct || 'الإجابة الصحيحة'),
+          correctAnswer: rightAns || 'الإجابة الصحيحة',
           explanation: exercise.explanation || customMsg || ''
         });
       }
@@ -549,7 +830,19 @@ const QuizEngine = {
         }
     }
     
-    document.getElementById('next-btn').style.display = 'inline-block';
+    // Update the navigator box live so current question pill updates immediately
+    const navBox = document.querySelector('.quiz-navigator-box');
+    if (navBox) {
+      const temp = document.createElement('div');
+      temp.innerHTML = this.buildNavigatorHTML();
+      if (temp.firstElementChild) {
+        navBox.replaceWith(temp.firstElementChild);
+      }
+    }
+    const skipBtn = document.getElementById('skip-btn');
+    if (skipBtn) skipBtn.style.display = 'none';
+    const nextBtn = document.getElementById('next-btn');
+    if (nextBtn) nextBtn.style.display = 'inline-block';
   },
   
   showFeedback(isCorrect, explanation, customMsg) {
@@ -585,6 +878,7 @@ const QuizEngine = {
     this.currentIndex++;
     
     if (this.currentIndex < this.exercises.length) {
+      this.saveSession();
       this.renderExercise();
     } else {
       if (this.mode === 'exercises') {
@@ -596,41 +890,67 @@ const QuizEngine = {
   },
   
   showQuizStartButton(container) {
+    this.currentIndex = Math.max(0, this.exercises.length - 1);
+    this.saveSession();
+    const navHTML = this.buildNavigatorHTML();
     if (!this.lesson.quiz || this.lesson.quiz.length === 0) {
-        container.innerHTML = `<div class="text-center" style="padding: 30px;">
+        container.innerHTML = `
+          ${navHTML}
+          <div class="text-center" style="padding: 30px;">
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" style="margin-bottom:15px"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
             <h3>أكملت التمارين بنجاح!</h3>
-            <p>لا يوجد اختبار إضافي لهذا الدرس.</p>
-        </div>`;
+            <p>النتيجة في التمارين: <strong>${this.score} / ${this.exercises.length}</strong></p>
+            <div style="margin-top:16px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+              <button onclick="QuizEngine.goToQuestion(0)" class="btn btn-secondary">مراجعة الأسئلة</button>
+              <button onclick="QuizEngine.resetCurrentMode()" class="btn btn-outline">إعادة التمارين 🔄</button>
+            </div>
+          </div>`;
         return;
     }
     
     container.innerHTML = `
+      ${navHTML}
       <div class="text-center" style="padding: 30px;">
-        <h3 style="margin-bottom: 15px;">أكملت التمارين!</h3>
-        <p style="margin-bottom: 20px; color: var(--text-secondary);">الآن اختبر معلوماتك في الاختبار النهائي للدرس.</p>
-        <button id="start-quiz-btn" class="btn btn-primary" style="font-size: 18px; padding: 12px 24px;">ابدأ الاختبار <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 5px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></button>
+        <h3 style="margin-bottom: 10px;">أكملت جولة التمارين! (${this.score} / ${this.exercises.length})</h3>
+        <p style="margin-bottom: 20px; color: var(--text-secondary);">يمكنك الضغط على أي رقم سؤال في الأعلى لمراجعته، أو الانتقال للاختبار النهائي للدرس.</p>
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <button id="start-quiz-btn" class="btn btn-primary" style="font-size: 18px; padding: 12px 24px;">ابدأ الاختبار النهائي 🎯</button>
+          <button onclick="QuizEngine.goToQuestion(0)" class="btn btn-secondary">مراجعة التمارين</button>
+        </div>
       </div>
     `;
     
     document.getElementById('start-quiz-btn').addEventListener('click', () => {
-      this.startQuiz();
+      this.startQuiz(false);
     });
   },
   
-  startQuiz() {
+  startQuiz(forceReset = false) {
     this.mode = 'quiz';
     this.exercises = this.lesson.quiz || [];
-    this.currentIndex = 0;
-    this.score = 0;
+    if (forceReset) {
+      this.states.quiz = {};
+      this.currentIndex = 0;
+    } else {
+      const stateMap = this.states.quiz || {};
+      let firstUnanswered = 0;
+      for (let i = 0; i < this.exercises.length; i++) {
+        if (!stateMap[i] || (stateMap[i].status !== 'correct' && stateMap[i].status !== 'wrong')) {
+          firstUnanswered = i;
+          break;
+        }
+      }
+      this.currentIndex = firstUnanswered;
+    }
+    this.recalculateScore();
     this.wrongAnswers = [];
+    this.syncSectionsVisibility();
+    this.saveSession();
     
-    document.getElementById('exercises-section').style.display = 'none';
     const quizSection = document.getElementById('quiz-section');
-    quizSection.style.display = 'block';
-    
-    // Smooth scroll to quiz section
-    quizSection.scrollIntoView({ behavior: 'smooth' });
+    if (quizSection) {
+      quizSection.scrollIntoView({ behavior: 'smooth' });
+    }
     
     if (this.exercises.length > 0) {
         this.renderExercise();
@@ -638,6 +958,7 @@ const QuizEngine = {
   },
   
   finishQuiz() {
+    this.recalculateScore();
     const total = this.exercises.length;
     let xp = 0;
     
@@ -664,15 +985,18 @@ const QuizEngine = {
         color = 'var(--danger)';
     }
     
+    const navHTML = this.buildNavigatorHTML();
     const container = this.getContainer();
     container.innerHTML = `
+      ${navHTML}
       <div class="card text-center" style="padding: 40px; border-top: 5px solid ${color};">
         <h2 style="color: ${color}; margin-bottom: 10px;">${message}</h2>
         <div style="font-size: 48px; font-weight: bold; margin: 20px 0;">${this.score} / ${total}</div>
         <p style="font-size: 18px; margin-bottom: 20px;">لقد كسبت <span style="font-weight:bold; color: var(--accent);">${xp} XP</span> نقطة خبرة!</p>
         
-        <div style="margin-top: 30px; display: flex; gap: 15px; justify-content: center;">
-            <button onclick="QuizEngine.startQuiz()" class="btn btn-outline">إعادة الاختبار <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg></button>
+        <div style="margin-top: 30px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+            <button onclick="QuizEngine.goToQuestion(0)" class="btn btn-secondary">مراجعة إجاباتي</button>
+            <button onclick="QuizEngine.startQuiz(true)" class="btn btn-outline">إعادة الاختبار من جديد 🔄</button>
             <a href="#/lessons" class="btn btn-primary">العودة للدروس</a>
         </div>
       </div>

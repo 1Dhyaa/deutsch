@@ -11,7 +11,7 @@ const ExamEngine = {
   isSubmitted: false,
   examResultId: null,
 
-  init(examData, mode = 'exam') {
+  init(examData, mode = 'exam', forceReset = false) {
     this.exam = examData;
     this.mode = mode;
     this.userAnswers = {};
@@ -21,15 +21,52 @@ const ExamEngine = {
     this.startTime = Date.now();
     this.examResultId = `exam-${examData.level}-${examData.module}-${examData.setNumber || 1}-${Date.now()}`;
 
+    if (forceReset && window.Storage && window.Storage.clearActiveExamSession) {
+      window.Storage.clearActiveExamSession(examData.id);
+    } else if (!forceReset && window.Storage && window.Storage.getActiveExamSession) {
+      const saved = window.Storage.getActiveExamSession(examData.id);
+      if (saved && !saved.isSubmitted) {
+        this.userAnswers = saved.userAnswers || {};
+        this.currentTeil = saved.currentTeil || 1;
+        if (typeof saved.secondsLeft === 'number' && saved.secondsLeft > 0) {
+          this.secondsLeft = saved.secondsLeft;
+        }
+        this.startTime = saved.startTime || Date.now();
+      }
+    }
+
     if (this.timerInterval) {
       clearInterval(this.timerInterval);
       this.timerInterval = null;
     }
 
+    this.saveSession();
     this.render();
 
     if (this.mode === 'exam') {
       this.startTimer();
+    }
+  },
+
+  saveSession() {
+    if (!this.exam || this.isSubmitted) return;
+    if (window.Storage && window.Storage.saveActiveExamSession) {
+      window.Storage.saveActiveExamSession(this.exam.id, {
+        mode: this.mode,
+        userAnswers: this.userAnswers,
+        currentTeil: this.currentTeil,
+        secondsLeft: this.secondsLeft,
+        startTime: this.startTime,
+        isSubmitted: this.isSubmitted
+      });
+    }
+  },
+
+  resetExam() {
+    if (!this.exam) return;
+    this.init(this.exam, this.mode, true);
+    if (window.Utils && window.Utils.showToast) {
+      window.Utils.showToast('تمت إعادة الامتحان من البداية 🔄', 'info', 1800);
     }
   },
 
@@ -57,6 +94,9 @@ const ExamEngine = {
         this.submitExam();
       }
       this.secondsLeft--;
+      if (this.secondsLeft % 5 === 0) {
+        this.saveSession();
+      }
     };
 
     updateDisplay();
@@ -66,6 +106,10 @@ const ExamEngine = {
   render() {
     const content = document.getElementById('app-content');
     if (!content) return;
+
+    const answeredCount = Object.keys(this.userAnswers).length;
+    const totalCount = this.exam.totalItems || 20;
+    const remainingCount = Math.max(0, totalCount - answeredCount);
 
     content.innerHTML = `
       <div class="exam-container fade-in">
@@ -85,11 +129,15 @@ const ExamEngine = {
             </div>
           </div>
 
-          <div class="exam-controls-row">
+          <div class="exam-controls-row" style="flex-wrap:wrap; gap:10px;">
             <div class="exam-timer-pill">
               <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
               <span id="exam-timer-display">${this.mode === 'exam' ? '30:00' : 'غير محدد'}</span>
             </div>
+
+            <button type="button" onclick="window.ExamEngine.resetExam()" class="btn btn-outline" style="padding:10px 14px; font-size:0.9rem;">
+              🔄 إعادة من البداية
+            </button>
 
             <button type="button" id="btn-submit-exam" class="btn btn-primary" style="padding:10px 20px;">
               تسليم الامتحان ✓
@@ -98,8 +146,16 @@ const ExamEngine = {
         </div>
 
         <!-- Question Navigator Strip -->
-        <div class="question-nav-strip" id="exam-q-nav">
-          ${this.renderQuestionNavPills()}
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); padding:12px 16px; margin-bottom:16px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:10px; font-size:0.9rem;">
+            <span style="font-weight:700;">خريطة الأسئلة (اضغط على رقم السؤال للانتقال إليه مباشرة):</span>
+            <span id="exam-progress-counter" style="color:var(--text-secondary);">
+              ✅ تمت الإجابة: <strong style="color:var(--success);">${answeredCount}</strong> | ⏳ متبقي: <strong>${remainingCount}</strong>
+            </span>
+          </div>
+          <div class="question-nav-strip" id="exam-q-nav" style="margin-bottom:0;">
+            ${this.renderQuestionNavPills()}
+          </div>
         </div>
 
         <!-- Teile Tabs -->
@@ -175,7 +231,7 @@ const ExamEngine = {
           </div>
           <div style="display:flex; flex-direction:column; gap:20px;">
             ${teil.questions.map(q => `
-              <div class="exam-question-card">
+              <div class="exam-question-card" id="q-card-${q.number}">
                 <div class="card" style="background:var(--bg-primary); margin-bottom:14px; padding:16px;">
                   <span class="badge badge-secondary" style="margin-bottom:8px;">نص الرسالة:</span>
                   <div class="de-text" dir="ltr" style="white-space:pre-line; line-height:1.7;">${Utils.escapeHtml(q.message)}</div>
@@ -213,7 +269,7 @@ const ExamEngine = {
           <h3 style="margin:24px 0 12px 0; font-size:1.15rem;">المواقف والأشخاص (Aufgaben 16–20):</h3>
           <div style="display:flex; flex-direction:column; gap:16px;">
             ${teil.questions.map(q => `
-              <div class="exam-question-card">
+              <div class="exam-question-card" id="q-card-${q.number}">
                 <div class="q-header">
                   <span class="q-number-badge">سؤال ${q.number}</span>
                 </div>
@@ -338,6 +394,7 @@ const ExamEngine = {
 
   switchTeil(teilNum) {
     this.currentTeil = teilNum;
+    this.saveSession();
     document.querySelectorAll('.exam-teil-tab').forEach(t => {
       t.classList.toggle('active', parseInt(t.getAttribute('data-teil'), 10) === teilNum);
     });
@@ -369,10 +426,20 @@ const ExamEngine = {
 
   selectAnswer(qNum, optIdx) {
     this.userAnswers[qNum] = optIdx;
+    this.saveSession();
 
     // Update nav pill
     const pill = document.querySelector(`.q-nav-pill[data-q="${qNum}"]`);
     if (pill) pill.classList.add('answered');
+
+    // Update answered/remaining counter
+    const counterEl = document.getElementById('exam-progress-counter');
+    if (counterEl) {
+      const answeredCount = Object.keys(this.userAnswers).length;
+      const totalCount = this.exam.totalItems || 20;
+      const remainingCount = Math.max(0, totalCount - answeredCount);
+      counterEl.innerHTML = `✅ تمت الإجابة: <strong style="color:var(--success);">${answeredCount}</strong> | ⏳ متبقي: <strong>${remainingCount}</strong>`;
+    }
 
     // Re-render in practice mode for instant feedback
     if (this.mode === 'practice') {
@@ -396,6 +463,10 @@ const ExamEngine = {
   submitExam() {
     if (this.isSubmitted) return;
     this.isSubmitted = true;
+
+    if (window.Storage && window.Storage.clearActiveExamSession && this.exam) {
+      window.Storage.clearActiveExamSession(this.exam.id);
+    }
 
     if (this.timerInterval) {
       clearInterval(this.timerInterval);
@@ -514,7 +585,7 @@ const ExamEngine = {
 
           <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
             <a href="#/exams" class="btn btn-secondary">العودة لقائمة الامتحانات</a>
-            <button type="button" class="btn btn-primary" onclick="window.ExamEngine.init(window.EXAM_DATA['${this.exam.id}'], 'exam')">
+            <button type="button" class="btn btn-primary" onclick="window.ExamEngine.init(window.EXAM_DATA['${this.exam.id}'], 'exam', true)">
               🔄 إعادة الامتحان
             </button>
           </div>

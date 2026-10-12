@@ -1,5 +1,5 @@
-// Service Worker for Deutsch Meister — 100% Offline PWA for iPhone & PC
-const CACHE_NAME = 'deutsch-meister-v3';
+// Service Worker for Deutsch Meister — 100% Offline PWA with Instant Live Updates
+const CACHE_NAME = 'deutsch-meister-mv5qiubv';
 
 const STATIC_ASSETS = [
   './',
@@ -39,47 +39,40 @@ const STATIC_ASSETS = [
   './images/icon-512.png'
 ];
 
-// Install: Cache critical core shell assets
+// Install: Cache critical core shell assets & activate immediately
 self.addEventListener('install', (event) => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log('[SW] Pre-caching core offline assets...');
       return cache.addAll(STATIC_ASSETS).catch(err => {
         console.warn('[SW] Some assets could not be pre-cached:', err);
       });
     })
   );
-  self.skipWaiting();
 });
 
-// Activate: Clean up old caches
+// Activate: Clean up old caches & take control immediately
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
       return Promise.all(
         keys.map((key) => {
           if (key !== CACHE_NAME) {
-            console.log('[SW] Deleting old cache:', key);
             return caches.delete(key);
           }
         })
       );
-    })
+    }).then(() => self.clients.claim())
   );
-  self.clients.claim();
 });
 
-// Fetch: Cache-First strategy with Network fallback and dynamic caching
+// Fetch: Network-First for HTML/JS/CSS (always fresh when online, 100% cached when offline)
 self.addEventListener('fetch', (event) => {
   const req = event.request;
-  
-  // Only handle GET requests
   if (req.method !== 'GET') return;
 
-  // Skip external cross-origin APIs (like ElevenLabs API calls or OpenAI)
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) {
-    // For external fonts or cdn, cache on demand
     if (url.hostname.includes('googleapis.com') || url.hostname.includes('gstatic.com')) {
       event.respondWith(
         caches.match(req).then((cached) => {
@@ -95,28 +88,41 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Local assets: Cache-First
-  event.respondWith(
-    caches.match(req).then((cached) => {
-      if (cached) {
-        return cached;
-      }
-      return fetch(req).then((networkRes) => {
-        if (!networkRes || networkRes.status !== 200 || networkRes.type !== 'basic') {
+  // Audio/Images: Cache-First for speed
+  if (url.pathname.includes('/audio/') && !url.pathname.endsWith('.js') && !url.pathname.endsWith('.json')) {
+    event.respondWith(
+      caches.match(req).then((cached) => {
+        if (cached) return cached;
+        return fetch(req).then((networkRes) => {
+          if (networkRes && networkRes.status === 200) {
+            const resClone = networkRes.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(req, resClone));
+          }
           return networkRes;
-        }
+        });
+      })
+    );
+    return;
+  }
+
+  // HTML, JS, CSS, Data: Network-First so updates appear immediately, fallback to Cache when offline
+  event.respondWith(
+    fetch(req).then((networkRes) => {
+      if (networkRes && networkRes.status === 200 && networkRes.type === 'basic') {
         const resClone = networkRes.clone();
         caches.open(CACHE_NAME).then((cache) => {
           cache.put(req, resClone);
         });
-        return networkRes;
-      }).catch((err) => {
-        // Fallback for offline navigation
+      }
+      return networkRes;
+    }).catch(() => {
+      return caches.match(req, { ignoreSearch: true }).then((cached) => {
+        if (cached) return cached;
         if (req.mode === 'navigate') {
-          return caches.match('./index.html');
+          return caches.match('./index.html', { ignoreSearch: true });
         }
-        throw err;
       });
     })
   );
 });
+

@@ -82,6 +82,7 @@ const Storage = {
     const data = this.load();
     const existing = data.lessons[lessonId] || {};
     data.lessons[lessonId] = {
+      ...existing,
       completed: true,
       quizScore: quizScore,
       totalQuestions: totalQuestions,
@@ -102,11 +103,75 @@ const Storage = {
         quizScore: null,
         bestScore: 0,
         lastAccess: Utils.today(),
+        attempts: 0,
+        session: null
+      };
+    } else {
+      data.lessons[lessonId].lastAccess = Utils.today();
+    }
+    this.save(data);
+    return data;
+  },
+
+  // Save active in-progress exercise/quiz state for a lesson
+  saveLessonSession(lessonId, sessionState) {
+    if (!lessonId) return;
+    const data = this.load();
+    if (!data.lessons[lessonId]) {
+      data.lessons[lessonId] = {
+        completed: false,
+        quizScore: null,
+        bestScore: 0,
+        lastAccess: Utils.today(),
         attempts: 0
       };
+    }
+    data.lessons[lessonId].session = sessionState;
+    data.lessons[lessonId].lastAccess = Utils.today();
+    this.save(data);
+  },
+
+  // Get active in-progress exercise/quiz state for a lesson
+  getLessonSession(lessonId) {
+    if (!lessonId) return null;
+    const data = this.load();
+    return (data.lessons[lessonId] && data.lessons[lessonId].session) || null;
+  },
+
+  // Clear active session for a lesson
+  clearLessonSession(lessonId) {
+    if (!lessonId) return;
+    const data = this.load();
+    if (data.lessons[lessonId]) {
+      data.lessons[lessonId].session = null;
       this.save(data);
     }
-    return data;
+  },
+
+  // Save active in-progress Official Exam session
+  saveActiveExamSession(examId, sessionState) {
+    if (!examId) return;
+    const data = this.load();
+    data.activeExams = data.activeExams || {};
+    data.activeExams[examId] = sessionState;
+    this.save(data);
+  },
+
+  // Get active in-progress Official Exam session
+  getActiveExamSession(examId) {
+    if (!examId) return null;
+    const data = this.load();
+    return (data.activeExams && data.activeExams[examId]) || null;
+  },
+
+  // Clear active in-progress Official Exam session
+  clearActiveExamSession(examId) {
+    if (!examId) return;
+    const data = this.load();
+    if (data.activeExams && data.activeExams[examId]) {
+      delete data.activeExams[examId];
+      this.save(data);
+    }
   },
   
   // Add mistake
