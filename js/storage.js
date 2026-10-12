@@ -273,3 +273,6 @@ const Storage = {
     this.save(this.getDefault());
   }
 };
+
+window.Storage = Storage;
+

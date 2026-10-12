@@ -119,3 +119,6 @@ const Utils = {
     return base + bonus;
   }
 };
+
+window.Utils = Utils;
+

@@ -1081,7 +1081,14 @@ const App = {
   }
 };
 
+window.App = App;
+
 // Start application when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    App.init();
+  });
+} else {
   App.init();
-});
+}
+

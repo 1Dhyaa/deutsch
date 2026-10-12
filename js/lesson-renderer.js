@@ -278,3 +278,5 @@ const LessonRenderer = {
     `;
   }
 };
+
+window.LessonRenderer = LessonRenderer;

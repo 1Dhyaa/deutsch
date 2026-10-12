@@ -111,6 +111,21 @@ const I18n = {
     const saved = (window.Storage && window.Storage.load().settings.lang) || 'ar';
     this.currentLang = saved;
     this.applyLanguage(saved, false);
+    this.bindEvents();
+  },
+
+  bindEvents() {
+    const langBtn = document.getElementById('lang-toggle-btn');
+    if (langBtn && !langBtn.dataset.i18nBound) {
+      langBtn.dataset.i18nBound = 'true';
+      langBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.toggleLang();
+        if (window.App && window.App.updateHeaderStats) {
+          window.App.updateHeaderStats();
+        }
+      });
+    }
   },
 
   getLang() {
@@ -158,8 +173,10 @@ const I18n = {
     // 2. Update Toggle Button Text/Pill in Topbar
     const langBtn = document.getElementById('lang-toggle-btn');
     if (langBtn) {
-      langBtn.innerHTML = isDe ? '🇸🇦 AR' : '🇩🇪 DE';
-      langBtn.title = isDe ? 'Auf Arabisch umstellen' : 'التحويل إلى الألمانية';
+      langBtn.innerHTML = isDe 
+        ? '<span style="font-size:1.1rem; line-height:1;">🇸🇦</span> <span>العربية</span>' 
+        : '<span style="font-size:1.1rem; line-height:1;">🇩🇪</span> <span>Deutsch</span>';
+      langBtn.title = isDe ? 'Auf Arabisch umstellen' : 'Auf Deutsch umstellen';
     }
 
     // 3. Update Static Navigation DOM items
@@ -168,7 +185,7 @@ const I18n = {
     // 4. Update Header Breadcrumb default
     const breadcrumb = document.getElementById('desktop-breadcrumb');
     if (breadcrumb && !breadcrumb.dataset.custom) {
-      breadcrumb.textContent = this.t('breadcrumb_home');
+      breadcrumb.textContent = isDe ? '🇩🇪 Deutsch Meister Lernportal' : '🇩🇪 مساحة التعلم الألمانية';
     }
 
     // 5. Toast Notification
@@ -181,12 +198,14 @@ const I18n = {
     }
 
     // 6. Refresh current view in router to re-render with new language
-    if (window.Router && window.Router.handleRoute) {
+    if (notify && window.Router && window.Router.handleRoute) {
       window.Router.handleRoute();
     }
   },
 
   updateStaticNav() {
+    const isDe = this.isGerman();
+
     // Sidebar items
     const navMap = [
       { route: '/home', key: 'nav_home' },
@@ -194,6 +213,7 @@ const I18n = {
       { route: '/games', key: 'nav_games' },
       { route: '/verbs', key: 'nav_verbs' },
       { route: '/vocabulary', key: 'nav_vocabulary' },
+      { route: '/exams', key: 'nav_exams' },
       { route: '/mistakes', key: 'nav_mistakes' },
       { route: '/progress', key: 'nav_progress' }
     ];
@@ -204,6 +224,12 @@ const I18n = {
       });
     });
 
+    // Brand subtitle
+    const brandSub = document.querySelector('.brand-sub');
+    if (brandSub) {
+      brandSub.textContent = isDe ? 'A1-Wiederholung & A2-Lehrplan' : 'مراجعة A1 + منهج A2';
+    }
+
     // Goal Card
     const goalTitle = document.querySelector('.goal-badge');
     const goalDesc = document.querySelector('.goal-desc');
@@ -211,3 +237,10 @@ const I18n = {
     if (goalDesc) goalDesc.textContent = this.t('goal_desc');
   }
 };
+
+window.I18n = I18n;
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => I18n.init());
+} else {
+  I18n.init();
+}

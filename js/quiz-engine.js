@@ -683,3 +683,6 @@ const QuizEngine = {
     }
   }
 };
+
+window.QuizEngine = QuizEngine;
+

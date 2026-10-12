@@ -105,8 +105,8 @@
                     <span id="xp-count">0 XP</span>
                 </div>
             </div>
-            <button id="lang-toggle-btn" class="lang-toggle-btn" aria-label="Toggle language" title="تبديل اللغة (العربية / Deutsch)">
-                🇩🇪 DE
+            <button id="lang-toggle-btn" class="lang-toggle-btn" onclick="if(window.I18n){ window.I18n.toggleLang(); if(window.App) window.App.updateHeaderStats(); }" aria-label="Toggle language" title="تبديل اللغة (العربية / Deutsch)">
+                <span style="font-size:1.1rem; line-height:1;">🇩🇪</span> <span>Deutsch</span>
             </button>
             <button id="audio-settings-btn" class="theme-toggle-btn" aria-label="Audio & AI Voice Settings" title="إعدادات الصوت والذكاء الاصطناعي">
                 <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.08"></path></svg>
