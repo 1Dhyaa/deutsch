@@ -1,6 +1,6 @@
 {
   "username": "Dhyaa",
-  "xp": 290,
+  "xp": 630,
   "streak": {
     "current": 3,
     "lastDate": "2026-10-13",
@@ -156,6 +156,114 @@
       "myAnswer": "Ich fahre morgen nach Berlin",
       "correctAnswer": "Ich komme aus Syrien und wohne jetzt in Berlin.",
       "explanation": "انتبه لكتابة أسماء الدول والمدن بحرف كبير (Syrien / Berlin)، وتصريف الفعلين مع ich ينتهي بـ -e (komme / wohne).",
+      "reviewCount": 1,
+      "lastReview": "2026-10-13",
+      "mastered": false,
+      "addedDate": "2026-10-13"
+    },
+    {
+      "id": "mv6q9vhm1juy71y03pw",
+      "lessonId": "diktat-a1",
+      "question": "[الأوقات والمواعيد (Uhrzeit & Termine)] القطار ينطلق اليوم في تمام الساعة الثامنة من محطة القطار الرئيسية.",
+      "myAnswer": "Der Zug fährt heute um 8:05 Uhr am Bahnhof an",
+      "correctAnswer": "Der Zug fährt heute um acht Uhr vom Hauptbahnhof ab.",
+      "explanation": "الفعل abfahren منفصل: الجزء المصرف (fährt مع Umlaut) في الموقع 2، والبادئة (ab) في آخر الجملة تماماً.",
+      "reviewCount": 0,
+      "lastReview": null,
+      "mastered": false,
+      "addedDate": "2026-10-13"
+    },
+    {
+      "id": "mv6qcgpnnhmqxgdmpkq",
+      "lessonId": "diktat-a1",
+      "question": "[التسوق والطعام (Einkaufen)] في يوم السبت أشتري فواكه وخضروات طازجة من السوق.",
+      "myAnswer": "Am Samstag kaufe ich frisches",
+      "correctAnswer": "Am Samstag kaufe ich frisches Obst und Gemüse auf dem Markt.",
+      "explanation": "بدأت الجملة بظرف الزمان (Am Samstag) في الموقع 1، لذلك جاء الفعل (kaufe) في الموقع 2 قبل الفاعل (ich).",
+      "reviewCount": 0,
+      "lastReview": null,
+      "mastered": false,
+      "addedDate": "2026-10-13"
+    },
+    {
+      "id": "mv6qfbehbvdbp8xv7pj",
+      "lessonId": "diktat-a1",
+      "question": "[الماضي التام (Perfekt mit haben)] بالأمس زرتُ جدي وجدتي وتناولتُ الطعام معهما.",
+      "myAnswer": "Gestern habe ich meine Großeltern besucht und ihnen",
+      "correctAnswer": "Gestern habe ich meine Großeltern besucht und mit ihnen gegessen.",
+      "explanation": "الأفعال التي تبدأ بـ be- مثل (besuchen) لا تأخذ ge- في التصريف الثالث: besucht. أما essen فتصبح gegessen.",
+      "reviewCount": 0,
+      "lastReview": null,
+      "mastered": false,
+      "addedDate": "2026-10-13"
+    },
+    {
+      "id": "mv6qghzitmqvwsszime",
+      "lessonId": "diktat-a1",
+      "question": "[الماضي التام بالحركة (Perfekt mit sein)] الأسبوع الماضي سافرنا بالحافلة إلى ميونخ.",
+      "myAnswer": "Letzte Woche sind wir mit dem Bus nach München fahren",
+      "correctAnswer": "Letzte Woche sind wir mit dem Bus nach München gefahren.",
+      "explanation": "الفعل fahren يدل على الانتقال من مكان لآخر، لذلك يأخذ الفعل المساعد (sind) وليس haben في زمن Perfekt.",
+      "reviewCount": 0,
+      "lastReview": null,
+      "mastered": false,
+      "addedDate": "2026-10-13"
+    },
+    {
+      "id": "mv6qha9nhvh6jaqdt2m",
+      "lessonId": "diktat-a2",
+      "question": "[الجمل السببية (Nebensatz mit weil)] لا أستطيع المجيء اليوم لأنني أعاني من صداع شديد.",
+      "myAnswer": "Ich kann heute nicht kommen weil ich",
+      "correctAnswer": "Ich kann heute nicht kommen, weil ich starke Kopfschmerzen habe.",
+      "explanation": "الرابط (weil) يرسل الفعل المصرف (habe) إلى نهاية الجملة الفرعية تماماً، ولا تنسَ الفاصلة قبل weil.",
+      "reviewCount": 0,
+      "lastReview": null,
+      "mastered": false,
+      "addedDate": "2026-10-13"
+    },
+    {
+      "id": "mv6qlexllajdxe7u60c",
+      "lessonId": "diktat-a2",
+      "question": "[الأفعال الانعكاسية وحروف الجر (Reflexive Verben)] أنا متشوق جداً بالفعل للعطلة القادمة على البحر.",
+      "myAnswer": "Ich freue mich über",
+      "correctAnswer": "Ich freue mich schon sehr auf den nächsten Urlaub am Meer.",
+      "explanation": "الفعل (sich freuen auf + Akkusativ) يعني يتشوق لشيء في المستقبل؛ لذلك تحولت der Urlaub إلى den nächsten Urlaub.",
+      "reviewCount": 0,
+      "lastReview": null,
+      "mastered": false,
+      "addedDate": "2026-10-13"
+    },
+    {
+      "id": "mv6qmfxgd1bd8szyqgf",
+      "lessonId": "diktat-a2",
+      "question": "[الأفعال مع حروف الجر (Verben mit Präpositionen)] نحن ننتظر الحافلة منذ نصف ساعة.",
+      "myAnswer": "Wir warten am halb Stunden in dem Bus",
+      "correctAnswer": "Wir warten seit einer halben Stunde auf den Bus.",
+      "explanation": "حرف الجر الزمني (seit) يأخذ Dativ: (seit einer halben Stunde)، بينما (warten auf) يأخذ Akkusativ: (auf den Bus).",
+      "reviewCount": 0,
+      "lastReview": null,
+      "mastered": false,
+      "addedDate": "2026-10-13"
+    },
+    {
+      "id": "mv6qn49d1y11753d7lw",
+      "lessonId": "diktat-a2",
+      "question": "[الجمل الشرطية (Nebensatz mit wenn)] إذا كان الطقس جميلاً في عطلة نهاية الأسبوع، فسنقوم برحلة قصيرة.",
+      "myAnswer": "غل",
+      "correctAnswer": "Wenn das Wetter am Wochenende schön ist, machen wir einen Ausflug.",
+      "explanation": "عندما تبدأ الجملة بـ (Wenn...) ينتهي الشطر الأول بالفعل (ist)، ثم يبدأ الشطر الرئيسي بعد الفاصلة بالفعل مباشرة (machen wir).",
+      "reviewCount": 0,
+      "lastReview": null,
+      "mastered": false,
+      "addedDate": "2026-10-13"
+    },
+    {
+      "id": "mv6qp1z4lowf25jza9i",
+      "lessonId": "diktat-a2",
+      "question": "[الماضي البسيط (Präteritum der Modalverben)] عندما كنتُ طفلاً، كنتُ أريد دائماً أن أصبح طياراً.",
+      "myAnswer": "Als ich ein Kind waren wollte ich immer eine Pilot warten",
+      "correctAnswer": "Als ich ein Kind war, wollte ich immer Pilot werden.",
+      "explanation": "نستخدم (Als) للحدث الماضي لمرة واحدة (فترة الطفولة)، والماضي البسيط من wollen هو (wollte).",
       "reviewCount": 0,
       "lastReview": null,
       "mastered": false,
@@ -227,8 +335,8 @@
       "gamesPlayed": 0
     },
     "diktatGame": {
-      "highScore": 0,
-      "gamesPlayed": 0
+      "highScore": 45,
+      "gamesPlayed": 3
     },
     "schreibenTrainer": {
       "highScore": 0,
@@ -245,6 +353,6 @@
     "theme": "light",
     "fontSize": "normal"
   },
-  "updatedAt": 1791898150217,
+  "updatedAt": 1791899515610,
   "version": 2
 }

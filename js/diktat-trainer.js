@@ -11,6 +11,7 @@ const DiktatTrainer = {
   answeredMap: {},       // key: `${mode}-${itemId}` -> { correct: boolean, userAnswer: string }
   showArabicHint: false,
   showFirstLettersHint: false,
+  showFullSentence: false,
   lastResult: null,      // Stores current item evaluation state
 
   // ============================================================================
@@ -898,6 +899,7 @@ const DiktatTrainer = {
     this.currentIndex = 0;
     this.showArabicHint = false;
     this.showFirstLettersHint = false;
+    this.showFullSentence = false;
     this.lastResult = null;
     this.renderWorkspace();
   },
@@ -908,6 +910,7 @@ const DiktatTrainer = {
     this.currentIndex = 0;
     this.showArabicHint = false;
     this.showFirstLettersHint = false;
+    this.showFullSentence = false;
     this.lastResult = null;
     this.renderWorkspace();
   },
@@ -919,6 +922,7 @@ const DiktatTrainer = {
     this.currentIndex = index;
     this.showArabicHint = false;
     this.showFirstLettersHint = false;
+    this.showFullSentence = false;
     this.lastResult = null;
     this.renderWorkspace();
   },
@@ -957,6 +961,25 @@ const DiktatTrainer = {
   toggleFirstLettersHint() {
     this.showFirstLettersHint = !this.showFirstLettersHint;
     this.renderWorkspace();
+  },
+
+  toggleFullSentence() {
+    this.showFullSentence = !this.showFullSentence;
+    this.renderWorkspace();
+  },
+
+  copySentenceToInput(targetId = 'diktat-input') {
+    const item = this.getCurrentItem();
+    if (!item) return;
+    const input = document.getElementById(targetId);
+    if (input) {
+      input.value = this.currentMode === 'luecken' ? item.missingAnswer : item.de;
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+      input.focus();
+      if (window.Utils && Utils.showToast) {
+        Utils.showToast('📋 تم نسخ النص إلى حقل الكتابة بنجاح!', 'success', 2000);
+      }
+    }
   },
 
   insertChar(inputId, char) {
@@ -1354,28 +1377,52 @@ const DiktatTrainer = {
           </div>
 
           <!-- Optional Hints Row -->
-          <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:16px;">
-            <button type="button" class="btn btn-secondary btn-sm" onclick="DiktatTrainer.toggleArabicHint()">
+          <div style="display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin-top:16px;">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="DiktatTrainer.toggleArabicHint()" style="padding:6px 14px; font-size:0.86rem; font-weight:700;">
               💡 ${this.showArabicHint
-                ? (isDe ? 'Arabische Bedeutung ausblenden' : 'إخفاء المعنى بالعربية')
-                : (isDe ? 'Arabische Bedeutung zeigen' : 'إظهار المعنى بالعربية')}
+                ? (isDe ? 'Arabische Bedeutung ausblenden' : 'إخفاء المعنى')
+                : (isDe ? 'Arabische Bedeutung' : '💡 المعنى بالعربية')}
             </button>
-            <button type="button" class="btn btn-secondary btn-sm" onclick="DiktatTrainer.toggleFirstLettersHint()">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="DiktatTrainer.toggleFirstLettersHint()" style="padding:6px 14px; font-size:0.86rem; font-weight:700;">
               🔤 ${this.showFirstLettersHint
-                ? (isDe ? 'Anfangsbuchstaben ausblenden' : 'إخفاء تلميح الأحرف الأولى')
-                : (isDe ? 'Tipp: Anfangsbuchstaben' : 'تلميح الأحرف الأولى')}
+                ? (isDe ? 'Anfangsbuchstaben ausblenden' : 'إخفاء الحروف')
+                : (isDe ? 'Tipp: Anfangsbuchstaben' : '🔤 تلميح أول حرف')}
+            </button>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="DiktatTrainer.toggleFullSentence()" style="padding:6px 14px; font-size:0.86rem; font-weight:700; border:1.5px solid ${this.showFullSentence ? 'var(--accent)' : 'rgba(99,102,241,0.45)'}; background:${this.showFullSentence ? 'rgba(99,102,241,0.18)' : 'var(--bg-primary)'}; color:${this.showFullSentence ? 'var(--accent)' : 'var(--text-primary)'};">
+              👁️ ${this.showFullSentence
+                ? (isDe ? 'Satz verbergen 🙈' : 'إخفاء الجملة المكتوبة 🙈')
+                : (isDe ? 'Ganzen Satz anzeigen (Notfall)' : '👁️ عرض الجملة كتابة (احتياطاً)')}
             </button>
           </div>
 
           ${this.showArabicHint ? `
-            <div style="margin-top:12px; padding:10px 14px; border-radius:var(--radius-sm); background:var(--bg-primary); color:var(--text-primary); font-weight:600; font-size:0.98rem;">
+            <div class="fade-in" style="margin-top:12px; padding:10px 14px; border-radius:var(--radius-sm); background:var(--bg-primary); color:var(--text-primary); font-weight:600; font-size:0.98rem;">
               🇸🇦 المعنى: ${Utils.escapeHtml(item.ar)}
             </div>
           ` : ''}
 
           ${this.showFirstLettersHint ? `
-            <div class="de-text" dir="ltr" style="margin-top:12px; padding:10px 14px; border-radius:var(--radius-sm); background:var(--bg-primary); color:var(--accent); font-family:monospace; font-weight:700; font-size:1.05rem; letter-spacing:1px;">
+            <div class="de-text fade-in" dir="ltr" style="margin-top:12px; padding:10px 14px; border-radius:var(--radius-sm); background:var(--bg-primary); color:var(--accent); font-family:monospace; font-weight:700; font-size:1.05rem; letter-spacing:1px;">
               ${Utils.escapeHtml(firstLetters)}
+            </div>
+          ` : ''}
+
+          ${this.showFullSentence ? `
+            <div class="fade-in" style="margin-top:14px; padding:16px 18px; border-radius:var(--radius-md); background:rgba(99,102,241,0.08); border:2px dashed var(--accent); text-align:center;">
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:10px;">
+                <span style="font-size:0.86rem; color:var(--accent); font-weight:800; display:inline-flex; align-items:center; gap:6px;">
+                  👁️ ${isDe ? 'Deutscher Satz im Klartext:' : 'الجملة الألمانية مكتوبة بوضوح (احتياطاً):'}
+                </span>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="DiktatTrainer.copySentenceToInput('diktat-input')" style="padding:4px 12px; font-size:0.82rem; font-weight:700; border:1px solid var(--accent); color:var(--accent);">
+                  📋 ${isDe ? 'In Textfeld einfügen' : 'نسخ إلى حقل الكتابة'}
+                </button>
+              </div>
+              <div class="de-text" dir="ltr" style="font-size:1.25rem; font-weight:800; color:var(--text-primary); line-height:1.6; padding:12px 14px; background:var(--bg-primary); border-radius:var(--radius-sm); border:1px solid var(--border);">
+                🇩🇪 ${Utils.escapeHtml(item.de)}
+              </div>
+              <div style="font-size:0.92rem; color:var(--text-secondary); margin-top:8px;">
+                🇸🇦 ${Utils.escapeHtml(item.ar)}
+              </div>
             </div>
           ` : ''}
         </div>
@@ -1516,6 +1563,24 @@ const DiktatTrainer = {
           <div style="margin-top:10px; font-size:0.95rem; color:var(--text-secondary);">
             🇸🇦 ${Utils.escapeHtml(item.ar)}
           </div>
+
+          <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:14px;">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="DiktatTrainer.toggleFullSentence()" style="padding:6px 14px; font-size:0.86rem; font-weight:700; border:1.5px solid ${this.showFullSentence ? 'var(--accent)' : 'rgba(99,102,241,0.45)'}; background:${this.showFullSentence ? 'rgba(99,102,241,0.18)' : 'var(--bg-primary)'}; color:${this.showFullSentence ? 'var(--accent)' : 'var(--text-primary)'};">
+              👁️ ${this.showFullSentence
+                ? (isDe ? 'Lösung verbergen 🙈' : 'إخفاء الحل 🙈')
+                : (isDe ? 'Ganze Lösung anzeigen (Notfall)' : '👁️ عرض الكلمة المفقودة (احتياطاً)')}
+            </button>
+          </div>
+
+          ${this.showFullSentence ? `
+            <div class="fade-in" style="margin-top:12px; padding:12px 16px; border-radius:var(--radius-sm); background:rgba(99,102,241,0.08); border:1.5px dashed var(--accent); text-align:center;">
+              <span style="font-size:0.86rem; color:var(--accent); font-weight:700;">الكلمة المفقودة:</span>
+              <strong class="de-text" dir="ltr" style="font-size:1.18rem; color:var(--text-primary); margin:0 8px;">${Utils.escapeHtml(item.missingAnswer)}</strong>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="DiktatTrainer.copySentenceToInput('luecken-input')" style="padding:4px 10px; font-size:0.82rem; margin-top:4px; font-weight:700;">
+                📋 نسخ للحقل
+              </button>
+            </div>
+          ` : ''}
         </div>
 
         <!-- Clickable Distractor Chips -->
@@ -1633,6 +1698,28 @@ const DiktatTrainer = {
               🐢 ${isDe ? 'Langsam hören (0.65x)' : 'استماع بطيء (0.65x)'}
             </button>
           </div>
+
+          <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:14px;">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="DiktatTrainer.toggleFullSentence()" style="padding:6px 14px; font-size:0.86rem; font-weight:700; border:1.5px solid ${this.showFullSentence ? 'var(--accent)' : 'rgba(99,102,241,0.45)'}; background:${this.showFullSentence ? 'rgba(99,102,241,0.18)' : 'var(--bg-primary)'}; color:${this.showFullSentence ? 'var(--accent)' : 'var(--text-primary)'};">
+              👁️ ${this.showFullSentence
+                ? (isDe ? 'Transkript verbergen 🙈' : 'إخفاء نص التسجيل 🙈')
+                : (isDe ? 'Transkript anzeigen (Notfall)' : '👁️ عرض نص التسجيل كاملاً مكتوباً (احتياطاً)')}
+            </button>
+          </div>
+
+          ${this.showFullSentence ? `
+            <div class="fade-in" style="margin-top:14px; padding:14px 16px; border-radius:var(--radius-md); background:rgba(99,102,241,0.08); border:1.5px dashed var(--accent); text-align:right;">
+              <div style="font-size:0.84rem; color:var(--accent); font-weight:800; margin-bottom:6px;">
+                📻 نص التسجيل كاملاً بالألمانية (Transkript):
+              </div>
+              <div class="de-text" dir="ltr" style="font-size:1.02rem; font-weight:700; color:var(--text-primary); line-height:1.7; margin-bottom:8px;">
+                ${Utils.escapeHtml(item.audioText)}
+              </div>
+              <div style="font-size:0.9rem; color:var(--text-secondary); line-height:1.6;">
+                🇸🇦 الترجمة: ${Utils.escapeHtml(item.arTranslation)}
+              </div>
+            </div>
+          ` : ''}
         </div>
 
         <!-- Comprehension Question -->

@@ -1,5 +1,5 @@
 // Service Worker for Deutsch Meister — 100% Offline PWA with Instant Live Updates
-const CACHE_NAME = 'deutsch-meister-mv6pww5i';
+const CACHE_NAME = 'deutsch-meister-mv6qpzrk';
 
 const STATIC_ASSETS = [
   './',
