@@ -195,3 +195,4 @@ const VerbsRenderer = {
     }).join('');
   }
 };
+window.VerbsRenderer = VerbsRenderer;

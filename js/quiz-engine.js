@@ -96,6 +96,10 @@ const QuizEngine = {
     this.renderExercise();
   },
 
+  jumpToQuestion(index) {
+    return this.goToQuestion(index);
+  },
+
   goToQuestion(index) {
     if (index < 0 || index >= this.exercises.length) return;
     this.currentIndex = index;

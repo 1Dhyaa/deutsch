@@ -1013,7 +1013,7 @@ const DiktatTrainer = {
     const item = this.getCurrentItem();
     if (!item) return;
     const input = document.getElementById('luecken-input');
-    const userText = (forcedValue !== undefined ? forcedValue : (input ? input.value : '')).trim();
+    const userText = String(forcedValue !== undefined && forcedValue !== null ? forcedValue : (input ? input.value : '')).trim();
 
     if (!userText) {
       if (window.Utils && Utils.showToast) {

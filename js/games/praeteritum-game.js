@@ -238,3 +238,4 @@ const PraeteritumGame = {
     }
   }
 };
+window.PraeteritumGame = PraeteritumGame;

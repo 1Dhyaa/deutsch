@@ -453,3 +453,4 @@ const KasusGame = {
     `;
   }
 };
+window.KasusGame = KasusGame;

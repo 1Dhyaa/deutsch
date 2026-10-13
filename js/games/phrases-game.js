@@ -589,3 +589,4 @@ const PhrasesGame = {
     `;
   }
 };
+window.PhrasesGame = PhrasesGame;

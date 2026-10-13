@@ -56,21 +56,17 @@ const Router = {
       link.classList.toggle('active', isActive);
     });
     
-    // Find and execute handler
+    // Find and execute handler immediately for zero-flicker navigation
     const handler = this.routes[path];
     if (handler) {
       const content = document.getElementById('app-content');
       if (content) {
-          content.innerHTML = '<div class="spinner"></div>';
-          // Small delay for animation feel
-          requestAnimationFrame(() => {
-            try {
-              handler(params);
-            } catch (e) {
-              console.error('Route error:', e);
-              content.innerHTML = `<div class="card" style="text-align:center; padding:40px;"><h2>حدث خطأ</h2><p>${Utils.escapeHtml(e.message)}</p></div>`;
-            }
-          });
+        try {
+          handler(params);
+        } catch (e) {
+          console.error('Route error:', e);
+          content.innerHTML = `<div class="card" style="text-align:center; padding:40px;"><h2>حدث خطأ</h2><p>${Utils.escapeHtml(e.message)}</p></div>`;
+        }
       }
     } else {
       // 404 - redirect to home

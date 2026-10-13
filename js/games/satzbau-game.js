@@ -538,3 +538,4 @@ const SatzbauGame = {
     `;
   }
 };
+window.SatzbauGame = SatzbauGame;

@@ -29,11 +29,11 @@ const Utils = {
   },
   
   // Normalize German text for comparison (lowercase, trim, handle ß/ss, umlauts)
-  normalizeGerman(text) { return text.trim().toLowerCase().replace(/\s+/g, ' '); },
+  normalizeGerman(text) { return String(text ?? '').trim().toLowerCase().replace(/\s+/g, ' '); },
   
   // Compare user answer with correct answer (flexible: ignore punctuation, case)
   compareAnswers(userAnswer, correctAnswer, acceptList) {
-    const normalize = (s) => s.trim().toLowerCase().replace(/[.!?,;:]/g, '').replace(/\s+/g, ' ');
+    const normalize = (s) => String(s ?? '').trim().toLowerCase().replace(/[.!?,;:]/g, '').replace(/\s+/g, ' ');
     const normalizedUser = normalize(userAnswer);
     if (normalize(correctAnswer) === normalizedUser) return true;
     if (acceptList && acceptList.some(a => normalize(a) === normalizedUser)) return true;

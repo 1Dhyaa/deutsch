@@ -307,3 +307,4 @@ const ArticleGame = {
     }
   }
 };
+window.ArticleGame = ArticleGame;

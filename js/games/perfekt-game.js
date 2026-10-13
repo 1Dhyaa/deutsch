@@ -219,3 +219,4 @@ const PerfektGame = {
     }
   }
 };
+window.PerfektGame = PerfektGame;

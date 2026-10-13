@@ -465,3 +465,4 @@ const DialogGame = {
     `;
   }
 };
+window.DialogGame = DialogGame;

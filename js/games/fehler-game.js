@@ -486,3 +486,4 @@ const FehlerGame = {
     `;
   }
 };
+window.FehlerGame = FehlerGame;

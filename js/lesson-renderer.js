@@ -37,8 +37,10 @@ const LessonRenderer = {
     content.scrollTop = 0;
     window.scrollTo(0, 0);
     
-    // Initialize exercises after render
-    setTimeout(() => QuizEngine.init(lesson), 100);
+    // Initialize exercises immediately after DOM insertion
+    if (window.QuizEngine) {
+      QuizEngine.init(lesson);
+    }
   },
   
   buildLessonHTML(lesson) {

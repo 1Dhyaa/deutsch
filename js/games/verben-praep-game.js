@@ -822,6 +822,10 @@ const VerbenPraepGame = {
 
   submitAnswer(userAnswer, clickedIdx = -1) {
     if (this.isAnswered) return;
+    if (typeof userAnswer === "number" && clickedIdx === -1 && this.shuffledOptions) {
+      clickedIdx = userAnswer;
+      userAnswer = this.shuffledOptions[clickedIdx] || "";
+    }
     this.isAnswered = true;
 
     const item = this.pool[this.currentIndex];
