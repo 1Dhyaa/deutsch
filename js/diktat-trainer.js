@@ -893,8 +893,85 @@ const DiktatTrainer = {
   // ============================================================================
   // NAVIGATION & INTERACTION CONTROLLERS
   // ============================================================================
+  currentAudio: null,
+  isPlayingAudio: false,
+
+  stopAudio() {
+    if (this.currentAudio) {
+      try {
+        this.currentAudio.pause();
+        this.currentAudio.currentTime = 0;
+      } catch (e) {}
+      this.currentAudio = null;
+    }
+    if (window.Speech && Speech.stop) {
+      Speech.stop();
+    }
+    this.isPlayingAudio = false;
+    const playBtns = document.querySelectorAll('.diktat-play-btn');
+    playBtns.forEach(btn => btn.classList.remove('playing'));
+  },
+
+  playItemAudio(item, isSlow = false) {
+    if (!item) return;
+    this.stopAudio();
+
+    const manifestPath = window.DIKTAT_AUDIO_MANIFEST && window.DIKTAT_AUDIO_MANIFEST[item.id];
+    const audioPath = manifestPath || `audio/diktat/${item.id}.mp3`;
+
+    const fallbackToSpeech = () => {
+      this.isPlayingAudio = false;
+      const playBtns = document.querySelectorAll('.diktat-play-btn');
+      playBtns.forEach(btn => btn.classList.remove('playing'));
+      const text = this.currentMode === 'hoerverstehen' ? item.audioText : item.de;
+      if (window.Speech) {
+        if (isSlow) Speech.speakSlow(text);
+        else Speech.speak(text);
+      }
+    };
+
+    if (audioPath) {
+      try {
+        const audio = new Audio(audioPath);
+        this.currentAudio = audio;
+        audio.playbackRate = isSlow ? 0.75 : 1.0;
+        if ('preservesPitch' in audio) {
+          audio.preservesPitch = true;
+        }
+
+        this.isPlayingAudio = true;
+        const playBtns = document.querySelectorAll('.diktat-play-btn');
+        playBtns.forEach(btn => btn.classList.add('playing'));
+
+        audio.onended = () => {
+          this.isPlayingAudio = false;
+          playBtns.forEach(btn => btn.classList.remove('playing'));
+          this.currentAudio = null;
+        };
+
+        audio.onerror = (err) => {
+          console.warn('[DiktatTrainer] ElevenLabs audio playback failed, falling back to Speech:', err);
+          fallbackToSpeech();
+        };
+
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(err => {
+            console.warn('[DiktatTrainer] audio.play() promise rejected:', err);
+            fallbackToSpeech();
+          });
+        }
+        return;
+      } catch (err) {
+        console.warn('[DiktatTrainer] Audio error:', err);
+      }
+    }
+
+    fallbackToSpeech();
+  },
+
   setMode(mode) {
-    if (window.Speech && Speech.stop) Speech.stop();
+    this.stopAudio();
     this.currentMode = mode;
     this.currentIndex = 0;
     this.showArabicHint = false;
@@ -905,7 +982,7 @@ const DiktatTrainer = {
   },
 
   setLevel(level) {
-    if (window.Speech && Speech.stop) Speech.stop();
+    this.stopAudio();
     this.currentLevel = level;
     this.currentIndex = 0;
     this.showArabicHint = false;
@@ -918,7 +995,7 @@ const DiktatTrainer = {
   jumpTo(index) {
     const pool = this.getActivePool();
     if (index < 0 || index >= pool.length) return;
-    if (window.Speech && Speech.stop) Speech.stop();
+    this.stopAudio();
     this.currentIndex = index;
     this.showArabicHint = false;
     this.showFirstLettersHint = false;
@@ -941,16 +1018,14 @@ const DiktatTrainer = {
 
   playNormal() {
     const item = this.getCurrentItem();
-    if (!item || !window.Speech) return;
-    const text = this.currentMode === 'hoerverstehen' ? item.audioText : item.de;
-    Speech.speak(text);
+    if (!item) return;
+    this.playItemAudio(item, false);
   },
 
   playSlow() {
     const item = this.getCurrentItem();
-    if (!item || !window.Speech) return;
-    const text = this.currentMode === 'hoerverstehen' ? item.audioText : item.de;
-    Speech.speakSlow(text);
+    if (!item) return;
+    this.playItemAudio(item, true);
   },
 
   toggleArabicHint() {
@@ -1029,7 +1104,7 @@ const DiktatTrainer = {
     };
 
     this.renderWorkspace();
-    if (window.Speech) Speech.speak(item.de);
+    this.playItemAudio(item, false);
   },
 
   checkLueckenAnswer(forcedValue) {
@@ -1055,7 +1130,7 @@ const DiktatTrainer = {
     };
 
     this.renderWorkspace();
-    if (window.Speech) Speech.speak(item.de);
+    this.playItemAudio(item, false);
   },
 
   checkHoerverstehenAnswer(optionIndex) {
@@ -1364,15 +1439,21 @@ const DiktatTrainer = {
 
         <!-- Big Audio Player Box -->
         <div style="background:var(--bg-secondary); border:1.5px dashed var(--accent); border-radius:var(--radius-md); padding:24px 20px; text-align:center; margin-bottom:20px;">
+          <div style="margin-bottom:12px;">
+            <span class="badge" style="background:rgba(16,185,129,0.12); color:var(--success); border:1px solid rgba(16,185,129,0.3); font-size:0.78rem; font-weight:700; padding:4px 12px; border-radius:100px; display:inline-flex; align-items:center; gap:6px;">
+              <span>🎙️</span>
+              <span>ElevenLabs Studio HD • نطق بشري فائق الوضوح</span>
+            </span>
+          </div>
           <div style="font-size:0.95rem; font-weight:700; color:var(--text-secondary); margin-bottom:14px;">
             🎧 ${isDe ? 'Höre den Satz und schreibe oder sprich ihn auf Deutsch:' : 'استمع إلى الجملة الألمانية جيداً ثم اكتبها أو انطقها بالمايكروفون:'}
           </div>
           <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
-            <button type="button" class="btn btn-primary" onclick="DiktatTrainer.playNormal()" style="padding:12px 22px; font-size:1rem; display:inline-flex; align-items:center; gap:8px;">
+            <button type="button" class="btn btn-primary diktat-play-btn" onclick="DiktatTrainer.playNormal()" style="padding:12px 22px; font-size:1rem; display:inline-flex; align-items:center; gap:8px;">
               🔊 ${isDe ? 'Normal abspielen' : 'استمع بالسرعة الطبيعية'}
             </button>
-            <button type="button" class="btn btn-secondary" onclick="DiktatTrainer.playSlow()" style="padding:12px 22px; font-size:1rem; display:inline-flex; align-items:center; gap:8px; border:1.5px solid var(--accent);">
-              🐢 ${isDe ? 'Langsam abspielen (0.65x)' : 'استمع ببطء (0.65x)'}
+            <button type="button" class="btn btn-secondary diktat-play-btn" onclick="DiktatTrainer.playSlow()" style="padding:12px 22px; font-size:1rem; display:inline-flex; align-items:center; gap:8px; border:1.5px solid var(--accent);">
+              🐢 ${isDe ? 'Langsam abspielen (0.75x)' : 'استمع ببطء (0.75x)'}
             </button>
           </div>
 
@@ -1487,7 +1568,7 @@ const DiktatTrainer = {
                   ? (isDe ? '✅ Perfekt geschrieben!' : '✅ إملاء صحيح وممتاز!')
                   : (isDe ? '🔍 Wort-für-Wort-Vergleich (Korrektur):' : '🔍 مقارنة الإملاء كلمة بكلمة (تصحيح الأخطاء):')}
               </strong>
-              <button type="button" class="btn btn-secondary btn-sm" onclick="DiktatTrainer.playNormal()">
+              <button type="button" class="btn btn-secondary btn-sm diktat-play-btn" onclick="DiktatTrainer.playNormal()">
                 🔊 ${isDe ? 'Noch einmal hören' : 'استمع مرة أخرى'}
               </button>
             </div>
@@ -1546,12 +1627,18 @@ const DiktatTrainer = {
 
         <!-- Audio Controls -->
         <div style="background:var(--bg-secondary); border:1.5px solid var(--border); border-radius:var(--radius-md); padding:22px 20px; text-align:center; margin-bottom:20px;">
+          <div style="margin-bottom:12px;">
+            <span class="badge" style="background:rgba(16,185,129,0.12); color:var(--success); border:1px solid rgba(16,185,129,0.3); font-size:0.78rem; font-weight:700; padding:4px 12px; border-radius:100px; display:inline-flex; align-items:center; gap:6px;">
+              <span>🎙️</span>
+              <span>ElevenLabs Studio HD • نطق بشري فائق الوضوح</span>
+            </span>
+          </div>
           <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom:18px;">
-            <button type="button" class="btn btn-primary" onclick="DiktatTrainer.playNormal()" style="padding:11px 20px; font-size:0.98rem;">
+            <button type="button" class="btn btn-primary diktat-play-btn" onclick="DiktatTrainer.playNormal()" style="padding:11px 20px; font-size:0.98rem;">
               🔊 ${isDe ? 'Satz abspielen' : 'استمع للجملة كاملة'}
             </button>
-            <button type="button" class="btn btn-secondary" onclick="DiktatTrainer.playSlow()" style="padding:11px 20px; font-size:0.98rem;">
-              🐢 ${isDe ? 'Langsam hören (0.65x)' : 'استمع ببطء (0.65x)'}
+            <button type="button" class="btn btn-secondary diktat-play-btn" onclick="DiktatTrainer.playSlow()" style="padding:11px 20px; font-size:0.98rem;">
+              🐢 ${isDe ? 'Langsam hören (0.75x)' : 'استمع ببطء (0.75x)'}
             </button>
           </div>
 
@@ -1687,15 +1774,21 @@ const DiktatTrainer = {
 
         <!-- Context & Audio Studio Box -->
         <div style="background:var(--bg-secondary); border:1.5px solid var(--border); border-radius:var(--radius-md); padding:22px 20px; text-align:center; margin-bottom:22px;">
+          <div style="margin-bottom:12px;">
+            <span class="badge" style="background:rgba(16,185,129,0.12); color:var(--success); border:1px solid rgba(16,185,129,0.3); font-size:0.78rem; font-weight:700; padding:4px 12px; border-radius:100px; display:inline-flex; align-items:center; gap:6px;">
+              <span>🎙️</span>
+              <span>ElevenLabs Studio HD • حوار / إعلان حقيقي</span>
+            </span>
+          </div>
           <p style="font-size:1rem; font-weight:700; color:var(--text-primary); margin:0 0 14px 0;">
             🎧 ${Utils.escapeHtml(item.contextAr)}
           </p>
           <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
-            <button type="button" class="btn btn-primary" onclick="DiktatTrainer.playNormal()" style="padding:12px 22px; font-size:1rem;">
+            <button type="button" class="btn btn-primary diktat-play-btn" onclick="DiktatTrainer.playNormal()" style="padding:12px 22px; font-size:1rem;">
               🔊 ${isDe ? 'Durchsage / Dialog abspielen' : 'تشغيل التسجيل الصوتي بالسرعة الطبيعية'}
             </button>
-            <button type="button" class="btn btn-secondary" onclick="DiktatTrainer.playSlow()" style="padding:12px 20px; font-size:0.98rem;">
-              🐢 ${isDe ? 'Langsam hören (0.65x)' : 'استماع بطيء (0.65x)'}
+            <button type="button" class="btn btn-secondary diktat-play-btn" onclick="DiktatTrainer.playSlow()" style="padding:12px 20px; font-size:0.98rem;">
+              🐢 ${isDe ? 'Langsam hören (0.75x)' : 'استماع بطيء (0.75x)'}
             </button>
           </div>
 
@@ -1777,7 +1870,7 @@ const DiktatTrainer = {
             <div style="padding:14px 16px; border-radius:var(--radius-sm); background:var(--bg-primary); border:1px solid var(--border); margin-bottom:12px;">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
                 <span style="font-size:0.82rem; font-weight:700; color:var(--accent);">📜 النص الألماني الكامل (Transkript):</span>
-                <button type="button" class="btn btn-secondary btn-sm" onclick="DiktatTrainer.playNormal()">🔊 استمع مع القراءة</button>
+                <button type="button" class="btn btn-secondary btn-sm diktat-play-btn" onclick="DiktatTrainer.playNormal()">🔊 استمع مع القراءة</button>
               </div>
               <p class="de-text" dir="ltr" style="margin:0; font-size:1.04rem; line-height:1.7; font-weight:600; color:var(--text-primary);">
                 ${Utils.escapeHtml(item.audioText)}
