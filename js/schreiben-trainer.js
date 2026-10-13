@@ -1326,14 +1326,10 @@ const SchreibenTrainer = {
 
   dictate(btnEl) {
     const textarea = document.getElementById('schreiben-textarea');
-    const previousText = textarea ? textarea.value.trim() : '';
-
     if (window.Speech && typeof Speech.listen === 'function') {
-      Speech.listen('schreiben-textarea', btnEl, (transcript) => {
+      Speech.listen('schreiben-textarea', btnEl, () => {
         if (!textarea) return;
-        const combined = previousText ? `${previousText} ${transcript}` : transcript;
-        textarea.value = combined;
-        this.onTextInput(combined);
+        this.onTextInput(textarea.value);
       });
     }
   },

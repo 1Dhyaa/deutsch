@@ -1397,7 +1397,7 @@ const DiktatTrainer = {
         </div>
 
         <!-- LTR Dictation Input + Voice Button -->
-        <div style="display:flex; gap:10px; align-items:stretch; flex-wrap:wrap; margin-bottom:16px;">
+        <div class="diktat-input-row" style="display:flex; gap:10px; align-items:stretch; flex-wrap:wrap; margin-bottom:16px;">
           <input
             type="text"
             id="diktat-input"
@@ -1407,24 +1407,28 @@ const DiktatTrainer = {
             spellcheck="false"
             value="${Utils.escapeHtml(initialInputValue)}"
             placeholder="Schreibe hier den gehörten deutschen Satz..."
-            style="flex:1; min-width:240px; padding:14px 16px; font-size:1.08rem; font-weight:600; border:2px solid var(--border); border-radius:var(--radius-sm); background:var(--bg-primary); color:var(--text-primary);"
+            style="flex:1 1 280px; min-width:0; padding:14px 16px; font-size:1.08rem; font-weight:600; border:2px solid var(--border); border-radius:var(--radius-sm); background:var(--bg-primary); color:var(--text-primary);"
             onkeypress="if(event.key==='Enter') DiktatTrainer.checkDiktatAnswer()"
           />
-          <button
-            type="button"
-            class="btn btn-secondary audio-btn"
-            onclick="Speech.listen('diktat-input', this)"
-            title="تحدث بالألمانية أو استخدم Win+H"
-            style="padding:12px 16px; font-weight:700; display:inline-flex; align-items:center; gap:6px;">
-            🎤 ${isDe ? 'Sprechen' : 'تحدث'}
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary"
-            onclick="DiktatTrainer.checkDiktatAnswer()"
-            style="padding:12px 22px; font-weight:700; font-size:1rem;">
-            ${isDe ? 'Prüfen ✓' : 'تحقق من الإملاء ✓'}
-          </button>
+          <div class="diktat-buttons-group" style="display:flex; gap:10px; flex:1 1 200px;">
+            <button
+              type="button"
+              class="btn btn-secondary audio-btn"
+              id="diktat-mic-btn"
+              onclick="Speech.listen('diktat-input', this)"
+              title="تحدث بالألمانية أو انقر للإنهاء"
+              style="flex:1; min-height:48px; padding:12px 14px; font-weight:700; display:inline-flex; align-items:center; justify-content:center; gap:6px;">
+              🎤 ${isDe ? 'Sprechen' : 'تحدث'}
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="diktat-check-btn"
+              onclick="DiktatTrainer.checkDiktatAnswer()"
+              style="flex:1.2; min-height:48px; padding:12px 18px; font-weight:700; font-size:1rem; display:inline-flex; align-items:center; justify-content:center;">
+              ${isDe ? 'Prüfen ✓' : 'تحقق من الإملاء ✓'}
+            </button>
+          </div>
         </div>
 
         <!-- Visual Word-by-Word Diff & Feedback -->
@@ -1537,7 +1541,7 @@ const DiktatTrainer = {
         </div>
 
         <!-- Text + Voice Input for Missing Words -->
-        <div style="display:flex; gap:10px; align-items:stretch; flex-wrap:wrap;">
+        <div class="diktat-input-row" style="display:flex; gap:10px; align-items:stretch; flex-wrap:wrap;">
           <input
             type="text"
             id="luecken-input"
@@ -1546,24 +1550,26 @@ const DiktatTrainer = {
             autocomplete="off"
             value="${Utils.escapeHtml(initialInputValue)}"
             placeholder="Tippe die fehlenden Wörter (z. B. ${Utils.escapeHtml(item.missingAnswer)})..."
-            style="flex:1; min-width:220px; padding:12px 16px; font-size:1.02rem; font-weight:600; border:2px solid var(--border); border-radius:var(--radius-sm); background:var(--bg-primary); color:var(--text-primary);"
+            style="flex:1 1 260px; min-width:0; padding:12px 16px; font-size:1.02rem; font-weight:600; border:2px solid var(--border); border-radius:var(--radius-sm); background:var(--bg-primary); color:var(--text-primary);"
             onkeypress="if(event.key==='Enter') DiktatTrainer.checkLueckenAnswer()"
           />
-          <button
-            type="button"
-            class="btn btn-secondary audio-btn"
-            onclick="Speech.listen('luecken-input', this)"
-            title="انطق الكلمة المفقودة"
-            style="padding:10px 15px; font-weight:700;">
-            🎤 ${isDe ? 'Sprechen' : 'تحدث'}
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary"
-            onclick="DiktatTrainer.checkLueckenAnswer()"
-            style="padding:10px 20px; font-weight:700;">
-            ${isDe ? 'Prüfen ✓' : 'تحقق ✓'}
-          </button>
+          <div class="diktat-buttons-group" style="display:flex; gap:10px; flex:1 1 180px;">
+            <button
+              type="button"
+              class="btn btn-secondary audio-btn"
+              onclick="Speech.listen('luecken-input', this)"
+              title="انطق الكلمة المفقودة أو انقر للإنهاء"
+              style="flex:1; min-height:46px; padding:10px 14px; font-weight:700; display:inline-flex; align-items:center; justify-content:center; gap:6px;">
+              🎤 ${isDe ? 'Sprechen' : 'تحدث'}
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="DiktatTrainer.checkLueckenAnswer()"
+              style="flex:1.2; min-height:46px; padding:10px 18px; font-weight:700; display:inline-flex; align-items:center; justify-content:center;">
+              ${isDe ? 'Prüfen ✓' : 'تحقق ✓'}
+            </button>
+          </div>
         </div>
 
         <!-- Evaluation Feedback -->

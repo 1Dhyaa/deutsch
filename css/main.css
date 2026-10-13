@@ -621,3 +621,77 @@ body[dir="ltr"] .main-content {
   }
 }
 
+/* ========================================= */
+/* VOICE RECORDING & MOBILE TOUCH STYLES     */
+/* ========================================= */
+
+/* Voice Recording Active Pulsing Animation */
+.recording-active {
+  background: rgba(239, 68, 68, 0.16) !important;
+  border-color: #ef4444 !important;
+  color: #ef4444 !important;
+  animation: pulse-recording 1.2s infinite ease-in-out !important;
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.25) !important;
+}
+
+@keyframes pulse-recording {
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(239, 68, 68, 0);
+    transform: scale(1.02);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    transform: scale(1);
+  }
+}
+
+/* Mobile Touch & iOS Safari Input Zoom Fixes */
+@media (max-width: 768px) {
+  input[type="text"],
+  input[type="search"],
+  input[type="email"],
+  input[type="number"],
+  textarea,
+  select,
+  .form-input,
+  .de-text input {
+    font-size: 16px !important; /* Prevents unwanted auto-zoom in iOS Safari */
+    -webkit-appearance: none;
+  }
+
+  .card {
+    padding: 20px 16px;
+    border-radius: var(--radius-md);
+  }
+
+  /* Responsive layout for Diktat & voice input rows on mobile phones */
+  .diktat-input-row {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .diktat-input-row input {
+    width: 100% !important;
+    flex: 1 1 100% !important;
+    font-size: 16px !important;
+  }
+
+  .diktat-buttons-group {
+    width: 100% !important;
+    flex: 1 1 100% !important;
+    display: flex !important;
+    gap: 8px !important;
+  }
+
+  .diktat-buttons-group .btn {
+    flex: 1 !important;
+    min-height: 48px !important;
+    font-size: 0.95rem !important;
+  }
+}
+
+

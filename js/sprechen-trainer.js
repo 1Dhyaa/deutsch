@@ -1781,6 +1781,9 @@ const SprechenTrainer = {
   },
 
   checkTeil1Question() {
+    if (window.Speech && typeof Speech.stopListening === 'function') {
+      Speech.stopListening();
+    }
     const card = this.teil1Cards[this.teil1Index];
     const input = document.getElementById('sprechen-q-input');
     const fb = document.getElementById('teil1-q-feedback');
@@ -1831,6 +1834,9 @@ const SprechenTrainer = {
   },
 
   checkTeil1Answer() {
+    if (window.Speech && typeof Speech.stopListening === 'function') {
+      Speech.stopListening();
+    }
     const card = this.teil1Cards[this.teil1Index];
     const input = document.getElementById('sprechen-a-input');
     const fb = document.getElementById('teil1-a-feedback');
@@ -2466,6 +2472,9 @@ const SprechenTrainer = {
   },
 
   checkInterviewAnswer() {
+    if (window.Speech && typeof Speech.stopListening === 'function') {
+      Speech.stopListening();
+    }
     const input = document.getElementById('interview-ans-input');
     const fb = document.getElementById('interview-feedback');
     if (!input || !fb) return;

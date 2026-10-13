@@ -338,57 +338,205 @@ const Speech = {
     }
   },
 
-  // Voice Dictation / Speech-to-Text helper (German de-DE)
+  // Voice Dictation / Speech-to-Text helper (German de-DE) with robust mobile support
   listen(inputId, btnEl, onUpdate) {
     const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
     const input = document.getElementById(inputId);
-    if (input) input.focus();
+    const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+    const isDe = window.I18n && typeof I18n.isGerman === 'function' && I18n.isGerman();
+
+    // If recognition is already active, tapping the button acts as STOP & COMMIT
+    if (this.activeRecognition) {
+      this.stopListening();
+      return;
+    }
 
     if (!SpeechRec) {
       if (window.Utils && window.Utils.showToast) {
-        window.Utils.showToast('تم تفعيل مربع الكتابة — يمكنك الإملاء الصوتي مباشرة عبر Win + H أو ميكروفون لوحة المفاتيح 🎤', 'info', 3000);
+        window.Utils.showToast(
+          isDe
+            ? '💡 Tipp fürs Smartphone: Nutze das Mikrofon auf deiner Tastatur (🎤) für die direkte deutsche Spracheingabe!'
+            : '💡 نصيحة للهاتف: يمكنك استخدام ميكروفون لوحة المفاتيح (🎤 بجانب المسافة) للإملاء الصوتي المباشر بالألمانية!',
+          'info',
+          4000
+        );
       }
       return;
     }
 
-    if (this.activeRecognition) {
-      try { this.activeRecognition.stop(); } catch (e) {}
-      this.activeRecognition = null;
-      if (btnEl) btnEl.classList.remove('playing');
+    // On non-touch desktop devices, focus the input; on mobile touch, avoid forcing focus to prevent virtual keyboard conflict
+    if (input && !isTouch) {
+      try { input.focus(); } catch (e) {}
+    }
+
+    let rec;
+    try {
+      rec = new SpeechRec();
+    } catch (err) {
+      console.warn('SpeechRecognition init error:', err);
+      if (window.Utils && window.Utils.showToast) {
+        window.Utils.showToast(
+          isDe
+            ? 'Spracherkennung konnte nicht gestartet werden. Bitte Tastatur-Mikrofon nutzen 🎤'
+            : 'تعذر بدء التعرف على الصوت. يمكنك استخدام ميكروفون لوحة المفاتيح 🎤',
+          'warning',
+          3500
+        );
+      }
       return;
     }
 
-    const rec = new SpeechRec();
     this.activeRecognition = rec;
-    rec.lang = 'de-DE';
-    rec.interimResults = false;
-    rec.maxAlternatives = 1;
+    this.activeListenBtn = btnEl;
+    this.activeListenInput = input;
+    this.activeListenCallback = onUpdate;
+    this.lastSpokenText = '';
+    const initialInputVal = input ? input.value : '';
 
-    if (btnEl) btnEl.classList.add('playing');
-    if (window.Utils && window.Utils.showToast) {
-      window.Utils.showToast('🎤 تحدث الآن بالألمانية...', 'info', 2000);
+    rec.lang = 'de-DE';
+    rec.interimResults = true;
+    rec.maxAlternatives = 1;
+    rec.continuous = false;
+
+    // Visual button feedback
+    if (btnEl) {
+      if (!btnEl.dataset.origHtml) {
+        btnEl.dataset.origHtml = btnEl.innerHTML;
+      }
+      btnEl.classList.add('recording-active');
+      btnEl.innerHTML = `<span style="display:inline-block; animation:pulse 0.8s infinite; color:#ef4444; font-size:1.15rem;">🔴</span> <strong>${isDe ? 'Stoppen ⏹️' : 'إنهاء التسجيل ⏹️'}</strong>`;
     }
+
+    if (window.Utils && window.Utils.showToast) {
+      window.Utils.showToast(
+        isDe ? '🎤 Ich höre zu... Sprich auf Deutsch! (Zum Beenden erneut tippen ⏹️)' : '🎤 جاري الاستماع بالألمانية... انقر لإنهاء التسجيل ⏹️',
+        'info',
+        2500
+      );
+    }
+
+    // Safety timeout: 9 seconds auto-stop so mobile microphone session never hangs
+    if (this.listenTimeout) {
+      clearTimeout(this.listenTimeout);
+    }
+    this.listenTimeout = setTimeout(() => {
+      if (this.activeRecognition === rec) {
+        this.stopListening();
+      }
+    }, 9000);
 
     rec.onresult = (event) => {
-      const transcript = event.results[0][0].transcript;
-      if (input) {
-        input.value = transcript;
-        input.dispatchEvent(new Event('input', { bubbles: true }));
+      let finalStr = '';
+      let interimStr = '';
+      for (let i = 0; i < event.results.length; ++i) {
+        const item = event.results[i];
+        if (item.isFinal) {
+          finalStr += item[0].transcript;
+        } else {
+          interimStr += item[0].transcript;
+        }
       }
-      if (onUpdate) onUpdate(transcript);
+      const spoken = (finalStr || interimStr).trim();
+      if (spoken) {
+        this.lastSpokenText = spoken;
+        if (input) {
+          if (input.tagName === 'TEXTAREA' && initialInputVal && !initialInputVal.includes(spoken)) {
+            input.value = initialInputVal.trim() + ' ' + spoken;
+          } else {
+            input.value = spoken;
+          }
+          input.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+        if (onUpdate) {
+          onUpdate(spoken);
+        }
+      }
     };
 
-    rec.onerror = () => {
-      if (btnEl) btnEl.classList.remove('playing');
+    rec.onerror = (e) => {
+      console.warn('SpeechRecognition error:', e);
+      if (this.listenTimeout) {
+        clearTimeout(this.listenTimeout);
+        this.listenTimeout = null;
+      }
+      const errName = e && e.error;
+      if (errName === 'not-allowed') {
+        if (window.Utils && window.Utils.showToast) {
+          window.Utils.showToast(
+            isDe
+              ? '⚠️ Mikrofon-Zugriff verweigert. Bitte in den Einstellungen erlauben oder Tastatur-Mikrofon nutzen 🎤'
+              : '⚠️ تم رفض إذن الميكروفون. يرجى تفعيله من إعدادات المتصفح أو استخدام ميكروفون لوحة المفاتيح 🎤',
+            'warning',
+            4000
+          );
+        }
+      } else if (errName === 'no-speech') {
+        if (window.Utils && window.Utils.showToast) {
+          window.Utils.showToast(
+            isDe
+              ? 'Keine Stimme erkannt. Bitte lauter sprechen oder Tastatur-Mikrofon nutzen 🎤'
+              : 'لم يتم التقاط صوت. حاول مرة أخرى أو استخدم ميكروفون لوحة المفاتيح 🎤',
+            'info',
+            3000
+          );
+        }
+      }
+      this.resetListenBtn(btnEl);
       this.activeRecognition = null;
     };
 
     rec.onend = () => {
-      if (btnEl) btnEl.classList.remove('playing');
+      if (this.listenTimeout) {
+        clearTimeout(this.listenTimeout);
+        this.listenTimeout = null;
+      }
+      this.resetListenBtn(btnEl);
       this.activeRecognition = null;
+      if (this.lastSpokenText && window.Utils && window.Utils.showToast) {
+        window.Utils.showToast(isDe ? '✅ Spracheingabe erfasst!' : '✅ تم التقاط الصوت بنجاح!', 'success', 1800);
+      }
     };
 
-    rec.start();
+    try {
+      rec.start();
+    } catch (err) {
+      console.warn('SpeechRecognition start failed:', err);
+      this.resetListenBtn(btnEl);
+      this.activeRecognition = null;
+    }
+  },
+
+  resetListenBtn(btnEl) {
+    const target = btnEl || this.activeListenBtn;
+    if (target) {
+      if (target.dataset.origHtml) {
+        target.innerHTML = target.dataset.origHtml;
+      }
+      target.classList.remove('recording-active');
+      target.classList.remove('playing');
+    }
+    this.activeListenBtn = null;
+  },
+
+  stopListening() {
+    if (this.listenTimeout) {
+      clearTimeout(this.listenTimeout);
+      this.listenTimeout = null;
+    }
+    const rec = this.activeRecognition;
+    this.activeRecognition = null;
+    if (rec) {
+      try {
+        rec.stop();
+      } catch (e) {
+        try { rec.abort(); } catch (e2) {}
+      }
+    }
+    this.resetListenBtn(this.activeListenBtn);
+  },
+
+  isListening() {
+    return !!this.activeRecognition;
   },
 
   setButtonState(text, isPlaying) {
@@ -410,6 +558,7 @@ const Speech = {
     if (this.synth && (this.synth.speaking || this.synth.pending)) {
       this.synth.cancel();
     }
+    this.stopListening();
     document.querySelectorAll('.audio-btn.playing').forEach(b => b.classList.remove('playing'));
   }
 };

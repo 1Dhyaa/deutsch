@@ -1,0 +1,250 @@
+{
+  "username": "Dhyaa",
+  "xp": 290,
+  "streak": {
+    "current": 3,
+    "lastDate": "2026-10-13",
+    "best": 3
+  },
+  "lessons": {
+    "a1-review-03": {
+      "completed": false,
+      "quizScore": 0,
+      "bestScore": 0,
+      "lastAccess": "2026-10-11",
+      "attempts": 0,
+      "totalQuestions": 5,
+      "session": null
+    },
+    "a2-1-02": {
+      "completed": false,
+      "quizScore": 0,
+      "bestScore": 0,
+      "lastAccess": "2026-10-11",
+      "attempts": 0,
+      "totalQuestions": 5,
+      "session": null
+    },
+    "a2-1-01": {
+      "completed": false,
+      "quizScore": 0,
+      "bestScore": 0,
+      "lastAccess": "2026-10-12",
+      "attempts": 0,
+      "totalQuestions": 5,
+      "session": null
+    },
+    "a1-review-07": {
+      "completed": false,
+      "quizScore": 0,
+      "bestScore": 0,
+      "lastAccess": "2026-10-13",
+      "attempts": 0,
+      "session": {
+        "mode": "exercises",
+        "currentIndex": 0,
+        "states": {
+          "exercises": {},
+          "quiz": {}
+        },
+        "updatedAt": 1791852148327
+      },
+      "totalQuestions": 5
+    }
+  },
+  "mistakes": [
+    {
+      "id": "mv5qxz3kj0b4enao4r",
+      "lessonId": "phrases-game",
+      "question": "ترجمة: لا تقلق، كل شيء سيكون على ما يرام.",
+      "myAnswer": "Keine Sorge, alles gut. wird",
+      "correctAnswer": "Keine Sorge, alles wird gut.",
+      "explanation": "عبارة طمأنة وتخفيف شائعة جداً في المحادثات.",
+      "reviewCount": 0,
+      "lastReview": null,
+      "mastered": false,
+      "addedDate": "2026-10-12"
+    },
+    {
+      "id": "mv5qz52w54482psa2h7",
+      "lessonId": "phrases-game",
+      "question": "ترجمة: رأسي يؤلمني بشدة منذ الأمس.",
+      "myAnswer": "Mein Kopf sehr tut mir seit gestern weh.",
+      "correctAnswer": "Mein Kopf tut mir seit gestern sehr weh.",
+      "explanation": "الفعل wehtun منفصل، وضمير المتكلم يأتي في حالة الداتيف: tut mir weh.",
+      "reviewCount": 0,
+      "lastReview": null,
+      "mastered": false,
+      "addedDate": "2026-10-12"
+    },
+    {
+      "id": "mv5r3pdcrumtmmhabz",
+      "lessonId": "phrases-game",
+      "question": "ترجمة: أتمنى لك الشفاء العاجل!",
+      "myAnswer": "Gute Besserung dich erhol und gut!",
+      "correctAnswer": "Gute Besserung und erhol dich gut!",
+      "explanation": "العبارة الأكثر شيوعاً في ألمانيا للتمني بالشفاء هي: Gute Besserung!",
+      "reviewCount": 0,
+      "lastReview": null,
+      "mastered": false,
+      "addedDate": "2026-10-12"
+    },
+    {
+      "id": "mv5r4ycgfxodzngjv5j",
+      "lessonId": "phrases-game",
+      "question": "ترجمة: من أي رصيف يغادر القطار المتجه إلى برلين؟",
+      "myAnswer": "welchem fährt der Zug Gleis Von Berlin nach ab?",
+      "correctAnswer": "Von welchem Gleis fährt der Zug nach Berlin ab?",
+      "explanation": "das Gleis محايد، بعد von (Dativ) تصبح von welchem Gleis.",
+      "reviewCount": 0,
+      "lastReview": null,
+      "mastered": false,
+      "addedDate": "2026-10-12"
+    },
+    {
+      "id": "mv5r5eqgyh5ayl4ovar",
+      "lessonId": "phrases-game",
+      "question": "ترجمة: للأسف ليس لدي وقت اليوم.",
+      "myAnswer": "Leider habe ich keine heute Zeit.",
+      "correctAnswer": "Leider habe ich heute keine Zeit.",
+      "explanation": "بدأت الجملة بالظرف Leider (موقع 1)، فانتقل الفعل habe للموقع 2 والفاعل للموقع 3 (Inversion).",
+      "reviewCount": 0,
+      "lastReview": null,
+      "mastered": false,
+      "addedDate": "2026-10-12"
+    },
+    {
+      "id": "mv5r5p6oiehdfgvuqy9",
+      "lessonId": "phrases-game",
+      "question": "ترجمة: أنا أرى الأمر بطريقة مختلفة تماماً.",
+      "myAnswer": "ich sehe Das ganz anders.",
+      "correctAnswer": "Das sehe ich ganz anders.",
+      "explanation": "تقديم Das في بداية الجملة للتركيز عليها يتبعه الفعل sehe في الموقع 2.",
+      "reviewCount": 0,
+      "lastReview": null,
+      "mastered": false,
+      "addedDate": "2026-10-12"
+    },
+    {
+      "id": "mv5r721r4l8u4eze5c",
+      "lessonId": "phrases-game",
+      "question": "ترجمة: أعتقد أن تعلم اللغة الألمانية مهم ومفيد.",
+      "myAnswer": "Ich glaube, dass Deutschlernen nützlich sehr ist.",
+      "correctAnswer": "Ich glaube, dass Deutschlernen sehr nützlich ist.",
+      "explanation": "بعد الرابط dass (أنّ) يتحرك الفعل المصرف ist إلى نهاية الجملة الفرعية.",
+      "reviewCount": 0,
+      "lastReview": null,
+      "mastered": false,
+      "addedDate": "2026-10-12"
+    },
+    {
+      "id": "mv5r7ewvklhv5qbcy6o",
+      "lessonId": "phrases-game",
+      "question": "ترجمة: يجب علي إنهاء هذا التقرير اليوم.",
+      "myAnswer": "Ich muss heute Bericht diesen fertigstellen.",
+      "correctAnswer": "Ich muss diesen Bericht heute fertigstellen.",
+      "explanation": "der Bericht مذكر في حالة النصب (diesen Bericht)، والمصدر fertigstellen في النهاية.",
+      "reviewCount": 0,
+      "lastReview": null,
+      "mastered": false,
+      "addedDate": "2026-10-12"
+    },
+    {
+      "id": "mv6pw5l55akj7n0iwfi",
+      "lessonId": "diktat-a1",
+      "question": "[التعارف والحياة اليومية (Alltag)] أنا قادم من سوريا وأسكن الآن في برلين.",
+      "myAnswer": "Ich fahre morgen nach Berlin",
+      "correctAnswer": "Ich komme aus Syrien und wohne jetzt in Berlin.",
+      "explanation": "انتبه لكتابة أسماء الدول والمدن بحرف كبير (Syrien / Berlin)، وتصريف الفعلين مع ich ينتهي بـ -e (komme / wohne).",
+      "reviewCount": 0,
+      "lastReview": null,
+      "mastered": false,
+      "addedDate": "2026-10-13"
+    }
+  ],
+  "games": {
+    "flashcards": {
+      "box1": [],
+      "box2": [],
+      "box3": [],
+      "box4": [],
+      "box5": []
+    },
+    "articleGame": {
+      "highScore": 40,
+      "gamesPlayed": 1
+    },
+    "perfektGame": {
+      "highScore": 0,
+      "gamesPlayed": 0
+    },
+    "praeteritumGame": {
+      "highScore": 0,
+      "gamesPlayed": 0
+    },
+    "wordOrder": {
+      "highScore": 0,
+      "gamesPlayed": 0
+    },
+    "memoryMatch": {
+      "highScore": 0,
+      "gamesPlayed": 0
+    },
+    "verbSprint": {
+      "highScore": 0,
+      "gamesPlayed": 0
+    },
+    "prepositionGame": {
+      "highScore": 0,
+      "gamesPlayed": 0
+    },
+    "mistakesReview": {
+      "highScore": 0,
+      "gamesPlayed": 0
+    },
+    "phrasesGame": {
+      "highScore": 0,
+      "gamesPlayed": 0
+    },
+    "fehlerGame": {
+      "highScore": 0,
+      "gamesPlayed": 0
+    },
+    "satzbauGame": {
+      "highScore": 0,
+      "gamesPlayed": 0
+    },
+    "dialogGame": {
+      "highScore": 0,
+      "gamesPlayed": 0
+    },
+    "kasusGame": {
+      "highScore": 0,
+      "gamesPlayed": 0
+    },
+    "verbenPraep": {
+      "highScore": 0,
+      "gamesPlayed": 0
+    },
+    "diktatGame": {
+      "highScore": 0,
+      "gamesPlayed": 0
+    },
+    "schreibenTrainer": {
+      "highScore": 0,
+      "gamesPlayed": 0
+    },
+    "sprechenTrainer": {
+      "highScore": 0,
+      "gamesPlayed": 0
+    }
+  },
+  "exams": [],
+  "activeExams": {},
+  "settings": {
+    "theme": "light",
+    "fontSize": "normal"
+  },
+  "updatedAt": 1791898150217,
+  "version": 2
+}
