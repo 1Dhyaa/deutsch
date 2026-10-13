@@ -244,6 +244,56 @@ const ExamEngine = {
       `;
     }
 
+    // Audio Listening Layout (Hören)
+    if (teil.textType === 'audio') {
+      return `
+        <div>
+          <div class="card" style="margin-bottom:20px; background:var(--bg-primary); border-style:dashed;">
+            <p style="margin:0; font-size:0.95rem; color:var(--text-secondary);">
+              ${Utils.escapeHtml(teil.instructions.ar)}
+            </p>
+            ${teil.sharedAudio ? `
+              <div style="margin-top:14px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+                <button type="button" class="btn btn-primary" onclick="Speech.speak('${teil.sharedAudio.replace(/'/g, "\\'")}')">
+                  🔊 استمع للحوار الكامل (Hörtext abspielen)
+                </button>
+                <button type="button" class="btn btn-secondary" onclick="Speech.speakSlow('${teil.sharedAudio.replace(/'/g, "\\'")}')">
+                  🐢 استمع ببطء
+                </button>
+                <button type="button" class="btn btn-outline btn-sm" onclick="Speech.stop()">⏹️ إيقاف</button>
+              </div>
+            ` : ''}
+          </div>
+          <div style="display:flex; flex-direction:column; gap:20px;">
+            ${teil.questions.map(q => `
+              <div class="exam-question-card" id="q-card-${q.number}">
+                ${q.audioText ? `
+                  <div class="card" style="background:var(--bg-primary); margin-bottom:14px; padding:16px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;">
+                    <div style="display:flex; align-items:center; gap:10px;">
+                      <span style="font-size:1.5rem;">🎧</span>
+                      <div>
+                        <strong style="display:block;">التسجيل الصوتي للسؤال ${q.number}</strong>
+                        <small style="color:var(--text-muted);">اضغط للاستماع قبل اختيار الإجابة</small>
+                      </div>
+                    </div>
+                    <div style="display:flex; gap:8px;">
+                      <button type="button" class="btn btn-primary btn-sm" onclick="Speech.speak('${q.audioText.replace(/'/g, "\\'")}')">
+                        🔊 استمع الآن
+                      </button>
+                      <button type="button" class="btn btn-secondary btn-sm" onclick="Speech.speakSlow('${q.audioText.replace(/'/g, "\\'")}')">
+                        🐢 ببطء
+                      </button>
+                    </div>
+                  </div>
+                ` : ''}
+                ${this.renderQuestionCardContent(q)}
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
     // Matching Layout (Teil 4)
     if (teil.textType === 'matching') {
       return `

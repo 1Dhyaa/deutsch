@@ -100,10 +100,23 @@ const ExamsRenderer = {
                   </div>
                 `).join('')}
               </div>
+              ${modKey === 'hoeren' ? `
+                <div style="margin-top:10px;">
+                  <a href="#/diktat" class="btn btn-secondary btn-sm" style="width:100%;">
+                    🎧 فتح مختبر الإملاء الصوتي وتدريب الأذن (Diktat-Labor) ➔
+                  </a>
+                </div>
+              ` : ''}
+            </div>
+          ` : mod.trainerRoute ? `
+            <div style="border-top:1px solid var(--border); padding-top:14px; margin-top:10px;">
+              <a href="${mod.trainerRoute}" class="btn btn-primary" style="width:100%;">
+                ${Utils.escapeHtml(mod.trainerLabel || 'ابدأ التدريب التفاعلي الآن ➔')}
+              </a>
             </div>
           ` : `
             <div style="border-top:1px solid var(--border); padding-top:14px; margin-top:10px; color:var(--text-muted); font-size:0.9rem;">
-              🚧 سيتم إضافة نماذج هذه المهارة في الدفعة القادمة بعد اعتماد النموذج التجريبي.
+              <a href="#/lessons" class="btn btn-secondary btn-sm">استعرض الدروس والتمارين</a>
             </div>
           `}
         </div>

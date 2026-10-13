@@ -348,6 +348,51 @@ const App = {
       VerbsRenderer.render(document.getElementById('app-content'));
     });
 
+    // DIKTAT & LISTENING LAB ROUTE
+    Router.register('/diktat', () => {
+      const isDe = window.I18n && window.I18n.isGerman();
+      this.setBreadcrumb(isDe ? 'Hör- & Diktat-Labor (A1–B1 & Ausbildung)' : 'مختبر الاستماع والإملاء الصوتي (Diktat & Hör-Labor)');
+      if (window.DiktatTrainer) {
+        window.DiktatTrainer.render(document.getElementById('app-content'));
+      }
+    });
+
+    // SCHREIBEN & EMAIL BUILDER ROUTE
+    Router.register('/schreiben', () => {
+      const isDe = window.I18n && window.I18n.isGerman();
+      this.setBreadcrumb(isDe ? 'E-Mail & Schreiben-Baukasten (A2 / B1 / Ausbildung)' : 'مدرب كتابة الإيميلات والرسائل (Schreiben-Baukasten)');
+      if (window.SchreibenTrainer) {
+        window.SchreibenTrainer.render(document.getElementById('app-content'));
+      }
+    });
+
+    // SPRECHEN & INTERVIEW SIMULATOR ROUTE
+    Router.register('/sprechen', () => {
+      const isDe = window.I18n && window.I18n.isGerman();
+      this.setBreadcrumb(isDe ? 'Sprechen & Vorstellungsgespräch-Simulator' : 'محاكي المحادثة ومقابلة الـ Ausbildung والامتحان الشفهي');
+      if (window.SprechenTrainer) {
+        window.SprechenTrainer.render(document.getElementById('app-content'));
+      }
+    });
+
+    // INTERACTIVE STORIES & DIALOGUES ROUTE
+    Router.register('/stories', () => {
+      const isDe = window.I18n && window.I18n.isGerman();
+      this.setBreadcrumb(isDe ? 'Interaktive Geschichten & Alltags-Dialoge' : 'القصص والحوارات التفاعلية الذكية (Alltags-Dialoge)');
+      if (window.StoriesTrainer) {
+        window.StoriesTrainer.render(document.getElementById('app-content'));
+      }
+    });
+
+    // GRAMMAR CHEAT-SHEETS ROUTE
+    Router.register('/cheatsheets', () => {
+      const isDe = window.I18n && window.I18n.isGerman();
+      this.setBreadcrumb(isDe ? 'Goldene Grammatik-Spickzettel & Tabellen' : 'الملخصات الذهبية وجداول القواعد السريعة (Cheat-Sheets)');
+      if (window.CheatsheetsRenderer) {
+        window.CheatsheetsRenderer.render(document.getElementById('app-content'));
+      }
+    });
+
     // GAMES HUB ROUTE
     Router.register('/games', () => this.renderGamesHub());
 
@@ -371,6 +416,10 @@ const App = {
         SatzbauGame.render(content);
       } else if (gameId === 'dialog') {
         DialogGame.render(content);
+      } else if (gameId === 'srs' && window.SrsFlashcards) {
+        window.SrsFlashcards.render(content);
+      } else if (gameId === 'verben-praep' && window.VerbenPraepGame) {
+        window.VerbenPraepGame.render(content);
       } else {
         this.renderGamesHub();
       }
@@ -524,6 +573,61 @@ const App = {
             <span style="font-size: 0.85rem; color: var(--accent); font-weight: 600;">${Utils.escapeHtml(lastLessonSubtitle)}</span>
           </div>
           <a href="#/lesson/${lastLessonId}" class="btn btn-primary">${isDe ? 'Lektion jetzt starten ➔' : 'ابدأ الدرس الآن ➔'}</a>
+        </div>
+
+        <!-- 3.5 Interactive Skill Studios & Labs (8 Complete Modules) -->
+        <div class="section-header" style="margin-top: 28px;">
+          <div>
+            <h2 class="section-title">${isDe ? '🌟 Interaktive Sprachlabore & Praxis-Studios' : '🌟 المختبرات الذكية وأقسام المهارات المتكاملة'}</h2>
+            <p class="section-subtitle">${isDe ? 'Hören, Diktat, E-Mail-Schreiben, Sprechen, Vorstellungsgespräch, Geschichten, SRS & Grammatik-Spickzettel' : 'تدريب عملي شامل على الاستماع والإملاء، كتابة الإيميلات، المحادثة ومقابلة العمل، القصص، والملخصات الذهبية'}</p>
+          </div>
+        </div>
+
+        <div class="games-grid" style="margin-bottom: 28px;">
+          <div class="game-card" style="border: 2px solid #3B82F6; background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(99,102,241,0.04));">
+            <div class="game-icon">🎧</div>
+            <h3>${isDe ? 'Diktat & Hör-Labor' : '1. مختبر الاستماع والإملاء الصوتي (Diktat)'}</h3>
+            <p>${isDe ? 'Vollständiges Diktat mit Wort-für-Wort-Vergleich, Lückentext-Hören und echten Durchsagen (A1–B1).' : 'إملاء صوتي كامل مع تصحيح كلمة بكلمة، إملاء الفراغات السمعي، وفهم الإعلانات والحوارات اليومية بسرعتين.'}</p>
+            <a href="#/diktat" class="btn btn-primary" style="width: 100%;">${isDe ? 'Hör-Labor öffnen ➔' : 'افتح مختبر الإملاء ➔'}</a>
+          </div>
+
+          <div class="game-card" style="border: 2px solid #8B5CF6; background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(236,72,153,0.04));">
+            <div class="game-icon">✉️</div>
+            <h3>${isDe ? 'E-Mail & Schreiben-Baukasten' : '2. مدرب كتابة الإيميلات والرسائل (Schreiben)'}</h3>
+            <p>${isDe ? '12 echte Schreibaufgaben (Goethe A2/B1 & Ausbildung) mit Redemittel-Baukasten, Leitpunkte-Prüfer & Musterlösung.' : '12 مهمة كتابة كاملة (A2 / B1 / Ausbildung) مع قوالب عبارات جاهزة، فاحص النقاط الثلاث، وتصحيح فوري من 100.'}</p>
+            <a href="#/schreiben" class="btn btn-primary" style="width: 100%;">${isDe ? 'Schreibstudio öffnen ➔' : 'افتح مدرب الكتابة ➔'}</a>
+          </div>
+
+          <div class="game-card" style="border: 2px solid #10B981; background: linear-gradient(135deg, rgba(16,185,129,0.08), rgba(59,130,246,0.04));">
+            <div class="game-icon">🗣️</div>
+            <h3>${isDe ? 'Sprechen & Vorstellungsgespräch' : '3. محاكي المحادثة ومقابلة الـ Ausbildung'}</h3>
+            <p>${isDe ? 'Goethe Sprechen Teil 1–3 Karten, Präsentationen, Dialog-Planung und 10 echte Bewerbungsfragen mit Mikrofon.' : 'بطاقات الامتحان الشفهي (Teil 1–3)، التحدث عن النفس، التخطيط مع شريك، وأهم 10 أسئلة مقابلة عمل في ألمانيا.'}</p>
+            <a href="#/sprechen" class="btn btn-primary" style="width: 100%;">${isDe ? 'Sprechen-Simulator ➔' : 'افتح محاكي المحادثة ➔'}</a>
+          </div>
+
+          <div class="game-card" style="border: 2px solid #F59E0B; background: linear-gradient(135deg, rgba(245,158,11,0.08), rgba(16,185,129,0.04));">
+            <div class="game-icon">📖</div>
+            <h3>${isDe ? 'Interaktive Geschichten & Dialoge' : '4. القصص والحوارات التفاعلية الذكية'}</h3>
+            <p>${isDe ? '10 realistische Alltagsgeschichten (Arzt, Bürgeramt, Wohnung, Ausbildung) mit Audio, Übersetzung & Quiz.' : '10 قصص ومواقف واقعية في ألمانيا (الطبيب، البلدية، السكن، أول يوم عمل) مع نطق كامل وترجمة وأسئلة فهم.'}</p>
+            <a href="#/stories" class="btn btn-primary" style="width: 100%;">${isDe ? 'Geschichten lesen ➔' : 'استعرض القصص والحوارات ➔'}</a>
+          </div>
+
+          <div class="game-card" style="border: 2px solid #EC4899; background: linear-gradient(135deg, rgba(236,72,153,0.08), rgba(99,102,241,0.04));">
+            <div class="game-icon">⚡</div>
+            <h3>${isDe ? 'Goldene Grammatik-Spickzettel' : '5. الملخصات الذهبية وجداول القواعد السريعة'}</h3>
+            <p>${isDe ? 'Alle Tabellen auf einen Blick: Kasus, Wechselpräpositionen, 43 Verben mit Präpositionen, Satzbau & Passiv.' : 'مرجعك البصري الفوري: جداول الإعراب، حروف الجر، 43 فعلاً مع حروف الجر، بناء الجملة، والروابط في صفحة واحدة.'}</p>
+            <a href="#/cheatsheets" class="btn btn-primary" style="width: 100%;">${isDe ? 'Spickzettel öffnen ➔' : 'افتح الملخصات الذهبية ➔'}</a>
+          </div>
+
+          <div class="game-card" style="border: 2px solid #6366F1; background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(16,185,129,0.04));">
+            <div class="game-icon">🧠</div>
+            <h3>${isDe ? 'SRS 5-Boxen & Verben + Präpositionen' : '6 & 7. البطاقات الذكية (SRS) وأفعال حروف الجر'}</h3>
+            <p>${isDe ? 'Leitner 5-Boxen Spaced Repetition Wortschatz-System + 40 Übungen zu Verben mit Präpositionen & Konnektoren.' : 'نظام الصناديق الخمسة للتكرار المتباعد لحفظ الكلمات + لعبة إتقان الأفعال مع حروف الجر والروابط.'}</p>
+            <div style="display:flex; gap:8px; width:100%;">
+              <a href="#/game/srs" class="btn btn-primary btn-sm" style="flex:1;">🧠 SRS 5-Box</a>
+              <a href="#/game/verben-praep" class="btn btn-secondary btn-sm" style="flex:1;">🔗 Verben & Präp</a>
+            </div>
+          </div>
         </div>
 
         <!-- 4. Curriculum Level Cards -->
@@ -734,6 +838,9 @@ const App = {
     const fehlerHighScore = (data.games && data.games.fehlerGame) ? data.games.fehlerGame.highScore : 0;
     const satzbauHighScore = (data.games && data.games.satzbauGame) ? data.games.satzbauGame.highScore : 0;
     const dialogHighScore = (data.games && data.games.dialogGame) ? data.games.dialogGame.highScore : 0;
+    const verbenPraepHighScore = (data.games && data.games.verbenPraep) ? data.games.verbenPraep.highScore : 0;
+    const diktatHighScore = (data.games && data.games.diktatGame) ? data.games.diktatGame.highScore : 0;
+    const srsBox5Count = (data.games && data.games.flashcards && Array.isArray(data.games.flashcards.box5)) ? data.games.flashcards.box5.length : 0;
 
     const scoreLabel = isDe ? 'Beste Punktzahl:' : 'أعلى نتيجة:';
     const playBtn = isDe ? 'Jetzt spielen ➔' : 'العب الآن ➔';
@@ -749,6 +856,42 @@ const App = {
         </div>
 
         <div class="games-grid">
+          <!-- Game: Smart 5-Box SRS Flashcards -->
+          <div class="game-card" style="border: 2px solid #8B5CF6; background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(99,102,241,0.04));">
+            <div class="game-icon">🧠</div>
+            <h3>${isDe ? 'Smart SRS 5-Boxen Karteikarten (Leitner)' : 'البطاقات الذكية بالتكرار المتباعد (SRS 5-Box)'}</h3>
+            <p>${isDe ? 'Lerne Wortschatz nachhaltig mit dem 5-Boxen-Spaced-Repetition-System (wie Anki/Seedlang) mit Audio & Mikrofon!' : 'احفظ المفردات وأدواتها للأبد بنظام الصناديق الخمسة الذكي (Leitner SRS): الكلمات الصعبة تتكرر أكثر حتى تتقنها!'}</p>
+            <div class="game-meta">
+              <span>${isDe ? 'Gemeistert (Box 5):' : 'كلمات متقنة (صندوق 5):'} ${srsBox5Count}</span>
+              <span class="badge badge-primary">${isDe ? 'Spaced Repetition 🧠' : 'تكرار متباعد ذكي 🧠'}</span>
+            </div>
+            <a href="#/game/srs" class="btn btn-primary" style="width: 100%;">${playBtn}</a>
+          </div>
+
+          <!-- Game: Verben mit Präpositionen & Konnektoren -->
+          <div class="game-card" style="border: 2px solid #0EA5E9; background: linear-gradient(135deg, rgba(14,165,233,0.08), rgba(16,185,129,0.04));">
+            <div class="game-icon">🔗</div>
+            <h3>${isDe ? 'Verben mit Präpositionen & Konnektoren-Meister' : 'الأفعال مع حروف الجر وأدوات الربط (Verben & Konnektoren)'}</h3>
+            <p>${isDe ? 'Trainiere warten auf, denken an, teilnehmen an (+Kasus) sowie weil vs. denn vs. deshalb und obwohl vs. trotzdem!' : 'تدريب مركز على الأفعال المقترنة بحروف جر ثابتة (+ الإعراب) والروابط الذهبية (weil / denn / deshalb / obwohl / als / wenn)!'}</p>
+            <div class="game-meta">
+              <span>${scoreLabel} ${verbenPraepHighScore} ${isDe ? 'Pkt.' : 'نقطة'}</span>
+              <span class="badge badge-success">${isDe ? 'A2/B1 Fokus 🔥' : 'أساسي لـ A2/B1 🔥'}</span>
+            </div>
+            <a href="#/game/verben-praep" class="btn btn-primary" style="width: 100%;">${playBtn}</a>
+          </div>
+
+          <!-- Studio: Diktat & Listening Lab -->
+          <div class="game-card" style="border: 2px solid #3B82F6; background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(99,102,241,0.04));">
+            <div class="game-icon">🎧</div>
+            <h3>${isDe ? 'Diktat & Hör-Labor (3 Modi)' : 'مختبر الاستماع والإملاء الصوتي (Diktat & Hör-Labor)'}</h3>
+            <p>${isDe ? 'Höre deutsche Sätze in normaler oder langsamer Geschwindigkeit und tippe oder sprich sie mit Wort-für-Wort-Korrektur!' : 'استمع للجمل الألمانية بالسرعة العادية أو البطيئة واكتبها أو انطقها بالميكروفون مع تصحيح بصري كلمة بكلمة!'}</p>
+            <div class="game-meta">
+              <span>${scoreLabel} ${diktatHighScore} ${isDe ? 'Pkt.' : 'نقطة'}</span>
+              <span class="badge badge-primary">${isDe ? 'Hörtraining 🎧' : 'إملاء واستماع 🎧'}</span>
+            </div>
+            <a href="#/diktat" class="btn btn-primary" style="width: 100%;">${isDe ? 'Hör-Labor öffnen ➔' : 'افتح المختبر ➔'}</a>
+          </div>
+
           <!-- Game: Phrases Trainer -->
           <div class="game-card" style="border: 2px solid var(--accent); background: linear-gradient(135deg, rgba(99,102,241,0.06), rgba(59,130,246,0.04));">
             <div class="game-icon">💬</div>

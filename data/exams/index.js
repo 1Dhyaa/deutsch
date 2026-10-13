@@ -32,36 +32,49 @@ window.EXAMS_REGISTRY = {
         id: "hoeren",
         title: { de: "Hören", ar: "فهم المسموع" },
         durationMinutes: 30,
-        totalItems: 20,
-        maxScore: 25,
-        passScore: 15,
-        teileCount: 4,
+        totalItems: 15,
+        maxScore: 20,
+        passScore: 12,
+        teileCount: 3,
         icon: "🎧",
-        description: "4 أجزاء (20 سؤالاً) تشمل إعلانات إذاعية، نداءات في محطات وقطارات، محادثات يومية ومقابلات.",
-        sets: []
+        description: "3 أجزاء (15 سؤالاً) تشمل إعلانات إذاعية، نداءات في محطات وقطارات، محادثات يومية ومقابلات صوتية تفاعلية.",
+        sets: [
+          {
+            id: "a2-hoeren-set-01",
+            setNumber: 1,
+            title: { de: "Modellsatz 1 (Hören)", ar: "النموذج التجريبي 1 (الاستماع التفاعلي)" },
+            level: "a2",
+            module: "hoeren",
+            dataFile: "a2/hoeren/set-01.js"
+          }
+        ]
       },
       schreiben: {
         id: "schreiben",
         title: { de: "Schreiben", ar: "التعبير الكتابي" },
         durationMinutes: 30,
-        totalItems: 2,
+        totalItems: 4,
         maxScore: 25,
         passScore: 15,
         teileCount: 2,
         icon: "✍️",
-        description: "مهمتان كتابيتان: كتابة رسالة قصيرة/SMS (20–30 كلمة) وإيميل شخصي أو شبه رسمي (30–40 كلمة).",
+        description: "مهمتان كتابيتان: كتابة رسالة قصيرة/SMS (20–30 كلمة) وإيميل شخصي أو رسمي (30–45 كلمة) مع فحص فوري للنقاط الثلاث (Leitpunkte).",
+        trainerRoute: "#/schreiben",
+        trainerLabel: "فتح استوديو كتابة الإيميلات والرسائل (A2 Schreiben) ✍️",
         sets: []
       },
       sprechen: {
         id: "sprechen",
         title: { de: "Sprechen", ar: "التعبير الشفهي" },
         durationMinutes: 15,
-        totalItems: 3,
+        totalItems: 16,
         maxScore: 25,
         passScore: 15,
         teileCount: 3,
         icon: "🗣️",
-        description: "3 أجزاء: طرح أسئلة والإجابة عنها بواسطة بطاقات، التحدث عن النفس، والتخطيط المشترك مع الزميل.",
+        description: "3 أجزاء: طرح أسئلة والإجابة عنها بواسطة بطاقات (Teil 1)، التحدث عن النفس (Teil 2)، والتخطيط المشترك مع الزميل (Teil 3).",
+        trainerRoute: "#/sprechen",
+        trainerLabel: "فتح محاكي الامتحان الشفهي (A2 Sprechen Teil 1–3) 🗣️",
         sets: []
       }
     }
@@ -76,48 +89,70 @@ window.EXAMS_REGISTRY = {
         id: "lesen",
         title: { de: "Lesen", ar: "القراءة والمطالعة" },
         durationMinutes: 65,
-        totalItems: 30,
-        maxScore: 100,
-        passScore: 60,
-        teileCount: 5,
+        totalItems: 20,
+        maxScore: 25,
+        passScore: 15,
+        teileCount: 4,
         icon: "📖",
-        description: "5 أجزاء (30 سؤالاً) تشمل مدونات شخصية، مقالات صحفية متعمقة، مطابقة إعلانات، تعليقات قراء، ولوائح.",
-        sets: []
+        description: "4 أجزاء (20 سؤالاً) تشمل مدونات شخصية حول العمل والتدريب المهني، لوائح شركات، تعليقات قراء، ومطابقة إعلانات.",
+        sets: [
+          {
+            id: "b1-lesen-set-01",
+            setNumber: 1,
+            title: { de: "Modellsatz 1 (B1 Lesen)", ar: "النموذج التجريبي 1 (قراءة B1)" },
+            level: "b1",
+            module: "lesen",
+            dataFile: "b1/lesen/set-01.js"
+          }
+        ]
       },
       hoeren: {
         id: "hoeren",
         title: { de: "Hören", ar: "فهم المسموع" },
         durationMinutes: 40,
-        totalItems: 30,
-        maxScore: 100,
-        passScore: 60,
-        teileCount: 4,
+        totalItems: 10,
+        maxScore: 20,
+        passScore: 12,
+        teileCount: 2,
         icon: "🎧",
-        description: "4 أجزاء (30 سؤالاً) تشمل نصوصاً قصيرة، جولة إرشادية، حواراً يومياً، ونقاشاً إذاعياً ثلاثي الأطراف.",
-        sets: []
+        description: "جزآن (10 أسئلة) تشمل اتصالات عمل ومقابلات Ausbildung، إعلانات قطارات وبلدية، ومحاضرة حول نظام التدريب المزدوج.",
+        sets: [
+          {
+            id: "b1-hoeren-set-01",
+            setNumber: 1,
+            title: { de: "Modellsatz 1 (B1 Hören)", ar: "النموذج التجريبي 1 (استماع B1)" },
+            level: "b1",
+            module: "hoeren",
+            dataFile: "b1/hoeren/set-01.js"
+          }
+        ]
       },
       schreiben: {
         id: "schreiben",
         title: { de: "Schreiben", ar: "التعبير الكتابي" },
         durationMinutes: 60,
-        totalItems: 3,
+        totalItems: 8,
         maxScore: 100,
         passScore: 60,
         teileCount: 3,
         icon: "✍️",
-        description: "3 مهام كتابية: إيميل شخصي لصديق (80 كلمة)، منشور منتدى (80 كلمة)، وإيميل رسمي (40 كلمة).",
+        description: "3 مهام كتابية: إيميل شخصي لصديق (80 كلمة)، منشور منتدى لإبداء الرأي (80 كلمة)، وإيميل رسمي أو خطاب تقديم Ausbildung.",
+        trainerRoute: "#/schreiben",
+        trainerLabel: "فتح استوديو كتابة B1 ورسائل الـ Ausbildung ✍️",
         sets: []
       },
       sprechen: {
         id: "sprechen",
         title: { de: "Sprechen", ar: "التعبير الشفهي" },
         durationMinutes: 15,
-        totalItems: 3,
+        totalItems: 15,
         maxScore: 100,
         passScore: 60,
         teileCount: 3,
         icon: "🗣️",
-        description: "3 أجزاء: تخطيط مشترك لمشروع، عرض تقديمي متكامل من 5 شرائح، وإبداء الرأي والإجابة عن الأسئلة.",
+        description: "3 أجزاء: التخطيط المشترك لمشروع، عرض تقديمي لموضوع، ومحاكاة مقابلة العمل والتدريب المهني (Vorstellungsgespräch).",
+        trainerRoute: "#/sprechen",
+        trainerLabel: "فتح محاكي المحادثة ومقابلة الـ Ausbildung (B1 Sprechen) 🗣️",
         sets: []
       }
     }

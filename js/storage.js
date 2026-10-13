@@ -107,6 +107,8 @@ const Storage = {
       games: {
         flashcards: { box1: [], box2: [], box3: [], box4: [], box5: [] },
         articleGame: { highScore: 0, gamesPlayed: 0 },
+        perfektGame: { highScore: 0, gamesPlayed: 0 },
+        praeteritumGame: { highScore: 0, gamesPlayed: 0 },
         wordOrder: { highScore: 0, gamesPlayed: 0 },
         memoryMatch: { highScore: 0, gamesPlayed: 0 },
         verbSprint: { highScore: 0, gamesPlayed: 0 },
@@ -116,7 +118,11 @@ const Storage = {
         fehlerGame: { highScore: 0, gamesPlayed: 0 },
         satzbauGame: { highScore: 0, gamesPlayed: 0 },
         dialogGame: { highScore: 0, gamesPlayed: 0 },
-        kasusGame: { highScore: 0, gamesPlayed: 0 }
+        kasusGame: { highScore: 0, gamesPlayed: 0 },
+        verbenPraep: { highScore: 0, gamesPlayed: 0 },
+        diktatGame: { highScore: 0, gamesPlayed: 0 },
+        schreibenTrainer: { highScore: 0, gamesPlayed: 0 },
+        sprechenTrainer: { highScore: 0, gamesPlayed: 0 }
       },
       exams: [],
       activeExams: {},
@@ -355,7 +361,7 @@ const Storage = {
     this.setSyncStatusUI('syncing');
 
     // 1. Save to local disk server if running on localhost
-    if (typeof location !== 'undefined' && (location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.hostname.startsWith('192.168.'))) {
+    if (typeof location !== 'undefined' && location.hostname && (location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.hostname.startsWith('192.168.'))) {
       fetch('/api/profile', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -410,7 +416,7 @@ const Storage = {
 
     // 2. Also check local disk API (if on localhost) or static deployed profile
     try {
-      const isLocal = typeof location !== 'undefined' && (location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.hostname.startsWith('192.168.'));
+      const isLocal = typeof location !== 'undefined' && location.hostname && (location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.hostname.startsWith('192.168.'));
       const diskUrl = isLocal ? `/api/profile?user=${normUser}` : `data/profiles/${normUser}.json`;
       const rDisk = await fetch(diskUrl, { cache: 'no-store' });
       if (rDisk.ok) {
