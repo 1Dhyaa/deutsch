@@ -58,6 +58,7 @@ const Router = {
     
     // Stop any ongoing audio playback across route transitions
     if (window.DiktatTrainer && DiktatTrainer.stopAudio) DiktatTrainer.stopAudio();
+    if (window.StoriesTrainer && StoriesTrainer.stopFullStory) StoriesTrainer.stopFullStory();
     if (window.Speech && Speech.stop) Speech.stop();
 
     // Find and execute handler immediately for zero-flicker navigation

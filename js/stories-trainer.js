@@ -1302,22 +1302,80 @@ const StoriesTrainer = {
       .trim();
   },
 
+  currentStoryAudio: null,
+
+  stopStoryAudio() {
+    if (this.currentStoryAudio) {
+      try {
+        this.currentStoryAudio.pause();
+        this.currentStoryAudio.currentTime = 0;
+      } catch (e) {}
+      this.currentStoryAudio = null;
+    }
+  },
+
+  playLineAudio(storyId, lineIndex, isSlow, onEnded) {
+    this.stopStoryAudio();
+    const audioKey = `${storyId}_line_${lineIndex}`;
+    const manifestPath = window.STORIES_AUDIO_MANIFEST && window.STORIES_AUDIO_MANIFEST[audioKey];
+    const audioPath = manifestPath || `audio/stories/${audioKey}.mp3`;
+
+    const fallbackToSpeech = () => {
+      const story = this.stories.find(s => s.id === storyId);
+      if (story && story.lines[lineIndex] && window.Speech) {
+        const cleanDe = this.cleanForSpeech(story.lines[lineIndex].de);
+        if (isSlow) Speech.speakSlow(cleanDe);
+        else Speech.speak(cleanDe);
+      }
+      if (onEnded) {
+        setTimeout(onEnded, 4200);
+      }
+    };
+
+    if (audioPath) {
+      try {
+        const audio = new Audio(audioPath);
+        this.currentStoryAudio = audio;
+        audio.playbackRate = isSlow ? 0.75 : 1.0;
+        if ('preservesPitch' in audio) {
+          audio.preservesPitch = true;
+        }
+
+        audio.onended = () => {
+          this.currentStoryAudio = null;
+          if (onEnded) onEnded();
+        };
+
+        audio.onerror = () => {
+          this.currentStoryAudio = null;
+          fallbackToSpeech();
+        };
+
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => fallbackToSpeech());
+        }
+        return;
+      } catch (e) {
+        fallbackToSpeech();
+        return;
+      }
+    }
+
+    fallbackToSpeech();
+  },
+
   speakLine(lineIndex, isSlow = false) {
     this.stopFullStory();
     const story = this.getCurrentStory();
     if (!story || !story.lines[lineIndex]) return;
 
-    const line = story.lines[lineIndex];
-    const cleanDe = this.cleanForSpeech(line.de);
     this.highlightLine(lineIndex);
-
-    if (window.Speech) {
-      if (isSlow && typeof Speech.speakSlow === 'function') {
-        Speech.speakSlow(cleanDe);
-      } else if (typeof Speech.speak === 'function') {
-        Speech.speak(cleanDe, isSlow);
+    this.playLineAudio(story.id, lineIndex, isSlow, () => {
+      if (!this.isPlayingFull) {
+        this.highlightLine(-1);
       }
-    }
+    });
   },
 
   playFullStory() {
@@ -1341,22 +1399,20 @@ const StoriesTrainer = {
       this.playingLineIndex = idx;
       this.highlightLine(idx);
 
-      const rawText = this.cleanForSpeech(story.lines[idx].de);
-      if (window.Speech && typeof Speech.speak === 'function') {
-        Speech.speak(rawText, false);
-      }
-
-      // Estimate speaking duration from character count (~75ms per char, min 3800ms, max 9500ms)
-      const durationMs = Math.max(3800, Math.min(9500, rawText.length * 72 + 1100));
-      this.fullPlayTimer = setTimeout(() => {
-        playStep(idx + 1);
-      }, durationMs);
+      this.playLineAudio(story.id, idx, false, () => {
+        if (this.isPlayingFull) {
+          this.fullPlayTimer = setTimeout(() => {
+            playStep(idx + 1);
+          }, 600); // 600ms natural conversational pause
+        }
+      });
     };
 
     playStep(0);
   },
 
   stopFullStory() {
+    this.stopStoryAudio();
     if (this.fullPlayTimer) {
       clearTimeout(this.fullPlayTimer);
       this.fullPlayTimer = null;

@@ -11,16 +11,35 @@ const Speech = {
   currentAudio: null,
   audioCache: new Map(),
 
+  // Four authentic ElevenLabs API keys with automatic failover rotation
+  elevenlabsKeys: [
+    'sk_72d2512805337d6f46f0e9053d9cc1739378af1ae094777e',
+    'sk_73d34ef5a0226b5efb8c0e0c04f31898df97797045ff48a3',
+    'sk_61deb949507b8bbabf7e3e7c5d80e1104edb41859f7ea756',
+    'sk_92e4fec3f60f95f6f939ed1e5bbac74e7e661cc82c4c2e0a'
+  ],
+  currentKeyIndex: 0,
+
+  getCurrentApiKey() {
+    return this.elevenlabsKeys[this.currentKeyIndex % this.elevenlabsKeys.length];
+  },
+
+  rotateApiKey() {
+    this.currentKeyIndex = (this.currentKeyIndex + 1) % this.elevenlabsKeys.length;
+    console.log(`[Speech] Switched to ElevenLabs API key #${this.currentKeyIndex + 1} (${this.getCurrentApiKey().slice(0, 10)}...)`);
+    return this.getCurrentApiKey();
+  },
+
   // Default configuration
   config: {
-    provider: 'elevenlabs', // ElevenLabs AI Studio Voice
+    provider: 'elevenlabs', // 100% ElevenLabs AI Studio Voice everywhere
     openaiApiKey: '',
     openaiVoice: 'nova',
     openaiSpeed: 0.9,
-    elevenlabsApiKey: '',
-    elevenlabsVoiceId: 'Xb7hH8MSUJpSbSDYk0k2', // Alice - Engaging Educator
+    elevenlabsApiKey: 'sk_72d2512805337d6f46f0e9053d9cc1739378af1ae094777e',
+    elevenlabsVoiceId: 'Xb7hH8MSUJpSbSDYk0k2', // Alice (Native German Female Educator - Women Voice)
     browserVoiceName: '',
-    rate: 0.85
+    rate: 0.88
   },
 
   init() {
@@ -34,11 +53,14 @@ const Speech = {
       if (saved) {
         this.config = { ...this.config, ...JSON.parse(saved) };
       }
-      if (!this.config.elevenlabsVoiceId) {
-        this.config.elevenlabsVoiceId = 'Xb7hH8MSUJpSbSDYk0k2';
-      }
     } catch (e) {
       console.warn('Could not load audio config:', e);
+    }
+    // Always enforce ElevenLabs with Alice (Female German Native Educator)
+    this.config.provider = 'elevenlabs';
+    this.config.elevenlabsVoiceId = 'Xb7hH8MSUJpSbSDYk0k2';
+    if (!this.config.elevenlabsApiKey || !this.elevenlabsKeys.includes(this.config.elevenlabsApiKey)) {
+      this.config.elevenlabsApiKey = this.getCurrentApiKey();
     }
   },
 
@@ -145,14 +167,13 @@ const Speech = {
 
     const onFinish = () => this.setButtonState(text, false);
 
-    // 1. ElevenLabs Priority (Highest quality AI speech)
-    const useEleven = (this.config.provider === 'elevenlabs' || (this.config.provider === 'auto' && this.config.elevenlabsApiKey)) && this.config.elevenlabsApiKey;
-    if (useEleven) {
+    // 1. ElevenLabs Priority (100% Studio Quality Women Voice with Auto-Key Rotation)
+    if (this.config.provider === 'elevenlabs' || (this.config.provider === 'auto' && this.getCurrentApiKey())) {
       try {
-        await this.speakWithElevenLabs(cleaned, onFinish);
+        await this.speakWithElevenLabs(cleaned, onFinish, isSlow);
         return;
       } catch (err) {
-        console.warn('[Speech] ElevenLabs failed (quota/network):', err);
+        console.warn('[Speech] ElevenLabs failed, falling back to browser neural voice:', err);
       }
     }
 
@@ -167,26 +188,7 @@ const Speech = {
       }
     }
 
-    // 3. Check pre-generated high-quality neural audio from manifest
-    const manifest = window.AUDIO_MANIFEST;
-    const isRemoteNoWav = (typeof location !== 'undefined' && location.hostname.includes('github.io') && this.wavFailCount >= 2);
-    if (manifest && !isRemoteNoWav) {
-      const normalize = (s) => s.toLowerCase().replace(/[.!?,;:"'»«\(\)]/g, '').replace(/\s+/g, ' ').trim();
-      const normKey = normalize(cleaned);
-      const bareKey = normKey.replace(/^(der|die|das)\s+/i, '').trim();
-      const audioFile = manifest[cleaned] || manifest[normKey] || (normKey !== bareKey ? manifest[bareKey] : null);
-      if (audioFile && !this.missingWavs.has(audioFile)) {
-        const audioPath = `audio/${audioFile}`;
-        this.playAudioUrl(audioPath, onFinish, isSlow, () => {
-          this.missingWavs.add(audioFile);
-          this.wavFailCount++;
-          this.speakWithBrowser(cleaned, isSlow, onFinish);
-        });
-        return;
-      }
-    }
-
-    // 4. Fallback to Microsoft / Browser Neural Voice
+    // 3. Fallback to Microsoft / Browser Neural Voice
     this.speakWithBrowser(cleaned, isSlow, onFinish);
   },
 
@@ -198,69 +200,92 @@ const Speech = {
     this.speak(text, true);
   },
 
-  // OpenAI TTS API (tts-1)
-  async speakWithOpenAI(text, isSlow, onFinish) {
-    const cacheKey = `openai_${this.config.openaiVoice}_${isSlow ? 'slow' : 'norm'}_${text}`;
-    let audioUrl = this.audioCache.get(cacheKey);
-
-    if (!audioUrl) {
-      const response = await fetch('https://api.openai.com/v1/audio/speech', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${this.config.openaiApiKey.trim()}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          model: 'tts-1',
-          input: text,
-          voice: this.config.openaiVoice || 'nova',
-          speed: isSlow ? 0.7 : (this.config.openaiSpeed || 0.9)
-        })
-      });
-
-      if (!response.ok) {
-        const errJson = await response.json().catch(() => ({}));
-        throw new Error(errJson.error?.message || `HTTP ${response.status}`);
-      }
-
-      const blob = await response.blob();
-      audioUrl = URL.createObjectURL(blob);
-      this.audioCache.set(cacheKey, audioUrl);
-    }
-
-    this.playAudioUrl(audioUrl, onFinish);
+  // Helper for persistent audio caching in browser Cache Storage
+  async getCachedElevenBlob(key) {
+    if (typeof caches === 'undefined') return null;
+    try {
+      const cache = await caches.open('deutsch-meister-elevenlabs');
+      const res = await cache.match(key);
+      if (res) return await res.blob();
+    } catch (e) {}
+    return null;
   },
 
-  // ElevenLabs Multilingual TTS API
-  async speakWithElevenLabs(text, onFinish) {
-    const voiceId = this.config.elevenlabsVoiceId || '21m00Tcm4TlvDq8ikWAM';
-    const cacheKey = `eleven_${voiceId}_${text}`;
+  async putCachedElevenBlob(key, blob) {
+    if (typeof caches === 'undefined') return;
+    try {
+      const cache = await caches.open('deutsch-meister-elevenlabs');
+      await cache.put(key, new Response(blob.slice(0), { headers: { 'Content-Type': 'audio/mp3' } }));
+    } catch (e) {}
+  },
+
+  // ElevenLabs Multilingual TTS API with 4-key auto rotation & persistent storage
+  async speakWithElevenLabs(text, onFinish, isSlow = false) {
+    const voiceId = this.config.elevenlabsVoiceId || 'Xb7hH8MSUJpSbSDYk0k2'; // Alice (Women Voice)
+    const cacheKey = `https://local.elevenlabs/${voiceId}/${encodeURIComponent(text.slice(0, 100))}_${text.length}`;
+
+    // 1. In-memory cache check
     let audioUrl = this.audioCache.get(cacheKey);
 
+    // 2. Persistent browser cache check
     if (!audioUrl) {
-      const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`, {
-        method: 'POST',
-        headers: {
-          'xi-api-key': this.config.elevenlabsApiKey.trim(),
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          text: text,
-          model_id: 'eleven_multilingual_v2',
-          voice_settings: { stability: 0.5, similarity_boost: 0.8 }
-        })
-      });
-
-      if (!response.ok) {
-        throw new Error(`ElevenLabs error HTTP ${response.status}`);
+      const cachedBlob = await this.getCachedElevenBlob(cacheKey);
+      if (cachedBlob) {
+        audioUrl = URL.createObjectURL(cachedBlob);
+        this.audioCache.set(cacheKey, audioUrl);
       }
-
-      const blob = await response.blob();
-      audioUrl = URL.createObjectURL(blob);
-      this.audioCache.set(cacheKey, audioUrl);
     }
 
-    this.playAudioUrl(audioUrl, onFinish);
+    // 3. If not cached, fetch with auto-key failover rotation
+    if (!audioUrl) {
+      let lastError = null;
+      let success = false;
+      const maxTries = this.elevenlabsKeys.length;
+
+      for (let attempt = 0; attempt < maxTries; attempt++) {
+        const apiKey = this.getCurrentApiKey();
+        try {
+          const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`, {
+            method: 'POST',
+            headers: {
+              'xi-api-key': apiKey,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              text: text,
+              model_id: 'eleven_multilingual_v2',
+              voice_settings: { stability: 0.5, similarity_boost: 0.8 }
+            })
+          });
+
+          if (response.ok) {
+            const blob = await response.blob();
+            await this.putCachedElevenBlob(cacheKey, blob);
+            audioUrl = URL.createObjectURL(blob);
+            this.audioCache.set(cacheKey, audioUrl);
+            success = true;
+            break;
+          } else if (response.status === 401 || response.status === 402 || response.status === 429) {
+            console.warn(`[Speech] ElevenLabs Key #${this.currentKeyIndex + 1} quota limit (${response.status}), rotating key...`);
+            this.rotateApiKey();
+            lastError = new Error(`ElevenLabs error HTTP ${response.status}`);
+          } else {
+            const errJson = await response.json().catch(() => ({}));
+            lastError = new Error(errJson.detail?.message || `ElevenLabs HTTP ${response.status}`);
+            break;
+          }
+        } catch (err) {
+          lastError = err;
+          this.rotateApiKey();
+        }
+      }
+
+      if (!success) {
+        throw lastError || new Error('ElevenLabs failed across all available keys');
+      }
+    }
+
+    this.playAudioUrl(audioUrl, onFinish, isSlow);
   },
 
   // Helper to play generated audio URL
@@ -273,6 +298,9 @@ const Speech = {
     const audio = new Audio(url);
     this.currentAudio = audio;
     audio.playbackRate = isSlow ? 0.75 : 1.0;
+    if ('preservesPitch' in audio) {
+      audio.preservesPitch = true;
+    }
 
     audio.onended = () => {
       this.currentAudio = null;
@@ -338,15 +366,18 @@ const Speech = {
     }
   },
 
-  // Voice Dictation / Speech-to-Text helper (German de-DE) with robust mobile support
+  isListeningSessionActive: false,
+  userRequestedStop: false,
+
+  // Voice Dictation / Speech-to-Text helper (German de-DE) with continuous listening & auto-recovery
   listen(inputId, btnEl, onUpdate) {
     const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
     const input = document.getElementById(inputId);
     const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
     const isDe = window.I18n && typeof I18n.isGerman === 'function' && I18n.isGerman();
 
-    // If recognition is already active, tapping the button acts as STOP & COMMIT
-    if (this.activeRecognition) {
+    // If already listening, tapping again acts as STOP & COMMIT
+    if (this.isListeningSessionActive) {
       this.stopListening();
       return;
     }
@@ -364,6 +395,14 @@ const Speech = {
       return;
     }
 
+    // Stop all audio output before recording so microphone receives full audio focus
+    if (this.currentAudio) {
+      try { this.currentAudio.pause(); } catch (e) {}
+      this.currentAudio = null;
+    }
+    if (window.DiktatTrainer && DiktatTrainer.stopAudio) DiktatTrainer.stopAudio();
+    if (this.synth) this.synth.cancel();
+
     // On non-touch desktop devices, focus the input; on mobile touch, avoid forcing focus to prevent virtual keyboard conflict
     if (input && !isTouch) {
       try { input.focus(); } catch (e) {}
@@ -374,15 +413,6 @@ const Speech = {
       rec = new SpeechRec();
     } catch (err) {
       console.warn('SpeechRecognition init error:', err);
-      if (window.Utils && window.Utils.showToast) {
-        window.Utils.showToast(
-          isDe
-            ? 'Spracherkennung konnte nicht gestartet werden. Bitte Tastatur-Mikrofon nutzen 🎤'
-            : 'تعذر بدء التعرف على الصوت. يمكنك استخدام ميكروفون لوحة المفاتيح 🎤',
-          'warning',
-          3500
-        );
-      }
       return;
     }
 
@@ -391,12 +421,14 @@ const Speech = {
     this.activeListenInput = input;
     this.activeListenCallback = onUpdate;
     this.lastSpokenText = '';
+    this.isListeningSessionActive = true;
+    this.userRequestedStop = false;
     const initialInputVal = input ? input.value : '';
 
     rec.lang = 'de-DE';
     rec.interimResults = true;
     rec.maxAlternatives = 1;
-    rec.continuous = false;
+    rec.continuous = true; // Continuous mode prevents mobile browsers from quitting after initial silence
 
     // Visual button feedback
     if (btnEl) {
@@ -409,21 +441,21 @@ const Speech = {
 
     if (window.Utils && window.Utils.showToast) {
       window.Utils.showToast(
-        isDe ? '🎤 Ich höre zu... Sprich auf Deutsch! (Zum Beenden erneut tippen ⏹️)' : '🎤 جاري الاستماع بالألمانية... انقر لإنهاء التسجيل ⏹️',
+        isDe ? '🎤 Ich höre zu... Sprich auf Deutsch! (Zum Beenden erneut tippen ⏹️)' : '🎤 جاري الاستماع بالألمانية... انقر على إنهاء عند الانتهاء ⏹️',
         'info',
         2500
       );
     }
 
-    // Safety timeout: 9 seconds auto-stop so mobile microphone session never hangs
+    // Safety timeout: 15 seconds auto-stop so microphone session never hangs indefinitely
     if (this.listenTimeout) {
       clearTimeout(this.listenTimeout);
     }
     this.listenTimeout = setTimeout(() => {
-      if (this.activeRecognition === rec) {
+      if (this.isListeningSessionActive) {
         this.stopListening();
       }
-    }, 9000);
+    }, 15000);
 
     rec.onresult = (event) => {
       let finalStr = '';
@@ -454,12 +486,12 @@ const Speech = {
     };
 
     rec.onerror = (e) => {
-      console.warn('SpeechRecognition error:', e);
-      if (this.listenTimeout) {
-        clearTimeout(this.listenTimeout);
-        this.listenTimeout = null;
-      }
       const errName = e && e.error;
+      console.warn('SpeechRecognition event:', errName);
+      // 'no-speech' happens when the user takes a moment to start speaking; DO NOT abort!
+      if (errName === 'no-speech') {
+        return;
+      }
       if (errName === 'not-allowed') {
         if (window.Utils && window.Utils.showToast) {
           window.Utils.showToast(
@@ -470,39 +502,60 @@ const Speech = {
             4000
           );
         }
-      } else if (errName === 'no-speech') {
-        if (window.Utils && window.Utils.showToast) {
-          window.Utils.showToast(
-            isDe
-              ? 'Keine Stimme erkannt. Bitte lauter sprechen oder Tastatur-Mikrofon nutzen 🎤'
-              : 'لم يتم التقاط صوت. حاول مرة أخرى أو استخدم ميكروفون لوحة المفاتيح 🎤',
-            'info',
-            3000
-          );
-        }
+        this.stopListening();
       }
-      this.resetListenBtn(btnEl);
-      this.activeRecognition = null;
     };
 
     rec.onend = () => {
-      if (this.listenTimeout) {
-        clearTimeout(this.listenTimeout);
-        this.listenTimeout = null;
+      // If the browser closed prematurely but user did not ask to stop, restart recording!
+      if (this.isListeningSessionActive && !this.userRequestedStop) {
+        try {
+          rec.start();
+          return;
+        } catch (e) {}
       }
-      this.resetListenBtn(btnEl);
-      this.activeRecognition = null;
-      if (this.lastSpokenText && window.Utils && window.Utils.showToast) {
-        window.Utils.showToast(isDe ? '✅ Spracheingabe erfasst!' : '✅ تم التقاط الصوت بنجاح!', 'success', 1800);
-      }
+
+      this.cleanupListening(btnEl);
     };
 
     try {
       rec.start();
     } catch (err) {
       console.warn('SpeechRecognition start failed:', err);
-      this.resetListenBtn(btnEl);
-      this.activeRecognition = null;
+      this.cleanupListening(btnEl);
+    }
+  },
+
+  stopListening() {
+    this.userRequestedStop = true;
+    this.isListeningSessionActive = false;
+    if (this.listenTimeout) {
+      clearTimeout(this.listenTimeout);
+      this.listenTimeout = null;
+    }
+    const rec = this.activeRecognition;
+    this.activeRecognition = null;
+    if (rec) {
+      try {
+        rec.stop();
+      } catch (e) {
+        try { rec.abort(); } catch (e2) {}
+      }
+    }
+    this.cleanupListening(this.activeListenBtn);
+  },
+
+  cleanupListening(btnEl) {
+    this.isListeningSessionActive = false;
+    if (this.listenTimeout) {
+      clearTimeout(this.listenTimeout);
+      this.listenTimeout = null;
+    }
+    this.resetListenBtn(btnEl || this.activeListenBtn);
+    if (this.lastSpokenText && window.Utils && window.Utils.showToast) {
+      const isDe = window.I18n && typeof I18n.isGerman === 'function' && I18n.isGerman();
+      window.Utils.showToast(isDe ? '✅ Spracheingabe erfasst!' : '✅ تم التقاط الصوت بنجاح!', 'success', 1800);
+      this.lastSpokenText = '';
     }
   },
 
@@ -518,25 +571,8 @@ const Speech = {
     this.activeListenBtn = null;
   },
 
-  stopListening() {
-    if (this.listenTimeout) {
-      clearTimeout(this.listenTimeout);
-      this.listenTimeout = null;
-    }
-    const rec = this.activeRecognition;
-    this.activeRecognition = null;
-    if (rec) {
-      try {
-        rec.stop();
-      } catch (e) {
-        try { rec.abort(); } catch (e2) {}
-      }
-    }
-    this.resetListenBtn(this.activeListenBtn);
-  },
-
   isListening() {
-    return !!this.activeRecognition;
+    return this.isListeningSessionActive;
   },
 
   setButtonState(text, isPlaying) {

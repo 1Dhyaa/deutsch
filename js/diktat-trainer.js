@@ -1541,7 +1541,7 @@ const DiktatTrainer = {
           <div class="diktat-buttons-group" style="display:flex; gap:10px; flex:1 1 200px;">
             <button
               type="button"
-              class="btn btn-secondary audio-btn"
+              class="btn btn-secondary diktat-mic-btn"
               id="diktat-mic-btn"
               onclick="Speech.listen('diktat-input', this)"
               title="تحدث بالألمانية أو انقر للإنهاء"
@@ -1708,7 +1708,7 @@ const DiktatTrainer = {
           <div class="diktat-buttons-group" style="display:flex; gap:10px; flex:1 1 180px;">
             <button
               type="button"
-              class="btn btn-secondary audio-btn"
+              class="btn btn-secondary diktat-mic-btn"
               onclick="Speech.listen('luecken-input', this)"
               title="انطق الكلمة المفقودة أو انقر للإنهاء"
               style="flex:1; min-height:46px; padding:10px 14px; font-weight:700; display:inline-flex; align-items:center; justify-content:center; gap:6px;">
