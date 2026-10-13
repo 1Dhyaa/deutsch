@@ -581,6 +581,11 @@ const Speech = {
   },
 
   async stopListening() {
+    // If no active listening session is running, do absolutely nothing!
+    if (!this.isListeningSessionActive) {
+      return;
+    }
+
     this.userRequestedStop = true;
     this.isListeningSessionActive = false;
     if (this.listenTimeout) {
@@ -626,11 +631,11 @@ const Speech = {
     const onUpdate = this.activeListenCallback;
     const isDe = window.I18n && typeof I18n.isGerman === 'function' && I18n.isGerman();
 
-    // Check if input was already populated by real-time speech
-    let finalText = (this.latestTranscript || (input ? input.value : '')).trim();
+    // Check if real-time speech captured new text in this specific session
+    let finalText = (this.latestTranscript || '').trim();
 
-    // If input is STILL EMPTY, but we recorded audio chunks, transcribe via ElevenLabs Scribe STT!
-    if ((!finalText || (input && !input.value.trim())) && audioBlob && audioBlob.size > 1500) {
+    // If no text was captured in real-time, but we recorded audio chunks, transcribe via ElevenLabs Scribe STT!
+    if (!finalText && audioBlob && audioBlob.size > 1500) {
       if (btnEl) {
         btnEl.innerHTML = `<span style="display:inline-block; animation:spin 0.8s linear infinite;">⏳</span> <strong>${isDe ? 'AI analysiert...' : 'معالجة AI...'}</strong>`;
       }
@@ -658,22 +663,29 @@ const Speech = {
     // Cleanup UI
     this.cleanupListening(btnEl);
 
-    // Provide clear user feedback
+    // Provide clear user feedback ONLY after an active session finishes
     if (finalText) {
       if (window.Utils && window.Utils.showToast) {
         window.Utils.showToast(isDe ? '✅ Spracheingabe erfolgreich eingefügt!' : '✅ تم وضع ما قلته في الخانة بنجاح!', 'success', 2200);
       }
-    } else {
+    } else if (this.userRequestedStop) {
       if (window.Utils && window.Utils.showToast) {
         window.Utils.showToast(
           isDe
             ? '💡 Kein Ton erkannt. Tipp: Nutze das Mikrofon deiner Tastatur (🎤)!'
             : '💡 لم يتم التقاط صوت واضح. نصيحة: يمكنك أيضاً الضغط على ميكروفون كيبورد هاتفك (🎤)!',
           'warning',
-          4000
+          3500
         );
       }
     }
+
+    // Reset all session state variables cleanly
+    this.latestTranscript = '';
+    this.audioChunks = [];
+    this.activeListenInput = null;
+    this.activeListenBtn = null;
+    this.activeListenCallback = null;
   },
 
   cleanupListening(btnEl) {
@@ -727,7 +739,9 @@ const Speech = {
     if (this.synth && (this.synth.speaking || this.synth.pending)) {
       this.synth.cancel();
     }
-    this.stopListening();
+    if (this.isListeningSessionActive) {
+      this.stopListening();
+    }
     document.querySelectorAll('.audio-btn.playing').forEach(b => b.classList.remove('playing'));
   }
 };
