@@ -368,34 +368,79 @@ const Speech = {
 
   isListeningSessionActive: false,
   userRequestedStop: false,
+  activeRecognition: null,
+  activeMediaRecorder: null,
+  activeMediaStream: null,
+  audioChunks: [],
+  latestTranscript: '',
+  activeListenInput: null,
+  activeListenBtn: null,
+  activeListenCallback: null,
+  listenTimeout: null,
+  origPlaceholder: '',
 
-  // Voice Dictation / Speech-to-Text helper (German de-DE) with continuous listening & auto-recovery
-  listen(inputId, btnEl, onUpdate) {
-    const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
-    const input = document.getElementById(inputId);
+  // Transcribe audio using ElevenLabs Scribe v2 STT with 4-key auto rotation
+  async transcribeAudioBlob(blob) {
+    if (!blob || blob.size < 500) return '';
+    const maxTries = this.elevenlabsKeys.length;
+    for (let attempt = 0; attempt < maxTries; attempt++) {
+      const apiKey = this.getCurrentApiKey();
+      try {
+        const formData = new FormData();
+        formData.append('model_id', 'scribe_v2');
+        formData.append('language_code', 'de');
+        const filename = (blob.type && blob.type.includes('mp4')) ? 'audio.mp4' : 'audio.webm';
+        formData.append('file', blob, filename);
+
+        const response = await fetch('https://api.elevenlabs.io/v1/speech-to-text', {
+          method: 'POST',
+          headers: {
+            'xi-api-key': apiKey
+          },
+          body: formData
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          return (data.text || '').trim();
+        } else if (response.status === 401 || response.status === 402 || response.status === 429) {
+          console.warn(`[Speech] ElevenLabs STT Key #${this.currentKeyIndex + 1} quota limit (${response.status}), rotating key...`);
+          this.rotateApiKey();
+        } else {
+          console.warn(`[Speech] ElevenLabs STT HTTP ${response.status}`);
+          break;
+        }
+      } catch (err) {
+        console.warn('[Speech] ElevenLabs STT request error:', err);
+        this.rotateApiKey();
+      }
+    }
+    return '';
+  },
+
+  // Voice Dictation / Speech-to-Text helper (German de-DE) with Dual Engine:
+  // Engine 1: Real-time Web Speech API (with mobile-safe continuous:false)
+  // Engine 2: High-precision ElevenLabs Scribe v2 STT via MediaRecorder audio capture
+  async listen(inputId, btnEl, onUpdate) {
     const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
     const isDe = window.I18n && typeof I18n.isGerman === 'function' && I18n.isGerman();
 
-    // If already listening, tapping again acts as STOP & COMMIT
+    // Resolve target input element reliably
+    let input = typeof inputId === 'string' ? document.getElementById(inputId) : inputId;
+    if (!input && typeof inputId === 'string') {
+      input = document.querySelector(inputId) || document.querySelector(`[name="${inputId}"]`);
+    }
+    if (!input && btnEl && btnEl.parentElement) {
+      input = btnEl.parentElement.querySelector('input, textarea') || btnEl.closest('.card, form, div')?.querySelector('input, textarea');
+    }
+
+    // If currently listening, tapping again acts as STOP & PROCESS
     if (this.isListeningSessionActive) {
-      this.stopListening();
+      await this.stopListening();
       return;
     }
 
-    if (!SpeechRec) {
-      if (window.Utils && window.Utils.showToast) {
-        window.Utils.showToast(
-          isDe
-            ? '💡 Tipp fürs Smartphone: Nutze das Mikrofon auf deiner Tastatur (🎤) für die direkte deutsche Spracheingabe!'
-            : '💡 نصيحة للهاتف: يمكنك استخدام ميكروفون لوحة المفاتيح (🎤 بجانب المسافة) للإملاء الصوتي المباشر بالألمانية!',
-          'info',
-          4000
-        );
-      }
-      return;
-    }
-
-    // Stop all audio output before recording so microphone receives full audio focus
+    // Stop all audio output before recording so mic receives full audio focus
     if (this.currentAudio) {
       try { this.currentAudio.pause(); } catch (e) {}
       this.currentAudio = null;
@@ -403,32 +448,20 @@ const Speech = {
     if (window.DiktatTrainer && DiktatTrainer.stopAudio) DiktatTrainer.stopAudio();
     if (this.synth) this.synth.cancel();
 
-    // On non-touch desktop devices, focus the input; on mobile touch, avoid forcing focus to prevent virtual keyboard conflict
-    if (input && !isTouch) {
-      try { input.focus(); } catch (e) {}
-    }
-
-    let rec;
-    try {
-      rec = new SpeechRec();
-    } catch (err) {
-      console.warn('SpeechRecognition init error:', err);
-      return;
-    }
-
-    this.activeRecognition = rec;
     this.activeListenBtn = btnEl;
     this.activeListenInput = input;
     this.activeListenCallback = onUpdate;
-    this.lastSpokenText = '';
+    this.latestTranscript = '';
+    this.audioChunks = [];
     this.isListeningSessionActive = true;
     this.userRequestedStop = false;
     const initialInputVal = input ? input.value : '';
-
-    rec.lang = 'de-DE';
-    rec.interimResults = true;
-    rec.maxAlternatives = 1;
-    rec.continuous = true; // Continuous mode prevents mobile browsers from quitting after initial silence
+    if (input) {
+      input.dataset.initialVal = initialInputVal;
+      this.origPlaceholder = input.getAttribute('placeholder') || '';
+      input.setAttribute('placeholder', isDe ? '🎙️ Ich höre zu... Sprich jetzt auf Deutsch...' : '🎙️ جاري الاستماع... تحدث الآن بالألمانية...');
+      input.classList.add('mic-listening');
+    }
 
     // Visual button feedback
     if (btnEl) {
@@ -441,108 +474,206 @@ const Speech = {
 
     if (window.Utils && window.Utils.showToast) {
       window.Utils.showToast(
-        isDe ? '🎤 Ich höre zu... Sprich auf Deutsch! (Zum Beenden erneut tippen ⏹️)' : '🎤 جاري الاستماع بالألمانية... انقر على إنهاء عند الانتهاء ⏹️',
+        isDe
+          ? '🎤 Ich höre zu... Sprich auf Deutsch! (Zum Beenden erneut tippen ⏹️)'
+          : '🎤 جاري الاستماع بالألمانية... انقر على إنهاء عند الانتهاء ⏹️',
         'info',
-        2500
+        2200
       );
     }
 
-    // Safety timeout: 15 seconds auto-stop so microphone session never hangs indefinitely
-    if (this.listenTimeout) {
-      clearTimeout(this.listenTimeout);
+    // 1. Start MediaRecorder (Guaranteed audio stream capture on all modern mobile & desktop browsers)
+    if (navigator.mediaDevices && typeof navigator.mediaDevices.getUserMedia === 'function') {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        this.activeMediaStream = stream;
+        let mimeType = 'audio/webm';
+        if (typeof MediaRecorder !== 'undefined' && typeof MediaRecorder.isTypeSupported === 'function') {
+          if (MediaRecorder.isTypeSupported('audio/webm;codecs=opus')) mimeType = 'audio/webm;codecs=opus';
+          else if (MediaRecorder.isTypeSupported('audio/webm')) mimeType = 'audio/webm';
+          else if (MediaRecorder.isTypeSupported('audio/mp4')) mimeType = 'audio/mp4';
+          else if (MediaRecorder.isTypeSupported('audio/aac')) mimeType = 'audio/aac';
+        }
+        const recorder = new MediaRecorder(stream, mimeType ? { mimeType } : undefined);
+        this.activeMediaRecorder = recorder;
+        recorder.ondataavailable = (e) => {
+          if (e.data && e.data.size > 0) {
+            this.audioChunks.push(e.data);
+          }
+        };
+        recorder.start(250);
+      } catch (err) {
+        console.warn('[Speech] MediaRecorder getUserMedia notice:', err);
+      }
     }
+
+    // 2. Start Web Speech Recognition for instant live transcription
+    const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (SpeechRec) {
+      try {
+        const rec = new SpeechRec();
+        this.activeRecognition = rec;
+        rec.lang = 'de-DE';
+        rec.interimResults = true;
+        rec.maxAlternatives = 1;
+        rec.continuous = false; // continuous: false is REQUIRED for mobile Chrome & Safari!
+
+        rec.onresult = (event) => {
+          let fullStr = '';
+          for (let i = 0; i < event.results.length; ++i) {
+            fullStr += event.results[i][0].transcript;
+          }
+          const spoken = fullStr.trim();
+          if (spoken) {
+            this.latestTranscript = spoken;
+            if (input) {
+              if (input.tagName === 'TEXTAREA' && initialInputVal && !initialInputVal.includes(spoken)) {
+                input.value = initialInputVal.trim() + ' ' + spoken;
+              } else {
+                input.value = spoken;
+              }
+              input.dispatchEvent(new Event('input', { bubbles: true }));
+              input.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+            if (onUpdate) onUpdate(spoken);
+          }
+        };
+
+        rec.onerror = (e) => {
+          console.warn('[Speech] SpeechRecognition event:', e && e.error);
+        };
+
+        rec.onend = () => {
+          // If session is still active and user has not stopped, and no text recognized yet, revive session
+          if (this.isListeningSessionActive && !this.userRequestedStop && !this.latestTranscript) {
+            setTimeout(() => {
+              if (this.isListeningSessionActive && !this.userRequestedStop && !this.latestTranscript) {
+                try {
+                  const freshRec = new SpeechRec();
+                  this.activeRecognition = freshRec;
+                  freshRec.lang = 'de-DE';
+                  freshRec.interimResults = true;
+                  freshRec.maxAlternatives = 1;
+                  freshRec.continuous = false;
+                  freshRec.onresult = rec.onresult;
+                  freshRec.onerror = rec.onerror;
+                  freshRec.onend = rec.onend;
+                  freshRec.start();
+                } catch (e) {}
+              }
+            }, 150);
+          }
+        };
+
+        rec.start();
+      } catch (err) {
+        console.warn('[Speech] SpeechRecognition start notice:', err);
+      }
+    }
+
+    // Safety timeout: 15 seconds auto-stop so microphone session never hangs indefinitely
+    if (this.listenTimeout) clearTimeout(this.listenTimeout);
     this.listenTimeout = setTimeout(() => {
       if (this.isListeningSessionActive) {
         this.stopListening();
       }
     }, 15000);
-
-    rec.onresult = (event) => {
-      let finalStr = '';
-      let interimStr = '';
-      for (let i = 0; i < event.results.length; ++i) {
-        const item = event.results[i];
-        if (item.isFinal) {
-          finalStr += item[0].transcript;
-        } else {
-          interimStr += item[0].transcript;
-        }
-      }
-      const spoken = (finalStr || interimStr).trim();
-      if (spoken) {
-        this.lastSpokenText = spoken;
-        if (input) {
-          if (input.tagName === 'TEXTAREA' && initialInputVal && !initialInputVal.includes(spoken)) {
-            input.value = initialInputVal.trim() + ' ' + spoken;
-          } else {
-            input.value = spoken;
-          }
-          input.dispatchEvent(new Event('input', { bubbles: true }));
-        }
-        if (onUpdate) {
-          onUpdate(spoken);
-        }
-      }
-    };
-
-    rec.onerror = (e) => {
-      const errName = e && e.error;
-      console.warn('SpeechRecognition event:', errName);
-      // 'no-speech' happens when the user takes a moment to start speaking; DO NOT abort!
-      if (errName === 'no-speech') {
-        return;
-      }
-      if (errName === 'not-allowed') {
-        if (window.Utils && window.Utils.showToast) {
-          window.Utils.showToast(
-            isDe
-              ? '⚠️ Mikrofon-Zugriff verweigert. Bitte in den Einstellungen erlauben oder Tastatur-Mikrofon nutzen 🎤'
-              : '⚠️ تم رفض إذن الميكروفون. يرجى تفعيله من إعدادات المتصفح أو استخدام ميكروفون لوحة المفاتيح 🎤',
-            'warning',
-            4000
-          );
-        }
-        this.stopListening();
-      }
-    };
-
-    rec.onend = () => {
-      // If the browser closed prematurely but user did not ask to stop, restart recording!
-      if (this.isListeningSessionActive && !this.userRequestedStop) {
-        try {
-          rec.start();
-          return;
-        } catch (e) {}
-      }
-
-      this.cleanupListening(btnEl);
-    };
-
-    try {
-      rec.start();
-    } catch (err) {
-      console.warn('SpeechRecognition start failed:', err);
-      this.cleanupListening(btnEl);
-    }
   },
 
-  stopListening() {
+  async stopListening() {
     this.userRequestedStop = true;
     this.isListeningSessionActive = false;
     if (this.listenTimeout) {
       clearTimeout(this.listenTimeout);
       this.listenTimeout = null;
     }
+
+    // Stop Web Speech Recognition
     const rec = this.activeRecognition;
     this.activeRecognition = null;
     if (rec) {
+      try { rec.stop(); } catch (e) { try { rec.abort(); } catch (e2) {} }
+    }
+
+    // Stop MediaRecorder and collect all audio chunks
+    let audioBlob = null;
+    if (this.activeMediaRecorder) {
       try {
-        rec.stop();
-      } catch (e) {
-        try { rec.abort(); } catch (e2) {}
+        if (this.activeMediaRecorder.state !== 'inactive') {
+          await new Promise((resolve) => {
+            this.activeMediaRecorder.onstop = resolve;
+            this.activeMediaRecorder.stop();
+          });
+        }
+      } catch (e) {}
+      if (this.audioChunks && this.audioChunks.length > 0) {
+        const mime = (this.activeMediaRecorder && this.activeMediaRecorder.mimeType) || 'audio/webm';
+        audioBlob = new Blob(this.audioChunks, { type: mime });
+      }
+      this.activeMediaRecorder = null;
+    }
+
+    // Stop mic stream tracks to release microphone hardware
+    if (this.activeMediaStream) {
+      try {
+        this.activeMediaStream.getTracks().forEach(t => t.stop());
+      } catch (e) {}
+      this.activeMediaStream = null;
+    }
+
+    const btnEl = this.activeListenBtn;
+    const input = this.activeListenInput;
+    const onUpdate = this.activeListenCallback;
+    const isDe = window.I18n && typeof I18n.isGerman === 'function' && I18n.isGerman();
+
+    // Check if input was already populated by real-time speech
+    let finalText = (this.latestTranscript || (input ? input.value : '')).trim();
+
+    // If input is STILL EMPTY, but we recorded audio chunks, transcribe via ElevenLabs Scribe STT!
+    if ((!finalText || (input && !input.value.trim())) && audioBlob && audioBlob.size > 1500) {
+      if (btnEl) {
+        btnEl.innerHTML = `<span style="display:inline-block; animation:spin 0.8s linear infinite;">⏳</span> <strong>${isDe ? 'AI analysiert...' : 'معالجة AI...'}</strong>`;
+      }
+      try {
+        const transcribed = await this.transcribeAudioBlob(audioBlob);
+        if (transcribed) {
+          finalText = transcribed;
+          if (input) {
+            const initialVal = input.dataset.initialVal || '';
+            if (input.tagName === 'TEXTAREA' && initialVal && !initialVal.includes(transcribed)) {
+              input.value = initialVal.trim() + ' ' + transcribed;
+            } else {
+              input.value = transcribed;
+            }
+            input.dispatchEvent(new Event('input', { bubbles: true }));
+            input.dispatchEvent(new Event('change', { bubbles: true }));
+          }
+          if (onUpdate) onUpdate(transcribed);
+        }
+      } catch (err) {
+        console.warn('[Speech] ElevenLabs STT fallback error:', err);
       }
     }
-    this.cleanupListening(this.activeListenBtn);
+
+    // Cleanup UI
+    this.cleanupListening(btnEl);
+
+    // Provide clear user feedback
+    if (finalText) {
+      if (window.Utils && window.Utils.showToast) {
+        window.Utils.showToast(isDe ? '✅ Spracheingabe erfolgreich eingefügt!' : '✅ تم وضع ما قلته في الخانة بنجاح!', 'success', 2200);
+      }
+    } else {
+      if (window.Utils && window.Utils.showToast) {
+        window.Utils.showToast(
+          isDe
+            ? '💡 Kein Ton erkannt. Tipp: Nutze das Mikrofon deiner Tastatur (🎤)!'
+            : '💡 لم يتم التقاط صوت واضح. نصيحة: يمكنك أيضاً الضغط على ميكروفون كيبورد هاتفك (🎤)!',
+          'warning',
+          4000
+        );
+      }
+    }
   },
 
   cleanupListening(btnEl) {
@@ -551,12 +682,14 @@ const Speech = {
       clearTimeout(this.listenTimeout);
       this.listenTimeout = null;
     }
-    this.resetListenBtn(btnEl || this.activeListenBtn);
-    if (this.lastSpokenText && window.Utils && window.Utils.showToast) {
-      const isDe = window.I18n && typeof I18n.isGerman === 'function' && I18n.isGerman();
-      window.Utils.showToast(isDe ? '✅ Spracheingabe erfasst!' : '✅ تم التقاط الصوت بنجاح!', 'success', 1800);
-      this.lastSpokenText = '';
+    const input = this.activeListenInput;
+    if (input) {
+      if (this.origPlaceholder !== undefined) {
+        input.setAttribute('placeholder', this.origPlaceholder);
+      }
+      input.classList.remove('mic-listening');
     }
+    this.resetListenBtn(btnEl || this.activeListenBtn);
   },
 
   resetListenBtn(btnEl) {

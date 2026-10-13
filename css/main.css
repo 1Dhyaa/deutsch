@@ -649,6 +649,12 @@ body[dir="ltr"] .main-content {
   }
 }
 
+.mic-listening {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2) !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
 /* Mobile Touch & iOS Safari Input Zoom Fixes */
 @media (max-width: 768px) {
   input[type="text"],

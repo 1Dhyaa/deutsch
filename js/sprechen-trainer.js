@@ -2191,7 +2191,7 @@ const SprechenTrainer = {
                   style="flex:1; padding:10px 12px; border-radius:10px; border:1px solid var(--border); background:var(--bg-card); color:var(--text-primary); font-size:0.92rem;"
                   onkeydown="if(event.key==='Enter') SprechenTrainer.submitCustomTeil3Turn()"
                 />
-                <button class="btn btn-secondary audio-btn" onclick="Speech.listen('teil3-custom-input', this)">🎤 تحدث</button>
+                <button class="btn btn-secondary mic-btn" id="teil3-mic-btn" onclick="Speech.listen('teil3-custom-input', this)">🎤 تحدث</button>
                 <button class="btn btn-primary btn-sm" onclick="SprechenTrainer.submitCustomTeil3Turn()">إرسال ردي</button>
               </div>
             </div>
@@ -2417,7 +2417,8 @@ const SprechenTrainer = {
           ></textarea>
           <button
             type="button"
-            class="btn btn-secondary audio-btn"
+            class="btn btn-secondary mic-btn"
+            id="interview-mic-btn"
             onclick="Speech.listen('interview-ans-input', this)"
             style="padding:0 16px; border-radius:10px; font-weight:700;"
           >
