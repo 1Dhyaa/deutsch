@@ -379,9 +379,30 @@ const App = {
     // SCHREIBEN & EMAIL BUILDER ROUTE
     Router.register('/schreiben', () => {
       const isDe = window.I18n && window.I18n.isGerman();
-      this.setBreadcrumb(isDe ? 'E-Mail & Schreiben-Baukasten (A2 / B1 / Ausbildung)' : 'مدرب كتابة الإيميلات والرسائل (Schreiben-Baukasten)');
-      if (window.SchreibenTrainer) {
-        window.SchreibenTrainer.render(document.getElementById('app-content'));
+      const isB2 = window.DM && window.DM.level && window.DM.level.isB2();
+      if (isB2) {
+        if (window.DM && window.DM.lazy) {
+          window.DM.lazy.script('js/b2/schreiben-studio.js').then(() => {
+            if (window.DM.b2SchreibenStudio) {
+              window.DM.b2SchreibenStudio.render(document.getElementById('app-content'));
+            }
+          });
+        }
+      } else {
+        this.setBreadcrumb(isDe ? 'E-Mail & Schreiben-Baukasten (A2 / B1 / Ausbildung)' : 'مدرب كتابة الإيميلات والرسائل (Schreiben-Baukasten)');
+        if (window.SchreibenTrainer) {
+          window.SchreibenTrainer.render(document.getElementById('app-content'));
+        }
+      }
+    });
+
+    Router.register('/b2-schreiben', () => {
+      if (window.DM && window.DM.lazy) {
+        window.DM.lazy.script('js/b2/schreiben-studio.js').then(() => {
+          if (window.DM.b2SchreibenStudio) {
+            window.DM.b2SchreibenStudio.render(document.getElementById('app-content'));
+          }
+        });
       }
     });
 
