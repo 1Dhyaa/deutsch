@@ -409,9 +409,34 @@ const App = {
     // SPRECHEN & INTERVIEW SIMULATOR ROUTE
     Router.register('/sprechen', () => {
       const isDe = window.I18n && window.I18n.isGerman();
-      this.setBreadcrumb(isDe ? 'Sprechen & Vorstellungsgespräch-Simulator' : 'محاكي المحادثة ومقابلة الـ Ausbildung والامتحان الشفهي');
-      if (window.SprechenTrainer) {
-        window.SprechenTrainer.render(document.getElementById('app-content'));
+      const isB2 = window.DM && window.DM.level && window.DM.level.isB2();
+      if (isB2) {
+        if (window.DM && window.DM.lazy) {
+          window.DM.lazy.script('js/b2/exam/ai-partner.js').then(() => {
+            return window.DM.lazy.script('js/b2/sprechen-studio.js');
+          }).then(() => {
+            if (window.DM.b2SprechenStudio) {
+              window.DM.b2SprechenStudio.render(document.getElementById('app-content'));
+            }
+          });
+        }
+      } else {
+        this.setBreadcrumb(isDe ? 'Sprechen & Vorstellungsgespräch-Simulator' : 'محاكي المحادثة ومقابلة الـ Ausbildung والامتحان الشفهي');
+        if (window.SprechenTrainer) {
+          window.SprechenTrainer.render(document.getElementById('app-content'));
+        }
+      }
+    });
+
+    Router.register('/b2-sprechen', () => {
+      if (window.DM && window.DM.lazy) {
+        window.DM.lazy.script('js/b2/exam/ai-partner.js').then(() => {
+          return window.DM.lazy.script('js/b2/sprechen-studio.js');
+        }).then(() => {
+          if (window.DM.b2SprechenStudio) {
+            window.DM.b2SprechenStudio.render(document.getElementById('app-content'));
+          }
+        });
       }
     });
 
