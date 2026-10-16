@@ -509,6 +509,7 @@ const Storage = {
     const data = this.load();
     data.xp += amount;
     this.save(data);
+    if (window.DM && window.DM.bus) window.DM.bus.emit('dm:xp', { amount, total: data.xp });
     return data;
   },
   
@@ -526,6 +527,7 @@ const Storage = {
       attempts: (existing.attempts || 0) + 1
     };
     this.save(data);
+    if (window.DM && window.DM.bus) window.DM.bus.emit('dm:lessoncomplete', { lessonId, quizScore, totalQuestions });
     return data;
   },
   
@@ -632,6 +634,7 @@ const Storage = {
       });
     }
     this.save(data);
+    if (window.DM && window.DM.bus) window.DM.bus.emit('dm:mistakeadded', { mistake });
     return data;
   },
   
@@ -667,6 +670,7 @@ const Storage = {
     data.exams = data.exams || [];
     data.exams.unshift(result);
     this.save(data);
+    if (window.DM && window.DM.bus) window.DM.bus.emit('dm:examfinish', { result });
     return data;
   },
 

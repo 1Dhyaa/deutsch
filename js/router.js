@@ -32,6 +32,12 @@ const Router = {
     if (parts[1] === 'exam' && parts[2]) {
       return { path: '/exam', params: { id: parts[2], mode: parts[3] || 'exam' } };
     }
+    if (parts[1] === 'b2-exam' && parts[2]) {
+      return { path: '/exam', params: { id: parts[2], mode: parts[3] || 'exam' } };
+    }
+    if (parts[1] === 'b2-drill' && parts[2]) {
+      return { path: '/b2-drill', params: { type: parts[2] } };
+    }
     if (parts[1] === 'exams') {
       if (parts[2] === 'official') return { path: '/exams/official', params: {} };
       if (parts[2] === 'history') return { path: '/exams/history', params: {} };
@@ -45,6 +51,11 @@ const Router = {
     const { path, params } = this.parseRoute();
     this.currentRoute = path;
     
+    // Emit routechange event on DM Event Bus
+    if (window.DM && window.DM.bus) {
+      window.DM.bus.emit('dm:routechange', { path, params });
+    }
+    
     // Update active nav (both desktop sidebar and mobile bottom nav)
     document.querySelectorAll('.nav-item, .bottom-nav-item, .nav-link').forEach(link => {
       const href = link.getAttribute('href') || '';
@@ -52,6 +63,8 @@ const Router = {
       const isActive = linkRoute === path ||
         (path === '/lesson' && linkRoute === '/lessons') ||
         (path === '/game' && linkRoute === '/games') ||
+        (path === '/funktionsverben' && linkRoute === '/funktionsverben') ||
+        (path === '/friends' && linkRoute === '/friends') ||
         ((path.startsWith('/exam')) && linkRoute === '/exams');
       link.classList.toggle('active', isActive);
     });

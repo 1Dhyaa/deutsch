@@ -1,0 +1,124 @@
+/* website/css/level-switch.css — Segmented Level Switcher Styles */
+
+.level-switch-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 3px;
+  user-select: none;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.level-switch-container:focus-within {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Sliding active thumb */
+.level-switch-thumb {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  width: calc(50% - 3px);
+  background: var(--accent);
+  border-radius: 100px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform var(--transition-normal), background var(--transition-normal);
+  z-index: 1;
+}
+
+/* RTL / LTR Aware Sliding */
+[dir="rtl"] .level-switch-thumb.thumb-primary {
+  transform: translateX(0);
+}
+
+[dir="rtl"] .level-switch-thumb.thumb-b2 {
+  transform: translateX(-100%);
+}
+
+[dir="ltr"] .level-switch-thumb.thumb-primary {
+  transform: translateX(0);
+}
+
+[dir="ltr"] .level-switch-thumb.thumb-b2 {
+  transform: translateX(100%);
+}
+
+/* Buttons */
+.level-switch-btn {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 100px;
+  transition: color var(--transition-fast);
+  white-space: nowrap;
+  outline: none;
+}
+
+.level-switch-btn.active {
+  color: #FFFFFF;
+}
+
+.level-switch-btn:hover:not(.active) {
+  color: var(--text-primary);
+}
+
+.level-btn-icon {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.level-btn-text-short {
+  display: none;
+}
+
+/* Brand B2 Badge */
+.b2-brand-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  color: #FFFFFF;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  padding: 2px 7px;
+  border-radius: 100px;
+  margin-inline-start: 6px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  box-shadow: 0 2px 4px rgba(217, 119, 6, 0.3);
+}
+
+/* Responsive compact view on smaller screens */
+@media (max-width: 768px) {
+  .level-switch-btn {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+  .level-btn-text-full {
+    display: none;
+  }
+  .level-btn-text-short {
+    display: inline;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .level-switch-thumb {
+    transition: none !important;
+  }
+}

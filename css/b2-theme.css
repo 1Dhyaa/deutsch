@@ -1,0 +1,94 @@
+/* website/css/b2-theme.css — B2 Meister Visual Identity & Color Overrides */
+
+/* Crossfade transitions when switching modes */
+html[data-level="b2"],
+html[data-level="b2"] body,
+html[data-level="b2"] .sidebar,
+html[data-level="b2"] .topbar,
+html[data-level="b2"] .card {
+  transition: background 300ms ease, color 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+}
+
+/* ========================================================================= */
+/* B2 MEISTER TOKENS — LIGHT MODE                                            */
+/* ========================================================================= */
+html[data-level="b2"] {
+  --bg-primary: #F4F6FB;
+  --bg-secondary: #FFFFFF;
+  --bg-card: #FFFFFF;
+  
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+  
+  /* Deep Midnight Indigo with Warm Amber/Gold */
+  --accent: #3730A3;        /* Deep Indigo */
+  --accent-hover: #312E81;
+  --accent-light: #EEF2FF;
+  
+  --b2-gold: #D97706;       /* Goethe Meister Gold */
+  --b2-gold-light: #FEF3C7;
+  --b2-gold-dark: #B45309;
+  
+  --border: #CBD5E1;
+  --border-light: #E2E8F0;
+  
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 4px 14px rgba(30, 27, 75, 0.09);
+  --shadow-lg: 0 12px 28px -4px rgba(30, 27, 75, 0.12);
+}
+
+/* ========================================================================= */
+/* B2 MEISTER TOKENS — DARK MODE                                             */
+/* ========================================================================= */
+html[data-level="b2"][data-theme="dark"] {
+  --bg-primary: #090D16;    /* Deep Obsidian */
+  --bg-secondary: #0F1523;  /* Midnight Slate */
+  --bg-card: #141B2D;       /* Navy Glass Card */
+  
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  
+  --accent: #6366F1;        /* Bright Indigo for contrast */
+  --accent-hover: #4F46E5;
+  --accent-light: #1E1B4B;
+  
+  --b2-gold: #F59E0B;
+  --b2-gold-light: #78350F;
+  --b2-gold-dark: #D97706;
+  
+  --border: #1E293B;
+  --border-light: #162033;
+  
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 18px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.65);
+}
+
+/* Gold Accents & Highlights for B2 Modules */
+html[data-level="b2"] .b2-gold-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--b2-gold-light);
+  color: var(--b2-gold-dark);
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+html[data-level="b2"] .b2-gold-border {
+  border-color: var(--b2-gold) !important;
+}
+
+html[data-level="b2"] .b2-hero-card {
+  background: linear-gradient(135deg, rgba(55, 48, 163, 0.06), rgba(217, 119, 6, 0.06));
+  border: 1px solid rgba(55, 48, 163, 0.15);
+}
+
+html[data-level="b2"][data-theme="dark"] .b2-hero-card {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(245, 158, 11, 0.08));
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}

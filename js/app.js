@@ -27,6 +27,15 @@ const App = {
       });
     }
 
+    // 1b. Initialize Level Mode & Header Switcher
+    if (window.DM && window.DM.level) {
+      window.DM.level.init();
+      const slot = document.getElementById('level-switch-slot');
+      if (slot) {
+        window.DM.level.renderSwitcher(slot);
+      }
+    }
+
     // 2. Initialize Speech Synthesis
     Speech.init();
 
@@ -393,6 +402,36 @@ const App = {
       }
     });
 
+    // FUNKTIONSVERBEN STUDIO ROUTE
+    Router.register('/funktionsverben', () => {
+      const isDe = window.I18n && window.I18n.isGerman();
+      this.setBreadcrumb(isDe ? 'Funktionsverbgefüge-Studio (B2 Meister)' : 'استوديو الأفعال والتراكيب الوظيفية (Funktionsverben B2)');
+      if (window.DM && window.DM.funktionsverbenStudio) {
+        window.DM.funktionsverbenStudio.render(document.getElementById('app-content'));
+      } else if (window.DM && window.DM.lazy) {
+        window.DM.lazy.loadScript('js/b2/funktionsverben-studio.js').then(() => {
+          if (window.DM && window.DM.funktionsverbenStudio) {
+            window.DM.funktionsverbenStudio.render(document.getElementById('app-content'));
+          }
+        }).catch(err => console.error(err));
+      }
+    });
+
+    // FRIENDS & SOCIAL STUDY ECOSYSTEM ROUTE
+    Router.register('/friends', () => {
+      const isDe = window.I18n && window.I18n.isGerman();
+      this.setBreadcrumb(isDe ? 'Lernfreunde & Rangliste' : 'مجتمع الأصدقاء وقائمة المتصدرين');
+      if (window.DM && window.DM.friendsView) {
+        window.DM.friendsView.render(document.getElementById('app-content'));
+      } else if (window.DM && window.DM.lazy) {
+        window.DM.lazy.loadScript('js/social/friends-view.js').then(() => {
+          if (window.DM && window.DM.friendsView) {
+            window.DM.friendsView.render(document.getElementById('app-content'));
+          }
+        }).catch(err => console.error(err));
+      }
+    });
+
     // GAMES HUB ROUTE
     Router.register('/games', () => this.renderGamesHub());
 
@@ -482,6 +521,12 @@ const App = {
   // VIEW: HOME PAGE
   // ==========================================
   renderHome() {
+    // If B2 mode is active, render the dedicated B2 Meister Dashboard
+    if (window.DM && window.DM.level && window.DM.level.isB2() && window.DM.b2Home) {
+      window.DM.b2Home.render();
+      return;
+    }
+
     const isDe = window.I18n && window.I18n.isGerman();
     this.setBreadcrumb(isDe ? 'Startseite / Übersicht & Dashboard' : 'الرئيسية / لوحة التحكم والمتابعة');
     const data = Storage.load();
