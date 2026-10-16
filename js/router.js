@@ -19,31 +19,41 @@ const Router = {
   
   // Parse route: /lesson/a1-review-01 → { path: '/lesson', params: { id: 'a1-review-01' } }
   parseRoute(hash) {
-    const path = hash || this.getCurrentPath();
-    const parts = path.split('/');
+    const rawPath = hash || this.getCurrentPath();
+    const [pathWithoutQuery, queryString] = rawPath.split('?');
+    const queryParams = {};
+    if (queryString) {
+      try {
+        const sp = new URLSearchParams(queryString);
+        for (const [k, v] of sp.entries()) {
+          queryParams[k] = v;
+        }
+      } catch (e) {}
+    }
+    const parts = pathWithoutQuery.split('/');
     
     // Match patterns
     if (parts[1] === 'lesson' && parts[2]) {
-      return { path: '/lesson', params: { id: parts[2] } };
+      return { path: '/lesson', params: { id: parts[2], ...queryParams } };
     }
     if (parts[1] === 'game' && parts[2]) {
-      return { path: '/game', params: { id: parts[2] } };
+      return { path: '/game', params: { id: parts[2], ...queryParams } };
     }
     if (parts[1] === 'exam' && parts[2]) {
-      return { path: '/exam', params: { id: parts[2], mode: parts[3] || 'exam' } };
+      return { path: '/exam', params: { id: parts[2], mode: parts[3] || 'exam', ...queryParams } };
     }
     if (parts[1] === 'b2-exam' && parts[2]) {
-      return { path: '/exam', params: { id: parts[2], mode: parts[3] || 'exam' } };
+      return { path: '/exam', params: { id: parts[2], mode: parts[3] || 'exam', ...queryParams } };
     }
     if (parts[1] === 'b2-drill' && parts[2]) {
-      return { path: '/b2-drill', params: { type: parts[2] } };
+      return { path: '/b2-drill', params: { type: parts[2], ...queryParams } };
     }
     if (parts[1] === 'exams') {
-      if (parts[2] === 'official') return { path: '/exams/official', params: {} };
-      if (parts[2] === 'history') return { path: '/exams/history', params: {} };
-      return { path: '/exams', params: {} };
+      if (parts[2] === 'official') return { path: '/exams/official', params: { ...queryParams } };
+      if (parts[2] === 'history') return { path: '/exams/history', params: { ...queryParams } };
+      return { path: '/exams', params: { ...queryParams } };
     }
-    return { path: '/' + (parts[1] || 'home'), params: {} };
+    return { path: '/' + (parts[1] || 'home'), params: { ...queryParams } };
   },
   
   // Handle route change

@@ -115,6 +115,14 @@
           this.loadJson(res).catch(() => {});
         }
       }
+    },
+
+    // Convenience aliases
+    css(href) {
+      return this.loadStyle(href);
+    },
+    js(src) {
+      return this.loadScript(src);
     }
   };
 

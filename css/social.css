@@ -1,0 +1,182 @@
+/* website/css/social.css — Friends & Social Study Ecosystem Styles */
+
+.social-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .social-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Profile Card */
+.profile-hero-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.profile-avatar-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  border: 3px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.friend-code-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-primary);
+  border: 1px dashed var(--accent);
+  color: var(--accent);
+  font-family: monospace;
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-md);
+  letter-spacing: 1px;
+}
+
+/* Friend Card */
+.friend-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  transition: all var(--transition-fast);
+}
+
+.friend-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent);
+}
+
+.friend-avatar-mini {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  border: 2px solid var(--border);
+}
+
+.online-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--success);
+  display: inline-block;
+  box-shadow: 0 0 6px var(--success);
+}
+
+/* Leaderboard Podium */
+.leaderboard-podium {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 16px;
+  margin: 28px 0 24px 0;
+  padding: 0 10px;
+}
+
+.podium-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 110px;
+  text-align: center;
+}
+
+.podium-step-1 {
+  order: 2;
+}
+
+.podium-step-2 {
+  order: 1;
+}
+
+.podium-step-3 {
+  order: 3;
+}
+
+.podium-pillar {
+  width: 100%;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 800;
+  box-shadow: var(--shadow-sm);
+}
+
+.pillar-1 {
+  height: 120px;
+  background: linear-gradient(180deg, #F59E0B 0%, #D97706 100%);
+}
+
+.pillar-2 {
+  height: 90px;
+  background: linear-gradient(180deg, #94A3B8 0%, #64748B 100%);
+}
+
+.pillar-3 {
+  height: 70px;
+  background: linear-gradient(180deg, #B45309 0%, #92400E 100%);
+}
+
+/* Leaderboard List */
+.lb-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-light);
+  transition: background var(--transition-fast);
+}
+
+.lb-row:hover {
+  background: var(--bg-primary);
+}
+
+.lb-row.is-me {
+  background: var(--accent-light);
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+}
+
+.rank-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
+.rank-1 { background: #FEF3C7; color: #D97706; }
+.rank-2 { background: #F1F5F9; color: #64748B; }
+.rank-3 { background: #FFEDD5; color: #C2410C; }

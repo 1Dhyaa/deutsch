@@ -18,6 +18,7 @@ const I18n = {
     nav_mistakes: { ar: 'سجل أخطائي', de: 'Fehlerbuch' },
     nav_progress: { ar: 'لوحة التقدم', de: 'Mein Fortschritt' },
     nav_exams: { ar: 'الامتحانات (A2 / B1)', de: 'Goethe-Prüfungen' },
+    nav_friends: { ar: 'الأصدقاء والمتصدرون', de: 'Freunde & Rangliste' },
     goal_title: { ar: 'الهدف 🎯', de: 'Lernziel 🎯' },
     goal_level: { ar: 'Goethe B1 / B2', de: 'Goethe B1 / B2' },
     goal_desc: { ar: 'التحضير لـ Ausbildung في ألمانيا', de: 'Ausbildungsvorbereitung in Deutschland' },
@@ -225,7 +226,8 @@ const I18n = {
       { route: '/vocabulary', key: 'nav_vocabulary' },
       { route: '/exams', key: 'nav_exams' },
       { route: '/mistakes', key: 'nav_mistakes' },
-      { route: '/progress', key: 'nav_progress' }
+      { route: '/progress', key: 'nav_progress' },
+      { route: '/friends', key: 'nav_friends' }
     ];
 
     navMap.forEach(item => {

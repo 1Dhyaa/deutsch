@@ -473,18 +473,59 @@ const App = {
       }
     });
 
+    // B2 RAPID DRILL ROUTE
+    Router.register('/b2-drill', (params) => {
+      const type = (params && params.type) ? params.type : 'doppelkonnektoren';
+      const isDe = window.I18n && window.I18n.isGerman();
+      this.setBreadcrumb(isDe ? `B2 Intensiv-Training: ${type}` : `تدريب B2 مكثف: ${type}`);
+      
+      const startDrill = () => {
+        if (window.DM && window.DM.drillEngine) {
+          window.DM.drillEngine.start(type, document.getElementById('app-content'));
+        }
+      };
+
+      if (window.DM && window.DM.drillEngine) {
+        startDrill();
+      } else if (window.DM && window.DM.lazy) {
+        window.DM.lazy.loadScript('js/b2/drill-engine.js').then(() => {
+          startDrill();
+        }).catch(err => console.error(err));
+      }
+    });
+
     // FRIENDS & SOCIAL STUDY ECOSYSTEM ROUTE
-    Router.register('/friends', () => {
+    Router.register('/friends', (params) => {
       const isDe = window.I18n && window.I18n.isGerman();
       this.setBreadcrumb(isDe ? 'Lernfreunde & Rangliste' : 'مجتمع الأصدقاء وقائمة المتصدرين');
-      if (window.DM && window.DM.friendsView) {
-        window.DM.friendsView.render(document.getElementById('app-content'));
-      } else if (window.DM && window.DM.lazy) {
-        window.DM.lazy.loadScript('js/social/friends-view.js').then(() => {
-          if (window.DM && window.DM.friendsView) {
-            window.DM.friendsView.render(document.getElementById('app-content'));
+      
+      const renderSocial = () => {
+        if (window.DM && window.DM.friendsView) {
+          window.DM.friendsView.render(document.getElementById('app-content'));
+          if (params && params.add && window.DM.sync) {
+            window.DM.sync.addFriend(params.add).then(() => {
+              window.DM.friendsView.render();
+            }).catch(() => {});
           }
-        }).catch(err => console.error(err));
+        }
+      };
+
+      if (window.DM && window.DM.friendsView && window.DM.profile && window.DM.leaderboard) {
+        renderSocial();
+      } else if (window.DM && window.DM.lazy) {
+        Promise.all([
+          window.DM.lazy.loadScript('js/social/profile.js'),
+          window.DM.lazy.loadScript('js/social/sync-adapter.js'),
+          window.DM.lazy.loadScript('js/social/leaderboard.js'),
+          window.DM.lazy.loadScript('js/social/challenges.js'),
+          window.DM.lazy.loadStyle('css/social.css')
+        ]).then(() => {
+          return window.DM.lazy.loadScript('js/social/friends-view.js');
+        }).then(() => {
+          renderSocial();
+        }).catch(err => {
+          console.error('[Friends Route Load Error]', err);
+        });
       }
     });
 
