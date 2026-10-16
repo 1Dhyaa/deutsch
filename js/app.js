@@ -43,6 +43,14 @@ const App = {
     Storage.updateStreak();
     this.updateHeaderStats();
 
+    // 3b. Initialize Study Tracker & Achievements Engine
+    if (window.DM && window.DM.study) {
+      window.DM.study.init();
+    }
+    if (window.DM && window.DM.achievements) {
+      window.DM.achievements.init();
+    }
+
     // 4. Setup Routes
     this.setupRoutes();
 
@@ -1295,6 +1303,12 @@ const App = {
   // VIEW: PROGRESS & BACKUP
   // ==========================================
   renderProgress() {
+    // If AnalyticsView is available, render comprehensive analytics & heatmap view
+    if (window.DM && window.DM.analytics) {
+      window.DM.analytics.render();
+      return;
+    }
+
     const isDe = window.I18n && window.I18n.isGerman();
     this.setBreadcrumb(isDe ? 'Statistiken / Mein Lernfortschritt & Datensicherung' : 'الإحصائيات / لوحة تقدمي والنسخ الاحتياطي');
     const data = Storage.load();

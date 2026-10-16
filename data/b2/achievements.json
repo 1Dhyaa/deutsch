@@ -1,0 +1,106 @@
+[
+  {
+    "id": "first_b2_step",
+    "title": { "de": "Erster B2-Schritt", "ar": "الخطوة الأولى في B2" },
+    "description": { "de": "Erste B2-Lektion oder Grammatikübung abgeschlossen", "ar": "إتمام أول درس أو تمرين في قواعد B2" },
+    "icon": "🚀",
+    "category": "curriculum",
+    "xp": 50
+  },
+  {
+    "id": "study_streak_3",
+    "title": { "de": "3-Tage-Disziplin", "ar": "انطلاقة الانضباط (3 أيام)" },
+    "description": { "de": "3 Tage in Folge aktiv Deutsch gelernt", "ar": "المذاكرة الفعالة لـ 3 أيام متتالية" },
+    "icon": "🔥",
+    "category": "streak",
+    "xp": 75
+  },
+  {
+    "id": "study_streak_7",
+    "title": { "de": "7-Tage-Kämpfer", "ar": "محارب الأسبوع (7 أيام)" },
+    "description": { "de": "7 Tage ununterbrochene Lernserie", "ar": "الحفاظ على سلسلة المذاكرة لـ 7 أيام متواصلة" },
+    "icon": "⚡",
+    "category": "streak",
+    "xp": 150
+  },
+  {
+    "id": "study_streak_30",
+    "title": { "de": "30-Tage-Legende", "ar": "أسطورة الشهر (30 يوماً)" },
+    "description": { "de": "30 Tage am Stück für das B2-Zertifikat gelernt", "ar": "شهر كامل من المذاكرة اليومية المنتظمة" },
+    "icon": "👑",
+    "category": "streak",
+    "xp": 500
+  },
+  {
+    "id": "active_hour_1",
+    "title": { "de": "Stunde der Konzentration", "ar": "ساعة التركيز الكامل" },
+    "description": { "de": "Mehr als 60 Minuten aktive Lernzeit an einem Tag", "ar": "أكثر من 60 دقيقة دراسة فعلية في يوم واحد" },
+    "icon": "⏱️",
+    "category": "time",
+    "xp": 100
+  },
+  {
+    "id": "fv_beginner",
+    "title": { "de": "FVG-Entdecker", "ar": "مكتشف الأفعال الوظيفية" },
+    "description": { "de": "15 Funktionsverbgefüge im Studio gemeistert", "ar": "إتقان 15 تركيبة وظيفية في الاستوديو" },
+    "icon": "🎯",
+    "category": "vocab",
+    "xp": 100
+  },
+  {
+    "id": "fv_master",
+    "title": { "de": "Funktionsverben-Meister", "ar": "سيد الأفعال الوظيفية (60)" },
+    "description": { "de": "Alle 60 B2 Funktionsverbgefüge vollständig beherrscht", "ar": "إتقان كافة التراكيب الوظيفية الـ 60 بالكامل" },
+    "icon": "💎",
+    "category": "vocab",
+    "xp": 350
+  },
+  {
+    "id": "first_mock_exam",
+    "title": { "de": "Prüfungstaufe", "ar": "معمودية الامتحان التجريبي" },
+    "description": { "de": "Ersten offiziellen Goethe B2 Modelltest vollständig abgegeben", "ar": "تسليم أول نموذج امتحان B2 رسمي بالكامل" },
+    "icon": "📝",
+    "category": "exam",
+    "xp": 150
+  },
+  {
+    "id": "passed_lesen",
+    "title": { "de": "Leseversteher B2", "ar": "بطل القراءة B2" },
+    "description": { "de": "B2 Lesen mit mindestens 60% bestanden", "ar": "اجتياز وحدة القراءة B2 بدرجة 60% فأكثر" },
+    "icon": "📖",
+    "category": "exam",
+    "xp": 200
+  },
+  {
+    "id": "passed_hoeren",
+    "title": { "de": "Adler-Ohr B2", "ar": "أذن الصقر B2" },
+    "description": { "de": "B2 Hören mit mindestens 60% bestanden", "ar": "اجتياز وحدة الاستماع B2 بدرجة 60% فأكثر" },
+    "icon": "🎧",
+    "category": "exam",
+    "xp": 200
+  },
+  {
+    "id": "passed_schreiben",
+    "title": { "de": "B2-Schreiber", "ar": "كاتب B2 البليغ" },
+    "description": { "de": "Forumsbeitrag & formelle Nachricht erfolgreich verfasst", "ar": "كتابة مشاركة المنتدى والرسالة الرسمية بنجاح" },
+    "icon": "✍️",
+    "category": "exam",
+    "xp": 200
+  },
+  {
+    "id": "passed_sprechen",
+    "title": { "de": "B2-Redner", "ar": "خطيب B2 المفوه" },
+    "description": { "de": "Vortrag und Diskussion im Sprechen-Simulator gemeistert", "ar": "إتمام العرض التقديمي والنقاش في محاكي المحادثة" },
+    "icon": "🗣️",
+    "category": "exam",
+    "xp": 200
+  },
+  {
+    "id": "pruefungsreif",
+    "title": { "de": "Offiziell Prüfungsreif", "ar": "جاهز للامتحان الرسمي 🌟" },
+    "description": { "de": "Durchschnitt von >= 60% in allen 4 Prüfungsmodulen", "ar": "تحقيق متوسط 60% فأكثر في كافة الوحدات الأربعة" },
+    "icon": "🎓",
+    "category": "exam",
+    "xp": 600
+  }
+]
