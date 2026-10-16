@@ -103,6 +103,32 @@ const ExamEngine = {
     this.timerInterval = setInterval(updateDisplay, 1000);
   },
 
+  playExamAudio(audioKey, text, maxPlays, btnEl, isSlow = false) {
+    this.audioPlays = this.audioPlays || {};
+    const count = this.audioPlays[audioKey] || 0;
+    if (maxPlays && count >= maxPlays) {
+      if (window.Utils && window.Utils.showToast) {
+        window.Utils.showToast('تم استنفاد عدد مرات الاستماع المسموح بها لهذا التسجيل وفق شروط الامتحان (Goethe-Zertifikat).', 'warning', 2500);
+      }
+      return;
+    }
+    this.audioPlays[audioKey] = count + 1;
+    if (isSlow) {
+      if (window.Speech && window.Speech.speakSlow) window.Speech.speakSlow(text);
+    } else {
+      if (window.Speech && window.Speech.speak) window.Speech.speak(text);
+    }
+    if (btnEl && maxPlays) {
+      const remaining = Math.max(0, maxPlays - this.audioPlays[audioKey]);
+      btnEl.textContent = `🔊 استمع (${remaining}/${maxPlays} متبقية)`;
+      if (remaining === 0) {
+        btnEl.disabled = true;
+        btnEl.style.opacity = '0.5';
+        btnEl.style.cursor = 'not-allowed';
+      }
+    }
+  },
+
   render() {
     const content = document.getElementById('app-content');
     if (!content) return;
@@ -254,10 +280,10 @@ const ExamEngine = {
             </p>
             ${teil.sharedAudio ? `
               <div style="margin-top:14px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
-                <button type="button" class="btn btn-primary" onclick="Speech.speak('${teil.sharedAudio.replace(/'/g, "\\'")}')">
-                  🔊 استمع للحوار الكامل (Hörtext abspielen)
+                <button type="button" class="btn btn-primary" id="btn-audio-shared-${teil.teilNumber}" onclick="window.ExamEngine.playExamAudio('shared-${teil.teilNumber}', '${teil.sharedAudio.replace(/'/g, "\\'")}', ${teil.maxPlays || 0}, this)">
+                  🔊 استمع للحوار الكامل ${teil.maxPlays ? `(${teil.maxPlays} مرات مسموحة)` : ''}
                 </button>
-                <button type="button" class="btn btn-secondary" onclick="Speech.speakSlow('${teil.sharedAudio.replace(/'/g, "\\'")}')">
+                <button type="button" class="btn btn-secondary" onclick="window.ExamEngine.playExamAudio('shared-${teil.teilNumber}-slow', '${teil.sharedAudio.replace(/'/g, "\\'")}', ${teil.maxPlays || 0}, null, true)">
                   🐢 استمع ببطء
                 </button>
                 <button type="button" class="btn btn-outline btn-sm" onclick="Speech.stop()">⏹️ إيقاف</button>
@@ -273,14 +299,14 @@ const ExamEngine = {
                       <span style="font-size:1.5rem;">🎧</span>
                       <div>
                         <strong style="display:block;">التسجيل الصوتي للسؤال ${q.number}</strong>
-                        <small style="color:var(--text-muted);">اضغط للاستماع قبل اختيار الإجابة</small>
+                        <small style="color:var(--text-muted);">${(q.maxPlays || teil.maxPlays) ? `مسموح بالاستماع: ${q.maxPlays || teil.maxPlays} مرة` : 'اضغط للاستماع قبل اختيار الإجابة'}</small>
                       </div>
                     </div>
                     <div style="display:flex; gap:8px;">
-                      <button type="button" class="btn btn-primary btn-sm" onclick="Speech.speak('${q.audioText.replace(/'/g, "\\'")}')">
+                      <button type="button" class="btn btn-primary btn-sm" id="btn-audio-q-${q.number}" onclick="window.ExamEngine.playExamAudio('q-${q.number}', '${q.audioText.replace(/'/g, "\\'")}', ${q.maxPlays || teil.maxPlays || 0}, this)">
                         🔊 استمع الآن
                       </button>
-                      <button type="button" class="btn btn-secondary btn-sm" onclick="Speech.speakSlow('${q.audioText.replace(/'/g, "\\'")}')">
+                      <button type="button" class="btn btn-secondary btn-sm" onclick="window.ExamEngine.playExamAudio('q-${q.number}-slow', '${q.audioText.replace(/'/g, "\\'")}', ${q.maxPlays || teil.maxPlays || 0}, null, true)">
                         🐢 ببطء
                       </button>
                     </div>
@@ -294,7 +320,7 @@ const ExamEngine = {
       `;
     }
 
-    // Matching Layout (Teil 4)
+    // Matching Layout (Teil 4 & B2 Matching)
     if (teil.textType === 'matching') {
       return `
         <div>
@@ -304,19 +330,26 @@ const ExamEngine = {
             </p>
           </div>
 
-          <!-- Ads Grid -->
-          <h3 style="margin-bottom:12px; font-size:1.15rem;">الإعلانات المتاحة (Anzeigen a – f):</h3>
-          <div class="exam-ads-grid">
-            ${teil.ads.map(ad => `
-              <div class="ad-card">
-                <span class="ad-card-badge">${ad.title}</span>
-                <p class="de-text" dir="ltr" style="margin:0; line-height:1.6;">${Utils.escapeHtml(ad.content)}</p>
-              </div>
-            `).join('')}
-          </div>
+          ${teil.ads ? `
+            <!-- Ads Grid -->
+            <h3 style="margin-bottom:12px; font-size:1.15rem;">الإعلانات المتاحة:</h3>
+            <div class="exam-ads-grid">
+              ${teil.ads.map(ad => `
+                <div class="ad-card">
+                  <span class="ad-card-badge">${ad.title}</span>
+                  <p class="de-text" dir="ltr" style="margin:0; line-height:1.6;">${Utils.escapeHtml(ad.content)}</p>
+                </div>
+              `).join('')}
+            </div>
+          ` : teil.text ? `
+            <div class="card" style="margin-bottom:20px; line-height:1.7;">
+              <h3 style="margin-top:0; font-size:1.2rem; color:var(--accent);">${Utils.escapeHtml(teil.text.title || '')}</h3>
+              <div class="de-text" dir="ltr" style="white-space:pre-wrap; font-size:0.95rem;">${Utils.escapeHtml(teil.text.content || '')}</div>
+            </div>
+          ` : ''}
 
-          <!-- Situations -->
-          <h3 style="margin:24px 0 12px 0; font-size:1.15rem;">المواقف والأشخاص (Aufgaben 16–20):</h3>
+          <!-- Questions / Situations -->
+          <h3 style="margin:24px 0 12px 0; font-size:1.15rem;">الأسئلة والمواقف:</h3>
           <div style="display:flex; flex-direction:column; gap:16px;">
             ${teil.questions.map(q => `
               <div class="exam-question-card" id="q-card-${q.number}">
@@ -324,7 +357,7 @@ const ExamEngine = {
                   <span class="q-number-badge">سؤال ${q.number}</span>
                 </div>
                 <div class="q-title">
-                  <span class="de-text" dir="ltr"><strong>${Utils.escapeHtml(q.situation)}</strong></span>
+                  <span class="de-text" dir="ltr"><strong>${Utils.escapeHtml(q.situation || q.question)}</strong></span>
                 </div>
                 ${this.renderOptionsList(q)}
                 ${this.renderPracticeFeedback(q)}
