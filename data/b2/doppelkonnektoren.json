@@ -1,0 +1,161 @@
+{
+  "title": { "de": "Zweiteilige Konnektoren (Doppelkonnektoren)", "ar": "الروابط الثنائية والمزدوجة في اللغة الألمانية" },
+  "description": {
+    "de": "Zweiteilige Konnektoren verbinden Hauptsätze oder Satzglieder und drücken logische Beziehungen aus.",
+    "ar": "تراكيب نحوية راقية تربط بين جملتين أو عنصرين في الجملة للتعبير عن الجمع، النفي المزدوج، التخيير، أو التناقض."
+  },
+  "connectors": [
+    {
+      "id": "sowohl_als_auch",
+      "pair": "sowohl ... als auch",
+      "meaningAr": "سواءً ... أو / كلاً من ... و ... (إضافة إيجابية متساوية)",
+      "meaningDe": "Zwei positive Elemente verbinden (und)",
+      "rule": "Kein Komma nötig bei Verbindung von Wörtern/Satzgliedern. Verbindet zwei gleiche Elemente positiv.",
+      "examples": [
+        { "de": "Er spricht sowohl fließend Deutsch als auch perfektes Englisch.", "ar": "هو يتحدث الألمانية بطلاقة والإنجليزية بمثالية." },
+        { "de": "Das Seminar war sowohl theoretisch anspruchsvoll als auch praxisnah.", "ar": "كانت الندوة ذات مستوى نظري متقدم وعملية في آن واحد." }
+      ]
+    },
+    {
+      "id": "nicht_nur_sondern_auch",
+      "pair": "nicht nur ... sondern auch",
+      "meaningAr": "ليس فقط ... بل أيضاً (إضافة تصاعدية توكيدية)",
+      "meaningDe": "Steigernde Hinzufügung (oft mit Komma)",
+      "rule": "Oft mit Komma vor 'sondern'. Hebt das zweite Element besonders hervor.",
+      "examples": [
+        { "de": "Sie hat nicht nur die B2-Prüfung bestanden, sondern auch eine Ausbildungsstelle gefunden.", "ar": "لم تنجح في امتحان B2 فقط، بل وجدت أيضاً مقعد تدريب مهني." },
+        { "de": "Diese Methode spart nicht nur Zeit, sondern auch finanzielle Ressourcen.", "ar": "هذه الطريقة لا توفر الوقت فحسب، بل توفر أيضاً الموارد المالية." }
+      ]
+    },
+    {
+      "id": "weder_noch",
+      "pair": "weder ... noch",
+      "meaningAr": "لا ... ولا ... (نفي مزدوج قاطع)",
+      "meaningDe": "Zwei Elemente verneinen (kein 'nicht' nötig)",
+      "rule": "Ersetzt 'nicht ... und nicht'. Der Satz enthält kein zusätzliches Negationswort (nicht/kein).",
+      "examples": [
+        { "de": "Er hat weder Zeit noch Geld für lange Urlaubsreisen.", "ar": "ليس لديه وقت ولا مال للرحلات الطويلة." },
+        { "de": "Ich konnte weder den Dozenten erreichen noch die Unterlagen herunterladen.", "ar": "لم أتمكن من التواصل مع المحاضر ولا من تحميل المستندات." }
+      ]
+    },
+    {
+      "id": "entweder_oder",
+      "pair": "entweder ... oder",
+      "meaningAr": "إما ... أو ... (تخيير حصري بين احتمالين)",
+      "meaningDe": "Alternative: Nur eine Option ist möglich",
+      "rule": "'Entweder' kann auf Position 1 stehen (Inversion) oder im Mittelfeld vor dem ersten Glied.",
+      "examples": [
+        { "de": "Entweder wir unterschreiben den Vertrag heute, oder wir verlieren das Angebot.", "ar": "إما أن نوقع العقد اليوم، أو سنفقد العرض." },
+        { "de": "Du musst dich entscheiden: Entweder Studium oder Ausbildung.", "ar": "عليك أن تقرر: إما الدراسة الجامعية أو التدريب المهني." }
+      ]
+    },
+    {
+      "id": "zwar_aber",
+      "pair": "zwar ... aber",
+      "meaningAr": "صحيح أن ... ولكن ... (اعتراف بالواقع مع استدراك وتناقض)",
+      "meaningDe": "Einschränkung: Das erste ist wahr, aber das zweite schränkt es ein",
+      "rule": "'Zwar' steht meist im Mittelfeld oder Position 1, 'aber' leitet den Hauptsatz (Position 0) mit Komma ein.",
+      "examples": [
+        { "de": "Die deutsche Grammatik ist zwar komplex, aber mit Struktur gut lernbar.", "ar": "قواعد اللغة الألمانية معقدة صحيح، ولكن يمكن تعلمها جيداً مع وجود خطة منظمة." },
+        { "de": "Er verdient zwar gut, aber er hat kaum Freizeit für seine Familie.", "ar": "صحيح أنه يتقاضى راتباً جيداً، ولكنه لا يملك وقتاً لأسرته." }
+      ]
+    },
+    {
+      "id": "einerseits_andererseits",
+      "pair": "einerseits ... andererseits",
+      "meaningAr": "من ناحية ... ومن ناحية أخرى ... (مقارنة وجهتي نظر متعارضتين)",
+      "meaningDe": "Zwei gegensätzliche Perspektiven abwägen",
+      "rule": "Beide Wörter stehen meist auf Position 1 und verlangen Inversion (Verb auf Position 2).",
+      "examples": [
+        { "de": "Einerseits möchte ich berufliche Karriere machen, andererseits ist mir Freizeit wichtig.", "ar": "من ناحية أود التقدم في مساري المهني، ومن ناحية أخرى تهمني أوقات فراغي." },
+        { "de": "Einerseits bietet die Großstadt viele Chancen, andererseits ist die Miete extrem teuer.", "ar": "من جهة توفر المدينة الكبرى فرصاً عديدة، ومن جهة أخرى الإيجارات باهظة للغاية." }
+      ]
+    }
+  ],
+  "drills": [
+    {
+      "id": "dk_q01",
+      "question": "Er spricht _____ fließend Deutsch _____ ausgezeichnetes Spanisch.",
+      "options": ["sowohl / als auch", "weder / oder", "entweder / aber", "zwar / noch"],
+      "answer": 0,
+      "explanation": "المعنى يتطلب جمع صفتين إيجابيتين معاً (الألمانية والإسبانية)، فالرابط المناسب هو sowohl ... als auch."
+    },
+    {
+      "id": "dk_q02",
+      "question": "Er hat _____ angerufen, _____ eine Nachricht hinterlassen. Ich mache mir Sorgen.",
+      "options": ["sowohl / als auch", "weder / noch", "entweder / oder", "zwar / aber"],
+      "answer": 1,
+      "explanation": "السياق يدل على نفي الفعلين معاً (لم يتصل ولم يترك رسالة)، لذلك نستخدم weder ... noch."
+    },
+    {
+      "id": "dk_q03",
+      "question": "Wir müssen uns beeilen: _____ wir nehmen jetzt das Taxi, _____ wir verpassen den Zug.",
+      "options": ["entweder / oder", "weder / noch", "zwar / aber", "sowohl / als auch"],
+      "answer": 0,
+      "explanation": "تخيير حصري بين حلين (أخذ التاكسي أو فوات القطار): entweder ... oder."
+    },
+    {
+      "id": "dk_q04",
+      "question": "Die Wohnung ist _____ sehr modern, _____ die Monatsmiete ist leider viel zu hoch.",
+      "options": ["zwar / aber", "weder / noch", "sowohl / als auch", "entweder / oder"],
+      "answer": 0,
+      "explanation": "اعتراف بميزة إيجابية (حديثة) متبوعة باستدراك وتناقض سلبي (الإيجار مرتفع): zwar ... aber."
+    },
+    {
+      "id": "dk_q05",
+      "question": "Das neue Programm spart _____ wertvolle Arbeitszeit, _____ senkt auch die Kosten deutlich.",
+      "options": ["nicht nur / sondern", "weder / noch", "entweder / oder", "zwar / aber"],
+      "answer": 0,
+      "explanation": "وجود 'senkt auch' في الشطر الثاني يؤكد استخدام nicht nur ... sondern auch."
+    },
+    {
+      "id": "dk_q06",
+      "question": "_____ möchte er studieren, _____ will er sofort eigenes Geld verdienen.",
+      "options": ["Einerseits / andererseits", "Weder / noch", "Sowohl / als auch", "Zwar / oder"],
+      "answer": 0,
+      "explanation": "المقارنة بين رغبتين متضاربتين مع تقديم كل منهما على الفعل في الموقع الأول (Inversion): Einerseits ... andererseits."
+    },
+    {
+      "id": "dk_q07",
+      "question": "Für die Ausbildungsstelle kommen _____ Bewerber mit Abitur _____ mit Realschulabschluss in Frage.",
+      "options": ["sowohl / als auch", "entweder / aber", "weder / oder", "zwar / noch"],
+      "answer": 0,
+      "explanation": "كلا المؤهلين مقبول ومتاح، لذلك الربط الإيجابي بـ sowohl ... als auch."
+    },
+    {
+      "id": "dk_q08",
+      "question": "Ich trinke im Sommer _____ Kaffee _____ schwarzen Tee. Ich mag nur kaltes Wasser.",
+      "options": ["weder / noch", "sowohl / als auch", "entweder / oder", "zwar / aber"],
+      "answer": 0,
+      "explanation": "الجملة تفيد الامتناع التام عن القهوة والشاي معاً، فنستخدم weder ... noch بدون nicht."
+    },
+    {
+      "id": "dk_q09",
+      "question": "_____ besteht der Patient auf einer Operation, _____ fürchtet er sich vor den Risiken.",
+      "options": ["Einerseits / andererseits", "Nicht nur / sondern auch", "Weder / noch", "Sowohl / als auch"],
+      "answer": 0,
+      "explanation": "موقفان نفسيان متناقضان للمريض: Einerseits ... andererseits."
+    },
+    {
+      "id": "dk_q10",
+      "question": "Das Hotelzimmer war _____ geräumig und sauber, _____ der Ausblick auf die Baustelle störte sehr.",
+      "options": ["zwar / aber", "entweder / oder", "weder / noch", "sowohl / als auch"],
+      "answer": 0,
+      "explanation": "إقرار بجودة الغرفة مع استدراك على الإزعاج المحيط: zwar ... aber."
+    },
+    {
+      "id": "dk_q11",
+      "question": "Sie beherrscht _____ die theoretischen Grundlagen _____ deren praktische Umsetzung im Betrieb.",
+      "options": ["nicht nur / sondern auch", "entweder / oder", "weder / aber", "zwar / noch"],
+      "answer": 0,
+      "explanation": "توكيد الإتقان النظري والعملي معاً: nicht nur ... sondern auch."
+    },
+    {
+      "id": "dk_q12",
+      "question": "Die Frist läuft ab: _____ schicken Sie die Unterlagen heute per Post, _____ bringen Sie sie persönlich vorbei.",
+      "options": ["entweder / oder", "weder / noch", "zwar / aber", "sowohl / als auch"],
+      "answer": 0,
+      "explanation": "تخيير رسمي بين طريقتين لتسليم الأوراق قبل انقضاء المهلة: entweder ... oder."
+    }
+  ]
+}

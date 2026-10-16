@@ -88,6 +88,35 @@ window.LEVELS = [
       { id: "a2-2-11", slug: "relativsaetze-2", title: { de: "Relativsätze (2)", ar: "الجمل الموصولة (2)" }, dataFile: "a2-2/11-relativsaetze-2.js" },
       { id: "a2-2-12", slug: "relativsaetze-3", title: { de: "Relativsätze (3)", ar: "الجمل الموصولة (3)" }, dataFile: "a2-2/12-relativsaetze-3.js" }
     ]
+  },
+  {
+    id: "b2-1",
+    title: { de: "B2.1 Meister", ar: "B2 — الجزء الأول (المتقدم)" },
+    description: "المستوى المتقدم B2: بدائل المبني للمجهول، التمني بالماضي، والروابط المركبة، والأسماء الضعيفة (5 دروس)",
+    description_de: "Mittelstufe B2.1: Passiv-Alternativen, Konjunktiv II & Doppelkonnektoren (5 Lektionen)",
+    color: "#D97706",
+    icon: "🎯",
+    lessons: [
+      { id: "b2-1-01", slug: "passiv-ersatzformen", title: { de: "Passiv-Ersatzformen", ar: "بدائل المبني للمجهول" }, dataFile: "b2/01-passiv-ersatzformen.js" },
+      { id: "b2-1-02", slug: "konjunktiv-2-vergangenheit", title: { de: "Konjunktiv II (Vergangenheit)", ar: "التمني والافتراض في الماضي" }, dataFile: "b2/02-konjunktiv-2-vergangenheit.js" },
+      { id: "b2-1-03", slug: "doppelkonnektoren", title: { de: "Mehrteilige Konnektoren", ar: "الروابط المزدوجة B2" }, dataFile: "b2/03-doppelkonnektoren.js" },
+      { id: "b2-1-04", slug: "n-deklination", title: { de: "N-Deklination (Schwache Nomen)", ar: "الأسماء الضعيفة وإعراب النون" }, dataFile: "b2/04-n-deklination.js" },
+      { id: "b2-1-05", slug: "partizipialattribute", title: { de: "Partizipialattribute (Erweitert)", ar: "اسم الفاعل والمفعول كصفات ونعت موسع" }, dataFile: "b2/05-partizipialattribute.js" }
+    ]
+  },
+  {
+    id: "b2-2",
+    title: { de: "B2.2 Meister", ar: "B2 — الجزء الثاني (المتقدم)" },
+    description: "المستوى المتقدم B2.2: حروف الإضافة، المتلازمات اللفظية، المبني للمجهول غير الشخصي، والكلام غير المباشر (4 دروس)",
+    description_de: "Oberstufe B2.2: Genitiv-Präpositionen, Funktionsverben & Indirekte Rede (4 Lektionen)",
+    color: "#B45309",
+    icon: "🏆",
+    lessons: [
+      { id: "b2-2-01", slug: "genitiv-praepositionen", title: { de: "Präpositionen mit Genitiv", ar: "حروف الجر المتقدمة مع Genitiv" }, dataFile: "b2/06-genitiv-praepositionen.js" },
+      { id: "b2-2-02", slug: "feste-nomen-verb-verbindungen", title: { de: "Funktionsverbgefüge (Nomen-Verb)", ar: "المتلازمات اللفظية وتراكيب الاسم والفعل" }, dataFile: "b2/07-feste-nomen-verb-verbindungen.js" },
+      { id: "b2-2-03", slug: "subjektlose-passiv", title: { de: "Subjektloses & unpersönliches Passiv", ar: "المبني للمجهول بدون فاعل وغير الشخصي" }, dataFile: "b2/08-subjektlose-passiv.js" },
+      { id: "b2-2-04", slug: "indirekte-rede-k1", title: { de: "Indirekte Rede (Konjunktiv I)", ar: "الكلام غير المباشر ونقل الأخبار" }, dataFile: "b2/09-indirekte-rede-k1.js" }
+    ]
   }
 ];
 

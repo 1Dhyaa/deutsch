@@ -1,0 +1,151 @@
+{
+  "title": { "de": "Gehobene Genitiv-Präpositionen (B2)", "ar": "حروف الجر الراقية التي تفرض حالة الإضافة (Genitiv B2)" },
+  "description": {
+    "de": "Im B2-Niveau und in offiziellen Goethe-Prüfungen drücken diese Präpositionen präzise kausale, temporale und modale Beziehungen aus.",
+    "ar": "حروف جر راقية تكثر في المقالات الأكاديمية والصحفية وامتحانات غوته B2 للتعبير الدقيق عن السبب، المناسبة، والارتباط."
+  },
+  "prepositions": [
+    {
+      "preposition": "anlässlich",
+      "meaningAr": "بمناسبة / بمناسبة حلول",
+      "meaningDe": "aus Anlass von",
+      "exampleDe": "Anlässlich des Firmenjubiläums hielt der Direktor eine bewegende Rede.",
+      "exampleAr": "بمناسبة اليوبيل السنوي للشركة، ألقى المدير خطاباً مؤثراً."
+    },
+    {
+      "preposition": "infolge",
+      "meaningAr": "جراء / إثر / نتيجة مباشرة لـ",
+      "meaningDe": "als direkte Folge von",
+      "exampleDe": "Infolge des heftigen Unwetters fielen viele Züge aus.",
+      "exampleAr": "جراء العاصفة الشديدة، أُلغيت رحلات قطارات عديدة."
+    },
+    {
+      "preposition": "hinsichtlich",
+      "meaningAr": "فيما يتعلق بـ / بخصوص / من ناحية",
+      "meaningDe": "in Bezug auf",
+      "exampleDe": "Hinsichtlich der Arbeitszeiten gibt es noch Klärungsbedarf.",
+      "exampleAr": "فيما يتعلق بأوقات العمل، لا تزال هناك حاجة لمزيد من التوضيح."
+    },
+    {
+      "preposition": "mangels",
+      "meaningAr": "بسبب قلة / لغياب / لعدم وجود",
+      "meaningDe": "aus Mangel an",
+      "exampleDe": "Das Gerichtsverfahren wurde mangels eindeutiger Beweise eingestellt.",
+      "exampleAr": "أُغلقت الدعوى القضائية لعدم وجود أدلة قاطعة."
+    },
+    {
+      "preposition": "zugunsten",
+      "meaningAr": "لصالح / لفائدة / من أجل منفعة",
+      "meaningDe": "zum Vorteil von",
+      "exampleDe": "Er verzichtete auf sein Gehalt zugunsten eines wohltätigen Vereins.",
+      "exampleAr": "تنازل عن جزء من راتبه لصالح جمعية خيرية."
+    },
+    {
+      "preposition": "unweit",
+      "meaningAr": "على مقربة من / غير بعيد عن",
+      "meaningDe": "in der Nähe von",
+      "exampleDe": "Das neue Goethe-Institut befindet sich unweit des Hauptbahnhofs.",
+      "exampleAr": "يقع معهد غوته الجديد على مقربة من محطة القطارات المركزية."
+    },
+    {
+      "preposition": "anhand",
+      "meaningAr": "بالاستناد إلى / بواسطة / بمساعدة",
+      "meaningDe": "mithilfe, unter Zuhilfenahme von",
+      "exampleDe": "Die Dozentin erklärte die B2-Grammatik anhand anschaulicher Beispiele.",
+      "exampleAr": "شرحت المحاضرة قواعد B2 بالاستناد إلى أمثلة توضيحية بليغة."
+    },
+    {
+      "preposition": "ungeachtet",
+      "meaningAr": "بصرف النظر عن / بالرغم من كل شيء",
+      "meaningDe": "ohne Rücksicht auf",
+      "exampleDe": "Ungeachtet aller Warnungen setzte die Gruppe ihre Bergtour fort.",
+      "exampleAr": "بصرف النظر عن جميع التحذيرات، واصلت المجموعة رحلتها الجبلية."
+    }
+  ],
+  "drills": [
+    {
+      "id": "gp_q01",
+      "question": "_____ des Firmenjubiläums erhielten alle Mitarbeiter einen Sonderbonus.",
+      "options": ["Anlässlich", "Mangels", "Infolge", "Unweit"],
+      "answer": 0,
+      "explanation": "المناسبة السعيدة (اليوبيل السنوي للشركة) تقتضي استخدام anlässlich (+ Genitiv)."
+    },
+    {
+      "id": "gp_q02",
+      "question": "Die Staatsanwaltschaft stellte das Verfahren _____ stichhaltiger Beweise ein.",
+      "options": ["mangels", "anlässlich", "unweit", "zugunsten"],
+      "answer": 0,
+      "explanation": "السياق القضائي لإسقاط التهمة بسبب انعدام الأدلة يطابق حرفياً mangels (+ Genitiv)."
+    },
+    {
+      "id": "gp_q03",
+      "question": "_____ des starken Sturms wurde der Flugverkehr komplett lahmgelegt.",
+      "options": ["Infolge", "Anhand", "Zugunsten", "Unweit"],
+      "answer": 0,
+      "explanation": "النتيجة السلبية والسبب المباشر (العاصفة) يعبر عنها بـ infolge (+ Genitiv)."
+    },
+    {
+      "id": "gp_q04",
+      "question": "Die neue Wohnanlage liegt _____ eines großen Waldgebiets.",
+      "options": ["unweit", "infolge", "mangels", "hinsichtlich"],
+      "answer": 0,
+      "explanation": "الدلالة مكانية تفيد القرب من الغابة (auf Deutsch: in der Nähe von): unweit (+ Genitiv)."
+    },
+    {
+      "id": "gp_q05",
+      "question": "Die Dozentin demonstrierte die Satzstruktur _____ mehrerer Beispielsätze.",
+      "options": ["anhand", "anlässlich", "mangels", "unweit"],
+      "answer": 0,
+      "explanation": "توضيح القاعدة بالاستعانة بالأمثلة: anhand (+ Genitiv)."
+    },
+    {
+      "id": "gp_q06",
+      "question": "Er entschied sich für eine Teilzeitstelle _____ mehr Zeit für die Familie.",
+      "options": ["zugunsten", "infolge", "mangels", "unweit"],
+      "answer": 0,
+      "explanation": "التضحية أو التفضيل لصالح أمر آخر (لمصلحة العائلة): zugunsten (+ Genitiv)."
+    },
+    {
+      "id": "gp_q07",
+      "question": "_____ der Prüfungsmodalitäten sollten Sie sich direkt an das Prüfungszentrum wenden.",
+      "options": ["Hinsichtlich", "Mangels", "Unweit", "Infolge"],
+      "answer": 0,
+      "explanation": "تحديد موضوع الاستفسار بـ 'فيما يخص أو بخصوص شروط الامتحان': Hinsichtlich (+ Genitiv)."
+    },
+    {
+      "id": "gp_q08",
+      "question": "_____ der schlechten Wettervorhersage starteten die Bergsteiger ihre Wanderung.",
+      "options": ["Ungeachtet", "Mangels", "Anhand", "Anlässlich"],
+      "answer": 0,
+      "explanation": "المعنى التناقضي 'بالرغم من توقعات الطقس السيئة': Ungeachtet (+ Genitiv)."
+    },
+    {
+      "id": "gp_q09",
+      "question": "Das Unternehmen spendete 50.000 Euro _____ krebskranker Kinder.",
+      "options": ["zugunsten", "infolge", "mangels", "unweit"],
+      "answer": 0,
+      "explanation": "التبرع المالي لصالح جهة أو فئة مستحقة: zugunsten (+ Genitiv)."
+    },
+    {
+      "id": "gp_q10",
+      "question": "_____ der neuen Sicherheitsrichtlinien wurden alle Passwörter zurückgesetzt.",
+      "options": ["Infolge", "Unweit", "Mangels", "Anlässlich"],
+      "answer": 0,
+      "explanation": "السبب والنتيجة المترتبة على السياسة الجديدة: Infolge (+ Genitiv)."
+    },
+    {
+      "id": "gp_q11",
+      "question": "Die Kanzlei befindet sich _____ des Gerichtsgebäudes im Stadtzentrum.",
+      "options": ["unweit", "mangels", "anhand", "hinsichtlich"],
+      "answer": 0,
+      "explanation": "موقع قريب مكانياً من مبنى المحكمة: unweit (+ Genitiv)."
+    },
+    {
+      "id": "gp_q12",
+      "question": "Der Zeuge konnte den Täter _____ eines Phantombildes identifizieren.",
+      "options": ["anhand", "anlässlich", "mangels", "zugunsten"],
+      "answer": 0,
+      "explanation": "التعرف على الجاني بالاستعانة بمساعدة الرسم التخيلي: anhand (+ Genitiv)."
+    }
+  ]
+}

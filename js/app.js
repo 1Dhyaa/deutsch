@@ -322,6 +322,8 @@ const App = {
         dataFile = `a2-1/${lessonId.replace('a2-1-', '')}.js`;
       } else if (lessonId.startsWith('a2-2-')) {
         dataFile = `a2-2/${lessonId.replace('a2-2-', '')}.js`;
+      } else if (lessonId.startsWith('b2-1-') || lessonId.startsWith('b2-2-')) {
+        dataFile = `b2/${lessonId.replace(/^b2-[12]-/, '')}.js`;
       }
     }
 
@@ -791,21 +793,35 @@ const App = {
   // ==========================================
   renderLessonsMap() {
     const isDe = window.I18n && window.I18n.isGerman();
-    this.setBreadcrumb(isDe ? 'Lehrplan / Alle 57 Lektionen' : 'المنهج الدراسي / خريطة الدروس الـ 57');
+    const isB2 = window.DM && window.DM.level && window.DM.level.isB2();
+    if (isB2) {
+      this.setBreadcrumb(isDe ? 'B2 Meister Lehrplan (9 Lektionen)' : 'منهج B2 مايستر المتقدم (9 دروس)');
+    } else {
+      this.setBreadcrumb(isDe ? 'Lehrplan / Alle 57 Lektionen' : 'المنهج الدراسي / خريطة الدروس الـ 57');
+    }
     const data = Storage.load();
     const content = document.getElementById('app-content');
+
+    const titleText = isB2
+      ? (isDe ? 'B2 Meister Lehrplan' : 'منهج B2 مايستر المتقدم')
+      : (isDe ? 'Lehrplan & Lektionsübersicht' : 'خريطة المنهج والدروس');
+    const subtitleText = isB2
+      ? (isDe ? '9 fortgeschrittene B2-Lektionen mit Passiv-Alternativen, Konjunktiv II, N-Deklination und mehr' : '9 دروس متقدمة في قواعد وتراكيب B2 مع شروحات وتمارين واختبارات فورية')
+      : (isDe ? '57 strukturierte Lektionen mit Grammatikerklärungen, Beispielen und Quiz' : '57 درساً مُنظماً خطوة بخطوة مع شروحات وتمارين واختبارات فورية');
 
     let html = `
       <div class="content-container fade-in">
         <div class="section-header">
           <div>
-            <h1 class="section-title">${isDe ? 'Lehrplan & Lektionsübersicht' : 'خريطة المنهج والدروس'}</h1>
-            <p class="section-subtitle">${isDe ? '57 strukturierte Lektionen mit Grammatikerklärungen, Beispielen und Quiz' : '57 درساً مُنظماً خطوة بخطوة مع شروحات وتمارين واختبارات فورية'}</p>
+            <h1 class="section-title">${titleText}</h1>
+            <p class="section-subtitle">${subtitleText}</p>
           </div>
         </div>
     `;
 
-    for (const lvl of (window.LEVELS || [])) {
+    const levelsToRender = (window.LEVELS || []).filter(lvl => isB2 ? lvl.id.startsWith('b2') : !lvl.id.startsWith('b2'));
+
+    for (const lvl of levelsToRender) {
       const lvlCompleted = lvl.lessons.filter(l => data.lessons[l.id] && data.lessons[l.id].completed).length;
       const lvlHeaderTitle = isDe ? `${lvl.title.de} — ${lvl.title.ar}` : `${lvl.title.ar} — <span class="de-text">${lvl.title.de}</span>`;
       const lvlHeaderDesc = isDe 

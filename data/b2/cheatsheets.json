@@ -1,0 +1,145 @@
+[
+  {
+    "id": "b2_cs_01",
+    "slug": "passiv-ersatz",
+    "title": { "de": "Passiv-Ersatzformen (Passiv-Alternativen)", "ar": "بدائل المبني للمجهول في B2" },
+    "level": "B2",
+    "category": "Grammatik",
+    "summary": "Im B2-Niveau und in anspruchsvollen Texten werden anstelle des klassischen Passivs (werden + Partizip II) elegante Ersatzformen verwendet.",
+    "tables": [
+      {
+        "title": "Die 4 wichtigsten Passiv-Alternativen im Vergleich",
+        "headers": ["Ersatzform", "Bedeutung", "Beispiel", "Klassisches Passiv"],
+        "rows": [
+          ["sein + zu + Infinitiv", "muss / kann gemacht werden", "Der Text ist bis morgen zu schreiben.", "Der Text muss/kann geschrieben werden."],
+          ["sich lassen + Infinitiv", "kann gemacht werden (Möglichkeit)", "Das Problem lässt sich leicht lösen.", "Das Problem kann leicht gelöst werden."],
+          ["Adjektiv auf -bar / -lich", "kann gemacht werden (Potenzial)", "Das Buch ist überall erhältlich.", "Das Buch kann überall erhalten werden."],
+          ["es gilt + zu + Infinitiv", "muss dringend getan werden", "Es gilt, jetzt schnell zu handeln.", "Es muss jetzt schnell gehandelt werden."]
+        ]
+      }
+    ],
+    "rules": [
+      "»sein + zu + Infinitiv« kann Notwendigkeit (müssen) oder Möglichkeit (können) ausdrücken je nach Kontext.",
+      "»sich lassen + Infinitiv« drückt IMMER eine Möglichkeit (können) aus und wird nur mit Sachsubjekten verwendet.",
+      "Adjektive auf »-bar« und »-lich« leiten sich vom Verbstamm ab (trinkbar = kann getrunken werden; lesbar = kann gelesen werden)."
+    ]
+  },
+  {
+    "id": "b2_cs_02",
+    "slug": "konjunktiv-2-vergangenheit",
+    "title": { "de": "Konjunktiv II der Vergangenheit", "ar": "صيغة التمني والشرط في الماضي (Konjunktiv II)" },
+    "level": "B2",
+    "category": "Grammatik",
+    "summary": "Dient zum Ausdruck von irrealen Bedingungen, Vorwürfen, Bedauern oder verpassten Chancen in der Vergangenheit.",
+    "tables": [
+      {
+        "title": "Bildungsschema für Konjunktiv II der Vergangenheit",
+        "headers": ["Verbtyp", "Formel", "Beispiel"],
+        "rows": [
+          ["Vollverben (haben)", "hätte + Partizip II", "Ich hätte dich früher angerufen, wenn ich Zeit gehabt hätte."],
+          ["Vollverben (sein)", "wäre + Partizip II", "Sie wäre pünktlich gekommen, wenn der Zug nicht ausgefallen wäre."],
+          ["Modalverben (Gegenwart)", "hätte + Infinitiv + Modalverb-Infinitiv", "Du hättest den Chef sofort informieren müssen (Doppelinfinitiv!)."],
+          ["Irreale Wünsche", "Fast / Beinahe + wäre/hätte", "Fast hätte ich die B2-Prüfung verpasst!"]
+        ]
+      }
+    ],
+    "rules": [
+      "Im Nebensatz mit »wenn« steht das finite Hilfsverb (hätte/wäre) am Satzende.",
+      "VORSICHT bei Modalverben: Bildet den »Ersatzinfinitiv / Doppelinfinitiv«! Das Hilfsverb »hätte« rückt vor die beiden Infinitive (»... wenn er das hätte machen können«)."
+    ]
+  },
+  {
+    "id": "b2_cs_03",
+    "slug": "doppelkonnektoren",
+    "title": { "de": "Zweiteilige Konnektoren (Doppelkonnektoren)", "ar": "الروابط المزدوجة وموقع الفعل" },
+    "level": "B2",
+    "category": "Satzbau",
+    "summary": "Meisterhafte Verknüpfung von Satzgliedern und Hauptsätzen zur Demonstration gehobener B2-Ausdrucksweise.",
+    "tables": [
+      {
+        "title": "Übersicht & Funktion",
+        "headers": ["Konnektor-Paar", "Bedeutung", "Wortstellung / Besonderheit"],
+        "rows": [
+          ["sowohl ... als auch", "A und B (beide positiv)", "Normales Mittelfeld, verbindet Substantive, Adjektive oder Verben."],
+          ["nicht nur ... sondern auch", "A und steigernd B", "Komma vor 'sondern'. Hebt das zweite Glied hervor."],
+          ["weder ... noch", "nicht A und nicht B", "Kein zusätzliches 'nicht'. Ersetzt doppelte Negation."],
+          ["entweder ... oder", "A oder B (Alternative)", "Kann auf Position 1 stehen (Inversion) oder im Mittelfeld."],
+          ["zwar ... aber", "Einschränkung / Zugeständnis", "'Zwar' im 1. Satzteil, 'aber' leitet Hauptsatz ein (Position 0)."],
+          ["einerseits ... andererseits", "Abwägung von Gegensätzen", "Stehen meist auf Position 1 gefolgt von finitem Verb (Inversion)."]
+        ]
+      }
+    ],
+    "rules": [
+      "Nach »sondern auch« und »aber« bleibt die Hauptsatzstellung (Verb auf Position 2) erhalten.",
+      "Nach »einerseits / andererseits« auf Position 1 folgt das finite Verb unmittelbar auf Position 2."
+    ]
+  },
+  {
+    "id": "b2_cs_04",
+    "slug": "funktionsverben",
+    "title": { "de": "Die 20 wichtigsten Funktionsverbgefüge", "ar": "جدول أهم 20 تركيباً وظيفياً لـ B2" },
+    "level": "B2",
+    "category": "Wortschatz",
+    "summary": "Feste Nomen-Verb-Verbindungen, die ein einfaches Verb stilistisch elegant ersetzen und im B2-Schreiben unverzichtbar sind.",
+    "tables": [
+      {
+        "title": "Goldene Liste der Funktionsverben",
+        "headers": ["Nomen-Verb-Gefüge", "Einfaches Verb", "Arabische Bedeutung"],
+        "rows": [
+          ["eine Entscheidung treffen", "sich entscheiden", "يتخذ قراراً"],
+          ["zur Verfügung stehen / stellen", "verfügbar sein / bereitstellen", "يكون متاحاً / يضع رهن الإشارة"],
+          ["in Betracht ziehen", "erwägen, berücksichtigen", "يأخذ بعين الاعتبار"],
+          ["in Frage kommen / stellen", "möglich sein / bezweifeln", "يكون وارداً / يشكك في"],
+          ["Kritik üben an (+ Dat)", "kritisieren", "يوجه انتقاداً لـ"],
+          ["Abschied nehmen von (+ Dat)", "sich verabschieden", "يودع"],
+          ["einen Antrag stellen auf (+ Akk)", "beantragen", "يقدم طلباً رسمياً لـ"],
+          ["in Erfahrung bringen", "erfahren, herausfinden", "يتقصى / يعرف معلومة"],
+          ["Maßnahmen ergreifen", "handeln, aktiv werden", "يتخذ إجراءات تدبيرية"],
+          ["Bezug nehmen auf (+ Akk)", "sich beziehen auf", "يشير إلى / يستند على"],
+          ["Einfluss nehmen auf (+ Akk)", "beeinflussen", "يمارس تأثيراً على"],
+          ["in Anspruch nehmen", "nutzen, beanspruchen", "يستفيد من / يستغرق وقتاً"],
+          ["Rücksicht nehmen auf (+ Akk)", "berücksichtigen", "يراعي مشاعر أو حقوق"],
+          ["einen Beitrag leisten zu (+ Dat)", "beitragen zu", "يقدم مساهمة في"],
+          ["in Kauf nehmen", "Nachteile akzeptieren", "يرضى بتحمل السلبيات"],
+          ["in Kraft treten / außer Kraft setzen", "gültig werden / aufheben", "يدخل حيز التنفيذ / يلغي"],
+          ["eine Rolle spielen", "wichtig / relevant sein", "يلعب دوراً رئيسياً"],
+          ["unter Beweis stellen", "beweisen", "يبرهن ويثبت الجدارة"],
+          ["zur Verantwortung ziehen", "verantwortlich machen", "يحاسب ويحمل المسؤولية"],
+          ["zur Sprache bringen / kommen", "ansprechen / besprochen werden", "يطرح للنقاش / يُطرح"]
+        ]
+      }
+    ],
+    "rules": [
+      "In Hauptsätzen steht das finite Verb auf Position 2, das Nomen mit eventueller Präposition rückt ans Satzende (Klammer).",
+      "Im Passiv wird oft das Partnerverb gewechselt (z.B. »zur Sprache bringen« aktiv ➔ »zur Sprache kommen« passivähnlich)."
+    ]
+  },
+  {
+    "id": "b2_cs_05",
+    "slug": "genitiv-praepositionen",
+    "title": { "de": "Gehobene Genitiv-Präpositionen", "ar": "حروف جر الإضافة الراقية (Genitiv)" },
+    "level": "B2",
+    "category": "Grammatik",
+    "summary": "Diese Präpositionen verleihen Texten einen gehobenen, präzisen und akademischen Ausdruck.",
+    "tables": [
+      {
+        "title": "B2 Genitiv-Präpositionen im Überblick",
+        "headers": ["Präposition", "Kasus", "Bedeutung", "Beispiel"],
+        "rows": [
+          ["anlässlich", "+ Genitiv", "aus Anlass von (بمناسبة)", "Anlässlich des Firmenjubiläums"],
+          ["infolge", "+ Genitiv", "als Folge von (جراء / إثر)", "Infolge des heftigen Unwetters"],
+          ["hinsichtlich", "+ Genitiv", "in Bezug auf (فيما يخص)", "Hinsichtlich der neuen Regelungen"],
+          ["mangels", "+ Genitiv", "aus Mangel an (لغياب / لعدم وجود)", "Mangels stichhaltiger Beweise"],
+          ["zugunsten", "+ Genitiv", "zum Vorteil von (لصالح)", "Zugunsten bedürftiger Familien"],
+          ["unweit", "+ Genitiv", "in der Nähe von (على مقربة من)", "Unweit des Stadtzentrums"],
+          ["anhand", "+ Genitiv", "mithilfe von (بالاستناد إلى)", "Anhand konkreter Beispiele"],
+          ["ungeachtet", "+ Genitiv", "trotz (بالرغم من / بصرف النظر عن)", "Ungeachtet aller Warnungen"]
+        ]
+      }
+    ],
+    "rules": [
+      "Maskuline und neutrale Substantive erhalten im Genitiv die Endung »-(e)s« (des Jubiläums, des Zentrums).",
+      "Feminine Substantive und Pluralformen verändern den Artikel zu »der« ohne Substantivendung (der Regelungen, der Familien)."
+    ]
+  }
+]
