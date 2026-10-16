@@ -4,12 +4,17 @@ const ExamsRenderer = {
   currentLevel: 'a2',
 
   render(container) {
+    const isB2 = window.DM && window.DM.level && window.DM.level.isB2();
+    if (isB2 && (!this._userSelectedLevel || this.currentLevel === 'a2')) {
+      this.currentLevel = 'b2';
+    }
+
     if (window.App && window.App.setBreadcrumb) {
-      window.App.setBreadcrumb('الامتحانات / Goethe-Zertifikat A2 & B1');
+      window.App.setBreadcrumb(isB2 ? 'الامتحانات / Goethe-Zertifikat B2 Meister' : 'الامتحانات / Goethe-Zertifikat A2 & B1');
     }
 
     const reg = window.EXAMS_REGISTRY || {};
-    const levelData = reg[this.currentLevel] || reg.a2;
+    const levelData = reg[this.currentLevel] || reg.b2 || reg.a2;
 
     container.innerHTML = `
       <div class="content-container fade-in">
@@ -33,12 +38,15 @@ const ExamsRenderer = {
         </div>
 
         <!-- Level Selector Tabs -->
-        <div style="display:flex; gap:12px; margin-bottom:28px;">
-          <button type="button" class="btn ${this.currentLevel === 'a2' ? 'btn-primary' : 'btn-secondary'}" onclick="window.ExamsRenderer.switchLevel('a2')">
-            📗 المستوى Goethe A2 (الهدف الحالي)
+        <div style="display:flex; gap:12px; margin-bottom:28px; flex-wrap:wrap;">
+          <button type="button" class="btn ${this.currentLevel === 'b2' ? 'btn-primary' : 'btn-secondary'}" onclick="window.ExamsRenderer.switchLevel('b2')">
+            🎯 المستوى Goethe B2 (الهدف المتقدم)
           </button>
           <button type="button" class="btn ${this.currentLevel === 'b1' ? 'btn-primary' : 'btn-secondary'}" onclick="window.ExamsRenderer.switchLevel('b1')">
-            📘 المستوى Goethe B1 (المرحلة القادمة)
+            📘 المستوى Goethe B1
+          </button>
+          <button type="button" class="btn ${this.currentLevel === 'a2' ? 'btn-primary' : 'btn-secondary'}" onclick="window.ExamsRenderer.switchLevel('a2')">
+            📗 المستوى Goethe A2
           </button>
         </div>
 
@@ -125,17 +133,50 @@ const ExamsRenderer = {
   },
 
   switchLevel(lvl) {
+    this._userSelectedLevel = true;
     this.currentLevel = lvl;
     const container = document.getElementById('app-content');
     if (container) this.render(container);
   },
 
   startExam(examId, mode) {
-    const examData = window.EXAM_DATA && window.EXAM_DATA[examId];
+    let examData = window.EXAM_DATA && window.EXAM_DATA[examId];
     if (examData && window.ExamEngine) {
       window.ExamEngine.init(examData, mode);
+      return;
+    }
+
+    // Attempt lazy loading from EXAMS_REGISTRY
+    const reg = window.EXAMS_REGISTRY || {};
+    let dataFile = null;
+    for (const lvl of Object.values(reg)) {
+      for (const m of Object.values(lvl.modules || {})) {
+        const found = (m.sets || []).find(s => s.id === examId);
+        if (found && found.dataFile) {
+          dataFile = found.dataFile;
+          break;
+        }
+      }
+      if (dataFile) break;
+    }
+
+    if (dataFile) {
+      const script = document.createElement('script');
+      script.src = `data/exams/${dataFile}`;
+      script.onload = () => {
+        examData = window.EXAM_DATA && window.EXAM_DATA[examId];
+        if (examData && window.ExamEngine) {
+          window.ExamEngine.init(examData, mode);
+        } else {
+          alert('تعذر تهيئة بيانات الامتحان.');
+        }
+      };
+      script.onerror = () => {
+        alert('تعذر تحميل ملف الامتحان من الخادم.');
+      };
+      document.body.appendChild(script);
     } else {
-      alert('لم يتم تحميل بيانات الامتحان بعد.');
+      alert('لم يتم العثور على مسار ملف الامتحان.');
     }
   },
 

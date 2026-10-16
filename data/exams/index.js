@@ -156,5 +156,83 @@ window.EXAMS_REGISTRY = {
         sets: []
       }
     }
+  },
+  b2: {
+    id: "b2",
+    title: { de: "Goethe-Zertifikat B2", ar: "شهادة غوته B2 (المستوى المتقدم)" },
+    passPercentage: 60,
+    maxTotalScore: 100,
+    modules: {
+      lesen: {
+        id: "lesen",
+        title: { de: "Lesen", ar: "القراءة والمطالعة (B2)" },
+        durationMinutes: 65,
+        totalItems: 30,
+        maxScore: 100,
+        passScore: 60,
+        teileCount: 5,
+        icon: "📖",
+        description: "5 أجزاء (30 سؤالاً) تشمل نقاشات واستطلاعات رأي، مقالين علميين موسعين، إكمال نصوص متسلسلة بالفراغات، مطابقة الإعلانات والخدمات، ولوائح وإرشادات مؤسسية.",
+        sets: [
+          {
+            id: "b2-lesen-set-01",
+            setNumber: 1,
+            title: { de: "Modellsatz 1 (B2 Lesen)", ar: "النموذج التجريبي 1 (قراءة B2)" },
+            level: "b2",
+            module: "lesen",
+            dataFile: "b2/lesen/set-01.js"
+          }
+        ]
+      },
+      hoeren: {
+        id: "hoeren",
+        title: { de: "Hören", ar: "فهم المسموع (B2)" },
+        durationMinutes: 40,
+        totalItems: 30,
+        maxScore: 100,
+        passScore: 60,
+        teileCount: 4,
+        icon: "🎧",
+        description: "4 أجزاء (30 سؤالاً) تشمل محادثات يومية وتنسيق عمل، عروض تقديمية مع أسئلة الجمهور، نقاشات طاولة مستديرة، ومقابلات إذاعية متقدمة.",
+        sets: [
+          {
+            id: "b2-hoeren-set-01",
+            setNumber: 1,
+            title: { de: "Modellsatz 1 (B2 Hören)", ar: "النموذج التجريبي 1 (استماع B2)" },
+            level: "b2",
+            module: "hoeren",
+            dataFile: "b2/hoeren/set-01.js"
+          }
+        ]
+      },
+      schreiben: {
+        id: "schreiben",
+        title: { de: "Schreiben", ar: "التعبير الكتابي (B2)" },
+        durationMinutes: 75,
+        totalItems: 2,
+        maxScore: 100,
+        passScore: 60,
+        teileCount: 2,
+        icon: "✍️",
+        description: "مهمتان كتابيتان: منشور منتدى لإبداء الرأي في موضوع مجتمعي مثير للجدل (150 كلمة)، ورسالة رسمية أو طلب تصحيح شكوى (100 كلمة).",
+        trainerRoute: "#/b2-schreiben",
+        trainerLabel: "فتح محاكي التعبير الكتابي (B2 Schreiben) ✍️",
+        sets: []
+      },
+      sprechen: {
+        id: "sprechen",
+        title: { de: "Sprechen", ar: "التعبير الشفهي (B2)" },
+        durationMinutes: 15,
+        totalItems: 2,
+        maxScore: 100,
+        passScore: 60,
+        teileCount: 2,
+        icon: "🗣️",
+        description: "جزآن: عرض تقديمي منظم (Vortrag 4 دقائق) متبوعاً بإجابة أسئلة الزميل، ومناقشة تفاعلية حول اقتراح وحل مشكلة (Diskussion 5 دقائق).",
+        trainerRoute: "#/b2-sprechen",
+        trainerLabel: "فتح محاكي الامتحان الشفهي مع الزميل الذكي (B2 Sprechen) 🗣️",
+        sets: []
+      }
+    }
   }
 };

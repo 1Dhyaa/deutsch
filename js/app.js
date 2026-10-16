@@ -503,11 +503,40 @@ const App = {
         Router.navigate('/exams');
         return;
       }
-      const examData = window.EXAM_DATA && window.EXAM_DATA[examId];
+      let examData = window.EXAM_DATA && window.EXAM_DATA[examId];
       if (examData && window.ExamEngine) {
         window.ExamEngine.init(examData, mode);
       } else {
-        Router.navigate('/exams');
+        // Try lazy-loading from EXAMS_REGISTRY
+        const reg = window.EXAMS_REGISTRY || {};
+        let dataFile = null;
+        for (const lvl of Object.values(reg)) {
+          for (const m of Object.values(lvl.modules || {})) {
+            const found = (m.sets || []).find(s => s.id === examId);
+            if (found && found.dataFile) {
+              dataFile = found.dataFile;
+              break;
+            }
+          }
+          if (dataFile) break;
+        }
+
+        if (dataFile) {
+          const script = document.createElement('script');
+          script.src = `data/exams/${dataFile}`;
+          script.onload = () => {
+            examData = window.EXAM_DATA && window.EXAM_DATA[examId];
+            if (examData && window.ExamEngine) {
+              window.ExamEngine.init(examData, mode);
+            } else {
+              Router.navigate('/exams');
+            }
+          };
+          script.onerror = () => Router.navigate('/exams');
+          document.body.appendChild(script);
+        } else {
+          Router.navigate('/exams');
+        }
       }
     });
 
