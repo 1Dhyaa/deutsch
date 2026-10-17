@@ -1,5 +1,5 @@
 // Service Worker for Deutsch Meister — 100% Offline PWA with Instant Live Updates
-const CACHE_NAME = 'deutsch-meister-mvadyoxo';
+const CACHE_NAME = 'deutsch-meister-mvcii4sd';
 
 const STATIC_ASSETS = [
   './',
@@ -13,9 +13,13 @@ const STATIC_ASSETS = [
   './css/level-switch.css',
   './css/b2-theme.css',
   './css/social.css',
+  './css/lesetexte.css',
   './data/levels.js',
   './data/verbs.js',
   './data/vocabulary-master.js',
+  './data/lesetexte.js',
+  './data/lesetexte.json',
+  './js/lesetexte-reader.js',
   './data/exams/index.js',
   './data/exams/a2/lesen/set-01.js',
   './audio/manifest.js?v=20261011',

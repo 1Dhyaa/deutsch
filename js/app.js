@@ -449,6 +449,24 @@ const App = {
       }
     });
 
+    // INTERACTIVE LESETEXTE (KONTEXT B1+) ROUTE
+    Router.register('/lesetexte', () => {
+      const isDe = window.I18n && window.I18n.isGerman();
+      this.setBreadcrumb(isDe ? 'Interaktive Lesetexte (Kontext B1+)' : 'نصوص القراءة التفاعلية (Kontext B1+)');
+      if (window.LesetexteReader) {
+        window.LesetexteReader.render(document.getElementById('app-content'));
+      }
+    });
+
+    Router.register('/lesetext', (params) => {
+      const isDe = window.I18n && window.I18n.isGerman();
+      const textId = params ? params.id : null;
+      this.setBreadcrumb(isDe ? 'Lesetext & Wortanalyse' : 'نص القراءة والتحليل التفاعلي');
+      if (window.LesetexteReader) {
+        window.LesetexteReader.render(document.getElementById('app-content'), textId);
+      }
+    });
+
     // GRAMMAR CHEAT-SHEETS ROUTE
     Router.register('/cheatsheets', () => {
       const isDe = window.I18n && window.I18n.isGerman();
@@ -781,6 +799,14 @@ const App = {
             <h3>${isDe ? 'Interaktive Geschichten & Dialoge' : '4. القصص والحوارات التفاعلية الذكية'}</h3>
             <p>${isDe ? '10 realistische Alltagsgeschichten (Arzt, Bürgeramt, Wohnung, Ausbildung) mit Audio, Übersetzung & Quiz.' : '10 قصص ومواقف واقعية في ألمانيا (الطبيب، البلدية، السكن، أول يوم عمل) مع نطق كامل وترجمة وأسئلة فهم.'}</p>
             <a href="#/stories" class="btn btn-primary" style="width: 100%;">${isDe ? 'Geschichten lesen ➔' : 'استعرض القصص والحوارات ➔'}</a>
+          </div>
+
+          <div class="game-card" style="border: 2px solid #0EA5E9; background: linear-gradient(135deg, rgba(14,165,233,0.09), rgba(99,102,241,0.05));">
+            <div class="game-icon">📖</div>
+            <div style="display:inline-block; font-size:0.75rem; background:#0ea5e9; color:#fff; font-weight:700; padding:2px 8px; border-radius:999px; margin-bottom:4px;">جديد • B1+ Kursbuch</div>
+            <h3>${isDe ? 'Interaktive Lesetexte (Kontext B1+)' : '5. نصوص القراءة التفاعلية (Kontext B1+)'}</h3>
+            <p>${isDe ? '10 authentische Lesetexte aus dem Kursbuch mit Sofort-Wortübersetzung beim Antippen, ElevenLabs-Audio und Buch-Übungen.' : '10 نصوص قراءة أصلية من كتاب Kontext B1+ مع ترجمة فورية لكل كلمة بضغطة زر، نطق الجمل بصوت الذكاء الاصطناعي النسائي، وتمارين الكتاب.'}</p>
+            <a href="#/lesetexte" class="btn btn-primary" style="width: 100%;">${isDe ? 'Lesestudio öffnen ➔' : 'افتح استوديو القراءة التفاعلي ➔'}</a>
           </div>
 
           <div class="game-card" style="border: 2px solid #EC4899; background: linear-gradient(135deg, rgba(236,72,153,0.08), rgba(99,102,241,0.04));">

@@ -48,6 +48,13 @@ const Router = {
     if (parts[1] === 'b2-drill' && parts[2]) {
       return { path: '/b2-drill', params: { type: parts[2], ...queryParams } };
     }
+    if (parts[1] === 'lesetext' && parts[2]) {
+      return { path: '/lesetext', params: { id: parts[2], ...queryParams } };
+    }
+    if (parts[1] === 'lesetexte') {
+      if (parts[2]) return { path: '/lesetext', params: { id: parts[2], ...queryParams } };
+      return { path: '/lesetexte', params: { ...queryParams } };
+    }
     if (parts[1] === 'exams') {
       if (parts[2] === 'official') return { path: '/exams/official', params: { ...queryParams } };
       if (parts[2] === 'history') return { path: '/exams/history', params: { ...queryParams } };
@@ -75,11 +82,13 @@ const Router = {
         (path === '/game' && linkRoute === '/games') ||
         (path === '/funktionsverben' && linkRoute === '/funktionsverben') ||
         (path === '/friends' && linkRoute === '/friends') ||
+        ((path === '/lesetexte' || path === '/lesetext') && (linkRoute === '/lesetexte' || linkRoute === '/lesetext')) ||
         ((path.startsWith('/exam')) && linkRoute === '/exams');
       link.classList.toggle('active', isActive);
     });
     
     // Stop any ongoing audio playback across route transitions
+    if (window.LesetexteReader && LesetexteReader.stopFullAudioPlay) LesetexteReader.stopFullAudioPlay();
     if (window.DiktatTrainer && DiktatTrainer.stopAudio) DiktatTrainer.stopAudio();
     if (window.StoriesTrainer && StoriesTrainer.stopFullStory) StoriesTrainer.stopFullStory();
     if (window.Speech && Speech.stop) Speech.stop();

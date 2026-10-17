@@ -1,0 +1,6963 @@
+/**
+ * Kontext B1+ Lesetexte (Texts 1-10)
+ * Interactive German Reader with word-by-word token translation & sentence audio
+ */
+window.LESETEXTE = [
+  {
+    "id": "text-01",
+    "bookPage": 12,
+    "lektion": 1,
+    "title": {
+      "de": "Früher war alles nicht so stressig, oder?",
+      "ar": "هل كانت الحياة قديماً أقل ضغطاً وتوتراً؟"
+    },
+    "subtitle": {
+      "de": "Zeit – früher und heute (Kontext B1+ Kursbuch, Seite 12)",
+      "ar": "الوقت بين الماضي والحاضر (كتاب كونتكست B1+، صفحة 12)"
+    },
+    "level": "B1+",
+    "topic": {
+      "de": "Alltag, Zeit & Stress",
+      "ar": "الحياة اليومية، الوقت والتوتر"
+    },
+    "themeEmoji": "⏳",
+    "readingTimeMin": 4,
+    "images": [
+      {
+        "src": "assets/images/lesetexte/text-01-img-1.jpeg",
+        "caption": "العمل المنزلي والريفي الشاق في زمن الأجداد"
+      },
+      {
+        "src": "assets/images/lesetexte/text-01-img-2.jpeg",
+        "caption": "إيقاع الحياة الحديث المليء بالالتزامات والمواعيد"
+      }
+    ],
+    "paragraphs": [
+      {
+        "paragraphIndex": 1,
+        "sentences": [
+          {
+            "id": "t1-s1",
+            "de": "Wie schon so oft kam letzte Woche wieder ein Kollege zu spät zur Besprechung.",
+            "ar": "كما حدث مراراً، تأخر أحد الزملاء الأسبوع الماضي مجدداً عن الاجتماع.",
+            "tokens": [
+              {
+                "w": "Wie",
+                "ar": "كما / مثل",
+                "base": "wie",
+                "pos": "Konj"
+              },
+              {
+                "w": "schon",
+                "ar": "بالفعل",
+                "base": "schon",
+                "pos": "Adv"
+              },
+              {
+                "w": "so",
+                "ar": "جداً / هكذا",
+                "base": "so",
+                "pos": "Adv"
+              },
+              {
+                "w": "oft",
+                "ar": "مراراً / غالباً",
+                "base": "oft",
+                "pos": "Adv"
+              },
+              {
+                "w": "kam",
+                "ar": "أتى / وصل",
+                "base": "kommen",
+                "pos": "V"
+              },
+              {
+                "w": "letzte",
+                "ar": "الماضي",
+                "base": "letzt-",
+                "pos": "Adj"
+              },
+              {
+                "w": "Woche",
+                "ar": "أسبوع",
+                "base": "die Woche, -n",
+                "pos": "N"
+              },
+              {
+                "w": "wieder",
+                "ar": "مجدداً / ثانيةً",
+                "base": "wieder",
+                "pos": "Adv"
+              },
+              {
+                "w": "ein",
+                "ar": "أحد / نكرة",
+                "base": "ein",
+                "pos": "Art"
+              },
+              {
+                "w": "Kollege",
+                "ar": "زميل",
+                "base": "der Kollege, -n",
+                "pos": "N"
+              },
+              {
+                "w": "zu",
+                "ar": "إلى",
+                "base": "zu",
+                "pos": "Präp"
+              },
+              {
+                "w": "spät",
+                "ar": "متأخراً",
+                "base": "spät",
+                "pos": "Adj"
+              },
+              {
+                "w": "zur",
+                "ar": "إلى (zu + der)",
+                "base": "zu",
+                "pos": "Präp"
+              },
+              {
+                "w": "Besprechung",
+                "ar": "الاجتماع",
+                "base": "die Besprechung, -en",
+                "pos": "N"
+              }
+            ]
+          },
+          {
+            "id": "t1-s2",
+            "de": "„Stress!“, mehr musste er nicht sagen, alle verstanden ihn sofort.",
+            "ar": "«ضغط عمل!» لم يكن بحاجة لقول المزيد، فالجميع فهمه على الفور.",
+            "tokens": [
+              {
+                "w": "Stress",
+                "ar": "ضغط / توتر",
+                "base": "der Stress",
+                "pos": "N"
+              },
+              {
+                "w": "mehr",
+                "ar": "أكثر / المزيد",
+                "base": "mehr",
+                "pos": "Pron"
+              },
+              {
+                "w": "musste",
+                "ar": "وجب عليه / كان يلزمه",
+                "base": "müssen",
+                "pos": "V"
+              },
+              {
+                "w": "er",
+                "ar": "هو",
+                "base": "er",
+                "pos": "Pron"
+              },
+              {
+                "w": "nicht",
+                "ar": "لا / ليس",
+                "base": "nicht",
+                "pos": "Partikel"
+              },
+              {
+                "w": "sagen",
+                "ar": "يقول",
+                "base": "sagen",
+                "pos": "V"
+              },
+              {
+                "w": "alle",
+                "ar": "الجميع",
+                "base": "alle",
+                "pos": "Pron"
+              },
+              {
+                "w": "verstanden",
+                "ar": "فهموا",
+                "base": "verstehen",
+                "pos": "V"
+              },
+              {
+                "w": "ihn",
+                "ar": "إياه / هو",
+                "base": "er",
+                "pos": "Pron"
+              },
+              {
+                "w": "sofort",
+                "ar": "فوراً / حالاً",
+                "base": "sofort",
+                "pos": "Adv"
+              }
+            ]
+          },
+          {
+            "id": "t1-s3",
+            "de": "Der Kollege hat einen Beruf, zwei Kinder, einen Garten, ein Hobby und, und, und.",
+            "ar": "الزميل لديه وظيفة، وطفلان، وحديقة، وهواية، وغير ذلك الكثير.",
+            "tokens": [
+              {
+                "w": "Der",
+                "ar": "الـ",
+                "base": "der",
+                "pos": "Art"
+              },
+              {
+                "w": "Kollege",
+                "ar": "الزميل",
+                "base": "der Kollege, -n",
+                "pos": "N"
+              },
+              {
+                "w": "hat",
+                "ar": "يملك / لديه",
+                "base": "haben",
+                "pos": "V"
+              },
+              {
+                "w": "einen",
+                "ar": "أداة نكرة منصوب",
+                "base": "ein",
+                "pos": "Art"
+              },
+              {
+                "w": "Beruf",
+                "ar": "مهنة / وظيفة",
+                "base": "der Beruf, -e",
+                "pos": "N"
+              },
+              {
+                "w": "zwei",
+                "ar": "اثنان",
+                "base": "zwei",
+                "pos": "Num"
+              },
+              {
+                "w": "Kinder",
+                "ar": "أطفال",
+                "base": "das Kind, -er",
+                "pos": "N"
+              },
+              {
+                "w": "einen",
+                "ar": "أداة نكرة",
+                "base": "ein",
+                "pos": "Art"
+              },
+              {
+                "w": "Garten",
+                "ar": "حديقة",
+                "base": "der Garten, -ä-",
+                "pos": "N"
+              },
+              {
+                "w": "ein",
+                "ar": "أداة نكرة",
+                "base": "ein",
+                "pos": "Art"
+              },
+              {
+                "w": "Hobby",
+                "ar": "هواية",
+                "base": "das Hobby, -s",
+                "pos": "N"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              }
+            ]
+          },
+          {
+            "id": "t1-s4",
+            "de": "Also ein ganz normales „glückliches Leben“ – und Stress ohne Ende.",
+            "ar": "أي حياة «سعيدة» طبيعية تماماً – وضغط لا نهاية له.",
+            "tokens": [
+              {
+                "w": "Also",
+                "ar": "إذاً / يعني",
+                "base": "also",
+                "pos": "Adv"
+              },
+              {
+                "w": "ein",
+                "ar": "أداة نكرة",
+                "base": "ein",
+                "pos": "Art"
+              },
+              {
+                "w": "ganz",
+                "ar": "تماماً / كلياً",
+                "base": "ganz",
+                "pos": "Adv"
+              },
+              {
+                "w": "normales",
+                "ar": "طبيعي / عادي",
+                "base": "normal",
+                "pos": "Adj"
+              },
+              {
+                "w": "glückliches",
+                "ar": "سعيد",
+                "base": "glücklich",
+                "pos": "Adj"
+              },
+              {
+                "w": "Leben",
+                "ar": "حياة",
+                "base": "das Leben",
+                "pos": "N"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "Stress",
+                "ar": "ضغط / توتر",
+                "base": "der Stress",
+                "pos": "N"
+              },
+              {
+                "w": "ohne",
+                "ar": "بدون",
+                "base": "ohne",
+                "pos": "Präp"
+              },
+              {
+                "w": "Ende",
+                "ar": "نهاية",
+                "base": "das Ende, -n",
+                "pos": "N"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "paragraphIndex": 2,
+        "sentences": [
+          {
+            "id": "t1-s5",
+            "de": "Er erzählte mir von seinem Morgen: Ella ist diese Woche auf Geschäftsreise, deswegen muss er alles alleine übernehmen.",
+            "ar": "أخبرني عن صباحه: إيلا في رحلة عمل هذا الأسبوع، ولهذا اضطر لتولي كل المهام بمفرده.",
+            "tokens": [
+              {
+                "w": "Er",
+                "ar": "هو",
+                "base": "er",
+                "pos": "Pron"
+              },
+              {
+                "w": "erzählte",
+                "ar": "حكى / أخبر",
+                "base": "erzählen",
+                "pos": "V"
+              },
+              {
+                "w": "mir",
+                "ar": "لي",
+                "base": "ich",
+                "pos": "Pron"
+              },
+              {
+                "w": "von",
+                "ar": "عن",
+                "base": "von",
+                "pos": "Präp"
+              },
+              {
+                "w": "seinem",
+                "ar": "صباحه (ضمير ملكية)",
+                "base": "sein",
+                "pos": "Poss"
+              },
+              {
+                "w": "Morgen",
+                "ar": "صباح",
+                "base": "der Morgen",
+                "pos": "N"
+              },
+              {
+                "w": "Ella",
+                "ar": "إيلا (اسم)",
+                "base": "Ella",
+                "pos": "N"
+              },
+              {
+                "w": "ist",
+                "ar": "تكون / في",
+                "base": "sein",
+                "pos": "V"
+              },
+              {
+                "w": "diese",
+                "ar": "هذا",
+                "base": "dieser",
+                "pos": "Dem"
+              },
+              {
+                "w": "Woche",
+                "ar": "أسبوع",
+                "base": "die Woche",
+                "pos": "N"
+              },
+              {
+                "w": "auf",
+                "ar": "في",
+                "base": "auf",
+                "pos": "Präp"
+              },
+              {
+                "w": "Geschäftsreise",
+                "ar": "رحلة عمل",
+                "base": "die Geschäftsreise, -n",
+                "pos": "N"
+              },
+              {
+                "w": "deswegen",
+                "ar": "لذلك / لهذا السبب",
+                "base": "deswegen",
+                "pos": "Adv"
+              },
+              {
+                "w": "muss",
+                "ar": "يجب / يضطر",
+                "base": "müssen",
+                "pos": "V"
+              },
+              {
+                "w": "er",
+                "ar": "هو",
+                "base": "er",
+                "pos": "Pron"
+              },
+              {
+                "w": "alles",
+                "ar": "كل شيء",
+                "base": "alles",
+                "pos": "Pron"
+              },
+              {
+                "w": "alleine",
+                "ar": "لوحده / بمفرده",
+                "base": "allein",
+                "pos": "Adv"
+              },
+              {
+                "w": "übernehmen",
+                "ar": "يتولى / يتحمل",
+                "base": "übernehmen",
+                "pos": "V"
+              }
+            ]
+          },
+          {
+            "id": "t1-s6",
+            "de": "Zuerst hat er E-Mails beantwortet, solange die Kinder noch schliefen, dann das Frühstück gemacht und den Garten gegossen.",
+            "ar": "أولاً أجاب على رسائل البريد طالما كان الأطفال نائمين، ثم أعد الإفطار وسقى الحديقة.",
+            "tokens": [
+              {
+                "w": "Zuerst",
+                "ar": "أولاً / في البداية",
+                "base": "zuerst",
+                "pos": "Adv"
+              },
+              {
+                "w": "hat",
+                "ar": "فعل مساعد للماضي",
+                "base": "haben",
+                "pos": "V"
+              },
+              {
+                "w": "er",
+                "ar": "هو",
+                "base": "er",
+                "pos": "Pron"
+              },
+              {
+                "w": "E-Mails",
+                "ar": "إيميلات",
+                "base": "die E-Mail, -s",
+                "pos": "N"
+              },
+              {
+                "w": "beantwortet",
+                "ar": "أجاب على",
+                "base": "beantworten",
+                "pos": "V"
+              },
+              {
+                "w": "solange",
+                "ar": "طالما / بينما",
+                "base": "solange",
+                "pos": "Konj"
+              },
+              {
+                "w": "die",
+                "ar": "الـ",
+                "base": "der",
+                "pos": "Art"
+              },
+              {
+                "w": "Kinder",
+                "ar": "الأطفال",
+                "base": "das Kind, -er",
+                "pos": "N"
+              },
+              {
+                "w": "noch",
+                "ar": "لا يزالون",
+                "base": "noch",
+                "pos": "Adv"
+              },
+              {
+                "w": "schliefen",
+                "ar": "كانوا ينامون",
+                "base": "schlafen",
+                "pos": "V"
+              },
+              {
+                "w": "dann",
+                "ar": "ثم / بعدها",
+                "base": "dann",
+                "pos": "Adv"
+              },
+              {
+                "w": "das",
+                "ar": "الـ",
+                "base": "das",
+                "pos": "Art"
+              },
+              {
+                "w": "Frühstück",
+                "ar": "الفطور",
+                "base": "das Frühstück",
+                "pos": "N"
+              },
+              {
+                "w": "gemacht",
+                "ar": "صنعَ / أعدَّ",
+                "base": "machen",
+                "pos": "V"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "den",
+                "ar": "الـ (منصوب)",
+                "base": "der",
+                "pos": "Art"
+              },
+              {
+                "w": "Garten",
+                "ar": "الحديقة",
+                "base": "der Garten",
+                "pos": "N"
+              },
+              {
+                "w": "gegossen",
+                "ar": "سقى / روى",
+                "base": "gießen",
+                "pos": "V"
+              }
+            ]
+          },
+          {
+            "id": "t1-s7",
+            "de": "Nachdem er Alice zum Kindergarten gebracht hatte, kaufte er noch schnell Brot und Joghurt ein.",
+            "ar": "بعد أن أوصل أليس إلى روضة الأطفال، اشترى سريعاً خبزاً وزبادي.",
+            "tokens": [
+              {
+                "w": "Nachdem",
+                "ar": "بعد أن (رابط ماضي تام)",
+                "base": "nachdem",
+                "pos": "Konj"
+              },
+              {
+                "w": "er",
+                "ar": "هو",
+                "base": "er",
+                "pos": "Pron"
+              },
+              {
+                "w": "Alice",
+                "ar": "أليس (اسم)",
+                "base": "Alice",
+                "pos": "N"
+              },
+              {
+                "w": "zum",
+                "ar": "إلى (zu + dem)",
+                "base": "zu",
+                "pos": "Präp"
+              },
+              {
+                "w": "Kindergarten",
+                "ar": "روضة الأطفال",
+                "base": "der Kindergarten",
+                "pos": "N"
+              },
+              {
+                "w": "gebracht",
+                "ar": "أوصل / أحضر",
+                "base": "bringen",
+                "pos": "V"
+              },
+              {
+                "w": "hatte",
+                "ar": "كان قد (ماضي تام)",
+                "base": "haben",
+                "pos": "V"
+              },
+              {
+                "w": "kaufte",
+                "ar": "اشترى",
+                "base": "einkaufen",
+                "pos": "V"
+              },
+              {
+                "w": "er",
+                "ar": "هو",
+                "base": "er",
+                "pos": "Pron"
+              },
+              {
+                "w": "noch",
+                "ar": "أيضاً / بعد",
+                "base": "noch",
+                "pos": "Adv"
+              },
+              {
+                "w": "schnell",
+                "ar": "سريعاً",
+                "base": "schnell",
+                "pos": "Adj"
+              },
+              {
+                "w": "Brot",
+                "ar": "خبز",
+                "base": "das Brot, -e",
+                "pos": "N"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "Joghurt",
+                "ar": "زبادي / لبن",
+                "base": "der Joghurt",
+                "pos": "N"
+              },
+              {
+                "w": "ein",
+                "ar": "بادئة منفصلة (einkaufen)",
+                "base": "einkaufen",
+                "pos": "V"
+              }
+            ]
+          },
+          {
+            "id": "t1-s8",
+            "de": "Beim Einräumen fiel ein Joghurtbecher herunter – und nachdem alles geputzt war, verpasste er den Bus.",
+            "ar": "وأثناء ترتيب الأغراض سقطت علبة زبادي على الأرض – وبعد تنظيف كل شيء، فاتته الحافلة.",
+            "tokens": [
+              {
+                "w": "Beim",
+                "ar": "أثناء / عند (bei + dem)",
+                "base": "bei",
+                "pos": "Präp"
+              },
+              {
+                "w": "Einräumen",
+                "ar": "الترتيب / وضع الأغراض",
+                "base": "das Einräumen",
+                "pos": "N"
+              },
+              {
+                "w": "fiel",
+                "ar": "سقطَ / وقعَ",
+                "base": "fallen",
+                "pos": "V"
+              },
+              {
+                "w": "ein",
+                "ar": "أداة نكرة",
+                "base": "ein",
+                "pos": "Art"
+              },
+              {
+                "w": "Joghurtbecher",
+                "ar": "علبة زبادي",
+                "base": "der Joghurtbecher",
+                "pos": "N"
+              },
+              {
+                "w": "herunter",
+                "ar": "لأسفل / أرضاً",
+                "base": "herunterfallen",
+                "pos": "Adv"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "nachdem",
+                "ar": "بعد أن",
+                "base": "nachdem",
+                "pos": "Konj"
+              },
+              {
+                "w": "alles",
+                "ar": "كل شيء",
+                "base": "alles",
+                "pos": "Pron"
+              },
+              {
+                "w": "geputzt",
+                "ar": "نُظِّفَ",
+                "base": "putzen",
+                "pos": "V"
+              },
+              {
+                "w": "war",
+                "ar": "كان",
+                "base": "sein",
+                "pos": "V"
+              },
+              {
+                "w": "verpasste",
+                "ar": "فاتَه / ضيَّع",
+                "base": "verpassen",
+                "pos": "V"
+              },
+              {
+                "w": "er",
+                "ar": "هو",
+                "base": "er",
+                "pos": "Pron"
+              },
+              {
+                "w": "den",
+                "ar": "الـ",
+                "base": "der",
+                "pos": "Art"
+              },
+              {
+                "w": "Bus",
+                "ar": "الحافلة",
+                "base": "der Bus, -se",
+                "pos": "N"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "paragraphIndex": 3,
+        "sentences": [
+          {
+            "id": "t1-s9",
+            "de": "Meine Großmutter hatte fünf Kinder und ihr Mann war früh gestorben.",
+            "ar": "كان لجدتي خمسة أطفال، وتوفي زوجها مبكراً.",
+            "tokens": [
+              {
+                "w": "Meine",
+                "ar": "جدتي (ضمير ملكية)",
+                "base": "mein",
+                "pos": "Poss"
+              },
+              {
+                "w": "Großmutter",
+                "ar": "الجدة",
+                "base": "die Großmutter, -ä-",
+                "pos": "N"
+              },
+              {
+                "w": "hatte",
+                "ar": "كان لديها",
+                "base": "haben",
+                "pos": "V"
+              },
+              {
+                "w": "fünf",
+                "ar": "خمسة",
+                "base": "fünf",
+                "pos": "Num"
+              },
+              {
+                "w": "Kinder",
+                "ar": "أطفال",
+                "base": "das Kind, -er",
+                "pos": "N"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "ihr",
+                "ar": "زوجها",
+                "base": "ihr",
+                "pos": "Poss"
+              },
+              {
+                "w": "Mann",
+                "ar": "الزوج",
+                "base": "der Mann",
+                "pos": "N"
+              },
+              {
+                "w": "war",
+                "ar": "كان",
+                "base": "sein",
+                "pos": "V"
+              },
+              {
+                "w": "früh",
+                "ar": "مبكراً",
+                "base": "früh",
+                "pos": "Adj"
+              },
+              {
+                "w": "gestorben",
+                "ar": "ماتَ / توفي",
+                "base": "sterben",
+                "pos": "V"
+              }
+            ]
+          },
+          {
+            "id": "t1-s10",
+            "de": "Sie stand um fünf Uhr auf, nähte Kleider in Heimarbeit, kochte Mittagessen für mindestens sechs Personen und versorgte den Gemüsegarten.",
+            "ar": "كانت تستيقظ في الخامسة صباحاً، وتخيط الملابس بعمل منزلي، وتطهو الغداء لستة أشخاص على الأقل وتعتني بحديقة الخضار.",
+            "tokens": [
+              {
+                "w": "Sie",
+                "ar": "هي",
+                "base": "sie",
+                "pos": "Pron"
+              },
+              {
+                "w": "stand",
+                "ar": "استيقظت",
+                "base": "aufstehen",
+                "pos": "V"
+              },
+              {
+                "w": "um",
+                "ar": "في (تمام الساعة)",
+                "base": "um",
+                "pos": "Präp"
+              },
+              {
+                "w": "fünf",
+                "ar": "خمسة",
+                "base": "fünf",
+                "pos": "Num"
+              },
+              {
+                "w": "Uhr",
+                "ar": "الساعة",
+                "base": "die Uhr",
+                "pos": "N"
+              },
+              {
+                "w": "auf",
+                "ar": "نهضت (aufstehen)",
+                "base": "aufstehen",
+                "pos": "V"
+              },
+              {
+                "w": "nähte",
+                "ar": "خاطت / حاكت",
+                "base": "nähen",
+                "pos": "V"
+              },
+              {
+                "w": "Kleider",
+                "ar": "ملابس / فساتين",
+                "base": "das Kleid, -er",
+                "pos": "N"
+              },
+              {
+                "w": "in",
+                "ar": "في",
+                "base": "in",
+                "pos": "Präp"
+              },
+              {
+                "w": "Heimarbeit",
+                "ar": "عمل منزلي",
+                "base": "die Heimarbeit",
+                "pos": "N"
+              },
+              {
+                "w": "kochte",
+                "ar": "طبخت",
+                "base": "kochen",
+                "pos": "V"
+              },
+              {
+                "w": "Mittagessen",
+                "ar": "طعام الغداء",
+                "base": "das Mittagessen",
+                "pos": "N"
+              },
+              {
+                "w": "für",
+                "ar": "لـ / لأجل",
+                "base": "für",
+                "pos": "Präp"
+              },
+              {
+                "w": "mindestens",
+                "ar": "على الأقل",
+                "base": "mindestens",
+                "pos": "Adv"
+              },
+              {
+                "w": "sechs",
+                "ar": "ستة",
+                "base": "sechs",
+                "pos": "Num"
+              },
+              {
+                "w": "Personen",
+                "ar": "أشخاص",
+                "base": "die Person, -en",
+                "pos": "N"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "versorgte",
+                "ar": "اعتنت بـ / رعت",
+                "base": "versorgen",
+                "pos": "V"
+              },
+              {
+                "w": "den",
+                "ar": "الـ",
+                "base": "der",
+                "pos": "Art"
+              },
+              {
+                "w": "Gemüsegarten",
+                "ar": "حديقة الخضار",
+                "base": "der Gemüsegarten",
+                "pos": "N"
+              }
+            ]
+          },
+          {
+            "id": "t1-s11",
+            "de": "Sie hatte keinen Urlaub und arbeitete jeden Tag bis spät in die Nacht – aber sie war zufrieden.",
+            "ar": "لم تكن تأخذ أي إجازة وكانت تعمل كل يوم حتى وقت متأخر من الليل – ومع ذلك كانت راضية.",
+            "tokens": [
+              {
+                "w": "Sie",
+                "ar": "هي",
+                "base": "sie",
+                "pos": "Pron"
+              },
+              {
+                "w": "hatte",
+                "ar": "كان لديها",
+                "base": "haben",
+                "pos": "V"
+              },
+              {
+                "w": "keinen",
+                "ar": "لا / أي (أداة نفي)",
+                "base": "kein",
+                "pos": "Art"
+              },
+              {
+                "w": "Urlaub",
+                "ar": "عطلة / إجازة",
+                "base": "der Urlaub",
+                "pos": "N"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "arbeitete",
+                "ar": "عملت",
+                "base": "arbeiten",
+                "pos": "V"
+              },
+              {
+                "w": "jeden",
+                "ar": "كل (يوم)",
+                "base": "jeder",
+                "pos": "Adj"
+              },
+              {
+                "w": "Tag",
+                "ar": "يوم",
+                "base": "der Tag, -e",
+                "pos": "N"
+              },
+              {
+                "w": "bis",
+                "ar": "حتى",
+                "base": "bis",
+                "pos": "Präp"
+              },
+              {
+                "w": "spät",
+                "ar": "متأخراً",
+                "base": "spät",
+                "pos": "Adj"
+              },
+              {
+                "w": "in",
+                "ar": "في",
+                "base": "in",
+                "pos": "Präp"
+              },
+              {
+                "w": "die",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "Nacht",
+                "ar": "الليل",
+                "base": "die Nacht, -ä-e",
+                "pos": "N"
+              },
+              {
+                "w": "aber",
+                "ar": "لكن",
+                "base": "aber",
+                "pos": "Konj"
+              },
+              {
+                "w": "sie",
+                "ar": "هي",
+                "base": "sie",
+                "pos": "Pron"
+              },
+              {
+                "w": "war",
+                "ar": "كانت",
+                "base": "sein",
+                "pos": "V"
+              },
+              {
+                "w": "zufrieden",
+                "ar": "راضية / قانعة",
+                "base": "zufrieden",
+                "pos": "Adj"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "paragraphIndex": 4,
+        "sentences": [
+          {
+            "id": "t1-s12",
+            "de": "Heute haben wir eine 36,5-Stunden-Woche, Spülmaschinen und 30 Tage Urlaub – trotzdem sind wir gestresst.",
+            "ar": "اليوم نعمل 36.5 ساعة أسبوعياً، ولدينا غسالات صحون و30 يوماً إجازة – ورغم ذلك نشعر بالضغط والتوتر.",
+            "tokens": [
+              {
+                "w": "Heute",
+                "ar": "اليوم / حالياً",
+                "base": "heute",
+                "pos": "Adv"
+              },
+              {
+                "w": "haben",
+                "ar": "لدينا",
+                "base": "haben",
+                "pos": "V"
+              },
+              {
+                "w": "wir",
+                "ar": "نحن",
+                "base": "wir",
+                "pos": "Pron"
+              },
+              {
+                "w": "eine",
+                "ar": "أداة نكرة",
+                "base": "ein",
+                "pos": "Art"
+              },
+              {
+                "w": "36,5-Stunden-Woche",
+                "ar": "أسبوع عمل 36.5 ساعة",
+                "base": "die 36,5-Stunden-Woche",
+                "pos": "N"
+              },
+              {
+                "w": "Spülmaschinen",
+                "ar": "غسالات صحون",
+                "base": "die Spülmaschine, -n",
+                "pos": "N"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "30",
+                "ar": "ثلاثون",
+                "base": "dreißig",
+                "pos": "Num"
+              },
+              {
+                "w": "Tage",
+                "ar": "أيام",
+                "base": "der Tag, -e",
+                "pos": "N"
+              },
+              {
+                "w": "Urlaub",
+                "ar": "إجازة",
+                "base": "der Urlaub",
+                "pos": "N"
+              },
+              {
+                "w": "trotzdem",
+                "ar": "رغم ذلك / مع ذلك",
+                "base": "trotzdem",
+                "pos": "Adv"
+              },
+              {
+                "w": "sind",
+                "ar": "نكون",
+                "base": "sein",
+                "pos": "V"
+              },
+              {
+                "w": "wir",
+                "ar": "نحن",
+                "base": "wir",
+                "pos": "Pron"
+              },
+              {
+                "w": "gestresst",
+                "ar": "متوترون / مجهدون",
+                "base": "gestresst",
+                "pos": "Adj"
+              }
+            ]
+          },
+          {
+            "id": "t1-s13",
+            "de": "Der Unterschied ist: Das Leben damals war körperlich viel härter, aber es war übersichtlich.",
+            "ar": "الفارق هو: كانت الحياة قديماً أصعب جسدياً بكثير، لكنها كانت واضحة ومنظمة.",
+            "tokens": [
+              {
+                "w": "Der",
+                "ar": "الـ",
+                "base": "der",
+                "pos": "Art"
+              },
+              {
+                "w": "Unterschied",
+                "ar": "الفارق / الاختلاف",
+                "base": "der Unterschied, -e",
+                "pos": "N"
+              },
+              {
+                "w": "ist",
+                "ar": "يكون",
+                "base": "sein",
+                "pos": "V"
+              },
+              {
+                "w": "Das",
+                "ar": "الـ",
+                "base": "das",
+                "pos": "Art"
+              },
+              {
+                "w": "Leben",
+                "ar": "الحياة",
+                "base": "das Leben",
+                "pos": "N"
+              },
+              {
+                "w": "damals",
+                "ar": "حينها / قديماً",
+                "base": "damals",
+                "pos": "Adv"
+              },
+              {
+                "w": "war",
+                "ar": "كانت",
+                "base": "sein",
+                "pos": "V"
+              },
+              {
+                "w": "körperlich",
+                "ar": "بدنياً / جسدياً",
+                "base": "körperlich",
+                "pos": "Adj"
+              },
+              {
+                "w": "viel",
+                "ar": "بكثير",
+                "base": "viel",
+                "pos": "Adv"
+              },
+              {
+                "w": "härter",
+                "ar": "أقسى / أصعب",
+                "base": "hart",
+                "pos": "Adj"
+              },
+              {
+                "w": "aber",
+                "ar": "لكن",
+                "base": "aber",
+                "pos": "Konj"
+              },
+              {
+                "w": "es",
+                "ar": "هي (الحياة)",
+                "base": "es",
+                "pos": "Pron"
+              },
+              {
+                "w": "war",
+                "ar": "كانت",
+                "base": "sein",
+                "pos": "V"
+              },
+              {
+                "w": "übersichtlich",
+                "ar": "واضحة المعالم / بسيطة",
+                "base": "übersichtlich",
+                "pos": "Adj"
+              }
+            ]
+          },
+          {
+            "id": "t1-s14",
+            "de": "Heute müssen wir E-Mails beantworten, in Netzwerken aktiv sein und ständig auf dem Laufenden bleiben.",
+            "ar": "اليوم يتعين علينا الرد على الإيميلات، والنشاط في شبكات التواصل، ومواكبة كل جديد باستمرار.",
+            "tokens": [
+              {
+                "w": "Heute",
+                "ar": "اليوم",
+                "base": "heute",
+                "pos": "Adv"
+              },
+              {
+                "w": "müssen",
+                "ar": "يجب علينا",
+                "base": "müssen",
+                "pos": "V"
+              },
+              {
+                "w": "wir",
+                "ar": "نحن",
+                "base": "wir",
+                "pos": "Pron"
+              },
+              {
+                "w": "E-Mails",
+                "ar": "رسائل البريد",
+                "base": "die E-Mail, -s",
+                "pos": "N"
+              },
+              {
+                "w": "beantworten",
+                "ar": "نجيب",
+                "base": "beantworten",
+                "pos": "V"
+              },
+              {
+                "w": "in",
+                "ar": "في",
+                "base": "in",
+                "pos": "Präp"
+              },
+              {
+                "w": "Netzwerken",
+                "ar": "الشبكات",
+                "base": "das Netzwerk, -e",
+                "pos": "N"
+              },
+              {
+                "w": "aktiv",
+                "ar": "نشيطين",
+                "base": "aktiv",
+                "pos": "Adj"
+              },
+              {
+                "w": "sein",
+                "ar": "نكون",
+                "base": "sein",
+                "pos": "V"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "ständig",
+                "ar": "باستمرار / دائماً",
+                "base": "ständig",
+                "pos": "Adv"
+              },
+              {
+                "w": "auf",
+                "ar": "على",
+                "base": "auf",
+                "pos": "Präp"
+              },
+              {
+                "w": "dem",
+                "ar": "الـ",
+                "base": "der",
+                "pos": "Art"
+              },
+              {
+                "w": "Laufenden",
+                "ar": "اطلاع مستمر",
+                "base": "das Laufende",
+                "pos": "N"
+              },
+              {
+                "w": "bleiben",
+                "ar": "نبقى / نظل",
+                "base": "bleiben",
+                "pos": "V"
+              }
+            ]
+          },
+          {
+            "id": "t1-s15",
+            "de": "Unsere Freizeit ist stressig, weil wir so viele tolle Dinge tun wollen – und dann klingelt schon wieder das Handy.",
+            "ar": "أوقات فراغنا أصبحت مجهدة، لأننا نريد ممارسة الكثير من الأنشطة – وسرعان ما يرن الهاتف مرة أخرى.",
+            "tokens": [
+              {
+                "w": "Unsere",
+                "ar": "أوقات فراغنا",
+                "base": "unser",
+                "pos": "Poss"
+              },
+              {
+                "w": "Freizeit",
+                "ar": "وقت الفراغ",
+                "base": "die Freizeit",
+                "pos": "N"
+              },
+              {
+                "w": "ist",
+                "ar": "تكون",
+                "base": "sein",
+                "pos": "V"
+              },
+              {
+                "w": "stressig",
+                "ar": "مجهدة / باعثة على التوتر",
+                "base": "stressig",
+                "pos": "Adj"
+              },
+              {
+                "w": "weil",
+                "ar": "لأن (رابط جملة فرعية)",
+                "base": "weil",
+                "pos": "Konj"
+              },
+              {
+                "w": "wir",
+                "ar": "نحن",
+                "base": "wir",
+                "pos": "Pron"
+              },
+              {
+                "w": "so",
+                "ar": "جداً",
+                "base": "so",
+                "pos": "Adv"
+              },
+              {
+                "w": "viele",
+                "ar": "كثيرة",
+                "base": "viel",
+                "pos": "Adj"
+              },
+              {
+                "w": "tolle",
+                "ar": "رائعة",
+                "base": "toll",
+                "pos": "Adj"
+              },
+              {
+                "w": "Dinge",
+                "ar": "أشياء",
+                "base": "das Ding, -e",
+                "pos": "N"
+              },
+              {
+                "w": "tun",
+                "ar": "نفعل",
+                "base": "tun",
+                "pos": "V"
+              },
+              {
+                "w": "wollen",
+                "ar": "نريد",
+                "base": "wollen",
+                "pos": "V"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "dann",
+                "ar": "ثم",
+                "base": "dann",
+                "pos": "Adv"
+              },
+              {
+                "w": "klingelt",
+                "ar": "يرنُّ",
+                "base": "klingeln",
+                "pos": "V"
+              },
+              {
+                "w": "schon",
+                "ar": "بالفعل",
+                "base": "schon",
+                "pos": "Adv"
+              },
+              {
+                "w": "wieder",
+                "ar": "مجدداً",
+                "base": "wieder",
+                "pos": "Adv"
+              },
+              {
+                "w": "das",
+                "ar": "الـ",
+                "base": "das",
+                "pos": "Art"
+              },
+              {
+                "w": "Handy",
+                "ar": "الهاتف المحمول",
+                "base": "das Handy, -s",
+                "pos": "N"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "keyVocab": [
+      {
+        "de": "der ganz normale Wahnsinn",
+        "ar": "جنون الحياة اليومية المعتاد من كثرة الالتزامات",
+        "example": "Morgens Kinder wecken, kochen und im Stau stehen – der ganz normale Wahnsinn!"
+      },
+      {
+        "de": "die Heimarbeit",
+        "ar": "العمل المنزلي المأجور (كالخياطة وصناعة الحرف)",
+        "example": "Früher nähte die Großmutter in harter Heimarbeit."
+      },
+      {
+        "de": "auf dem Laufenden bleiben",
+        "ar": "مواكبة الأخبار والتطورات باستمرار",
+        "example": "Durch das Internet muss man beruflich immer auf dem Laufenden bleiben."
+      },
+      {
+        "de": "übersichtlich",
+        "ar": "واضح، مرتب، يسهل الإحاطة به",
+        "example": "Der Tagesablauf der Großeltern war hart, aber sehr übersichtlich."
+      },
+      {
+        "de": "unterbrechen (unterbrach, hat unterbrochen)",
+        "ar": "يقاطع أو يوقف عملاً لفترة مؤقتة",
+        "example": "Um 12 Uhr unterbrach sie ihre Arbeit für das Kochen."
+      },
+      {
+        "de": "die Besprechung, -en",
+        "ar": "اجتماع عمل رسمي",
+        "example": "Alle Kollegen nahmen pünktlich an der Besprechung teil."
+      },
+      {
+        "de": "die Spülmaschine, -n",
+        "ar": "غسالة الصحون",
+        "example": "Haushaltsgeräte wie Spülmaschinen sparen heute viel Zeit."
+      },
+      {
+        "de": "gestresst sein",
+        "ar": "يشعر بالضغط والإجهاد العصبي",
+        "example": "Obwohl wir weniger Stunden arbeiten, sind viele Menschen gestresst."
+      }
+    ],
+    "exercises": [
+      {
+        "id": "t1-ex1",
+        "type": "mc",
+        "title": {
+          "de": "1. Leseverstehen: Fragen zum Text",
+          "ar": "1. فهم المقروء: أسئلة حول النص"
+        },
+        "question": {
+          "de": "Warum kam der Kollege letzte Woche zu spät zur Besprechung?",
+          "ar": "لماذا تأخر الزميل الأسبوع الماضي عن الاجتماع؟"
+        },
+        "options": [
+          {
+            "de": "Weil er verschlafen hatte und der Wecker nicht klingelte.",
+            "ar": "لأنه نام متأخراً ولم يرن المنبه."
+          },
+          {
+            "de": "Weil seine Frau auf Geschäftsreise war und er alle Aufgaben für Kinder und Haushalt alleine erledigen musste.",
+            "ar": "لأن زوجته كانت في رحلة عمل واضطر لإنجاز مهام الأطفال والمنزل بمفرده."
+          },
+          {
+            "de": "Weil sein Auto im Stau eine Panne hatte.",
+            "ar": "لأن سيارته تعطلت في الازدحام."
+          }
+        ],
+        "correct": 1,
+        "explanation": {
+          "ar": "في الفقرة الثانية يوضح النص أن زوجته إيلا كانت في رحلة عمل فاضطر للرد على الإيميلات وإعداد الفطور وتوصيل الأطفال قبل الحافلة."
+        }
+      },
+      {
+        "id": "t1-ex2",
+        "type": "tf",
+        "title": {
+          "de": "2. Richtig oder Falsch?",
+          "ar": "2. صحيح أم خطأ؟"
+        },
+        "statement": {
+          "de": "Die Großmutter der Autorin hatte jedes Jahr 30 Tage bezahlten Urlaub.",
+          "ar": "كانت جدة الكاتبة تحصل على 30 يوماً من الإجازة مدفوعة الأجر سنوياً."
+        },
+        "correct": false,
+        "explanation": {
+          "ar": "خطأ! يذكر النص صراحة: «Sie arbeitete jeden Tag und hatte keinen Urlaub» (لم تكن تحصل على أي إجازة)."
+        }
+      },
+      {
+        "id": "t1-ex3",
+        "type": "mc",
+        "title": {
+          "de": "3. Ursachen von modernem Stress",
+          "ar": "3. أسباب التوتر في العصر الحديث"
+        },
+        "question": {
+          "de": "Warum sind die Menschen heute laut Text oft gestresst, obwohl sie weniger Stunden arbeiten?",
+          "ar": "لماذا يشعر الناس اليوم بالتوتر رغم قلة ساعات العمل مقارنة بالماضي؟"
+        },
+        "options": [
+          {
+            "de": "Weil es keine modernen Haushaltsgeräte gibt.",
+            "ar": "بسبب انعدام الأجهزة المنزلية الحديثة."
+          },
+          {
+            "de": "Weil sie in ihrer Freizeit ständig erreichbar sein und unzählige Aktivitäten gleichzeitig machen wollen.",
+            "ar": "بسبب الرغبة في مواكبة كل شيء وممارسة أنشطة كثيرة في وقت الفراغ مع الاتصال الدائم بالإنترنت."
+          },
+          {
+            "de": "Weil die Arbeitszeiten heute länger sind als vor hundert Jahren.",
+            "ar": "لأن ساعات العمل اليوم أطول مما كانت عليه قبل 100 عام."
+          }
+        ],
+        "correct": 1,
+        "explanation": {
+          "ar": "الحياة قديماً كانت واضحة ومقسمة لعمل واستراحة، بينما اليوم أوقات الفراغ مليئة بالهواتف وشبكات التواصل ورغبة مواكبة كل جديد."
+        }
+      },
+      {
+        "id": "t1-ex4",
+        "type": "grammar",
+        "title": {
+          "de": "4. Grammatik: Temporalsatz mit »nachdem« (Plusquamperfekt)",
+          "ar": "4. القواعد: الجمل الزمنية مع nachdem والماضي التام"
+        },
+        "instruction": {
+          "de": "Ergänzen Sie die richtige Verbform (Plusquamperfekt) im Nebensatz mit »nachdem«.",
+          "ar": "أكمل بصيغة الفعل الصحيحة في زمن الماضي التام (Plusquamperfekt) بعد nachdem."
+        },
+        "sentence": "Nachdem der Kollege die Kinder geweckt ___, goss er den Garten.",
+        "options": [
+          "hat",
+          "hatte",
+          "hatte gehabt",
+          "wurde"
+        ],
+        "correct": 1,
+        "explanation": {
+          "ar": "قاعدة nachdem: عندما يكون فعل الجملة الرئيسية في الماضي (Präteritum: goss)، يجب أن يأتي فعل جملة nachdem في الماضي التام (Plusquamperfekt: hatte geweckt)."
+        }
+      },
+      {
+        "id": "t1-ex5",
+        "type": "match",
+        "title": {
+          "de": "5. Wortschatz: Gegensätze Früher vs. Heute",
+          "ar": "5. المفردات: مقارنة الماضي بالحاضر"
+        },
+        "pairs": [
+          {
+            "de": "körperlich harte Arbeit",
+            "ar": "عمل بدني شاق (قديماً)"
+          },
+          {
+            "de": "Arbeit am Schreibtisch",
+            "ar": "عمل مكتبي (حديثاً)"
+          },
+          {
+            "de": "kein Urlaub",
+            "ar": "انعدام الإجازات (قديماً)"
+          },
+          {
+            "de": "30 Tage Urlaub",
+            "ar": "30 يوماً إجازة (حديثاً)"
+          },
+          {
+            "de": "übersichtlicher Alltag",
+            "ar": "يوم واضح ومنظم (قديماً)"
+          },
+          {
+            "de": "ständige Erreichbarkeit",
+            "ar": "اتصال وتوفر دائم بالهاتف (حديثاً)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "text-02",
+    "bookPage": 16,
+    "lektion": 1,
+    "title": {
+      "de": "Wie die Zeit vergeht – Zeitempfinden & Chronobiologie",
+      "ar": "كيف يمر الوقت – إدراك الزمن والساعة البيولوجية"
+    },
+    "subtitle": {
+      "de": "Lektion 1, Modul 3 (Kontext B1+ Kursbuch, Seiten 16–17)",
+      "ar": "الوحدة 1، موديول 3 (كتاب كونتكست B1+، الصفحتان 16 و17)"
+    },
+    "level": "B1+",
+    "topic": {
+      "de": "Chronobiologie, innere Uhr & Zeitwahrnehmung",
+      "ar": "علم البيولوجيا الزمنية، الساعة الداخلية وإدراك الوقت"
+    },
+    "themeEmoji": "🧠",
+    "readingTimeMin": 5,
+    "images": [
+      {
+        "src": "assets/images/lesetexte/text-02-img-1.jpeg",
+        "caption": "شباك تذاكر الوقت: هل تفضل عمراً أطول أم مزيداً من أوقات الفراغ؟"
+      }
+    ],
+    "paragraphs": [
+      {
+        "paragraphIndex": 1,
+        "sentences": [
+          {
+            "id": "t2-s1",
+            "de": "Im Gegensatz zum Tasten, Schmecken, Sehen, Hören und Riechen gibt es kein Sinnesorgan für die Zeit.",
+            "ar": "على عكس حواس اللمس، التذوق، الرؤية، السمع والشم، لا يوجد عضو حسي مخصص لإدراك الوقت.",
+            "tokens": [
+              {
+                "w": "Im",
+                "ar": "في (in + dem)",
+                "base": "in",
+                "pos": "Präp"
+              },
+              {
+                "w": "Gegensatz",
+                "ar": "نقيض / عكس",
+                "base": "der Gegensatz",
+                "pos": "N"
+              },
+              {
+                "w": "zum",
+                "ar": "إلى (zu + dem)",
+                "base": "zu",
+                "pos": "Präp"
+              },
+              {
+                "w": "Tasten",
+                "ar": "اللمس",
+                "base": "das Tasten",
+                "pos": "N"
+              },
+              {
+                "w": "Schmecken",
+                "ar": "التذوق",
+                "base": "das Schmecken",
+                "pos": "N"
+              },
+              {
+                "w": "Sehen",
+                "ar": "البصر / الرؤية",
+                "base": "das Sehen",
+                "pos": "N"
+              },
+              {
+                "w": "Hören",
+                "ar": "السمع",
+                "base": "das Hören",
+                "pos": "N"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "Riechen",
+                "ar": "الشم",
+                "base": "das Riechen",
+                "pos": "N"
+              },
+              {
+                "w": "gibt",
+                "ar": "يوجد (es gibt)",
+                "base": "geben",
+                "pos": "V"
+              },
+              {
+                "w": "es",
+                "ar": "هناك / هو",
+                "base": "es",
+                "pos": "Pron"
+              },
+              {
+                "w": "kein",
+                "ar": "لا / ليس",
+                "base": "kein",
+                "pos": "Art"
+              },
+              {
+                "w": "Sinnesorgan",
+                "ar": "عضو حسي",
+                "base": "das Sinnesorgan, -e",
+                "pos": "N"
+              },
+              {
+                "w": "für",
+                "ar": "لـ / لأجل",
+                "base": "für",
+                "pos": "Präp"
+              },
+              {
+                "w": "die",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "Zeit",
+                "ar": "الوقت / الزمن",
+                "base": "die Zeit",
+                "pos": "N"
+              }
+            ]
+          },
+          {
+            "id": "t2-s2",
+            "de": "Trotzdem empfinden wir Zeit: Die Chronobiologie ist die Lehre von der inneren Uhr, über die alle Lebewesen verfügen.",
+            "ar": "ومع ذلك فنحن نشعر بالوقت: علم الأحياء الزمني هو دراسة الساعة الداخلية التي تمتلكها جميع الكائنات الحية.",
+            "tokens": [
+              {
+                "w": "Trotzdem",
+                "ar": "رغم ذلك",
+                "base": "trotzdem",
+                "pos": "Adv"
+              },
+              {
+                "w": "empfinden",
+                "ar": "نشعر بـ / ندرك",
+                "base": "empfinden",
+                "pos": "V"
+              },
+              {
+                "w": "wir",
+                "ar": "نحن",
+                "base": "wir",
+                "pos": "Pron"
+              },
+              {
+                "w": "Zeit",
+                "ar": "الوقت",
+                "base": "die Zeit",
+                "pos": "N"
+              },
+              {
+                "w": "Die",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "Chronobiologie",
+                "ar": "علم الأحياء الزمني",
+                "base": "die Chronobiologie",
+                "pos": "N"
+              },
+              {
+                "w": "ist",
+                "ar": "تكون",
+                "base": "sein",
+                "pos": "V"
+              },
+              {
+                "w": "die",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "Lehre",
+                "ar": "علم / دراسة",
+                "base": "die Lehre",
+                "pos": "N"
+              },
+              {
+                "w": "von",
+                "ar": "عن",
+                "base": "von",
+                "pos": "Präp"
+              },
+              {
+                "w": "der",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "inneren",
+                "ar": "الداخلية",
+                "base": "inner",
+                "pos": "Adj"
+              },
+              {
+                "w": "Uhr",
+                "ar": "الساعة",
+                "base": "die Uhr",
+                "pos": "N"
+              },
+              {
+                "w": "über",
+                "ar": "على / بـ",
+                "base": "über",
+                "pos": "Präp"
+              },
+              {
+                "w": "die",
+                "ar": "التي (ضمير موصول)",
+                "base": "die",
+                "pos": "Pron"
+              },
+              {
+                "w": "alle",
+                "ar": "كافة / كل",
+                "base": "alle",
+                "pos": "Pron"
+              },
+              {
+                "w": "Lebewesen",
+                "ar": "الكائنات الحية",
+                "base": "das Lebewesen",
+                "pos": "N"
+              },
+              {
+                "w": "verfügen",
+                "ar": "تمتلك / تحوز",
+                "base": "verfügen über",
+                "pos": "V"
+              }
+            ]
+          },
+          {
+            "id": "t2-s3",
+            "de": "Sie steuert unseren Schlaf-Wach-Rhythmus und beeinflusst unsere Leistungsfähigkeit im Tagesverlauf.",
+            "ar": "إنها تتحكم في إيقاع النوم والاستيقاظ وتؤثر على قدرتنا على الإنتاج طوال ساعات اليوم.",
+            "tokens": [
+              {
+                "w": "Sie",
+                "ar": "هي (الساعة الداخلية)",
+                "base": "sie",
+                "pos": "Pron"
+              },
+              {
+                "w": "steuert",
+                "ar": "تقود / تضبط",
+                "base": "steuern",
+                "pos": "V"
+              },
+              {
+                "w": "unseren",
+                "ar": "إيقاعنا",
+                "base": "unser",
+                "pos": "Poss"
+              },
+              {
+                "w": "Schlaf-Wach-Rhythmus",
+                "ar": "إيقاع النوم واليقظة",
+                "base": "der Schlaf-Wach-Rhythmus",
+                "pos": "N"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "beeinflusst",
+                "ar": "تؤثر على",
+                "base": "beeinflussen",
+                "pos": "V"
+              },
+              {
+                "w": "unsere",
+                "ar": "طاقتنا",
+                "base": "unser",
+                "pos": "Poss"
+              },
+              {
+                "w": "Leistungsfähigkeit",
+                "ar": "القدرة على الأداء",
+                "base": "die Leistungsfähigkeit",
+                "pos": "N"
+              },
+              {
+                "w": "im",
+                "ar": "في (in + dem)",
+                "base": "in",
+                "pos": "Präp"
+              },
+              {
+                "w": "Tagesverlauf",
+                "ar": "مسار اليوم",
+                "base": "der Tagesverlauf",
+                "pos": "N"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "paragraphIndex": 2,
+        "sentences": [
+          {
+            "id": "t2-s4",
+            "de": "Wissenschaftler unterscheiden zwei extreme Chronotypen: Frühaufsteher (Lerchen) und Langschläfer (Eulen).",
+            "ar": "يميز العلماء بين نمطين زمنيين متطرفين: الباكرون (القُبَّرات) والميالون للسهر (البومات).",
+            "tokens": [
+              {
+                "w": "Wissenschaftler",
+                "ar": "العلماء",
+                "base": "der Wissenschaftler",
+                "pos": "N"
+              },
+              {
+                "w": "unterscheiden",
+                "ar": "يميزون / يفرقون",
+                "base": "unterscheiden",
+                "pos": "V"
+              },
+              {
+                "w": "zwei",
+                "ar": "اثنين",
+                "base": "zwei",
+                "pos": "Num"
+              },
+              {
+                "w": "extreme",
+                "ar": "متطرفين / متباعدين",
+                "base": "extrem",
+                "pos": "Adj"
+              },
+              {
+                "w": "Chronotypen",
+                "ar": "الأنماط الزمنية الحيوية",
+                "base": "der Chronotyp, -en",
+                "pos": "N"
+              },
+              {
+                "w": "Frühaufsteher",
+                "ar": "المستيقظون مبكراً",
+                "base": "der Frühaufsteher",
+                "pos": "N"
+              },
+              {
+                "w": "Lerchen",
+                "ar": "طيور القبرة",
+                "base": "die Lerche, -n",
+                "pos": "N"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "Langschläfer",
+                "ar": "محبو النوم والسهر",
+                "base": "der Langschläfer",
+                "pos": "N"
+              },
+              {
+                "w": "Eulen",
+                "ar": "البومات",
+                "base": "die Eule, -n",
+                "pos": "N"
+              }
+            ]
+          },
+          {
+            "id": "t2-s5",
+            "de": "Frühaufsteher sind morgens sofort fit, ermüden aber abends schnell; Langschläfer hingegen laufen erst am Abend zur Hochform auf.",
+            "ar": "المستيقظون مبكراً يكونون بنشاط تام صباحاً لكنهم يتعبون سريعاً مساءً؛ أما محبو السهر فيصلون لقمة نشاطهم في المساء.",
+            "tokens": [
+              {
+                "w": "Frühaufsteher",
+                "ar": "محبو الصباح",
+                "base": "der Frühaufsteher",
+                "pos": "N"
+              },
+              {
+                "w": "sind",
+                "ar": "يكونون",
+                "base": "sein",
+                "pos": "V"
+              },
+              {
+                "w": "morgens",
+                "ar": "صباحاً",
+                "base": "morgens",
+                "pos": "Adv"
+              },
+              {
+                "w": "sofort",
+                "ar": "فوراً",
+                "base": "sofort",
+                "pos": "Adv"
+              },
+              {
+                "w": "fit",
+                "ar": "بكامل اللياقة",
+                "base": "fit",
+                "pos": "Adj"
+              },
+              {
+                "w": "ermüden",
+                "ar": "يتعبون",
+                "base": "ermüden",
+                "pos": "V"
+              },
+              {
+                "w": "aber",
+                "ar": "لكن",
+                "base": "aber",
+                "pos": "Konj"
+              },
+              {
+                "w": "abends",
+                "ar": "مساءً",
+                "base": "abends",
+                "pos": "Adv"
+              },
+              {
+                "w": "schnell",
+                "ar": "سريعاً",
+                "base": "schnell",
+                "pos": "Adj"
+              },
+              {
+                "w": "Langschläfer",
+                "ar": "محبو السهر",
+                "base": "der Langschläfer",
+                "pos": "N"
+              },
+              {
+                "w": "hingegen",
+                "ar": "في المقابل",
+                "base": "hingegen",
+                "pos": "Adv"
+              },
+              {
+                "w": "laufen",
+                "ar": "يصلون",
+                "base": "auflaufen",
+                "pos": "V"
+              },
+              {
+                "w": "erst",
+                "ar": "فقط / ليس قبل",
+                "base": "erst",
+                "pos": "Adv"
+              },
+              {
+                "w": "am",
+                "ar": "في",
+                "base": "an + dem",
+                "pos": "Präp"
+              },
+              {
+                "w": "Abend",
+                "ar": "المساء",
+                "base": "der Abend",
+                "pos": "N"
+              },
+              {
+                "w": "zur",
+                "ar": "إلى",
+                "base": "zu + der",
+                "pos": "Präp"
+              },
+              {
+                "w": "Hochform",
+                "ar": "أعلى درجات النشاط",
+                "base": "die Hochform",
+                "pos": "N"
+              },
+              {
+                "w": "auf",
+                "ar": "بادئة (auflaufen)",
+                "base": "auflaufen",
+                "pos": "V"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "paragraphIndex": 3,
+        "sentences": [
+          {
+            "id": "t2-s6",
+            "de": "Besonders faszinierend ist das subjektive Zeitparadoxon: Wenn wir uns langweilen, vergeht die Zeit im Moment unendlich langsam.",
+            "ar": "المثير للاهتمام بشكل خاص هو التناقض الزمني الذاتي: عندما نشعر بالملل، يمر الوقت في اللحظة الراهنة ببطء شديد.",
+            "tokens": [
+              {
+                "w": "Besonders",
+                "ar": "بشكل خاص",
+                "base": "besonders",
+                "pos": "Adv"
+              },
+              {
+                "w": "faszinierend",
+                "ar": "مذهل / رائع",
+                "base": "faszinierend",
+                "pos": "Adj"
+              },
+              {
+                "w": "ist",
+                "ar": "يكون",
+                "base": "sein",
+                "pos": "V"
+              },
+              {
+                "w": "das",
+                "ar": "الـ",
+                "base": "das",
+                "pos": "Art"
+              },
+              {
+                "w": "subjektive",
+                "ar": "الذاتي / الشخصي",
+                "base": "subjektiv",
+                "pos": "Adj"
+              },
+              {
+                "w": "Zeitparadoxon",
+                "ar": "مفارقة الوقت",
+                "base": "das Zeitparadoxon",
+                "pos": "N"
+              },
+              {
+                "w": "Wenn",
+                "ar": "عندما / إذا",
+                "base": "wenn",
+                "pos": "Konj"
+              },
+              {
+                "w": "wir",
+                "ar": "نحن",
+                "base": "wir",
+                "pos": "Pron"
+              },
+              {
+                "w": "uns",
+                "ar": "أنفسنا",
+                "base": "uns",
+                "pos": "Pron"
+              },
+              {
+                "w": "langweilen",
+                "ar": "نمل / نشعر بالضجر",
+                "base": "sich langweilen",
+                "pos": "V"
+              },
+              {
+                "w": "vergeht",
+                "ar": "يمضي / ينقضي",
+                "base": "vergehen",
+                "pos": "V"
+              },
+              {
+                "w": "die",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "Zeit",
+                "ar": "الوقت",
+                "base": "die Zeit",
+                "pos": "N"
+              },
+              {
+                "w": "im",
+                "ar": "في",
+                "base": "in + dem",
+                "pos": "Präp"
+              },
+              {
+                "w": "Moment",
+                "ar": "اللحظة",
+                "base": "der Moment",
+                "pos": "N"
+              },
+              {
+                "w": "unendlich",
+                "ar": "بلا نهاية",
+                "base": "unendlich",
+                "pos": "Adv"
+              },
+              {
+                "w": "langsam",
+                "ar": "ببطء",
+                "base": "langsam",
+                "pos": "Adj"
+              }
+            ]
+          },
+          {
+            "id": "t2-s7",
+            "de": "Erleben wir jedoch viele neue Reize, vergeht die Zeit rasend schnell – doch in der Erinnerung erscheint uns diese Phase erstaunlich lang.",
+            "ar": "أما إذا عشنا تجارب ومحفزات جديدة كثيرة، فيمر الوقت بسرعة خاطفة – لكنه في الذاكرة يبدو لنا طويلاً وممتداً بشكل مدهش.",
+            "tokens": [
+              {
+                "w": "Erleben",
+                "ar": "نعيش / نختبر",
+                "base": "erleben",
+                "pos": "V"
+              },
+              {
+                "w": "wir",
+                "ar": "نحن",
+                "base": "wir",
+                "pos": "Pron"
+              },
+              {
+                "w": "jedoch",
+                "ar": "غير أن / ولكن",
+                "base": "jedoch",
+                "pos": "Adv"
+              },
+              {
+                "w": "viele",
+                "ar": "العديد من",
+                "base": "viel",
+                "pos": "Adj"
+              },
+              {
+                "w": "neue",
+                "ar": "الجديدة",
+                "base": "neu",
+                "pos": "Adj"
+              },
+              {
+                "w": "Reize",
+                "ar": "المحفزات والمثيرات",
+                "base": "der Reiz, -e",
+                "pos": "N"
+              },
+              {
+                "w": "vergeht",
+                "ar": "يمر",
+                "base": "vergehen",
+                "pos": "V"
+              },
+              {
+                "w": "die",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "Zeit",
+                "ar": "الوقت",
+                "base": "die Zeit",
+                "pos": "N"
+              },
+              {
+                "w": "rasend",
+                "ar": "بسرعة فائقة",
+                "base": "rasend",
+                "pos": "Adv"
+              },
+              {
+                "w": "schnell",
+                "ar": "سريعاً",
+                "base": "schnell",
+                "pos": "Adj"
+              },
+              {
+                "w": "doch",
+                "ar": "لكن",
+                "base": "doch",
+                "pos": "Konj"
+              },
+              {
+                "w": "in",
+                "ar": "في",
+                "base": "in",
+                "pos": "Präp"
+              },
+              {
+                "w": "der",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "Erinnerung",
+                "ar": "الذاكرة / الاسترجاع",
+                "base": "die Erinnerung, -en",
+                "pos": "N"
+              },
+              {
+                "w": "erscheint",
+                "ar": "يبدو",
+                "base": "erscheinen",
+                "pos": "V"
+              },
+              {
+                "w": "uns",
+                "ar": "لنا",
+                "base": "wir",
+                "pos": "Pron"
+              },
+              {
+                "w": "diese",
+                "ar": "هذه",
+                "base": "dieser",
+                "pos": "Dem"
+              },
+              {
+                "w": "Phase",
+                "ar": "المرحلة / الفترة",
+                "base": "die Phase, -n",
+                "pos": "N"
+              },
+              {
+                "w": "erstaunlich",
+                "ar": "بشكل مدهش",
+                "base": "erstaunlich",
+                "pos": "Adj"
+              },
+              {
+                "w": "lang",
+                "ar": "طويلاً",
+                "base": "lang",
+                "pos": "Adj"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "keyVocab": [
+      {
+        "de": "das Zeitempfinden",
+        "ar": "الشعور بالوقت وإدراكه ذهنياً",
+        "example": "Unser Zeitempfinden ist stark von Gefühlen und Erlebnissen abhängig."
+      },
+      {
+        "de": "die innere Uhr",
+        "ar": "الساعة البيولوجية الداخلية في الكائنات الحية",
+        "example": "Die innere Uhr bestimmt, wann wir müde oder hungrig werden."
+      },
+      {
+        "de": "der Chronotyp, -en",
+        "ar": "النمط الزمني الفردي (صباحي أم مسائي)",
+        "example": "Wissenschaftler teilen Menschen in verschiedene Chronotypen ein."
+      },
+      {
+        "de": "das Zeitparadoxon",
+        "ar": "مفارقة الزمن (يمر سريعاً في اللحظة ويبدو طويلاً في الذاكرة)",
+        "example": "Im Urlaub vergehen die Tage schnell, bleiben aber als lange Zeit in Erinnerung."
+      },
+      {
+        "de": "verfügen über (+ Akk)",
+        "ar": "يمتلك / يتوفر على",
+        "example": "Alle Lebewesen verfügen über biologische Rhythmen."
+      },
+      {
+        "de": "die Leistungsfähigkeit",
+        "ar": "الكفاءة والقدرة على الإنتاج والعمل",
+        "example": "Am Vormittag erreicht die Leistungsfähigkeit vieler Menschen ihren Höhepunkt."
+      }
+    ],
+    "exercises": [
+      {
+        "id": "t2-ex1",
+        "type": "mc",
+        "title": {
+          "de": "1. Leseverstehen: Chronotypen",
+          "ar": "1. فهم المقروء: الأنماط الزمنية"
+        },
+        "question": {
+          "de": "Was zeichnet sogenannte „Eulen“ (Langschläfer) aus?",
+          "ar": "ما الذي يميز الأشخاص المصنفين كـ «بومات» (محبو السهر)؟"
+        },
+        "options": [
+          {
+            "de": "Sie sind morgens um 6 Uhr am produktivsten.",
+            "ar": "يكونون في قمة إنتاجيتهم في السادسة صباحاً."
+          },
+          {
+            "de": "Sie können sich abends am besten konzentrieren und haben weniger Probleme mit Nachtschichten.",
+            "ar": "يركزون بشكل أفضل في المساء ويكون عمل الورديات الليلية أقل ضرراً عليهم."
+          },
+          {
+            "de": "Sie schlafen den ganzen Tag und arbeiten überhaupt nicht.",
+            "ar": "ينامون طوال اليوم ولا يعملون إطلاقاً."
+          }
+        ],
+        "correct": 1,
+        "explanation": {
+          "ar": "الفقرة الثانية تبين أن الـ Eulen يكونون في أوج نشاطهم الفكري في المساء والنوبات الليلية تلائمهم أكثر."
+        }
+      },
+      {
+        "id": "t2-ex2",
+        "type": "tf",
+        "title": {
+          "de": "2. Richtig oder Falsch: Sinnesorgan",
+          "ar": "2. صحيح أم خطأ: عضو الإحساس"
+        },
+        "statement": {
+          "de": "Der Mensch besitzt ein eigenes Sinnesorgan im Ohr, mit dem er Sekunden und Minuten direkt misst.",
+          "ar": "يمتلك الإنسان عضواً حسياً خاصاً في الأذن يقيس به الثواني والدقائق مباشرة."
+        },
+        "correct": false,
+        "explanation": {
+          "ar": "خطأ! يؤكد النص: «Im Gegensatz zum Tasten, Schmecken... gibt es kein Sinnesorgan für die Zeit» (لا يوجد عضو حسي للوقت)."
+        }
+      },
+      {
+        "id": "t2-ex3",
+        "type": "grammar",
+        "title": {
+          "de": "3. Grammatik: Verben mit festen Präpositionen",
+          "ar": "3. القواعد: أفعال تأخذ حروف جر ثابتة"
+        },
+        "instruction": {
+          "de": "Wählen Sie die passende Präposition für das Verb »verfügen«.",
+          "ar": "اختر حرف الجر المناسب للفعل verfügen."
+        },
+        "sentence": "Alle Lebewesen verfügen ___ eine angeborene innere Uhr.",
+        "options": [
+          "auf",
+          "an",
+          "über",
+          "von"
+        ],
+        "correct": 2,
+        "explanation": {
+          "ar": "الفعل «verfügen über + Akkusativ» يعني يمتلك أو يحوز، ويأتي دائماً مع حرف الجر über."
+        }
+      }
+    ]
+  },
+  {
+    "id": "text-03",
+    "bookPage": 21,
+    "lektion": 1,
+    "title": {
+      "de": "Die Geschichte der Schweizer Uhrmacher",
+      "ar": "تاريخ صناعة الساعات السويسرية الشهيرة"
+    },
+    "subtitle": {
+      "de": "Lektion 1, Porträt: Watch Valley (Kontext B1+ Kursbuch, Seite 21)",
+      "ar": "الوحدة 1، بورتريه: وادي الساعات (كتاب كونتكست B1+، صفحة 21)"
+    },
+    "level": "B1+",
+    "topic": {
+      "de": "Handwerk, Wirtschaft & Schweizer Uhrenindustrie",
+      "ar": "الحرف اليدوية، الاقتصاد وصناعة الساعات السويسرية"
+    },
+    "themeEmoji": "⌚",
+    "readingTimeMin": 4,
+    "images": [
+      {
+        "src": "assets/images/lesetexte/text-03-img-1.jpeg",
+        "caption": "الدقة المتناهية في تركيب الساعات الميكانيكية"
+      },
+      {
+        "src": "assets/images/lesetexte/text-03-img-2.jpeg",
+        "caption": "منطقة وادي الساعات (Watch Valley) في جبال جورا السويسرية"
+      }
+    ],
+    "paragraphs": [
+      {
+        "paragraphIndex": 1,
+        "sentences": [
+          {
+            "id": "t3-s1",
+            "de": "Schweizer Uhren sind weltbekannt und gelten als präzise und zuverlässig.",
+            "ar": "الساعات السويسرية ذائعة الصيت عالمياً وتعتبر رمزاً للدقة والموثوقية.",
+            "tokens": [
+              {
+                "w": "Schweizer",
+                "ar": "السويسرية",
+                "base": "schweizerisch",
+                "pos": "Adj"
+              },
+              {
+                "w": "Uhren",
+                "ar": "الساعات",
+                "base": "die Uhr, -en",
+                "pos": "N"
+              },
+              {
+                "w": "sind",
+                "ar": "تكون",
+                "base": "sein",
+                "pos": "V"
+              },
+              {
+                "w": "weltbekannt",
+                "ar": "مشهورة عالمياً",
+                "base": "weltbekannt",
+                "pos": "Adj"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "gelten",
+                "ar": "تُعتبر / تُصنف",
+                "base": "gelten als",
+                "pos": "V"
+              },
+              {
+                "w": "als",
+                "ar": "كـ / بمثابة",
+                "base": "als",
+                "pos": "Konj"
+              },
+              {
+                "w": "präzise",
+                "ar": "دقيقة",
+                "base": "präzise",
+                "pos": "Adj"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "zuverlässig",
+                "ar": "موثوقة / يعتمد عليها",
+                "base": "zuverlässig",
+                "pos": "Adj"
+              }
+            ]
+          },
+          {
+            "id": "t3-s2",
+            "de": "Angefangen hat alles im 16. Jahrhundert in Genf, als der Reformator Jean Calvin das Tragen von Schmuck verbot.",
+            "ar": "بدأ كل شيء في القرن السادس عشر في جنيف، عندما حرَّم المصلح الديني جان كالفن ارتداء المجوهرات والتحلي بها.",
+            "tokens": [
+              {
+                "w": "Angefangen",
+                "ar": "بدأ",
+                "base": "anfangen",
+                "pos": "V"
+              },
+              {
+                "w": "hat",
+                "ar": "فعل مساعد",
+                "base": "haben",
+                "pos": "V"
+              },
+              {
+                "w": "alles",
+                "ar": "كل شيء",
+                "base": "alles",
+                "pos": "Pron"
+              },
+              {
+                "w": "im",
+                "ar": "في",
+                "base": "in + dem",
+                "pos": "Präp"
+              },
+              {
+                "w": "16.",
+                "ar": "السادس عشر",
+                "base": "sechzehnte",
+                "pos": "Num"
+              },
+              {
+                "w": "Jahrhundert",
+                "ar": "قرن",
+                "base": "das Jahrhundert",
+                "pos": "N"
+              },
+              {
+                "w": "in",
+                "ar": "في",
+                "base": "in",
+                "pos": "Präp"
+              },
+              {
+                "w": "Genf",
+                "ar": "جنيف",
+                "base": "Genf",
+                "pos": "N"
+              },
+              {
+                "w": "als",
+                "ar": "حينما / عندما (حدث ماضي)",
+                "base": "als",
+                "pos": "Konj"
+              },
+              {
+                "w": "der",
+                "ar": "الـ",
+                "base": "der",
+                "pos": "Art"
+              },
+              {
+                "w": "Reformator",
+                "ar": "المصلح الديني",
+                "base": "der Reformator",
+                "pos": "N"
+              },
+              {
+                "w": "Jean",
+                "ar": "جان",
+                "base": "Jean",
+                "pos": "N"
+              },
+              {
+                "w": "Calvin",
+                "ar": "كالفن",
+                "base": "Calvin",
+                "pos": "N"
+              },
+              {
+                "w": "das",
+                "ar": "الـ",
+                "base": "das",
+                "pos": "Art"
+              },
+              {
+                "w": "Tragen",
+                "ar": "ارتداء",
+                "base": "das Tragen",
+                "pos": "N"
+              },
+              {
+                "w": "von",
+                "ar": "لـ / من",
+                "base": "von",
+                "pos": "Präp"
+              },
+              {
+                "w": "Schmuck",
+                "ar": "المجوهرات والحلي",
+                "base": "der Schmuck",
+                "pos": "N"
+              },
+              {
+                "w": "verbot",
+                "ar": "منع / حرَّم",
+                "base": "verbieten",
+                "pos": "V"
+              }
+            ]
+          },
+          {
+            "id": "t3-s3",
+            "de": "Um zu überleben, begannen die Goldschmiede, prächtige Taschenuhren herzustellen.",
+            "ar": "ولكسب عيشهم، بدأ صاغة الذهب في صناعة ساعات جيب بديعة ودقيقة.",
+            "tokens": [
+              {
+                "w": "Um",
+                "ar": "لأجل (um... zu)",
+                "base": "um",
+                "pos": "Konj"
+              },
+              {
+                "w": "zu",
+                "ar": "أن",
+                "base": "zu",
+                "pos": "Partikel"
+              },
+              {
+                "w": "überleben",
+                "ar": "يبقوا على قيد الحياة / يستمروا",
+                "base": "überleben",
+                "pos": "V"
+              },
+              {
+                "w": "begannen",
+                "ar": "بدأوا",
+                "base": "beginnen",
+                "pos": "V"
+              },
+              {
+                "w": "die",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "Goldschmiede",
+                "ar": "صاغة الذهب",
+                "base": "der Goldschmied, -e",
+                "pos": "N"
+              },
+              {
+                "w": "prächtige",
+                "ar": "فخمة / رائعة",
+                "base": "prächtig",
+                "pos": "Adj"
+              },
+              {
+                "w": "Taschenuhren",
+                "ar": "ساعات الجيب",
+                "base": "die Taschenuhr, -en",
+                "pos": "N"
+              },
+              {
+                "w": "herzustellen",
+                "ar": "أن يصنعوا / ينتجوا",
+                "base": "herstellen",
+                "pos": "V"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "paragraphIndex": 2,
+        "sentences": [
+          {
+            "id": "t3-s4",
+            "de": "Das Handwerk breitete sich über die Region Jura bis nach Basel aus und entwickelte sich zum führenden Industriezweig.",
+            "ar": "انتشرت الحرفة عبر منطقة جورا حتى بازل وتطورت لتصبح فرعاً صناعياً رائداً.",
+            "tokens": [
+              {
+                "w": "Das",
+                "ar": "الـ",
+                "base": "das",
+                "pos": "Art"
+              },
+              {
+                "w": "Handwerk",
+                "ar": "الحرفة اليدوية",
+                "base": "das Handwerk",
+                "pos": "N"
+              },
+              {
+                "w": "breitete",
+                "ar": "انتشرت (sich ausbreiten)",
+                "base": "ausbreiten",
+                "pos": "V"
+              },
+              {
+                "w": "sich",
+                "ar": "نفسها",
+                "base": "sich",
+                "pos": "Pron"
+              },
+              {
+                "w": "über",
+                "ar": "عبر",
+                "base": "über",
+                "pos": "Präp"
+              },
+              {
+                "w": "die",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "Region",
+                "ar": "إقليم / منطقة",
+                "base": "die Region",
+                "pos": "N"
+              },
+              {
+                "w": "Jura",
+                "ar": "جورا (سلسلة جبال)",
+                "base": "Jura",
+                "pos": "N"
+              },
+              {
+                "w": "bis",
+                "ar": "حتى",
+                "base": "bis",
+                "pos": "Präp"
+              },
+              {
+                "w": "nach",
+                "ar": "إلى",
+                "base": "nach",
+                "pos": "Präp"
+              },
+              {
+                "w": "Basel",
+                "ar": "بازل (مدينة)",
+                "base": "Basel",
+                "pos": "N"
+              },
+              {
+                "w": "aus",
+                "ar": "بادئة (ausbreiten)",
+                "base": "ausbreiten",
+                "pos": "V"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "entwickelte",
+                "ar": "تطورت",
+                "base": "entwickeln",
+                "pos": "V"
+              },
+              {
+                "w": "sich",
+                "ar": "نفسها",
+                "base": "sich",
+                "pos": "Pron"
+              },
+              {
+                "w": "zum",
+                "ar": "إلى",
+                "base": "zu + dem",
+                "pos": "Präp"
+              },
+              {
+                "w": "führenden",
+                "ar": "الرائد / القيادي",
+                "base": "führend",
+                "pos": "Adj"
+              },
+              {
+                "w": "Industriezweig",
+                "ar": "قطاع صناعي",
+                "base": "der Industriezweig, -e",
+                "pos": "N"
+              }
+            ]
+          },
+          {
+            "id": "t3-s5",
+            "de": "In den 1970er-Jahren geriet die Branche durch billige Quarzuhren aus Asien in eine schwere Krise.",
+            "ar": "في سبعينيات القرن الماضي دخل القطاع في أزمة حادة بسبب ظهور ساعات الكوارتز الرخيصة من آسيا.",
+            "tokens": [
+              {
+                "w": "In",
+                "ar": "في",
+                "base": "in",
+                "pos": "Präp"
+              },
+              {
+                "w": "den",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "1970er-Jahren",
+                "ar": "سنوات السبعينيات",
+                "base": "die 1970er-Jahre",
+                "pos": "N"
+              },
+              {
+                "w": "geriet",
+                "ar": "وقع في / انزلق إلى",
+                "base": "geraten",
+                "pos": "V"
+              },
+              {
+                "w": "die",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "Branche",
+                "ar": "المجال / القطاع",
+                "base": "die Branche, -n",
+                "pos": "N"
+              },
+              {
+                "w": "durch",
+                "ar": "بسبب / من خلال",
+                "base": "durch",
+                "pos": "Präp"
+              },
+              {
+                "w": "billige",
+                "ar": "رخيصة",
+                "base": "billig",
+                "pos": "Adj"
+              },
+              {
+                "w": "Quarzuhren",
+                "ar": "ساعات الكوارتز الإلكترونية",
+                "base": "die Quarzuhr, -en",
+                "pos": "N"
+              },
+              {
+                "w": "aus",
+                "ar": "من",
+                "base": "aus",
+                "pos": "Präp"
+              },
+              {
+                "w": "Asien",
+                "ar": "آسيا",
+                "base": "Asien",
+                "pos": "N"
+              },
+              {
+                "w": "in",
+                "ar": "في",
+                "base": "in",
+                "pos": "Präp"
+              },
+              {
+                "w": "eine",
+                "ar": "أداة نكرة",
+                "base": "ein",
+                "pos": "Art"
+              },
+              {
+                "w": "schwere",
+                "ar": "صعبة / حادة",
+                "base": "schwer",
+                "pos": "Adj"
+              },
+              {
+                "w": "Krise",
+                "ar": "أزمة",
+                "base": "die Krise, -n",
+                "pos": "N"
+              }
+            ]
+          },
+          {
+            "id": "t3-s6",
+            "de": "Erst die rettende Idee, Uhren als farbenfrohes Modeaccessoire (Swatch) zu vermarkten, brachte die Schweizer Uhren an die Weltspitze zurück.",
+            "ar": "فقط فكرة الإنقاذ بتسويق الساعات كإكسسوار عصري ملون (Swatch) أعادت الساعات السويسرية لقمة الصدارة العالمية.",
+            "tokens": [
+              {
+                "w": "Erst",
+                "ar": "فقط / لم يحصل إلا عبر",
+                "base": "erst",
+                "pos": "Adv"
+              },
+              {
+                "w": "die",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "rettende",
+                "ar": "المنقذة",
+                "base": "rettend",
+                "pos": "Adj"
+              },
+              {
+                "w": "Idee",
+                "ar": "الفكرة",
+                "base": "die Idee, -n",
+                "pos": "N"
+              },
+              {
+                "w": "Uhren",
+                "ar": "الساعات",
+                "base": "die Uhr, -en",
+                "pos": "N"
+              },
+              {
+                "w": "als",
+                "ar": "كـ",
+                "base": "als",
+                "pos": "Konj"
+              },
+              {
+                "w": "farbenfrohes",
+                "ar": "ملون / مفعم بالألوان",
+                "base": "farbenfroh",
+                "pos": "Adj"
+              },
+              {
+                "w": "Modeaccessoire",
+                "ar": "إكسسوار للموضة",
+                "base": "das Modeaccessoire, -s",
+                "pos": "N"
+              },
+              {
+                "w": "Swatch",
+                "ar": "سواتش",
+                "base": "Swatch",
+                "pos": "N"
+              },
+              {
+                "w": "zu",
+                "ar": "أن",
+                "base": "zu",
+                "pos": "Partikel"
+              },
+              {
+                "w": "vermarkten",
+                "ar": "تسوق",
+                "base": "vermarkten",
+                "pos": "V"
+              },
+              {
+                "w": "brachte",
+                "ar": "جلبت / أعادت",
+                "base": "bringen",
+                "pos": "V"
+              },
+              {
+                "w": "die",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "Schweizer",
+                "ar": "السويسرية",
+                "base": "schweizerisch",
+                "pos": "Adj"
+              },
+              {
+                "w": "Uhren",
+                "ar": "الساعات",
+                "base": "die Uhr, -en",
+                "pos": "N"
+              },
+              {
+                "w": "an",
+                "ar": "إلى",
+                "base": "an",
+                "pos": "Präp"
+              },
+              {
+                "w": "die",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "Weltspitze",
+                "ar": "قمة العالم",
+                "base": "die Weltspitze",
+                "pos": "N"
+              },
+              {
+                "w": "zurück",
+                "ar": "مجدداً / للوراء",
+                "base": "zurückbringen",
+                "pos": "Adv"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "keyVocab": [
+      {
+        "de": "präzise und zuverlässig",
+        "ar": "دقيق وموثوق ويعتمد عليه",
+        "example": "Schweizer Uhren gelten als äußerst präzise und zuverlässig."
+      },
+      {
+        "de": "der Wirtschaftszweig, -e",
+        "ar": "قطاع أو فرع اقتصادي",
+        "example": "Die Uhrenindustrie ist ein wichtiger Wirtschaftszweig der Schweiz."
+      },
+      {
+        "de": "die Quarzuhr-Krise",
+        "ar": "أزمة ساعات الكوارتز في السبعينيات",
+        "example": "In den 70er-Jahren bedrohten billige Quarzuhren traditionelle Uhrmacher."
+      },
+      {
+        "de": "das Modeaccessoire, -s",
+        "ar": "إكسسوار مكمل للمظهر والأناقة",
+        "example": "Uhren wurden nicht nur als Zeitmesser, sondern als Modeaccessoire getragen."
+      },
+      {
+        "de": "der Goldschmied, -e",
+        "ar": "صائغ الذهب والمجوهرات",
+        "example": "Die Genfer Goldschmiede spezialisierten sich auf feinste Uhrwerke."
+      }
+    ],
+    "exercises": [
+      {
+        "id": "t3-ex1",
+        "type": "mc",
+        "title": {
+          "de": "1. Leseverstehen: Ursprung der Uhrenindustrie",
+          "ar": "1. فهم المقروء: نشأة صناعة الساعات"
+        },
+        "question": {
+          "de": "Warum begannen die Goldschmiede in Genf im 16. Jahrhundert mit dem Uhrenbau?",
+          "ar": "لماذا بدأ صاغة الذهب في جنيف في القرن السادس عشر بصناعة الساعات؟"
+        },
+        "options": [
+          {
+            "de": "Weil ihnen das Gold ausging.",
+            "ar": "بسبب نفاد الذهب لديهم."
+          },
+          {
+            "de": "Weil Jean Calvin Schmuck verbot und sie eine neue Einnahmequelle brauchten.",
+            "ar": "لأن جان كالفن حرَّم التزين بالمجوهرات فاحتاجوا لمصدر رزق بديل."
+          },
+          {
+            "de": "Weil der König von Frankreich Uhren bestellte.",
+            "ar": "لأن ملك فرنسا طلب منهم ذلك."
+          }
+        ],
+        "correct": 1,
+        "explanation": {
+          "ar": "تحريم ارتداء المجوهرات دفع صاغة الذهب لتحويل مهاراتهم الدقيقة إلى صناعة الساعات التي اعتبرت أجهزة عملية مسموحة."
+        }
+      },
+      {
+        "id": "t3-ex2",
+        "type": "tf",
+        "title": {
+          "de": "2. Richtig oder Falsch?",
+          "ar": "2. صحيح أم خطأ؟"
+        },
+        "statement": {
+          "de": "Die Erfindung der bunten Swatch-Uhren half der Schweizer Industrie aus der Krise.",
+          "ar": "ساعد ابتكار ساعات سواتش الملونة الصناعة السويسرية في الخروج من أزمتها."
+        },
+        "correct": true,
+        "explanation": {
+          "ar": "صحيح! يوضح النص أن تسويق الساعات كإكسسوار موضة عبر ماركة Swatch أعاد الصناعة لصدارة الأسواق العالمية."
+        }
+      }
+    ]
+  },
+  {
+    "id": "text-04",
+    "bookPage": 22,
+    "lektion": 1,
+    "title": {
+      "de": "Trier – Eine Zeitreise ins Römische Reich",
+      "ar": "مدينة ترير – رحلة عبر الزمن إلى الإمبراطورية الرومانية"
+    },
+    "subtitle": {
+      "de": "Lektion 1, Landeskunde & Geschichte (Kontext B1+, Seite 22)",
+      "ar": "الوحدة 1، التاريخ والجغرافيا (كتاب كونتكست B1+، صفحة 22)"
+    },
+    "level": "B1+",
+    "topic": {
+      "de": "Geschichte, Architektur & älteste Stadt Deutschlands",
+      "ar": "التاريخ، العمارة وأقدم المدن الألمانية"
+    },
+    "themeEmoji": "🏛️",
+    "readingTimeMin": 4,
+    "images": [
+      {
+        "src": "assets/images/lesetexte/text-04-img-1.jpeg",
+        "caption": "بوابة بورتا نيجرا (Porta Nigra) الرومانية الشهيرة في ترير"
+      },
+      {
+        "src": "assets/images/lesetexte/text-04-img-2.jpeg",
+        "caption": "المدرج الروماني القديم (Amphitheater)"
+      },
+      {
+        "src": "assets/images/lesetexte/text-04-img-3.jpeg",
+        "caption": "حمامات القيصر (Kaiserthermen) الضخمة"
+      }
+    ],
+    "paragraphs": [
+      {
+        "paragraphIndex": 1,
+        "sentences": [
+          {
+            "id": "t4-s1",
+            "de": "Trier an der Mosel gilt als die älteste Stadt Deutschlands und blickt auf über 2000 Jahre Geschichte zurück.",
+            "ar": "تعتبر مدينة ترير الواقعة على نهر الموزيل أقدم مدينة في ألمانيا، وتفخر بتاريخ يمتد لأكثر من 2000 عام.",
+            "tokens": [
+              {
+                "w": "Trier",
+                "ar": "ترير",
+                "base": "Trier",
+                "pos": "N"
+              },
+              {
+                "w": "an",
+                "ar": "على / عند",
+                "base": "an",
+                "pos": "Präp"
+              },
+              {
+                "w": "der",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "Mosel",
+                "ar": "نهر الموزيل",
+                "base": "die Mosel",
+                "pos": "N"
+              },
+              {
+                "w": "gilt",
+                "ar": "تُعتبر",
+                "base": "gelten als",
+                "pos": "V"
+              },
+              {
+                "w": "als",
+                "ar": "كـ / بمثابة",
+                "base": "als",
+                "pos": "Konj"
+              },
+              {
+                "w": "die",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "älteste",
+                "ar": "الأقدم",
+                "base": "alt",
+                "pos": "Adj"
+              },
+              {
+                "w": "Stadt",
+                "ar": "مدينة",
+                "base": "die Stadt",
+                "pos": "N"
+              },
+              {
+                "w": "Deutschlands",
+                "ar": "ألمانيا",
+                "base": "Deutschland",
+                "pos": "N"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "blickt",
+                "ar": "تطل / تستند",
+                "base": "blicken auf",
+                "pos": "V"
+              },
+              {
+                "w": "auf",
+                "ar": "على",
+                "base": "auf",
+                "pos": "Präp"
+              },
+              {
+                "w": "über",
+                "ar": "أكثر من",
+                "base": "über",
+                "pos": "Adv"
+              },
+              {
+                "w": "2000",
+                "ar": "ألفين",
+                "base": "zweitausend",
+                "pos": "Num"
+              },
+              {
+                "w": "Jahre",
+                "ar": "سنوات",
+                "base": "das Jahr, -e",
+                "pos": "N"
+              },
+              {
+                "w": "Geschichte",
+                "ar": "تاريخ",
+                "base": "die Geschichte",
+                "pos": "N"
+              },
+              {
+                "w": "zurück",
+                "ar": "إلى الوراء",
+                "base": "zurückblicken",
+                "pos": "Adv"
+              }
+            ]
+          },
+          {
+            "id": "t4-s2",
+            "de": "Sie wurde um 17 vor Christus unter Kaiser Augustus gegründet und stieg später zur Residenz römischer Kaiser auf.",
+            "ar": "تأسست حوالي عام 17 قبل الميلاد في عهد الإمبراطور أوغسطس، وترقت لاحقاً لتصبح مقراً لإقامة أباطرة الرومان.",
+            "tokens": [
+              {
+                "w": "Sie",
+                "ar": "هي (المدينة)",
+                "base": "sie",
+                "pos": "Pron"
+              },
+              {
+                "w": "wurde",
+                "ar": "تمَّ / أُنشئت (مبني للمجهول)",
+                "base": "werden",
+                "pos": "V"
+              },
+              {
+                "w": "um",
+                "ar": "حوالي",
+                "base": "um",
+                "pos": "Präp"
+              },
+              {
+                "w": "17",
+                "ar": "سبعة عشر",
+                "base": "siebzehn",
+                "pos": "Num"
+              },
+              {
+                "w": "vor",
+                "ar": "قبل",
+                "base": "vor",
+                "pos": "Präp"
+              },
+              {
+                "w": "Christus",
+                "ar": "الميلاد (المسيح)",
+                "base": "Christus",
+                "pos": "N"
+              },
+              {
+                "w": "unter",
+                "ar": "في عهد / تحت حكم",
+                "base": "unter",
+                "pos": "Präp"
+              },
+              {
+                "w": "Kaiser",
+                "ar": "الإمبراطور / القيصر",
+                "base": "der Kaiser",
+                "pos": "N"
+              },
+              {
+                "w": "Augustus",
+                "ar": "أوغسطس",
+                "base": "Augustus",
+                "pos": "N"
+              },
+              {
+                "w": "gegründet",
+                "ar": "تأسست",
+                "base": "gründen",
+                "pos": "V"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "stieg",
+                "ar": "صعدت / ارتقَت",
+                "base": "aufsteigen",
+                "pos": "V"
+              },
+              {
+                "w": "später",
+                "ar": "لاحقاً",
+                "base": "später",
+                "pos": "Adv"
+              },
+              {
+                "w": "zur",
+                "ar": "إلى",
+                "base": "zu + der",
+                "pos": "Präp"
+              },
+              {
+                "w": "Residenz",
+                "ar": "مقر إقامة إمبراطوري",
+                "base": "die Residenz",
+                "pos": "N"
+              },
+              {
+                "w": "römischer",
+                "ar": "رومانيين",
+                "base": "römisch",
+                "pos": "Adj"
+              },
+              {
+                "w": "Kaiser",
+                "ar": "أباطرة",
+                "base": "der Kaiser",
+                "pos": "N"
+              },
+              {
+                "w": "auf",
+                "ar": "بادئة (aufsteigen)",
+                "base": "aufsteigen",
+                "pos": "V"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "paragraphIndex": 2,
+        "sentences": [
+          {
+            "id": "t4-s3",
+            "de": "Das Wahrzeichen Triers ist die Porta Nigra, das am besten erhaltene antike Stadttor nördlich der Alpen.",
+            "ar": "المعلم الأشهر في ترير هو «بورتا نيجرا» (البوابة السوداء)، وهي أفضل بوابة مدينة قديمة تم الحفاظ عليها شمال جبال الألب.",
+            "tokens": [
+              {
+                "w": "Das",
+                "ar": "الـ",
+                "base": "das",
+                "pos": "Art"
+              },
+              {
+                "w": "Wahrzeichen",
+                "ar": "المعلم البارز / الشعار",
+                "base": "das Wahrzeichen",
+                "pos": "N"
+              },
+              {
+                "w": "Triers",
+                "ar": "لترير (مضاف إليه)",
+                "base": "Trier",
+                "pos": "N"
+              },
+              {
+                "w": "ist",
+                "ar": "يكون",
+                "base": "sein",
+                "pos": "V"
+              },
+              {
+                "w": "die",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "Porta",
+                "ar": "بوابة (لاتيني)",
+                "base": "Porta",
+                "pos": "N"
+              },
+              {
+                "w": "Nigra",
+                "ar": "سوداء (لاتيني)",
+                "base": "Nigra",
+                "pos": "Adj"
+              },
+              {
+                "w": "das",
+                "ar": "التي (موصول)",
+                "base": "das",
+                "pos": "Pron"
+              },
+              {
+                "w": "am",
+                "ar": "في",
+                "base": "an + dem",
+                "pos": "Präp"
+              },
+              {
+                "w": "besten",
+                "ar": "الأفضل",
+                "base": "gut",
+                "pos": "Adj"
+              },
+              {
+                "w": "erhaltene",
+                "ar": "المحفوظة / الباقية",
+                "base": "erhalten",
+                "pos": "Adj"
+              },
+              {
+                "w": "antike",
+                "ar": "الأثرية / القديمة",
+                "base": "antik",
+                "pos": "Adj"
+              },
+              {
+                "w": "Stadttor",
+                "ar": "بوابة المدينة",
+                "base": "das Stadttor, -e",
+                "pos": "N"
+              },
+              {
+                "w": "nördlich",
+                "ar": "شمال",
+                "base": "nördlich",
+                "pos": "Präp"
+              },
+              {
+                "w": "der",
+                "ar": "الـ (مضاف إليه)",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "Alpen",
+                "ar": "جبال الألب",
+                "base": "die Alpen",
+                "pos": "N"
+              }
+            ]
+          },
+          {
+            "id": "t4-s4",
+            "de": "Im Amphitheater kämpften vor 18.000 Zuschauern Gladiatoren, während in den Kaiserthermen warmes Wasser für Entspannung sorgte.",
+            "ar": "في المدرج تصارع المصارعون أمام 18 ألف متفرج، بينما وفرت المياه الدافئة في حمامات القيصر الراحة والاستجمام.",
+            "tokens": [
+              {
+                "w": "Im",
+                "ar": "في",
+                "base": "in + dem",
+                "pos": "Präp"
+              },
+              {
+                "w": "Amphitheater",
+                "ar": "المدرج الروماني",
+                "base": "das Amphitheater",
+                "pos": "N"
+              },
+              {
+                "w": "kämpften",
+                "ar": "تصارعوا / قاتلوا",
+                "base": "kämpfen",
+                "pos": "V"
+              },
+              {
+                "w": "vor",
+                "ar": "أمام",
+                "base": "vor",
+                "pos": "Präp"
+              },
+              {
+                "w": "18.000",
+                "ar": "ثمانية عشر ألفاً",
+                "base": "achtzehntausend",
+                "pos": "Num"
+              },
+              {
+                "w": "Zuschauern",
+                "ar": "مشاهدين / جمهور",
+                "base": "der Zuschauer, -",
+                "pos": "N"
+              },
+              {
+                "w": "Gladiatoren",
+                "ar": "المصارعون الرومان",
+                "base": "der Gladiator, -en",
+                "pos": "N"
+              },
+              {
+                "w": "während",
+                "ar": "في حين / بينما",
+                "base": "während",
+                "pos": "Konj"
+              },
+              {
+                "w": "in",
+                "ar": "في",
+                "base": "in",
+                "pos": "Präp"
+              },
+              {
+                "w": "den",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "Kaiserthermen",
+                "ar": "حمامات القيصر",
+                "base": "die Kaiserthermen",
+                "pos": "N"
+              },
+              {
+                "w": "warmes",
+                "ar": "دافئ",
+                "base": "warm",
+                "pos": "Adj"
+              },
+              {
+                "w": "Wasser",
+                "ar": "ماء",
+                "base": "das Wasser",
+                "pos": "N"
+              },
+              {
+                "w": "für",
+                "ar": "لـ / لأجل",
+                "base": "für",
+                "pos": "Präp"
+              },
+              {
+                "w": "Entspannung",
+                "ar": "الاسترخاء والراحة",
+                "base": "die Entspannung",
+                "pos": "N"
+              },
+              {
+                "w": "sorgte",
+                "ar": "تكفلت بـ / أَمَّنت",
+                "base": "sorgen für",
+                "pos": "V"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "keyVocab": [
+      {
+        "de": "das Wahrzeichen, -",
+        "ar": "المعلم الرمزي البارز للمدينة",
+        "example": "Die Porta Nigra ist das berühmteste Wahrzeichen von Trier."
+      },
+      {
+        "de": "das Amphitheater, -",
+        "ar": "المدرج الدائري القديم لعروض المصارعة",
+        "example": "Im antiken Amphitheater fanden Gladiatorenkämpfe statt."
+      },
+      {
+        "de": "die Kaiserthermen (Pl.)",
+        "ar": "الحمامات الرومانية الفاخرة للقيصر",
+        "example": "Die Kaiserthermen zeugen von hochentwickelter römischer Bäderkultur."
+      },
+      {
+        "de": "vor Christus (v. Chr.)",
+        "ar": "قبل الميلاد",
+        "example": "Trier wurde 17 vor Christus gegründet."
+      },
+      {
+        "de": "die Basilika, -en",
+        "ar": "قاعة العرش الإمبراطورية الضخمة (كنيسة حالياً)",
+        "example": "Kaiser Konstantin ließ die gewaltige Palastaula (Konstantinbasilika) errichten."
+      }
+    ],
+    "exercises": [
+      {
+        "id": "t4-ex1",
+        "type": "mc",
+        "title": {
+          "de": "1. Geschichte von Trier",
+          "ar": "1. تاريخ مدينة ترير"
+        },
+        "question": {
+          "de": "Wodurch ist die Stadt Trier in Deutschland besonders berühmt?",
+          "ar": "بماذا تشتهر مدينة ترير في ألمانيا بشكل خاص؟"
+        },
+        "options": [
+          {
+            "de": "Sie ist die jüngste Stadt Deutschlands.",
+            "ar": "إنها أحدث مدينة في ألمانيا."
+          },
+          {
+            "de": "Sie gilt als älteste Stadt Deutschlands mit einzigartigen römischen Bauten.",
+            "ar": "تعتبر أقدم مدينة في ألمانيا بفضل آثارها ومعالمها الرومانية الفريدة."
+          },
+          {
+            "de": "Sie hat den größten See der Welt.",
+            "ar": "لديها أكبر بحيرة في العالم."
+          }
+        ],
+        "correct": 1,
+        "explanation": {
+          "ar": "تأسست ترير على يد الرومان قبل أكثر من ألفي عام وتضم أهم الآثار الرومانية شمال الألب كالبوابة السوداء والمدرج."
+        }
+      }
+    ]
+  },
+  {
+    "id": "text-05",
+    "bookPage": 28,
+    "lektion": 2,
+    "title": {
+      "de": "Wissen oder Googeln? Allgemeinwissen im digitalen Zeitalter",
+      "ar": "هل نحفظ المعرفة أم نلجأ إلى جوجل؟ الثقافة العامة في العصر الرقمي"
+    },
+    "subtitle": {
+      "de": "Lektion 2, Modul 2 (Kontext B1+ Kursbuch, Seiten 28–29)",
+      "ar": "الوحدة 2، موديول 2 (كتاب كونتكست B1+، الصفحتان 28 و29)"
+    },
+    "level": "B1+",
+    "topic": {
+      "de": "Digitale Medien, Wissen & Suchmaschinen",
+      "ar": "الإعلام الرقمي، المعرفة ومحركات البحث"
+    },
+    "themeEmoji": "🔍",
+    "readingTimeMin": 5,
+    "images": [
+      {
+        "src": "assets/images/lesetexte/text-05-img-1.jpeg",
+        "caption": "البحث في جوجل بالهاتف الذكي مقابل حفظ المعلومات في الذاكرة"
+      }
+    ],
+    "paragraphs": [
+      {
+        "paragraphIndex": 1,
+        "sentences": [
+          {
+            "id": "t5-s1",
+            "de": "Früher musste man dicke Lexika wälzen, heute genügt ein Klick auf dem Smartphone, um jede Information sekundenschnell abzurufen.",
+            "ar": "قديماً كان المرء مضطراً لتصفح مجلدات الموسوعات الضخمة، أما اليوم فيكفي ضغطة زر على الهاتف لجلب أي معلومة في أجزاء من الثانية.",
+            "tokens": [
+              {
+                "w": "Früher",
+                "ar": "قديماً",
+                "base": "früher",
+                "pos": "Adv"
+              },
+              {
+                "w": "musste",
+                "ar": "كان يجب",
+                "base": "müssen",
+                "pos": "V"
+              },
+              {
+                "w": "man",
+                "ar": "المرء / الإنسان",
+                "base": "man",
+                "pos": "Pron"
+              },
+              {
+                "w": "dicke",
+                "ar": "سميكة / ضخمة",
+                "base": "dick",
+                "pos": "Adj"
+              },
+              {
+                "w": "Lexika",
+                "ar": "موسوعات ومعاجم",
+                "base": "das Lexikon, Lexika",
+                "pos": "N"
+              },
+              {
+                "w": "wälzen",
+                "ar": "يقلب ويبحث في",
+                "base": "wälzen",
+                "pos": "V"
+              },
+              {
+                "w": "heute",
+                "ar": "اليوم",
+                "base": "heute",
+                "pos": "Adv"
+              },
+              {
+                "w": "genügt",
+                "ar": "يكفي",
+                "base": "genügen",
+                "pos": "V"
+              },
+              {
+                "w": "ein",
+                "ar": "أداة نكرة",
+                "base": "ein",
+                "pos": "Art"
+              },
+              {
+                "w": "Klick",
+                "ar": "نقرة زر",
+                "base": "der Klick",
+                "pos": "N"
+              },
+              {
+                "w": "auf",
+                "ar": "على",
+                "base": "auf",
+                "pos": "Präp"
+              },
+              {
+                "w": "dem",
+                "ar": "الـ",
+                "base": "das",
+                "pos": "Art"
+              },
+              {
+                "w": "Smartphone",
+                "ar": "الهاتف الذكي",
+                "base": "das Smartphone, -s",
+                "pos": "N"
+              },
+              {
+                "w": "um",
+                "ar": "لـ (um... zu)",
+                "base": "um",
+                "pos": "Konj"
+              },
+              {
+                "w": "jede",
+                "ar": "كل",
+                "base": "jeder",
+                "pos": "Adj"
+              },
+              {
+                "w": "Information",
+                "ar": "معلومة",
+                "base": "die Information, -en",
+                "pos": "N"
+              },
+              {
+                "w": "sekundenschnell",
+                "ar": "في ثوانٍ معدودة",
+                "base": "sekundenschnell",
+                "pos": "Adv"
+              },
+              {
+                "w": "abzurufen",
+                "ar": "يستدعي / يسترجع",
+                "base": "abrufen",
+                "pos": "V"
+              }
+            ]
+          },
+          {
+            "id": "t5-s2",
+            "de": "Brauchen wir also überhaupt noch echtes Allgemeinwissen im Kopf?",
+            "ar": "هل نحن بحاجة حقاً إلى ثقافة عامة حقيقية مخزنة في عقولنا؟",
+            "tokens": [
+              {
+                "w": "Brauchen",
+                "ar": "نحتاج",
+                "base": "brauchen",
+                "pos": "V"
+              },
+              {
+                "w": "wir",
+                "ar": "نحن",
+                "base": "wir",
+                "pos": "Pron"
+              },
+              {
+                "w": "also",
+                "ar": "إذاً",
+                "base": "also",
+                "pos": "Adv"
+              },
+              {
+                "w": "überhaupt",
+                "ar": "على الإطلاق",
+                "base": "überhaupt",
+                "pos": "Adv"
+              },
+              {
+                "w": "noch",
+                "ar": "بعد / ما زال",
+                "base": "noch",
+                "pos": "Adv"
+              },
+              {
+                "w": "echtes",
+                "ar": "حقيقي",
+                "base": "echt",
+                "pos": "Adj"
+              },
+              {
+                "w": "Allgemeinwissen",
+                "ar": "ثقافة عامة",
+                "base": "das Allgemeinwissen",
+                "pos": "N"
+              },
+              {
+                "w": "im",
+                "ar": "في",
+                "base": "in + dem",
+                "pos": "Präp"
+              },
+              {
+                "w": "Kopf",
+                "ar": "الرأس / العقل",
+                "base": "der Kopf, -ö-e",
+                "pos": "N"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "paragraphIndex": 2,
+        "sentences": [
+          {
+            "id": "t5-s3",
+            "de": "Bildungsforscher betonen: Ja! Denn wer nichts weiß, kann Suchergebnisse im Internet nicht kritisch einordnen oder Fakten von Fake News unterscheiden.",
+            "ar": "يؤكد خبراء التعليم: نعم! لأن من لا يملك معرفة أساسية لن يتمكن من تقييم نتائج البحث نقدياً أو تمييز الحقائق عن الأخبار الزائفة.",
+            "tokens": [
+              {
+                "w": "Bildungsforscher",
+                "ar": "باحثو التعليم",
+                "base": "der Bildungsforscher",
+                "pos": "N"
+              },
+              {
+                "w": "betonen",
+                "ar": "يؤكدون",
+                "base": "betonen",
+                "pos": "V"
+              },
+              {
+                "w": "Ja",
+                "ar": "نعم",
+                "base": "ja",
+                "pos": "Partikel"
+              },
+              {
+                "w": "Denn",
+                "ar": "لأن (رابط موقع صفر)",
+                "base": "denn",
+                "pos": "Konj"
+              },
+              {
+                "w": "wer",
+                "ar": "من (اسم شرط)",
+                "base": "wer",
+                "pos": "Pron"
+              },
+              {
+                "w": "nichts",
+                "ar": "لا شيء",
+                "base": "nichts",
+                "pos": "Pron"
+              },
+              {
+                "w": "weiß",
+                "ar": "يعلم / يعرف",
+                "base": "wissen",
+                "pos": "V"
+              },
+              {
+                "w": "kann",
+                "ar": "يستطيع",
+                "base": "können",
+                "pos": "V"
+              },
+              {
+                "w": "Suchergebnisse",
+                "ar": "نتائج البحث",
+                "base": "das Suchergebnis, -se",
+                "pos": "N"
+              },
+              {
+                "w": "im",
+                "ar": "في",
+                "base": "in + dem",
+                "pos": "Präp"
+              },
+              {
+                "w": "Internet",
+                "ar": "الإنترنت",
+                "base": "das Internet",
+                "pos": "N"
+              },
+              {
+                "w": "nicht",
+                "ar": "لا",
+                "base": "nicht",
+                "pos": "Partikel"
+              },
+              {
+                "w": "kritisch",
+                "ar": "بشكل نقدي",
+                "base": "kritisch",
+                "pos": "Adj"
+              },
+              {
+                "w": "einordnen",
+                "ar": "يصنف / يُقَيِّم",
+                "base": "einordnen",
+                "pos": "V"
+              },
+              {
+                "w": "oder",
+                "ar": "أو",
+                "base": "oder",
+                "pos": "Konj"
+              },
+              {
+                "w": "Fakten",
+                "ar": "الحقائق",
+                "base": "die Fakt, -en",
+                "pos": "N"
+              },
+              {
+                "w": "von",
+                "ar": "عن",
+                "base": "von",
+                "pos": "Präp"
+              },
+              {
+                "w": "Fake",
+                "ar": "المزيف",
+                "base": "fake",
+                "pos": "Adj"
+              },
+              {
+                "w": "News",
+                "ar": "الأخبار",
+                "base": "News",
+                "pos": "N"
+              },
+              {
+                "w": "unterscheiden",
+                "ar": "يميز",
+                "base": "unterscheiden",
+                "pos": "V"
+              }
+            ]
+          },
+          {
+            "id": "t5-s4",
+            "de": "Unser Gehirn benötigt ein Fundament aus verknüpften Grundlagen, um Zusammenhänge zu verstehen und neues Wissen dauerhaft zu behalten.",
+            "ar": "عقلنا يحتاج إلى قاعدة صلبة من المعارف المترابطة كي يفهم السياقات ويحتفظ بالمعلومات الجديدة بشكل دائم.",
+            "tokens": [
+              {
+                "w": "Unser",
+                "ar": "عقلنا",
+                "base": "unser",
+                "pos": "Poss"
+              },
+              {
+                "w": "Gehirn",
+                "ar": "المخ / الدماغ",
+                "base": "das Gehirn, -e",
+                "pos": "N"
+              },
+              {
+                "w": "benötigt",
+                "ar": "يحتاج إلى",
+                "base": "benötigen",
+                "pos": "V"
+              },
+              {
+                "w": "ein",
+                "ar": "أداة نكرة",
+                "base": "ein",
+                "pos": "Art"
+              },
+              {
+                "w": "Fundament",
+                "ar": "أساس / قاعدة",
+                "base": "das Fundament, -e",
+                "pos": "N"
+              },
+              {
+                "w": "aus",
+                "ar": "من",
+                "base": "aus",
+                "pos": "Präp"
+              },
+              {
+                "w": "verknüpften",
+                "ar": "مترابطة",
+                "base": "verknüpft",
+                "pos": "Adj"
+              },
+              {
+                "w": "Grundlagen",
+                "ar": "أساسيات",
+                "base": "die Grundlage, -n",
+                "pos": "N"
+              },
+              {
+                "w": "um",
+                "ar": "لكي (um... zu)",
+                "base": "um",
+                "pos": "Konj"
+              },
+              {
+                "w": "Zusammenhänge",
+                "ar": "العلاقات والسياقات",
+                "base": "der Zusammenhang, -ä-e",
+                "pos": "N"
+              },
+              {
+                "w": "zu",
+                "ar": "أن",
+                "base": "zu",
+                "pos": "Partikel"
+              },
+              {
+                "w": "verstehen",
+                "ar": "يفهم",
+                "base": "verstehen",
+                "pos": "V"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "neues",
+                "ar": "جديدة",
+                "base": "neu",
+                "pos": "Adj"
+              },
+              {
+                "w": "Wissen",
+                "ar": "معرفة",
+                "base": "das Wissen",
+                "pos": "N"
+              },
+              {
+                "w": "dauerhaft",
+                "ar": "بشكل دائم",
+                "base": "dauerhaft",
+                "pos": "Adj"
+              },
+              {
+                "w": "zu",
+                "ar": "أن",
+                "base": "zu",
+                "pos": "Partikel"
+              },
+              {
+                "w": "behalten",
+                "ar": "يحفظ / يبقي في الذاكرة",
+                "base": "behalten",
+                "pos": "V"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "keyVocab": [
+      {
+        "de": "das Allgemeinwissen",
+        "ar": "الثقافة العامة والمعلومات الأساسية",
+        "example": "Ein breites Allgemeinwissen erleichtert das Verstehen von Nachrichten."
+      },
+      {
+        "de": "sekundenschnell abrufen",
+        "ar": "يسترجع أو يحصل على المعلومة في ثوانٍ معدودة",
+        "example": "Mit Google kann man Fakten sekundenschnell abrufen."
+      },
+      {
+        "de": "kritisch einordnen",
+        "ar": "يحلل ويصنف نقدياً ليميّز الصواب من الخطأ",
+        "example": "Informationen aus dem Internet muss man immer kritisch einordnen."
+      },
+      {
+        "de": "Fakten von Fake News unterscheiden",
+        "ar": "التمييز بين الحقائق والأخبار المضللة",
+        "example": "Schüler sollten lernen, Fakten von Fake News zu unterscheiden."
+      },
+      {
+        "de": "das Fundament, -e",
+        "ar": "الأساس المتين الذي يُبنى عليه التعلم",
+        "example": "Grammatik ist das Fundament einer jeden Fremdsprache."
+      }
+    ],
+    "exercises": [
+      {
+        "id": "t5-ex1",
+        "type": "mc",
+        "title": {
+          "de": "1. Leseverstehen: Bedeutung von Allgemeinwissen",
+          "ar": "1. فهم المقروء: أهمية الثقافة العامة"
+        },
+        "question": {
+          "de": "Warum reicht es laut Experten nicht aus, Fakten nur zu googeln?",
+          "ar": "لماذا لا يكفي البحث في جوجل فقط وفقاً للخبراء؟"
+        },
+        "options": [
+          {
+            "de": "Weil Google bald geschlossen wird.",
+            "ar": "لأن جوجل سيغلق قريباً."
+          },
+          {
+            "de": "Weil man ohne Vorwissen nicht beurteilen kann, ob eine Information richtig oder falsch ist.",
+            "ar": "لأنه بدون معرفة مسبقة لا يستطيع المرء الحكم على صحة المعلومات من خطئها."
+          },
+          {
+            "de": "Weil Smartphones schädlich für die Augen sind.",
+            "ar": "لأن الهواتف تضر بالبصر."
+          }
+        ],
+        "correct": 1,
+        "explanation": {
+          "ar": "المعرفة السابقة تمكن العقل من الربط والتحليل النقدي للتفريق بين الحقائق والأكاذيب."
+        }
+      },
+      {
+        "id": "t5-ex2",
+        "type": "grammar",
+        "title": {
+          "de": "2. Grammatik: Infinitiv mit »zu«",
+          "ar": "2. القواعد: المصدر مع zu"
+        },
+        "instruction": {
+          "de": "Ergänzen Sie den Infinitiv mit »zu«.",
+          "ar": "أكمل جملة المصدر باستخدام zu."
+        },
+        "sentence": "Es ist wichtig, Informationen kritisch ___ (prüfen).",
+        "options": [
+          "prüfen",
+          "zu prüfen",
+          "geprüft",
+          "prüfend"
+        ],
+        "correct": 1,
+        "explanation": {
+          "ar": "التركيب «Es ist wichtig, ... zu + Infinitiv» يتطلب وضع zu قبل المصدر في نهاية الجملة."
+        }
+      }
+    ]
+  },
+  {
+    "id": "text-06",
+    "bookPage": 30,
+    "lektion": 2,
+    "title": {
+      "de": "Übung macht den Meister? Talent vs. Fleiß",
+      "ar": "التدريب يصنع الأستاذ؟ الموهبة الفطرية في مواجهة الاجتهاد والممارسة"
+    },
+    "subtitle": {
+      "de": "Lektion 2, Modul 3: Talent oder Übung? (Kontext B1+, Seiten 30–31)",
+      "ar": "الوحدة 2، موديول 3: موهبة أم تدريب مستمر؟ (كتاب كونتكست B1+، الصفحتان 30 و31)"
+    },
+    "level": "B1+",
+    "topic": {
+      "de": "Lernen, Begabung & die 10.000-Stunden-Regel",
+      "ar": "التعلم، الموهبة وقاعدة الـ 10,000 ساعة"
+    },
+    "themeEmoji": "🎻",
+    "readingTimeMin": 4,
+    "images": [
+      {
+        "src": "assets/images/lesetexte/text-06-img-1.jpeg",
+        "caption": "العزف على الكمان: ساعات طويلة من التدريب اليومي الشاق"
+      },
+      {
+        "src": "assets/images/lesetexte/text-06-img-2.jpeg",
+        "caption": "البرمجة وتطوير المهارات الرقمية بالممارسة المستمرة"
+      }
+    ],
+    "paragraphs": [
+      {
+        "paragraphIndex": 1,
+        "sentences": [
+          {
+            "id": "t6-s1",
+            "de": "Wird man als Genie geboren oder wird man erst durch jahrelanges Training zum Meister seines Fachs?",
+            "ar": "هل يولد الإنسان عبقرياً بالفطرة أم أن التدريب لسنوات طويلة هو ما يجعله أستاذاً في مجاله؟",
+            "tokens": [
+              {
+                "w": "Wird",
+                "ar": "هل يُصبح (مبني للمجهول)",
+                "base": "werden",
+                "pos": "V"
+              },
+              {
+                "w": "man",
+                "ar": "المرء",
+                "base": "man",
+                "pos": "Pron"
+              },
+              {
+                "w": "als",
+                "ar": "كـ",
+                "base": "als",
+                "pos": "Konj"
+              },
+              {
+                "w": "Genie",
+                "ar": "عبقري",
+                "base": "das Genie, -s",
+                "pos": "N"
+              },
+              {
+                "w": "geboren",
+                "ar": "مولوداً",
+                "base": "gebären",
+                "pos": "V"
+              },
+              {
+                "w": "oder",
+                "ar": "أم / أو",
+                "base": "oder",
+                "pos": "Konj"
+              },
+              {
+                "w": "wird",
+                "ar": "يصبح",
+                "base": "werden",
+                "pos": "V"
+              },
+              {
+                "w": "man",
+                "ar": "المرء",
+                "base": "man",
+                "pos": "Pron"
+              },
+              {
+                "w": "erst",
+                "ar": "فقط / لا يصبح إلا",
+                "base": "erst",
+                "pos": "Adv"
+              },
+              {
+                "w": "durch",
+                "ar": "من خلال / عبر",
+                "base": "durch",
+                "pos": "Präp"
+              },
+              {
+                "w": "jahrelanges",
+                "ar": "لسنوات طويلة",
+                "base": "jahrelang",
+                "pos": "Adj"
+              },
+              {
+                "w": "Training",
+                "ar": "التدريب والمران",
+                "base": "das Training",
+                "pos": "N"
+              },
+              {
+                "w": "zum",
+                "ar": "إلى (zu + dem)",
+                "base": "zu",
+                "pos": "Präp"
+              },
+              {
+                "w": "Meister",
+                "ar": "أستاذ / بارع",
+                "base": "der Meister, -",
+                "pos": "N"
+              },
+              {
+                "w": "seines",
+                "ar": "مجاله",
+                "base": "sein",
+                "pos": "Poss"
+              },
+              {
+                "w": "Fachs",
+                "ar": "التخصص / الحقل",
+                "base": "das Fach, -ä-er",
+                "pos": "N"
+              }
+            ]
+          },
+          {
+            "id": "t6-s2",
+            "de": "In einem beliebten Online-Forum diskutieren drei Experten und Lernende leidenschaftlich über diese Frage.",
+            "ar": "في منتدى إلكتروني شهير، يناقش ثلاثة خبراء ومتعلمين هذا السؤال بحماس وشغف.",
+            "tokens": [
+              {
+                "w": "In",
+                "ar": "في",
+                "base": "in",
+                "pos": "Präp"
+              },
+              {
+                "w": "einem",
+                "ar": "أداة نكرة مجرور",
+                "base": "ein",
+                "pos": "Art"
+              },
+              {
+                "w": "beliebten",
+                "ar": "محبوب / شهير",
+                "base": "beliebt",
+                "pos": "Adj"
+              },
+              {
+                "w": "Online-Forum",
+                "ar": "منتدى إلكتروني",
+                "base": "das Online-Forum",
+                "pos": "N"
+              },
+              {
+                "w": "diskutieren",
+                "ar": "يناقشون",
+                "base": "diskutieren",
+                "pos": "V"
+              },
+              {
+                "w": "drei",
+                "ar": "ثلاثة",
+                "base": "drei",
+                "pos": "Num"
+              },
+              {
+                "w": "Experten",
+                "ar": "خبراء",
+                "base": "der Experte, -n",
+                "pos": "N"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "Lernende",
+                "ar": "متعلمون",
+                "base": "der/die Lernende",
+                "pos": "N"
+              },
+              {
+                "w": "leidenschaftlich",
+                "ar": "بشغف وحماس",
+                "base": "leidenschaftlich",
+                "pos": "Adj"
+              },
+              {
+                "w": "über",
+                "ar": "حول / عن",
+                "base": "über",
+                "pos": "Präp"
+              },
+              {
+                "w": "diese",
+                "ar": "هذا",
+                "base": "dieser",
+                "pos": "Dem"
+              },
+              {
+                "w": "Frage",
+                "ar": "السؤال / القضية",
+                "base": "die Frage, -n",
+                "pos": "N"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "paragraphIndex": 2,
+        "sentences": [
+          {
+            "id": "t6-s3",
+            "de": "Konzertgeigerin Sarah meint: „Ohne eine gewisse Begabung geht es zwar nicht, aber 90 Prozent des Erfolgs sind Schweiß und eiserne Disziplin.“",
+            "ar": "تقول عازفة الكمان سارة: «بدون موهبة معينة لا يمكن النجاح، غير أن 90 بالمائة من النجاح عرق وانضباط حديدي».",
+            "tokens": [
+              {
+                "w": "Konzertgeigerin",
+                "ar": "عازفة كمان حفلات",
+                "base": "die Konzertgeigerin",
+                "pos": "N"
+              },
+              {
+                "w": "Sarah",
+                "ar": "سارة",
+                "base": "Sarah",
+                "pos": "N"
+              },
+              {
+                "w": "meint",
+                "ar": "تعتقد / ترى",
+                "base": "meinen",
+                "pos": "V"
+              },
+              {
+                "w": "Ohne",
+                "ar": "بدون",
+                "base": "ohne",
+                "pos": "Präp"
+              },
+              {
+                "w": "eine",
+                "ar": "أداة نكرة",
+                "base": "ein",
+                "pos": "Art"
+              },
+              {
+                "w": "gewisse",
+                "ar": "معينة / محددة",
+                "base": "gewiss",
+                "pos": "Adj"
+              },
+              {
+                "w": "Begabung",
+                "ar": "موهبة فطرية",
+                "base": "die Begabung, -en",
+                "pos": "N"
+              },
+              {
+                "w": "geht",
+                "ar": "يسير / ينجح",
+                "base": "gehen",
+                "pos": "V"
+              },
+              {
+                "w": "es",
+                "ar": "الأمر",
+                "base": "es",
+                "pos": "Pron"
+              },
+              {
+                "w": "zwar",
+                "ar": "صحيح أن / وإن كان",
+                "base": "zwar",
+                "pos": "Adv"
+              },
+              {
+                "w": "nicht",
+                "ar": "لا",
+                "base": "nicht",
+                "pos": "Partikel"
+              },
+              {
+                "w": "aber",
+                "ar": "لكن",
+                "base": "aber",
+                "pos": "Konj"
+              },
+              {
+                "w": "90",
+                "ar": "تسعون",
+                "base": "neunzig",
+                "pos": "Num"
+              },
+              {
+                "w": "Prozent",
+                "ar": "بالمائة",
+                "base": "das Prozent",
+                "pos": "N"
+              },
+              {
+                "w": "des",
+                "ar": "الـ (مضاف إليه)",
+                "base": "der",
+                "pos": "Art"
+              },
+              {
+                "w": "Erfolgs",
+                "ar": "النجاح",
+                "base": "der Erfolg",
+                "pos": "N"
+              },
+              {
+                "w": "sind",
+                "ar": "تكون",
+                "base": "sein",
+                "pos": "V"
+              },
+              {
+                "w": "Schweiß",
+                "ar": "عرق / مجهود شاق",
+                "base": "der Schweiß",
+                "pos": "N"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "eiserne",
+                "ar": "حديدية / صارمة",
+                "base": "eisern",
+                "pos": "Adj"
+              },
+              {
+                "w": "Disziplin",
+                "ar": "الانضباط",
+                "base": "die Disziplin",
+                "pos": "N"
+              }
+            ]
+          },
+          {
+            "id": "t6-s4",
+            "de": "Wissenschaftliche Studien stützen ihre Ansicht: Nach der berühmten 10.000-Stunden-Regel benötigt fast jeder Mensch etwa zehn Jahre konzentriertes Üben, um absolute Spitzenleistungen zu erbringen.",
+            "ar": "وتدعم الدراسات العلمية رأيها: فوفقاً لقاعدة العشرة آلاف ساعة الشهيرة، يحتاج أي إنسان تقريباً لنحو عشر سنوات من التدريب المركز لتحقيق إنجازات استثنائية وبلوغ القمة.",
+            "tokens": [
+              {
+                "w": "Wissenschaftliche",
+                "ar": "العلمية",
+                "base": "wissenschaftlich",
+                "pos": "Adj"
+              },
+              {
+                "w": "Studien",
+                "ar": "الدراسات",
+                "base": "die Studie, -n",
+                "pos": "N"
+              },
+              {
+                "w": "stützen",
+                "ar": "تدعم / تساند",
+                "base": "stützen",
+                "pos": "V"
+              },
+              {
+                "w": "ihre",
+                "ar": "رأيها",
+                "base": "ihr",
+                "pos": "Poss"
+              },
+              {
+                "w": "Ansicht",
+                "ar": "وجهة النظر",
+                "base": "die Ansicht, -en",
+                "pos": "N"
+              },
+              {
+                "w": "Nach",
+                "ar": "وفقاً لـ",
+                "base": "nach",
+                "pos": "Präp"
+              },
+              {
+                "w": "der",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "berühmten",
+                "ar": "الشهيرة",
+                "base": "berühmt",
+                "pos": "Adj"
+              },
+              {
+                "w": "10.000-Stunden-Regel",
+                "ar": "قاعدة العشرة آلاف ساعة",
+                "base": "die 10.000-Stunden-Regel",
+                "pos": "N"
+              },
+              {
+                "w": "benötigt",
+                "ar": "يحتاج",
+                "base": "benötigen",
+                "pos": "V"
+              },
+              {
+                "w": "fast",
+                "ar": "تقريباً",
+                "base": "fast",
+                "pos": "Adv"
+              },
+              {
+                "w": "jeder",
+                "ar": "كل",
+                "base": "jeder",
+                "pos": "Adj"
+              },
+              {
+                "w": "Mensch",
+                "ar": "إنسان",
+                "base": "der Mensch, -en",
+                "pos": "N"
+              },
+              {
+                "w": "etwa",
+                "ar": "نحو / حوالي",
+                "base": "etwa",
+                "pos": "Adv"
+              },
+              {
+                "w": "zehn",
+                "ar": "عشر",
+                "base": "zehn",
+                "pos": "Num"
+              },
+              {
+                "w": "Jahre",
+                "ar": "سنوات",
+                "base": "das Jahr, -e",
+                "pos": "N"
+              },
+              {
+                "w": "konzentriertes",
+                "ar": "مركَّز",
+                "base": "konzentriert",
+                "pos": "Adj"
+              },
+              {
+                "w": "Üben",
+                "ar": "التدريب والممارسة",
+                "base": "das Üben",
+                "pos": "N"
+              },
+              {
+                "w": "um",
+                "ar": "لكي",
+                "base": "um",
+                "pos": "Konj"
+              },
+              {
+                "w": "absolute",
+                "ar": "مطلقة / لا مثيل لها",
+                "base": "absolut",
+                "pos": "Adj"
+              },
+              {
+                "w": "Spitzenleistungen",
+                "ar": "إنجازات القمة",
+                "base": "die Spitzenleistung, -en",
+                "pos": "N"
+              },
+              {
+                "w": "zu",
+                "ar": "أن",
+                "base": "zu",
+                "pos": "Partikel"
+              },
+              {
+                "w": "erbringen",
+                "ar": "يحقق / يقدم",
+                "base": "erbringen",
+                "pos": "V"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "keyVocab": [
+      {
+        "de": "die Begabung, -en (das Talent, -e)",
+        "ar": "الموهبة والقدرة الفطرية",
+        "example": "Er hat eine erstaunliche Begabung für Sprachen."
+      },
+      {
+        "de": "eiserne Disziplin",
+        "ar": "انضباط صارم وحازم",
+        "example": "Ohne eiserne Disziplin kann man kein Musikinstrument meistern."
+      },
+      {
+        "de": "die 10.000-Stunden-Regel",
+        "ar": "قاعدة الـ 10 آلاف ساعة لممارسة المهارة حتى الإتقان",
+        "example": "Laut Psychologen führt die 10.000-Stunden-Regel zur Meisterschaft."
+      },
+      {
+        "de": "Spitzenleistungen erbringen",
+        "ar": "يحقق إنجازات ومستويات استثنائية",
+        "example": "Spitzensportler müssen täglich hart trainieren, um Spitzenleistungen zu erbringen."
+      },
+      {
+        "de": "in der Lage sein (zu + Inf.)",
+        "ar": "يكون قادراً على / في وسعه",
+        "example": "Jeder Mensch ist in der Lage, Neues zu lernen."
+      }
+    ],
+    "exercises": [
+      {
+        "id": "t6-ex1",
+        "type": "mc",
+        "title": {
+          "de": "1. Leseverstehen: Talent vs. Übung",
+          "ar": "1. فهم المقروء: الموهبة مقابل التدريب"
+        },
+        "question": {
+          "de": "Was besagt die 10.000-Stunden-Regel im Text?",
+          "ar": "ما الذي تؤكده قاعدة الـ 10,000 ساعة المذكورة في النص؟"
+        },
+        "options": [
+          {
+            "de": "Dass Talent wichtiger ist als jede Anstrengung.",
+            "ar": "أن الموهبة أهم من أي جهد."
+          },
+          {
+            "de": "Dass man rund 10.000 Stunden konzentriertes Training braucht, um ein Meister seines Fachs zu werden.",
+            "ar": "أن المرء يحتاج نحو 10 آلاف ساعة تدريب مركز ليصبح أستاذاً في مجاله."
+          },
+          {
+            "de": "Dass man nach 10.000 Stunden keine Fehler mehr macht.",
+            "ar": "أنه بعد 10 آلاف ساعة لا يخطئ أبداً."
+          }
+        ],
+        "correct": 1,
+        "explanation": {
+          "ar": "توضح الفقرة الأخيرة أن الأبحاث تبين حاجة الإنسان لنحو 10 سنوات (10 آلاف ساعة) تدريب لتحقيق أعلى مستويات الإتقان."
+        }
+      }
+    ]
+  },
+  {
+    "id": "text-07",
+    "bookPage": 35,
+    "lektion": 2,
+    "title": {
+      "de": "Lernen ohne Grenzen – Auslandsaufenthalt & Mobilität",
+      "ar": "التعلم بلا حدود – الدراسة والمعايشة خارج الوطن"
+    },
+    "subtitle": {
+      "de": "Lektion 2, Magazin: Mobilität in Europa (Kontext B1+, Seite 35)",
+      "ar": "الوحدة 2، المجلة: التنقل والتبادل في أوروبا (كتاب كونتكست B1+، صفحة 35)"
+    },
+    "level": "B1+",
+    "topic": {
+      "de": "Auslandssemester, Erasmus & interkulturelles Lernen",
+      "ar": "الفصل الدراسي بالخارج، برنامج إيراسموس والتعلم بين الثقافات"
+    },
+    "themeEmoji": "🌍",
+    "readingTimeMin": 4,
+    "images": [
+      {
+        "src": "assets/images/lesetexte/text-07-img-1.jpeg",
+        "caption": "طلاب برنامج إيراسموس للتبادل الأكاديمي الدولي"
+      },
+      {
+        "src": "assets/images/lesetexte/text-07-img-2.jpeg",
+        "caption": "تكوين صداقات وتطوير مهارات العمل واللغة في بيئة دولية"
+      }
+    ],
+    "paragraphs": [
+      {
+        "paragraphIndex": 1,
+        "sentences": [
+          {
+            "id": "t7-s1",
+            "de": "Lernen bedeutet, neugierig zu sein, nach Antworten zu suchen und neue Perspektiven zu gewinnen.",
+            "ar": "التعلم يعني أن تكون فضولياً، وأن تبحث عن الإجابات، وأن تكتسب آفاقاً وزوايا نظر جديدة.",
+            "tokens": [
+              {
+                "w": "Lernen",
+                "ar": "التعلم",
+                "base": "das Lernen",
+                "pos": "N"
+              },
+              {
+                "w": "bedeutet",
+                "ar": "يعني / يدل على",
+                "base": "bedeuten",
+                "pos": "V"
+              },
+              {
+                "w": "neugierig",
+                "ar": "شغوفاً / فضولياً لمعرفة المزيد",
+                "base": "neugierig",
+                "pos": "Adj"
+              },
+              {
+                "w": "zu",
+                "ar": "أن",
+                "base": "zu",
+                "pos": "Partikel"
+              },
+              {
+                "w": "sein",
+                "ar": "يكون",
+                "base": "sein",
+                "pos": "V"
+              },
+              {
+                "w": "nach",
+                "ar": "عن",
+                "base": "nach",
+                "pos": "Präp"
+              },
+              {
+                "w": "Antworten",
+                "ar": "الإجابات",
+                "base": "die Antwort, -en",
+                "pos": "N"
+              },
+              {
+                "w": "zu",
+                "ar": "أن",
+                "base": "zu",
+                "pos": "Partikel"
+              },
+              {
+                "w": "suchen",
+                "ar": "يبحث",
+                "base": "suchen",
+                "pos": "V"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "neue",
+                "ar": "جديدة",
+                "base": "neu",
+                "pos": "Adj"
+              },
+              {
+                "w": "Perspektiven",
+                "ar": "رؤى وآفاق",
+                "base": "die Perspektive, -n",
+                "pos": "N"
+              },
+              {
+                "w": "zu",
+                "ar": "أن",
+                "base": "zu",
+                "pos": "Partikel"
+              },
+              {
+                "w": "gewinnen",
+                "ar": "يكتسب / يفوز بـ",
+                "base": "gewinnen",
+                "pos": "V"
+              }
+            ]
+          },
+          {
+            "id": "t7-s2",
+            "de": "Ein Auslandsaufenthalt – sei es durch das Erasmus-Programm, ein Praktikum oder ein Freiwilliges Soziales Jahr (FSJ) – öffnet jungen Menschen die Türen zur Welt.",
+            "ar": "إن قضاء فترة بالخارج – سواء عبر برنامج إيراسموس، أو تدريب عملي، أو سنة تطوعية اجتماعية – يفتح للشباب أبواب العالم على مصراعيها.",
+            "tokens": [
+              {
+                "w": "Ein",
+                "ar": "أداة نكرة",
+                "base": "ein",
+                "pos": "Art"
+              },
+              {
+                "w": "Auslandsaufenthalt",
+                "ar": "الإقامة / المعايشة بالخارج",
+                "base": "der Auslandsaufenthalt",
+                "pos": "N"
+              },
+              {
+                "w": "sei",
+                "ar": "سواء كان",
+                "base": "sein",
+                "pos": "V"
+              },
+              {
+                "w": "es",
+                "ar": "هو",
+                "base": "es",
+                "pos": "Pron"
+              },
+              {
+                "w": "durch",
+                "ar": "عبر / من خلال",
+                "base": "durch",
+                "pos": "Präp"
+              },
+              {
+                "w": "das",
+                "ar": "الـ",
+                "base": "das",
+                "pos": "Art"
+              },
+              {
+                "w": "Erasmus-Programm",
+                "ar": "برنامج إيراسموس الأوروبي",
+                "base": "das Erasmus-Programm",
+                "pos": "N"
+              },
+              {
+                "w": "ein",
+                "ar": "أداة نكرة",
+                "base": "ein",
+                "pos": "Art"
+              },
+              {
+                "w": "Praktikum",
+                "ar": "تدريب عملي",
+                "base": "das Praktikum",
+                "pos": "N"
+              },
+              {
+                "w": "oder",
+                "ar": "أو",
+                "base": "oder",
+                "pos": "Konj"
+              },
+              {
+                "w": "ein",
+                "ar": "أداة نكرة",
+                "base": "ein",
+                "pos": "Art"
+              },
+              {
+                "w": "Freiwilliges",
+                "ar": "تطوعية",
+                "base": "freiwillig",
+                "pos": "Adj"
+              },
+              {
+                "w": "Soziales",
+                "ar": "اجتماعية",
+                "base": "sozial",
+                "pos": "Adj"
+              },
+              {
+                "w": "Jahr",
+                "ar": "سنة (FSJ)",
+                "base": "das Jahr",
+                "pos": "N"
+              },
+              {
+                "w": "öffnet",
+                "ar": "يفتح",
+                "base": "öffnen",
+                "pos": "V"
+              },
+              {
+                "w": "jungen",
+                "ar": "للشباب",
+                "base": "jung",
+                "pos": "Adj"
+              },
+              {
+                "w": "Menschen",
+                "ar": "الناس",
+                "base": "der Mensch, -en",
+                "pos": "N"
+              },
+              {
+                "w": "die",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "Türen",
+                "ar": "الأبواب",
+                "base": "die Tür, -en",
+                "pos": "N"
+              },
+              {
+                "w": "zur",
+                "ar": "إلى (zu + der)",
+                "base": "zu",
+                "pos": "Präp"
+              },
+              {
+                "w": "Welt",
+                "ar": "العالم",
+                "base": "die Welt",
+                "pos": "N"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "paragraphIndex": 2,
+        "sentences": [
+          {
+            "id": "t7-s3",
+            "de": "Man lernt nicht nur eine Fremdsprache im echten Alltag fließend sprechen, sondern gewinnt vor allem wertvolle Selbstständigkeit und interkulturelle Kompetenz.",
+            "ar": "لا يتعلم المرء التحدث بلغة أجنبية بطلاقة في خضم الحياة اليومية فحسب، بل يكتسب قبل كل شيء استقلالية ذاتية ثمينة وكفاءة تواصل بين الثقافات.",
+            "tokens": [
+              {
+                "w": "Man",
+                "ar": "المرء",
+                "base": "man",
+                "pos": "Pron"
+              },
+              {
+                "w": "lernt",
+                "ar": "يتعلم",
+                "base": "lernen",
+                "pos": "V"
+              },
+              {
+                "w": "nicht",
+                "ar": "ليس",
+                "base": "nicht",
+                "pos": "Partikel"
+              },
+              {
+                "w": "nur",
+                "ar": "فقط (nicht nur... sondern auch)",
+                "base": "nur",
+                "pos": "Adv"
+              },
+              {
+                "w": "eine",
+                "ar": "أداة نكرة",
+                "base": "ein",
+                "pos": "Art"
+              },
+              {
+                "w": "Fremdsprache",
+                "ar": "لغة أجنبية",
+                "base": "die Fremdsprache, -n",
+                "pos": "N"
+              },
+              {
+                "w": "im",
+                "ar": "في",
+                "base": "in + dem",
+                "pos": "Präp"
+              },
+              {
+                "w": "echten",
+                "ar": "الحقيقي",
+                "base": "echt",
+                "pos": "Adj"
+              },
+              {
+                "w": "Alltag",
+                "ar": "الحياة اليومية",
+                "base": "der Alltag",
+                "pos": "N"
+              },
+              {
+                "w": "fließend",
+                "ar": "بطلاقة وسلاسة",
+                "base": "fließend",
+                "pos": "Adj"
+              },
+              {
+                "w": "sprechen",
+                "ar": "يتحدث",
+                "base": "sprechen",
+                "pos": "V"
+              },
+              {
+                "w": "sondern",
+                "ar": "بل (بل أيضاً)",
+                "base": "sondern",
+                "pos": "Konj"
+              },
+              {
+                "w": "gewinnt",
+                "ar": "يكتسب",
+                "base": "gewinnen",
+                "pos": "V"
+              },
+              {
+                "w": "vor",
+                "ar": "قبل",
+                "base": "vor",
+                "pos": "Präp"
+              },
+              {
+                "w": "allem",
+                "ar": "كل شيء",
+                "base": "alles",
+                "pos": "Pron"
+              },
+              {
+                "w": "wertvolle",
+                "ar": "قيمة / ثمينة",
+                "base": "wertvoll",
+                "pos": "Adj"
+              },
+              {
+                "w": "Selbstständigkeit",
+                "ar": "الاعتماد على النفس والاستقلال",
+                "base": "die Selbstständigkeit",
+                "pos": "N"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "interkulturelle",
+                "ar": "بين الثقافات",
+                "base": "interkulturell",
+                "pos": "Adj"
+              },
+              {
+                "w": "Kompetenz",
+                "ar": "الكفاءة والأهلية",
+                "base": "die Kompetenz",
+                "pos": "N"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "keyVocab": [
+      {
+        "de": "der Auslandsaufenthalt, -e",
+        "ar": "فترة الإقامة أو الدراسة بالخارج",
+        "example": "Ein Auslandsaufenthalt verbessert die Berufschancen enorm."
+      },
+      {
+        "de": "das Erasmus-Programm",
+        "ar": "برنامج التبادل الطلابي الأوروبي الشهير",
+        "example": "Über das Erasmus-Programm studierte sie ein Semester in Berlin."
+      },
+      {
+        "de": "die interkulturelle Kompetenz",
+        "ar": "كفاءة التفاهم والتعامل مع الثقافات المختلفة",
+        "example": "Interkulturelle Kompetenz ist in internationalen Teams unverzichtbar."
+      },
+      {
+        "de": "fließend sprechen",
+        "ar": "يتحدث بطلاقة ودون تعثر",
+        "example": "Nach einem Jahr in Deutschland sprach er fließend Deutsch."
+      },
+      {
+        "de": "das Freiwillige Soziale Jahr (FSJ)",
+        "ar": "سنة التطوع في المجال الاجتماعي والإنساني",
+        "example": "Viele Abiturienten machen ein Freiwilliges Soziales Jahr."
+      }
+    ],
+    "exercises": [
+      {
+        "id": "t7-ex1",
+        "type": "mc",
+        "title": {
+          "de": "1. Leseverstehen: Vorteile eines Auslandsaufenthalts",
+          "ar": "1. فهم المقروء: فوائد السفر والدراسة بالخارج"
+        },
+        "question": {
+          "de": "Was ist laut Text neben der Sprache der größte Gewinn eines Auslandsaufenthalts?",
+          "ar": "ما هو أكبر مكسب يحققه المرء من المعايشة بالخارج إلى جانب إتقان اللغة؟"
+        },
+        "options": [
+          {
+            "de": "Dass man viel Geld spart.",
+            "ar": "توفير الكثير من الأموال."
+          },
+          {
+            "de": "Wertvolle Selbstständigkeit und interkulturelle Kompetenz.",
+            "ar": "الاستقلالية والاعتماد على النفس وكفاءة التواصل الثقافي."
+          },
+          {
+            "de": "Dass man keine Prüfungen mehr schreiben muss.",
+            "ar": "عدم الحاجة لتقديم امتحانات بعد ذلك."
+          }
+        ],
+        "correct": 1,
+        "explanation": {
+          "ar": "تؤكد الفقرة الأخيرة أن تنمية الشخصية المستقلة والتفاهم الثقافي لا يقدران بثمن."
+        }
+      }
+    ]
+  },
+  {
+    "id": "text-08",
+    "bookPage": 40,
+    "lektion": 3,
+    "title": {
+      "de": "Schon immer auf Reisen – Die Geschichte des Reisens",
+      "ar": "السفر عبر العصور – تاريخ ترحال البشر وسياحتهم"
+    },
+    "subtitle": {
+      "de": "Lektion 3, Modul 1: Geschichte des Reisens (Kontext B1+, Seiten 40–41)",
+      "ar": "الوحدة 3، موديول 1: تاريخ السفر والتنقل (كتاب كونتكست B1+، الصفحتان 40 و41)"
+    },
+    "level": "B1+",
+    "topic": {
+      "de": "Reisen früher und heute, Pilger, Orient-Express & Tourismus",
+      "ar": "السفر بين الماضي والحاضر، الحج، قطار الشرق والسياحة"
+    },
+    "themeEmoji": "🚂",
+    "readingTimeMin": 5,
+    "images": [
+      {
+        "src": "assets/images/lesetexte/text-08-img-1.jpeg",
+        "caption": "ملصقات السفر التاريخية لقطار الشرق السريع (Orient-Express) وسياحة القرن العشرين"
+      }
+    ],
+    "paragraphs": [
+      {
+        "paragraphIndex": 1,
+        "sentences": [
+          {
+            "id": "t8-s1",
+            "de": "Schon immer waren Menschen unterwegs: Früher saß man in einer holprigen Kutsche oder ritt auf einem Pferd.",
+            "ar": "منذ فجر التاريخ كان البشر في ترحال مستمر: قديماً كان المرء يركب عربة خيل تهتز بقوة أو يمتطي صهوة جواد.",
+            "tokens": [
+              {
+                "w": "Schon",
+                "ar": "منذ",
+                "base": "schon",
+                "pos": "Adv"
+              },
+              {
+                "w": "immer",
+                "ar": "دائماً",
+                "base": "immer",
+                "pos": "Adv"
+              },
+              {
+                "w": "waren",
+                "ar": "كانوا",
+                "base": "sein",
+                "pos": "V"
+              },
+              {
+                "w": "Menschen",
+                "ar": "البشر",
+                "base": "der Mensch, -en",
+                "pos": "N"
+              },
+              {
+                "w": "unterwegs",
+                "ar": "على الطريق / في سفر",
+                "base": "unterwegs",
+                "pos": "Adv"
+              },
+              {
+                "w": "Früher",
+                "ar": "قديماً",
+                "base": "früher",
+                "pos": "Adv"
+              },
+              {
+                "w": "saß",
+                "ar": "جلس / ركب",
+                "base": "sitzen",
+                "pos": "V"
+              },
+              {
+                "w": "man",
+                "ar": "المرء",
+                "base": "man",
+                "pos": "Pron"
+              },
+              {
+                "w": "in",
+                "ar": "في",
+                "base": "in",
+                "pos": "Präp"
+              },
+              {
+                "w": "einer",
+                "ar": "أداة نكرة مجرور",
+                "base": "ein",
+                "pos": "Art"
+              },
+              {
+                "w": "holprigen",
+                "ar": "كثيرة المطبات والاهتزاز",
+                "base": "holprig",
+                "pos": "Adj"
+              },
+              {
+                "w": "Kutsche",
+                "ar": "عربة خيل / حنطور",
+                "base": "die Kutsche, -n",
+                "pos": "N"
+              },
+              {
+                "w": "oder",
+                "ar": "أو",
+                "base": "oder",
+                "pos": "Konj"
+              },
+              {
+                "w": "ritt",
+                "ar": "امتطى / ركب",
+                "base": "reiten",
+                "pos": "V"
+              },
+              {
+                "w": "auf",
+                "ar": "على",
+                "base": "auf",
+                "pos": "Präp"
+              },
+              {
+                "w": "einem",
+                "ar": "أداة نكرة",
+                "base": "ein",
+                "pos": "Art"
+              },
+              {
+                "w": "Pferd",
+                "ar": "حصان",
+                "base": "das Pferd, -e",
+                "pos": "N"
+              }
+            ]
+          },
+          {
+            "id": "t8-s2",
+            "de": "Im Mittelalter reiste man vor allem aus religiösen Gründen als Pilger oder als Händler, um Waren auf Märkten zu verkaufen.",
+            "ar": "في العصور الوسطى كان السفر يجري أساساً لدوافع دينية كالحج أو كرحلات تجار لبيع البضائع في الأسواق.",
+            "tokens": [
+              {
+                "w": "Im",
+                "ar": "في",
+                "base": "in + dem",
+                "pos": "Präp"
+              },
+              {
+                "w": "Mittelalter",
+                "ar": "العصور الوسطى",
+                "base": "das Mittelalter",
+                "pos": "N"
+              },
+              {
+                "w": "reiste",
+                "ar": "سافر",
+                "base": "reisen",
+                "pos": "V"
+              },
+              {
+                "w": "man",
+                "ar": "المرء",
+                "base": "man",
+                "pos": "Pron"
+              },
+              {
+                "w": "vor",
+                "ar": "قبل",
+                "base": "vor",
+                "pos": "Präp"
+              },
+              {
+                "w": "allem",
+                "ar": "كل شيء",
+                "base": "alles",
+                "pos": "Pron"
+              },
+              {
+                "w": "aus",
+                "ar": "من / بدافع",
+                "base": "aus",
+                "pos": "Präp"
+              },
+              {
+                "w": "religiösen",
+                "ar": "دينية",
+                "base": "religiös",
+                "pos": "Adj"
+              },
+              {
+                "w": "Gründen",
+                "ar": "أسباب / دوافع",
+                "base": "der Grund, -ü-e",
+                "pos": "N"
+              },
+              {
+                "w": "als",
+                "ar": "كـ",
+                "base": "als",
+                "pos": "Konj"
+              },
+              {
+                "w": "Pilger",
+                "ar": "حاج / زائر للمقدسات",
+                "base": "der Pilger, -",
+                "pos": "N"
+              },
+              {
+                "w": "oder",
+                "ar": "أو",
+                "base": "oder",
+                "pos": "Konj"
+              },
+              {
+                "w": "als",
+                "ar": "كـ",
+                "base": "als",
+                "pos": "Konj"
+              },
+              {
+                "w": "Händler",
+                "ar": "تاجر",
+                "base": "der Händler, -",
+                "pos": "N"
+              },
+              {
+                "w": "um",
+                "ar": "لأجل (um... zu)",
+                "base": "um",
+                "pos": "Konj"
+              },
+              {
+                "w": "Waren",
+                "ar": "بضائع وسلع",
+                "base": "die Ware, -n",
+                "pos": "N"
+              },
+              {
+                "w": "auf",
+                "ar": "في",
+                "base": "auf",
+                "pos": "Präp"
+              },
+              {
+                "w": "Märkten",
+                "ar": "الأسواق",
+                "base": "der Markt, -ä-e",
+                "pos": "N"
+              },
+              {
+                "w": "zu",
+                "ar": "أن",
+                "base": "zu",
+                "pos": "Partikel"
+              },
+              {
+                "w": "verkaufen",
+                "ar": "يبيع",
+                "base": "verkaufen",
+                "pos": "V"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "paragraphIndex": 2,
+        "sentences": [
+          {
+            "id": "t8-s3",
+            "de": "Im 19. Jahrhundert revolutionierte die Eisenbahn das Reisen: Legendäre Züge wie der Orient-Express verbanden Paris mit Konstantinopel in purem Luxus.",
+            "ar": "في القرن التاسع عشر أحدثت السكك الحديدية ثورة في السفر: قطارات أسطورية مثل «قطار الشرق السريع» ربطت باريس بالقسطنطينية في رفاهية مطلقة.",
+            "tokens": [
+              {
+                "w": "Im",
+                "ar": "في",
+                "base": "in + dem",
+                "pos": "Präp"
+              },
+              {
+                "w": "19.",
+                "ar": "التاسع عشر",
+                "base": "neunzehnte",
+                "pos": "Num"
+              },
+              {
+                "w": "Jahrhundert",
+                "ar": "قرن",
+                "base": "das Jahrhundert",
+                "pos": "N"
+              },
+              {
+                "w": "revolutionierte",
+                "ar": "أحدثت ثورة في",
+                "base": "revolutionieren",
+                "pos": "V"
+              },
+              {
+                "w": "die",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "Eisenbahn",
+                "ar": "القطار / السكة الحديدية",
+                "base": "die Eisenbahn",
+                "pos": "N"
+              },
+              {
+                "w": "das",
+                "ar": "الـ",
+                "base": "das",
+                "pos": "Art"
+              },
+              {
+                "w": "Reisen",
+                "ar": "السفر",
+                "base": "das Reisen",
+                "pos": "N"
+              },
+              {
+                "w": "Legendäre",
+                "ar": "أسطورية",
+                "base": "legendär",
+                "pos": "Adj"
+              },
+              {
+                "w": "Züge",
+                "ar": "قطارات",
+                "base": "der Zug, -ü-e",
+                "pos": "N"
+              },
+              {
+                "w": "wie",
+                "ar": "مثل",
+                "base": "wie",
+                "pos": "Konj"
+              },
+              {
+                "w": "der",
+                "ar": "الـ",
+                "base": "der",
+                "pos": "Art"
+              },
+              {
+                "w": "Orient-Express",
+                "ar": "قطار الشرق السريع",
+                "base": "der Orient-Express",
+                "pos": "N"
+              },
+              {
+                "w": "verbanden",
+                "ar": "ربطت بين",
+                "base": "verbinden",
+                "pos": "V"
+              },
+              {
+                "w": "Paris",
+                "ar": "باريس",
+                "base": "Paris",
+                "pos": "N"
+              },
+              {
+                "w": "mit",
+                "ar": "مع / بـ",
+                "base": "mit",
+                "pos": "Präp"
+              },
+              {
+                "w": "Konstantinopel",
+                "ar": "القسطنطينية (إسطنبول)",
+                "base": "Konstantinopel",
+                "pos": "N"
+              },
+              {
+                "w": "in",
+                "ar": "في",
+                "base": "in",
+                "pos": "Präp"
+              },
+              {
+                "w": "purem",
+                "ar": "خالص / مطلق",
+                "base": "pur",
+                "pos": "Adj"
+              },
+              {
+                "w": "Luxus",
+                "ar": "الترف والرفاهية",
+                "base": "der Luxus",
+                "pos": "N"
+              }
+            ]
+          },
+          {
+            "id": "t8-s4",
+            "de": "Erst ab den 1950er-Jahren, mit dem Wirtschaftswunder und bezahlbarem Urlaub, begann der moderne Massentourismus mit Urlaubsfahrten nach Italien oder an die Ostsee.",
+            "ar": "ومع حلول خمسينيات القرن العشرين، بفضل المعجزة الاقتصادية وتوفر الإجازات المدفوعة، بدأت السياحة الجماهيرية الحديثة بالرحلات إلى إيطاليا وبحر البلطيق.",
+            "tokens": [
+              {
+                "w": "Erst",
+                "ar": "فقط / بدءاً من",
+                "base": "erst",
+                "pos": "Adv"
+              },
+              {
+                "w": "ab",
+                "ar": "بدءاً من",
+                "base": "ab",
+                "pos": "Präp"
+              },
+              {
+                "w": "den",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "1950er-Jahren",
+                "ar": "الخمسينيات",
+                "base": "die 1950er-Jahre",
+                "pos": "N"
+              },
+              {
+                "w": "mit",
+                "ar": "مع",
+                "base": "mit",
+                "pos": "Präp"
+              },
+              {
+                "w": "dem",
+                "ar": "الـ",
+                "base": "das",
+                "pos": "Art"
+              },
+              {
+                "w": "Wirtschaftswunder",
+                "ar": "المعجزة الاقتصادية الألمانية",
+                "base": "das Wirtschaftswunder",
+                "pos": "N"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "bezahlbarem",
+                "ar": "مقدور على تكلفته / بأسعار مناسبة",
+                "base": "bezahlbar",
+                "pos": "Adj"
+              },
+              {
+                "w": "Urlaub",
+                "ar": "عطلة",
+                "base": "der Urlaub",
+                "pos": "N"
+              },
+              {
+                "w": "begann",
+                "ar": "بدأت",
+                "base": "beginnen",
+                "pos": "V"
+              },
+              {
+                "w": "der",
+                "ar": "الـ",
+                "base": "der",
+                "pos": "Art"
+              },
+              {
+                "w": "moderne",
+                "ar": "الحديثة",
+                "base": "modern",
+                "pos": "Adj"
+              },
+              {
+                "w": "Massentourismus",
+                "ar": "السياحة الجماهيرية العامة",
+                "base": "der Massentourismus",
+                "pos": "N"
+              },
+              {
+                "w": "mit",
+                "ar": "مع / عبر",
+                "base": "mit",
+                "pos": "Präp"
+              },
+              {
+                "w": "Urlaubsfahrten",
+                "ar": "رحلات الإجازات",
+                "base": "die Urlaubsfahrt, -en",
+                "pos": "N"
+              },
+              {
+                "w": "nach",
+                "ar": "إلى",
+                "base": "nach",
+                "pos": "Präp"
+              },
+              {
+                "w": "Italien",
+                "ar": "إيطاليا",
+                "base": "Italien",
+                "pos": "N"
+              },
+              {
+                "w": "oder",
+                "ar": "أو",
+                "base": "oder",
+                "pos": "Konj"
+              },
+              {
+                "w": "an",
+                "ar": "إلى شاطئ",
+                "base": "an",
+                "pos": "Präp"
+              },
+              {
+                "w": "die",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "Ostsee",
+                "ar": "بحر البلطيق",
+                "base": "die Ostsee",
+                "pos": "N"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "keyVocab": [
+      {
+        "de": "der Pilger, -",
+        "ar": "الحاج أو القاصد للأماكن المقدسة سيراً",
+        "example": "Im Mittelalter machten Pilger beschwerliche Reisen zu Fuß."
+      },
+      {
+        "de": "die Bildungsreise, -n (Grand Tour)",
+        "ar": "رحلة التعلم والتثقيف التي كان يقوم بها النبلاء",
+        "example": "Junge Adelige machten eine Bildungsreise nach Italien."
+      },
+      {
+        "de": "der Orient-Express",
+        "ar": "قطار الشرق السريع الشهير بفخامته وخدمته الراقية",
+        "example": "Der Orient-Express galt als König der Züge."
+      },
+      {
+        "de": "der Massentourismus",
+        "ar": "السياحة الجماهيرية بأعداد غفيرة",
+        "example": "Billigflüge machten den Massentourismus weltweit möglich."
+      },
+      {
+        "de": "das Wirtschaftswunder",
+        "ar": "المعجزة الاقتصادية الألمانية بعد الحرب العالمية الثانية",
+        "example": "Das deutsche Wirtschaftswunder ermöglichte Urlaubsreisen für jedermann."
+      }
+    ],
+    "exercises": [
+      {
+        "id": "t8-ex1",
+        "type": "mc",
+        "title": {
+          "de": "1. Geschichte des Reisens: Epochen",
+          "ar": "1. تاريخ السفر: المراحل الزمنية"
+        },
+        "question": {
+          "de": "Wann begann der Massentourismus für breite Bevölkerungsschichten?",
+          "ar": "متى بدأت السياحة الجماهيرية لمختلف فئات المجتمع؟"
+        },
+        "options": [
+          {
+            "de": "Bereits im Mittelalter.",
+            "ar": "منذ العصور الوسطى."
+          },
+          {
+            "de": "Ab den 1950er-Jahren mit dem Wirtschaftswunder.",
+            "ar": "بدءاً من خمسينيات القرن العشرين مع المعجزة الاقتصادية."
+          },
+          {
+            "de": "Erst im Jahr 2020.",
+            "ar": "فقط في عام 2020."
+          }
+        ],
+        "correct": 1,
+        "explanation": {
+          "ar": "المعجزة الاقتصادية في الخمسينيات منحت العائلات إجازات مدفوعة وسيارة خاصة للانطلاق إلى الشواطئ كإيطاليا."
+        }
+      }
+    ]
+  },
+  {
+    "id": "text-09",
+    "bookPage": 44,
+    "lektion": 3,
+    "title": {
+      "de": "Immer unterwegs – Ungewöhnliche Lebensweisen",
+      "ar": "في ترحال دائم – أنماط حياة غير تقليدية للمسافرين"
+    },
+    "subtitle": {
+      "de": "Lektion 3, Modul 3: Wohnen im Zug & Vanlife (Kontext B1+, Seiten 44–45)",
+      "ar": "الوحدة 3، موديول 3: السكن في القطار وعالم الفانلايف (كتاب كونتكست B1+، الصفحتان 44 و45)"
+    },
+    "level": "B1+",
+    "topic": {
+      "de": "BahnCard 100, Leben im Zug, Vanlife & Minimalismus",
+      "ar": "بطاقة القطار 100، العيش في القطار، الفانلايف وحياة الترحال"
+    },
+    "themeEmoji": "🎒",
+    "readingTimeMin": 4,
+    "images": [
+      {
+        "src": "assets/images/lesetexte/text-09-img-1.jpeg",
+        "caption": "العيش والدراسة داخل قطارات السكك الحديدية السريعة (ICE)"
+      },
+      {
+        "src": "assets/images/lesetexte/text-09-img-2.jpeg",
+        "caption": "حياة الترحال في شاحنة التخييم المجهزة (Vanlife)"
+      }
+    ],
+    "paragraphs": [
+      {
+        "paragraphIndex": 1,
+        "sentences": [
+          {
+            "id": "t9-s1",
+            "de": "Nach dem Abitur wollte Leonie unbedingt in München studieren, fand aber trotz intensiver Suche keine bezahlbare Wohnung.",
+            "ar": "بعد نيل شهادة الثانوية (Abitur)، رغبت ليوني بشدة في الدراسة بميونخ، لكنها لم تجد سكناً بسعر معقول رغم البحث المكثف.",
+            "tokens": [
+              {
+                "w": "Nach",
+                "ar": "بعد",
+                "base": "nach",
+                "pos": "Präp"
+              },
+              {
+                "w": "dem",
+                "ar": "الـ",
+                "base": "das",
+                "pos": "Art"
+              },
+              {
+                "w": "Abitur",
+                "ar": "الثانوية العامة الألمانية",
+                "base": "das Abitur",
+                "pos": "N"
+              },
+              {
+                "w": "wollte",
+                "ar": "أرادت",
+                "base": "wollen",
+                "pos": "V"
+              },
+              {
+                "w": "Leonie",
+                "ar": "ليوني (اسم)",
+                "base": "Leonie",
+                "pos": "N"
+              },
+              {
+                "w": "unbedingt",
+                "ar": "حتماً / بكل تأكيد",
+                "base": "unbedingt",
+                "pos": "Adv"
+              },
+              {
+                "w": "in",
+                "ar": "في",
+                "base": "in",
+                "pos": "Präp"
+              },
+              {
+                "w": "München",
+                "ar": "ميونخ",
+                "base": "München",
+                "pos": "N"
+              },
+              {
+                "w": "studieren",
+                "ar": "تدرس بالجامعة",
+                "base": "studieren",
+                "pos": "V"
+              },
+              {
+                "w": "fand",
+                "ar": "وجدت",
+                "base": "finden",
+                "pos": "V"
+              },
+              {
+                "w": "aber",
+                "ar": "لكن",
+                "base": "aber",
+                "pos": "Konj"
+              },
+              {
+                "w": "trotz",
+                "ar": "رغم (يجر مضاف إليه)",
+                "base": "trotz",
+                "pos": "Präp"
+              },
+              {
+                "w": "intensiver",
+                "ar": "مكثف / دؤوب",
+                "base": "intensiv",
+                "pos": "Adj"
+              },
+              {
+                "w": "Suche",
+                "ar": "البحث",
+                "base": "die Suche",
+                "pos": "N"
+              },
+              {
+                "w": "keine",
+                "ar": "لا / أي",
+                "base": "kein",
+                "pos": "Art"
+              },
+              {
+                "w": "bezahlbare",
+                "ar": "بمتناول اليد / مقدور على ثمنها",
+                "base": "bezahlbar",
+                "pos": "Adj"
+              },
+              {
+                "w": "Wohnung",
+                "ar": "شقة",
+                "base": "die Wohnung, -en",
+                "pos": "N"
+              }
+            ]
+          },
+          {
+            "id": "t9-s2",
+            "de": "Kurzerhand kaufte sie eine BahnCard 100 und beschloss, einfach im Zug zu leben und zu übernachten.",
+            "ar": "دون تردد اشترت بطاقة السفر السنوية (BahnCard 100) وقررت ببساطة العيش والمبيت في قطارات السكة الحديدية.",
+            "tokens": [
+              {
+                "w": "Kurzerhand",
+                "ar": "دون تردد / دون إبطاء",
+                "base": "kurzerhand",
+                "pos": "Adv"
+              },
+              {
+                "w": "kaufte",
+                "ar": "اشترت",
+                "base": "kaufen",
+                "pos": "V"
+              },
+              {
+                "w": "sie",
+                "ar": "هي",
+                "base": "sie",
+                "pos": "Pron"
+              },
+              {
+                "w": "eine",
+                "ar": "أداة نكرة",
+                "base": "ein",
+                "pos": "Art"
+              },
+              {
+                "w": "BahnCard",
+                "ar": "بطاقة القطار الألمانية",
+                "base": "die BahnCard",
+                "pos": "N"
+              },
+              {
+                "w": "100",
+                "ar": "100 (سفر مجاني شامل)",
+                "base": "hundert",
+                "pos": "Num"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "beschloss",
+                "ar": "قررت",
+                "base": "beschließen",
+                "pos": "V"
+              },
+              {
+                "w": "einfach",
+                "ar": "ببساطة",
+                "base": "einfach",
+                "pos": "Adv"
+              },
+              {
+                "w": "im",
+                "ar": "في",
+                "base": "in + dem",
+                "pos": "Präp"
+              },
+              {
+                "w": "Zug",
+                "ar": "القطار",
+                "base": "der Zug, -ü-e",
+                "pos": "N"
+              },
+              {
+                "w": "zu",
+                "ar": "أن",
+                "base": "zu",
+                "pos": "Partikel"
+              },
+              {
+                "w": "leben",
+                "ar": "تعيش",
+                "base": "leben",
+                "pos": "V"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "zu",
+                "ar": "أن",
+                "base": "zu",
+                "pos": "Partikel"
+              },
+              {
+                "w": "übernachten",
+                "ar": "تبيت / تقضي الليل",
+                "base": "übernachten",
+                "pos": "V"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "paragraphIndex": 2,
+        "sentences": [
+          {
+            "id": "t9-s3",
+            "de": "Sie lernt tagsüber an der Universität, arbeitet im ICE-Ruhebereich an ihren Hausarbeiten und schläft im Nachtzug.",
+            "ar": "تدرس نهاراً في قاعات الجامعة، وتكتب واجباتها وأبحاثها في مقصورة الهدوء بقطار السريع، وتنام ليلاً في قطار النوم.",
+            "tokens": [
+              {
+                "w": "Sie",
+                "ar": "هي",
+                "base": "sie",
+                "pos": "Pron"
+              },
+              {
+                "w": "lernt",
+                "ar": "تدرس",
+                "base": "lernen",
+                "pos": "V"
+              },
+              {
+                "w": "tagsüber",
+                "ar": "خلال ساعات النهار",
+                "base": "tagsüber",
+                "pos": "Adv"
+              },
+              {
+                "w": "an",
+                "ar": "في",
+                "base": "an",
+                "pos": "Präp"
+              },
+              {
+                "w": "der",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "Universität",
+                "ar": "الجامعة",
+                "base": "die Universität",
+                "pos": "N"
+              },
+              {
+                "w": "arbeitet",
+                "ar": "تعمل",
+                "base": "arbeiten",
+                "pos": "V"
+              },
+              {
+                "w": "im",
+                "ar": "في",
+                "base": "in + dem",
+                "pos": "Präp"
+              },
+              {
+                "w": "ICE-Ruhebereich",
+                "ar": "مقصورة الهدوء بقطار الـ ICE",
+                "base": "der ICE-Ruhebereich",
+                "pos": "N"
+              },
+              {
+                "w": "an",
+                "ar": "على / في",
+                "base": "an",
+                "pos": "Präp"
+              },
+              {
+                "w": "ihren",
+                "ar": "أبحاثها",
+                "base": "ihr",
+                "pos": "Poss"
+              },
+              {
+                "w": "Hausarbeiten",
+                "ar": "الأبحاث الجامعية المنزلية",
+                "base": "die Hausarbeit, -en",
+                "pos": "N"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "schläft",
+                "ar": "تنام",
+                "base": "schlafen",
+                "pos": "V"
+              },
+              {
+                "w": "im",
+                "ar": "في",
+                "base": "in + dem",
+                "pos": "Präp"
+              },
+              {
+                "w": "Nachtzug",
+                "ar": "قطار النوم الليلي",
+                "base": "der Nachtzug",
+                "pos": "N"
+              }
+            ]
+          },
+          {
+            "id": "t9-s4",
+            "de": "„Ich besitze nur noch einen Rucksack mit dem Nötigsten – diese Freiheit ist unbezahlbar“, berichtet sie begeistert.",
+            "ar": "وتقول بحماس: «أنا لا أمتلك الآن سوى حقيبة ظهر تحوي الأساسيات الضرورية فقط – وهذا الشعور بالحرية لا يقدر بثمن».",
+            "tokens": [
+              {
+                "w": "Ich",
+                "ar": "أنا",
+                "base": "ich",
+                "pos": "Pron"
+              },
+              {
+                "w": "besitze",
+                "ar": "أمتلك",
+                "base": "besitzen",
+                "pos": "V"
+              },
+              {
+                "w": "nur",
+                "ar": "فقط",
+                "base": "nur",
+                "pos": "Adv"
+              },
+              {
+                "w": "noch",
+                "ar": "بعد",
+                "base": "noch",
+                "pos": "Adv"
+              },
+              {
+                "w": "einen",
+                "ar": "أداة نكرة منصوب",
+                "base": "ein",
+                "pos": "Art"
+              },
+              {
+                "w": "Rucksack",
+                "ar": "حقيبة ظهر",
+                "base": "der Rucksack, -ä-e",
+                "pos": "N"
+              },
+              {
+                "w": "mit",
+                "ar": "مع / بـ",
+                "base": "mit",
+                "pos": "Präp"
+              },
+              {
+                "w": "dem",
+                "ar": "الـ",
+                "base": "das",
+                "pos": "Art"
+              },
+              {
+                "w": "Nötigsten",
+                "ar": "الأشياء الضرورية جداً",
+                "base": "das Nötigste",
+                "pos": "N"
+              },
+              {
+                "w": "diese",
+                "ar": "هذه",
+                "base": "dieser",
+                "pos": "Dem"
+              },
+              {
+                "w": "Freiheit",
+                "ar": "الحرية",
+                "base": "die Freiheit",
+                "pos": "N"
+              },
+              {
+                "w": "ist",
+                "ar": "تكون",
+                "base": "sein",
+                "pos": "V"
+              },
+              {
+                "w": "unbezahlbar",
+                "ar": "لا تقدر بمال",
+                "base": "unbezahlbar",
+                "pos": "Adj"
+              },
+              {
+                "w": "berichtet",
+                "ar": "تنقل / تروي",
+                "base": "berichten",
+                "pos": "V"
+              },
+              {
+                "w": "sie",
+                "ar": "هي",
+                "base": "sie",
+                "pos": "Pron"
+              },
+              {
+                "w": "begeistert",
+                "ar": "بحماس وإعجاب",
+                "base": "begeistert",
+                "pos": "Adj"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "keyVocab": [
+      {
+        "de": "die BahnCard 100",
+        "ar": "بطاقة اشتراك سنوية تتيح ركوب كافة قطارات ألمانيا مجاناً",
+        "example": "Mit der BahnCard 100 kann man unbegrenzt durch ganz Deutschland reisen."
+      },
+      {
+        "de": "aus dem Koffer leben",
+        "ar": "يعيش حياة الترحال وحقيبته لا تفارقه",
+        "example": "Weil sie ständig reist, lebt sie buchstäblich aus dem Koffer."
+      },
+      {
+        "de": "unbezahlbare Freiheit",
+        "ar": "حرية مطلقة لا تُقاس بالأموال",
+        "example": "Der Verzicht auf festen Besitz schenkt ihr unbezahlbare Freiheit."
+      },
+      {
+        "de": "der ICE-Ruhebereich",
+        "ar": "منطقة الصمت والهدوء المخصصة للقراءة في قطار ICE",
+        "example": "Im Ruhebereich der Bahn darf man nicht telefonieren."
+      },
+      {
+        "de": "das Nötigste",
+        "ar": "الحد الأدنى من الأساسيات الضرورية",
+        "example": "Auf Reisen packe ich nur das Nötigste ein."
+      }
+    ],
+    "exercises": [
+      {
+        "id": "t9-ex1",
+        "type": "mc",
+        "title": {
+          "de": "1. Leseverstehen: Das Leben im Zug",
+          "ar": "1. فهم المقروء: السكن في القطار"
+        },
+        "question": {
+          "de": "Warum entschied sich Leonie für das Leben im Zug mit einer BahnCard 100?",
+          "ar": "لماذا قررت ليوني العيش في القطار مستخدمة بطاقة القطار السنوية؟"
+        },
+        "options": [
+          {
+            "de": "Weil sie den Zugführerschein machen wollte.",
+            "ar": "لأنها أرادت الحصول على رخصة قيادة قطار."
+          },
+          {
+            "de": "Weil sie in München keinen bezahlbaren Wohnraum fand und flexibel sein wollte.",
+            "ar": "لأنها لم تجد سكناً مناسب السعر بميونخ وفضلت المرونة والتجربة الحرة."
+          },
+          {
+            "de": "Weil ihre Eltern ihr das Wohnen in der Stadt verboten hatten.",
+            "ar": "لأن والديها منعاها من السكن في المدينة."
+          }
+        ],
+        "correct": 1,
+        "explanation": {
+          "ar": "أزمة السكن والأسعار المرتفعة دفعتها لخوض تجربة الترحال الدائم عبر السكك الحديدية."
+        }
+      }
+    ]
+  },
+  {
+    "id": "text-10",
+    "bookPage": 58,
+    "lektion": 4,
+    "title": {
+      "de": "Wenn alle schlafen... – Nachtaktive Berufe",
+      "ar": "حين يخلد الجميع إلى النوم... – مهن الورديات الليلية"
+    },
+    "subtitle": {
+      "de": "Lektion 4, Modul 3: Nachtarbeit & Reportagen (Kontext B1+, Seiten 58–59)",
+      "ar": "الوحدة 4، موديول 3: العمل الليلي واستطلاعات المهن (كتاب كونتكست B1+، الصفحتان 58 و59)"
+    },
+    "level": "B1+",
+    "topic": {
+      "de": "Nachtschicht, Berufswelt, Bäcker & Notfallsanitäter",
+      "ar": "الورديات الليلية، عالم المهن، الخباز والمسعف"
+    },
+    "themeEmoji": "🌙",
+    "readingTimeMin": 4,
+    "images": [
+      {
+        "src": "assets/images/lesetexte/text-10-img-1.jpeg",
+        "caption": "هدوء الشوارع ليلاً والعمل في نوبات الطوارئ والمخابز"
+      }
+    ],
+    "paragraphs": [
+      {
+        "paragraphIndex": 1,
+        "sentences": [
+          {
+            "id": "t10-s1",
+            "de": "Während die Stadt in tiefem Schlaf versinkt, beginnt für Millionen Menschen in Deutschland die Arbeitszeit.",
+            "ar": "بينما تغط المدينة في نوم عميق، تبدأ ساعات العمل لملايين الناس في ألمانيا.",
+            "tokens": [
+              {
+                "w": "Während",
+                "ar": "بينما / في حين",
+                "base": "während",
+                "pos": "Konj"
+              },
+              {
+                "w": "die",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "Stadt",
+                "ar": "المدينة",
+                "base": "die Stadt",
+                "pos": "N"
+              },
+              {
+                "w": "in",
+                "ar": "في",
+                "base": "in",
+                "pos": "Präp"
+              },
+              {
+                "w": "tiefem",
+                "ar": "عميق",
+                "base": "tief",
+                "pos": "Adj"
+              },
+              {
+                "w": "Schlaf",
+                "ar": "النوم",
+                "base": "der Schlaf",
+                "pos": "N"
+              },
+              {
+                "w": "versinkt",
+                "ar": "تغرق / تغط في",
+                "base": "versinken",
+                "pos": "V"
+              },
+              {
+                "w": "beginnt",
+                "ar": "يبدأ",
+                "base": "beginnen",
+                "pos": "V"
+              },
+              {
+                "w": "für",
+                "ar": "لـ / بالنسبة لـ",
+                "base": "für",
+                "pos": "Präp"
+              },
+              {
+                "w": "Millionen",
+                "ar": "ملايين",
+                "base": "die Million, -en",
+                "pos": "N"
+              },
+              {
+                "w": "Menschen",
+                "ar": "الناس",
+                "base": "der Mensch, -en",
+                "pos": "N"
+              },
+              {
+                "w": "in",
+                "ar": "في",
+                "base": "in",
+                "pos": "Präp"
+              },
+              {
+                "w": "Deutschland",
+                "ar": "ألمانيا",
+                "base": "Deutschland",
+                "pos": "N"
+              },
+              {
+                "w": "die",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "Arbeitszeit",
+                "ar": "وقت العمل",
+                "base": "die Arbeitszeit",
+                "pos": "N"
+              }
+            ]
+          },
+          {
+            "id": "t10-s2",
+            "de": "Bäcker Markus steht um zwei Uhr nachts in der Backstube, damit frühmorgens frische Brötchen und knuspriges Brot in den Regalen duften.",
+            "ar": "يقف الخباز ماركوس في الثانية بعد منتصف الليل في مخبزه، لكي تفوح رائحة الخبز المقرمش الطازج على الرفوف صباحاً.",
+            "tokens": [
+              {
+                "w": "Bäcker",
+                "ar": "الخباز",
+                "base": "der Bäcker",
+                "pos": "N"
+              },
+              {
+                "w": "Markus",
+                "ar": "ماركوس (اسم)",
+                "base": "Markus",
+                "pos": "N"
+              },
+              {
+                "w": "steht",
+                "ar": "يقف",
+                "base": "stehen",
+                "pos": "V"
+              },
+              {
+                "w": "um",
+                "ar": "في تمام الساعة",
+                "base": "um",
+                "pos": "Präp"
+              },
+              {
+                "w": "zwei",
+                "ar": "اثنتين",
+                "base": "zwei",
+                "pos": "Num"
+              },
+              {
+                "w": "Uhr",
+                "ar": "الساعة",
+                "base": "die Uhr",
+                "pos": "N"
+              },
+              {
+                "w": "nachts",
+                "ar": "ليلاً",
+                "base": "nachts",
+                "pos": "Adv"
+              },
+              {
+                "w": "in",
+                "ar": "في",
+                "base": "in",
+                "pos": "Präp"
+              },
+              {
+                "w": "der",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "Backstube",
+                "ar": "مكان الخَبز / المشغل",
+                "base": "die Backstube",
+                "pos": "N"
+              },
+              {
+                "w": "damit",
+                "ar": "لكي (رابط جملة سببية)",
+                "base": "damit",
+                "pos": "Konj"
+              },
+              {
+                "w": "frühmorgens",
+                "ar": "في الصباح الباكر",
+                "base": "frühmorgens",
+                "pos": "Adv"
+              },
+              {
+                "w": "frische",
+                "ar": "طازجة",
+                "base": "frisch",
+                "pos": "Adj"
+              },
+              {
+                "w": "Brötchen",
+                "ar": "لفائف الخبز الصغيرة",
+                "base": "das Brötchen",
+                "pos": "N"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "knuspriges",
+                "ar": "مقرمش",
+                "base": "knusprig",
+                "pos": "Adj"
+              },
+              {
+                "w": "Brot",
+                "ar": "خبز",
+                "base": "das Brot",
+                "pos": "N"
+              },
+              {
+                "w": "in",
+                "ar": "في",
+                "base": "in",
+                "pos": "Präp"
+              },
+              {
+                "w": "den",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "Regalen",
+                "ar": "الرفوف",
+                "base": "das Regal, -e",
+                "pos": "N"
+              },
+              {
+                "w": "duften",
+                "ar": "تفوح برائحة زكية",
+                "base": "duften",
+                "pos": "V"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "paragraphIndex": 2,
+        "sentences": [
+          {
+            "id": "t10-s3",
+            "de": "Notfallsanitäterin Sarah rettet im Rettungswagen Menschenleben, wenn die Straßen leer und dunkel sind.",
+            "ar": "المسعفة سارة تنقذ حياة المصابين في سيارة الإسعاف حينما تكون الشوارع مظلمة وخالية.",
+            "tokens": [
+              {
+                "w": "Notfallsanitäterin",
+                "ar": "مسعفة الطوارئ",
+                "base": "die Notfallsanitäterin",
+                "pos": "N"
+              },
+              {
+                "w": "Sarah",
+                "ar": "سارة",
+                "base": "Sarah",
+                "pos": "N"
+              },
+              {
+                "w": "rettet",
+                "ar": "تنقذ",
+                "base": "retten",
+                "pos": "V"
+              },
+              {
+                "w": "im",
+                "ar": "في",
+                "base": "in + dem",
+                "pos": "Präp"
+              },
+              {
+                "w": "Rettungswagen",
+                "ar": "سيارة الإسعاف",
+                "base": "der Rettungswagen",
+                "pos": "N"
+              },
+              {
+                "w": "Menschenleben",
+                "ar": "أرواح البشر",
+                "base": "das Menschenleben",
+                "pos": "N"
+              },
+              {
+                "w": "wenn",
+                "ar": "حينما / عندما",
+                "base": "wenn",
+                "pos": "Konj"
+              },
+              {
+                "w": "die",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "Straßen",
+                "ar": "الشوارع",
+                "base": "die Straße, -n",
+                "pos": "N"
+              },
+              {
+                "w": "leer",
+                "ar": "فارغة وخالية",
+                "base": "leer",
+                "pos": "Adj"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "dunkel",
+                "ar": "مظلمة",
+                "base": "dunkel",
+                "pos": "Adj"
+              },
+              {
+                "w": "sind",
+                "ar": "تكون",
+                "base": "sein",
+                "pos": "V"
+              }
+            ]
+          },
+          {
+            "id": "t10-s4",
+            "de": "Nachtarbeit erfordert enorme Anpassung des Körpers, doch viele schätzen die nächtliche Stille und das konzentrierte Arbeiten ohne Alltagshektik.",
+            "ar": "يتطلب العمل الليلي تكيفاً بدنياً كبيراً، غير أن كثيرين يثمنون سكون الليل والعمل بتركيز تام بعيداً عن صخب وتدافع النهار.",
+            "tokens": [
+              {
+                "w": "Nachtarbeit",
+                "ar": "العمل الليلي",
+                "base": "die Nachtarbeit",
+                "pos": "N"
+              },
+              {
+                "w": "erfordert",
+                "ar": "يتطلب / يستلزم",
+                "base": "erfordern",
+                "pos": "V"
+              },
+              {
+                "w": "enorme",
+                "ar": "هائلة / كبيرة",
+                "base": "enorm",
+                "pos": "Adj"
+              },
+              {
+                "w": "Anpassung",
+                "ar": "التأقلم والتكيف",
+                "base": "die Anpassung",
+                "pos": "N"
+              },
+              {
+                "w": "des",
+                "ar": "الـ",
+                "base": "der",
+                "pos": "Art"
+              },
+              {
+                "w": "Körpers",
+                "ar": "الجسم",
+                "base": "der Körper",
+                "pos": "N"
+              },
+              {
+                "w": "doch",
+                "ar": "لكن / مع ذلك",
+                "base": "doch",
+                "pos": "Konj"
+              },
+              {
+                "w": "viele",
+                "ar": "الكثيرون",
+                "base": "viel",
+                "pos": "Pron"
+              },
+              {
+                "w": "schätzen",
+                "ar": "يقدّرون / يثمنون",
+                "base": "schätzen",
+                "pos": "V"
+              },
+              {
+                "w": "die",
+                "ar": "الـ",
+                "base": "die",
+                "pos": "Art"
+              },
+              {
+                "w": "nächtliche",
+                "ar": "الليلية",
+                "base": "nächtlich",
+                "pos": "Adj"
+              },
+              {
+                "w": "Stille",
+                "ar": "السكون والهدوء",
+                "base": "die Stille",
+                "pos": "N"
+              },
+              {
+                "w": "und",
+                "ar": "و",
+                "base": "und",
+                "pos": "Konj"
+              },
+              {
+                "w": "das",
+                "ar": "الـ",
+                "base": "das",
+                "pos": "Art"
+              },
+              {
+                "w": "konzentrierte",
+                "ar": "المركّز",
+                "base": "konzentriert",
+                "pos": "Adj"
+              },
+              {
+                "w": "Arbeiten",
+                "ar": "العمل",
+                "base": "das Arbeiten",
+                "pos": "N"
+              },
+              {
+                "w": "ohne",
+                "ar": "بدون",
+                "base": "ohne",
+                "pos": "Präp"
+              },
+              {
+                "w": "Alltagshektik",
+                "ar": "صخب وتوتر الحياة اليومية",
+                "base": "die Alltagshektik",
+                "pos": "N"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "keyVocab": [
+      {
+        "de": "die Nachtschicht, -en",
+        "ar": "الوردية أو النوبة الليلية في العمل",
+        "example": "In Krankenhäusern ist die Nachtschicht besonders fordernd."
+      },
+      {
+        "de": "die Alltagshektik",
+        "ar": "صخب وتدافع الحياة اليومية المزدحمة",
+        "example": "Nachts arbeitet man ruhiger ohne die Hektik des Tages."
+      },
+      {
+        "de": "der Notfallsanitäter, -",
+        "ar": "مسعف الطوارئ في سيارات الإسعاف",
+        "example": "Notfallsanitäter leisten Erste Hilfe bei Unfällen."
+      },
+      {
+        "de": "die Backstube, -n",
+        "ar": "مشغل الخبز المجهز بالأفران",
+        "example": "Der Bäcker beginnt seine Arbeit um zwei Uhr in der Backstube."
+      },
+      {
+        "de": "Menschenleben retten",
+        "ar": "إنقاذ حياة وأرواح الناس",
+        "example": "Ärzte und Sanitäter retten täglich Menschenleben."
+      }
+    ],
+    "exercises": [
+      {
+        "id": "t10-ex1",
+        "type": "mc",
+        "title": {
+          "de": "1. Leseverstehen: Nachtarbeit",
+          "ar": "1. فهم المقروء: العمل الليلي"
+        },
+        "question": {
+          "de": "Warum schätzen manche Menschen laut Text die Nachtarbeit trotz der Anstrengung?",
+          "ar": "لماذا يفضل بعض العاملين الورديات الليلية رغم مشقتها؟"
+        },
+        "options": [
+          {
+            "de": "Weil sie nachts mehr schlafen können.",
+            "ar": "لأنهم ينامون أكثر في الليل."
+          },
+          {
+            "de": "Wegen der nächtlichen Ruhe und des konzentrierten Arbeitens ohne die Hektik des Tages.",
+            "ar": "بسبب الهدوء والسكون التام والعمل بتركيز بعيداً عن صخب النهار وتدافعه."
+          },
+          {
+            "de": "Weil nachts keine Schichtleiter anwesend sind.",
+            "ar": "لغياب مشرفي العمل ليلاً."
+          }
+        ],
+        "correct": 1,
+        "explanation": {
+          "ar": "توضح الخاتمة أن هدوء الليل وغياب زحام النهار يمنحان العاملين تركيزاً وراحة خاصة."
+        }
+      }
+    ]
+  }
+];
