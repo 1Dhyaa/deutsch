@@ -445,12 +445,12 @@
       this.popoverEl.style.left = `${left}px`;
       
       // If close to viewport top, show below the word
-      if (top < 180) {
+      if (rect.top < 230) {
         this.popoverEl.classList.add('popover-below');
-        this.popoverEl.style.top = `${rect.bottom + window.scrollY}px`;
+        this.popoverEl.style.top = `${rect.bottom}px`;
       } else {
         this.popoverEl.classList.remove('popover-below');
-        this.popoverEl.style.top = `${rect.top + window.scrollY}px`;
+        this.popoverEl.style.top = `${rect.top}px`;
       }
 
       this.popoverEl.style.display = 'block';

@@ -1,8 +1,9 @@
 /**
- * Kontext B1+ Lesetexte (Full Complete Texts 1-10)
- * 100% Unabridged Textbook Reading with Word-by-Word Translation & Audio
+ * lesetexte.js — Full Unabridged Kontext B1+ Reading Database
  */
-window.LESETEXTE = [
+(function() {
+  'use strict';
+  window.LESETEXTE = [
   {
     "id": "text-01",
     "bookPage": "Lektion 1 • Kursbuch S. 12",
@@ -64,19 +65,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "kam",
-                "ar": "معنى: kam",
-                "base": "kam",
-                "pos": "Wort"
+                "ar": "أتى / جاءَ",
+                "base": "kommen",
+                "pos": "Verb"
               },
               {
                 "w": "letzte",
-                "ar": "فعل: letzte",
+                "ar": "آخر",
                 "base": "letzte",
                 "pos": "Verb"
               },
               {
                 "w": "Woche",
-                "ar": "اسم: Woche",
+                "ar": "أسبوع",
                 "base": "Woche",
                 "pos": "Nomen"
               },
@@ -94,8 +95,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Kollege",
-                "ar": "اسم: Kollege",
-                "base": "Kollege",
+                "ar": "زميل عمل",
+                "base": "der Kollege",
                 "pos": "Nomen"
               },
               {
@@ -106,9 +107,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "spät",
-                "ar": "فعل: spät",
+                "ar": "متأخراً / وقت متأخر",
                 "base": "spät",
-                "pos": "Verb"
+                "pos": "Adj"
               },
               {
                 "w": "zur",
@@ -118,8 +119,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Besprechung",
-                "ar": "اسم: Besprechung",
-                "base": "Besprechung",
+                "ar": "اجتماع / جلسة عمل",
+                "base": "die Besprechung",
                 "pos": "Nomen"
               }
             ]
@@ -131,8 +132,8 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Stress",
-                "ar": "اسم: Stress",
-                "base": "Stress",
+                "ar": "ضغط عصبي / توتر",
+                "base": "der Stress",
                 "pos": "Nomen"
               },
               {
@@ -161,7 +162,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "sagen",
-                "ar": "فعل: sagen",
+                "ar": "يقول",
                 "base": "sagen",
                 "pos": "Verb"
               }
@@ -180,8 +181,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "verstanden",
-                "ar": "فعل: verstanden",
-                "base": "verstanden",
+                "ar": "فَهِمَ",
+                "base": "verstehen",
                 "pos": "Verb"
               },
               {
@@ -192,9 +193,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "sofort",
-                "ar": "فعل: sofort",
+                "ar": "فوراً / في الحال",
                 "base": "sofort",
-                "pos": "Verb"
+                "pos": "Adv"
               }
             ]
           },
@@ -211,8 +212,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Kollege",
-                "ar": "اسم: Kollege",
-                "base": "Kollege",
+                "ar": "زميل عمل",
+                "base": "der Kollege",
                 "pos": "Nomen"
               },
               {
@@ -229,20 +230,20 @@ window.LESETEXTE = [
               },
               {
                 "w": "Beruf",
-                "ar": "اسم: Beruf",
-                "base": "Beruf",
+                "ar": "مهنة / وظيفة",
+                "base": "der Beruf",
                 "pos": "Nomen"
               },
               {
                 "w": "zwei",
-                "ar": "معنى: zwei",
+                "ar": "اثنان",
                 "base": "zwei",
-                "pos": "Wort"
+                "pos": "Num"
               },
               {
                 "w": "Kinder",
-                "ar": "اسم: Kinder",
-                "base": "Kinder",
+                "ar": "أطفال / أولاد",
+                "base": "das Kind",
                 "pos": "Nomen"
               },
               {
@@ -253,8 +254,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Garten",
-                "ar": "اسم: Garten",
-                "base": "Garten",
+                "ar": "حديقة",
+                "base": "der Garten",
                 "pos": "Nomen"
               },
               {
@@ -265,8 +266,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Hobby",
-                "ar": "اسم: Hobby",
-                "base": "Hobby",
+                "ar": "هواية",
+                "base": "das Hobby",
                 "pos": "Nomen"
               },
               {
@@ -296,9 +297,9 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Also",
-                "ar": "اسم: Also",
-                "base": "Also",
-                "pos": "Nomen"
+                "ar": "إذن / هكذا",
+                "base": "also",
+                "pos": "Adv"
               },
               {
                 "w": "ein",
@@ -314,20 +315,20 @@ window.LESETEXTE = [
               },
               {
                 "w": "normales",
-                "ar": "معنى: normales",
-                "base": "normales",
-                "pos": "Wort"
+                "ar": "طبيعي / عادي",
+                "base": "normal",
+                "pos": "Adj"
               },
               {
                 "w": "glückliches",
-                "ar": "معنى: glückliches",
-                "base": "glückliches",
-                "pos": "Wort"
+                "ar": "سعيد / هانئ",
+                "base": "glücklich",
+                "pos": "Adj"
               },
               {
                 "w": "Leben",
-                "ar": "اسم: Leben",
-                "base": "Leben",
+                "ar": "حياة / معيشة",
+                "base": "das Leben",
                 "pos": "Nomen"
               },
               {
@@ -338,8 +339,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Stress",
-                "ar": "اسم: Stress",
-                "base": "Stress",
+                "ar": "ضغط عصبي / توتر",
+                "base": "der Stress",
                 "pos": "Nomen"
               },
               {
@@ -350,8 +351,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Ende",
-                "ar": "اسم: Ende",
-                "base": "Ende",
+                "ar": "نهاية / ختام",
+                "base": "das Ende",
                 "pos": "Nomen"
               }
             ]
@@ -374,8 +375,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "fragte",
-                "ar": "فعل: fragte",
-                "base": "fragte",
+                "ar": "سألَ",
+                "base": "fragen",
                 "pos": "Verb"
               },
               {
@@ -416,9 +417,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "los",
-                "ar": "معنى: los",
+                "ar": "جاري / يحدث (Was war los: ماذا حدث؟)",
                 "base": "los",
-                "pos": "Wort"
+                "pos": "Adv"
               }
             ]
           },
@@ -429,9 +430,9 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Ach",
-                "ar": "اسم: Ach",
-                "base": "Ach",
-                "pos": "Nomen"
+                "ar": "آه! / يا إلهي",
+                "base": "ach",
+                "pos": "Part"
               },
               {
                 "w": "eigentlich",
@@ -447,8 +448,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Besonderes",
-                "ar": "اسم: Besonderes",
-                "base": "Besonderes",
+                "ar": "شيء مميز / خاص",
+                "base": "das Besondere",
                 "pos": "Nomen"
               },
               {
@@ -459,7 +460,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Ella",
-                "ar": "اسم: Ella",
+                "ar": "إيلا (اسم علم)",
                 "base": "Ella",
                 "pos": "Nomen"
               },
@@ -477,7 +478,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Woche",
-                "ar": "اسم: Woche",
+                "ar": "أسبوع",
                 "base": "Woche",
                 "pos": "Nomen"
               },
@@ -489,8 +490,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Geschäftsreise",
-                "ar": "اسم: Geschäftsreise",
-                "base": "Geschäftsreise",
+                "ar": "رحلة عمل",
+                "base": "die Geschäftsreise",
                 "pos": "Nomen"
               },
               {
@@ -519,7 +520,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "übernehmen",
-                "ar": "فعل: übernehmen",
+                "ar": "يتولى / يتحمل المسؤولية",
                 "base": "übernehmen",
                 "pos": "Verb"
               }
@@ -544,9 +545,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "also",
-                "ar": "معنى: also",
+                "ar": "إذن / وبالتالي",
                 "base": "also",
-                "pos": "Wort"
+                "pos": "Adv"
               },
               {
                 "w": "die",
@@ -556,14 +557,14 @@ window.LESETEXTE = [
               },
               {
                 "w": "Mails",
-                "ar": "اسم: Mails",
-                "base": "Mails",
+                "ar": "رسائل بريد إلكتروني",
+                "base": "die E-Mail",
                 "pos": "Nomen"
               },
               {
                 "w": "beantwortet",
-                "ar": "فعل: beantwortet",
-                "base": "beantwortet",
+                "ar": "أجابَ / ردّ على",
+                "base": "beantworten",
                 "pos": "Verb"
               },
               {
@@ -580,8 +581,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Kinder",
-                "ar": "اسم: Kinder",
-                "base": "Kinder",
+                "ar": "أطفال / أولاد",
+                "base": "das Kind",
                 "pos": "Nomen"
               },
               {
@@ -592,8 +593,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "geschlafen",
-                "ar": "فعل: geschlafen",
-                "base": "geschlafen",
+                "ar": "نامَ",
+                "base": "schlafen",
                 "pos": "Verb"
               },
               {
@@ -635,14 +636,14 @@ window.LESETEXTE = [
               },
               {
                 "w": "Frühstück",
-                "ar": "اسم: Frühstück",
-                "base": "Frühstück",
+                "ar": "وجبة الفطور",
+                "base": "das Frühstück",
                 "pos": "Nomen"
               },
               {
                 "w": "gemacht",
-                "ar": "فعل: gemacht",
-                "base": "gemacht",
+                "ar": "فعلَ / صنعَ",
+                "base": "machen",
                 "pos": "Verb"
               },
               {
@@ -659,14 +660,14 @@ window.LESETEXTE = [
               },
               {
                 "w": "Garten",
-                "ar": "اسم: Garten",
-                "base": "Garten",
+                "ar": "حديقة",
+                "base": "der Garten",
                 "pos": "Nomen"
               },
               {
                 "w": "gegossen",
-                "ar": "فعل: gegossen",
-                "base": "gegossen",
+                "ar": "سقى (النباتات)",
+                "base": "gießen",
                 "pos": "Verb"
               },
               {
@@ -689,14 +690,14 @@ window.LESETEXTE = [
               },
               {
                 "w": "Kinder",
-                "ar": "اسم: Kinder",
-                "base": "Kinder",
+                "ar": "أطفال / أولاد",
+                "base": "das Kind",
                 "pos": "Nomen"
               },
               {
                 "w": "geweckt",
-                "ar": "فعل: geweckt",
-                "base": "geweckt",
+                "ar": "أيقظَ",
+                "base": "wecken",
                 "pos": "Verb"
               }
             ]
@@ -720,7 +721,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Alice",
-                "ar": "اسم: Alice",
+                "ar": "أليس (اسم علم)",
                 "base": "Alice",
                 "pos": "Nomen"
               },
@@ -732,14 +733,14 @@ window.LESETEXTE = [
               },
               {
                 "w": "Kindergarten",
-                "ar": "اسم: Kindergarten",
-                "base": "Kindergarten",
+                "ar": "روضة أطفال",
+                "base": "der Kindergarten",
                 "pos": "Nomen"
               },
               {
                 "w": "gebracht",
-                "ar": "فعل: gebracht",
-                "base": "gebracht",
+                "ar": "أوصلَ / أحضرَ",
+                "base": "bringen",
                 "pos": "Verb"
               },
               {
@@ -774,14 +775,14 @@ window.LESETEXTE = [
               },
               {
                 "w": "Brot",
-                "ar": "اسم: Brot",
-                "base": "Brot",
+                "ar": "خبز",
+                "base": "das Brot",
                 "pos": "Nomen"
               },
               {
                 "w": "Milch",
-                "ar": "اسم: Milch",
-                "base": "Milch",
+                "ar": "حليب",
+                "base": "die Milch",
                 "pos": "Nomen"
               },
               {
@@ -792,14 +793,14 @@ window.LESETEXTE = [
               },
               {
                 "w": "Joghurt",
-                "ar": "اسم: Joghurt",
-                "base": "Joghurt",
+                "ar": "لبن زبادي",
+                "base": "der Joghurt",
                 "pos": "Nomen"
               },
               {
                 "w": "eingekauft",
-                "ar": "فعل: eingekauft",
-                "base": "eingekauft",
+                "ar": "تسوّقَ / اشترى",
+                "base": "einkaufen",
                 "pos": "Verb"
               }
             ]
@@ -817,8 +818,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Einräumen",
-                "ar": "اسم: Einräumen",
-                "base": "Einräumen",
+                "ar": "ترتيب الأشياء / وضعها بالداخل",
+                "base": "einräumen",
                 "pos": "Nomen"
               },
               {
@@ -835,8 +836,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Kühlschrank",
-                "ar": "اسم: Kühlschrank",
-                "base": "Kühlschrank",
+                "ar": "ثلاجة",
+                "base": "der Kühlschrank",
                 "pos": "Nomen"
               },
               {
@@ -865,14 +866,14 @@ window.LESETEXTE = [
               },
               {
                 "w": "Joghurt",
-                "ar": "اسم: Joghurt",
-                "base": "Joghurt",
+                "ar": "لبن زبادي",
+                "base": "der Joghurt",
                 "pos": "Nomen"
               },
               {
                 "w": "runtergefallen",
-                "ar": "فعل: runtergefallen",
-                "base": "runtergefallen",
+                "ar": "سقط أرضاً",
+                "base": "runterfallen",
                 "pos": "Verb"
               },
               {
@@ -895,8 +896,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Sauerei",
-                "ar": "اسم: Sauerei",
-                "base": "Sauerei",
+                "ar": "فوضى عارمة / تلطيخ",
+                "base": "die Sauerei",
                 "pos": "Nomen"
               }
             ]
@@ -926,8 +927,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "geputzt",
-                "ar": "فعل: geputzt",
-                "base": "geputzt",
+                "ar": "نظّفَ",
+                "base": "putzen",
                 "pos": "Verb"
               },
               {
@@ -950,8 +951,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Bus",
-                "ar": "اسم: Bus",
-                "base": "Bus",
+                "ar": "حافلة / باص",
+                "base": "der Bus",
                 "pos": "Nomen"
               },
               {
@@ -962,9 +963,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "weg",
-                "ar": "معنى: weg",
+                "ar": "ذهبَ / مضى (der Bus war weg: فاتني الباص)",
                 "base": "weg",
-                "pos": "Wort"
+                "pos": "Adv"
               }
             ]
           },
@@ -981,9 +982,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "lache",
-                "ar": "معنى: lache",
-                "base": "lache",
-                "pos": "Wort"
+                "ar": "أضحكُ",
+                "base": "lachen",
+                "pos": "Verb"
               },
               {
                 "w": "ich",
@@ -1005,14 +1006,14 @@ window.LESETEXTE = [
               },
               {
                 "w": "normale",
-                "ar": "معنى: normale",
-                "base": "normale",
-                "pos": "Wort"
+                "ar": "طبيعي / عادي",
+                "base": "normal",
+                "pos": "Adj"
               },
               {
                 "w": "Wahnsinn",
-                "ar": "اسم: Wahnsinn",
-                "base": "Wahnsinn",
+                "ar": "جنون / ضغط هائل",
+                "base": "der Wahnsinn",
                 "pos": "Nomen"
               }
             ]
@@ -1035,8 +1036,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Großmutter",
-                "ar": "اسم: Großmutter",
-                "base": "Großmutter",
+                "ar": "الجدة",
+                "base": "die Großmutter",
                 "pos": "Nomen"
               },
               {
@@ -1047,7 +1048,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Beispiel",
-                "ar": "اسم: Beispiel",
+                "ar": "مثال",
                 "base": "Beispiel",
                 "pos": "Nomen"
               },
@@ -1059,14 +1060,14 @@ window.LESETEXTE = [
               },
               {
                 "w": "fünf",
-                "ar": "معنى: fünf",
+                "ar": "خمسة",
                 "base": "fünf",
-                "pos": "Wort"
+                "pos": "Num"
               },
               {
                 "w": "Kinder",
-                "ar": "اسم: Kinder",
-                "base": "Kinder",
+                "ar": "أطفال / أولاد",
+                "base": "das Kind",
                 "pos": "Nomen"
               },
               {
@@ -1083,8 +1084,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Mann",
-                "ar": "اسم: Mann",
-                "base": "Mann",
+                "ar": "رجل / زوج",
+                "base": "der Mann",
                 "pos": "Nomen"
               },
               {
@@ -1095,8 +1096,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "gestorben",
-                "ar": "فعل: gestorben",
-                "base": "gestorben",
+                "ar": "توفي / مات",
+                "base": "sterben",
                 "pos": "Verb"
               }
             ]
@@ -1114,15 +1115,15 @@ window.LESETEXTE = [
               },
               {
                 "w": "stand",
-                "ar": "معنى: stand",
-                "base": "stand",
-                "pos": "Wort"
+                "ar": "وقفَ / استيقظ (stand auf)",
+                "base": "stehen",
+                "pos": "Verb"
               },
               {
                 "w": "morgens",
-                "ar": "معنى: morgens",
+                "ar": "صباحاً / كل صباح",
                 "base": "morgens",
-                "pos": "Wort"
+                "pos": "Adv"
               },
               {
                 "w": "um",
@@ -1132,14 +1133,14 @@ window.LESETEXTE = [
               },
               {
                 "w": "fünf",
-                "ar": "معنى: fünf",
+                "ar": "خمسة",
                 "base": "fünf",
-                "pos": "Wort"
+                "pos": "Num"
               },
               {
                 "w": "Uhr",
-                "ar": "اسم: Uhr",
-                "base": "Uhr",
+                "ar": "ساعة (توقيت)",
+                "base": "die Uhr",
                 "pos": "Nomen"
               },
               {
@@ -1156,14 +1157,14 @@ window.LESETEXTE = [
               },
               {
                 "w": "nähte",
-                "ar": "فعل: nähte",
-                "base": "nähte",
+                "ar": "خاطت / حاكت",
+                "base": "nähen",
                 "pos": "Verb"
               },
               {
                 "w": "Kleider",
-                "ar": "اسم: Kleider",
-                "base": "Kleider",
+                "ar": "فساتين / ملابس",
+                "base": "das Kleid",
                 "pos": "Nomen"
               },
               {
@@ -1174,8 +1175,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Heimarbeit",
-                "ar": "اسم: Heimarbeit",
-                "base": "Heimarbeit",
+                "ar": "العمل من المنزل / عمل حرفي منزلي",
+                "base": "die Heimarbeit",
                 "pos": "Nomen"
               },
               {
@@ -1186,21 +1187,21 @@ window.LESETEXTE = [
               },
               {
                 "w": "sieben",
-                "ar": "فعل: sieben",
+                "ar": "سبعة",
                 "base": "sieben",
-                "pos": "Verb"
+                "pos": "Num"
               },
               {
                 "w": "Uhr",
-                "ar": "اسم: Uhr",
-                "base": "Uhr",
+                "ar": "ساعة (توقيت)",
+                "base": "die Uhr",
                 "pos": "Nomen"
               },
               {
                 "w": "unterbrach",
-                "ar": "معنى: unterbrach",
-                "base": "unterbrach",
-                "pos": "Wort"
+                "ar": "قاطعت / أوقفت مؤقتاً",
+                "base": "unterbrechen",
+                "pos": "Verb"
               },
               {
                 "w": "sie",
@@ -1216,7 +1217,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Arbeit",
-                "ar": "اسم: Arbeit",
+                "ar": "عمل",
                 "base": "Arbeit",
                 "pos": "Nomen"
               },
@@ -1228,8 +1229,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Frühstück",
-                "ar": "اسم: Frühstück",
-                "base": "Frühstück",
+                "ar": "وجبة الفطور",
+                "base": "das Frühstück",
                 "pos": "Nomen"
               },
               {
@@ -1240,7 +1241,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "machen",
-                "ar": "فعل: machen",
+                "ar": "يفعل / يصنع",
                 "base": "machen",
                 "pos": "Verb"
               },
@@ -1252,9 +1253,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "ging",
-                "ar": "معنى: ging",
-                "base": "ging",
-                "pos": "Wort"
+                "ar": "ذهبَ / سارَ",
+                "base": "gehen",
+                "pos": "Verb"
               },
               {
                 "w": "sie",
@@ -1276,8 +1277,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Garten",
-                "ar": "اسم: Garten",
-                "base": "Garten",
+                "ar": "حديقة",
+                "base": "der Garten",
                 "pos": "Nomen"
               },
               {
@@ -1288,14 +1289,14 @@ window.LESETEXTE = [
               },
               {
                 "w": "Gemüse",
-                "ar": "اسم: Gemüse",
-                "base": "Gemüse",
+                "ar": "خضار / خضروات",
+                "base": "das Gemüse",
                 "pos": "Nomen"
               },
               {
                 "w": "anzubauen",
-                "ar": "فعل: anzubauen",
-                "base": "anzubauen",
+                "ar": "لزراعة / غرس",
+                "base": "anbauen",
                 "pos": "Verb"
               },
               {
@@ -1312,7 +1313,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "ernten",
-                "ar": "فعل: ernten",
+                "ar": "يحصد / يجني",
                 "base": "ernten",
                 "pos": "Verb"
               },
@@ -1330,8 +1331,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Haus",
-                "ar": "اسم: Haus",
-                "base": "Haus",
+                "ar": "منزل / بيت",
+                "base": "das Haus",
                 "pos": "Nomen"
               },
               {
@@ -1342,8 +1343,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Mittagessen",
-                "ar": "اسم: Mittagessen",
-                "base": "Mittagessen",
+                "ar": "وجبة الغداء",
+                "base": "das Mittagessen",
                 "pos": "Nomen"
               },
               {
@@ -1354,20 +1355,20 @@ window.LESETEXTE = [
               },
               {
                 "w": "mindestens",
-                "ar": "معنى: mindestens",
+                "ar": "على الأقل",
                 "base": "mindestens",
-                "pos": "Wort"
+                "pos": "Adv"
               },
               {
                 "w": "sechs",
-                "ar": "معنى: sechs",
+                "ar": "ستة",
                 "base": "sechs",
-                "pos": "Wort"
+                "pos": "Num"
               },
               {
                 "w": "Leute",
-                "ar": "اسم: Leute",
-                "base": "Leute",
+                "ar": "ناس / أشخاص",
+                "base": "die Leute",
                 "pos": "Nomen"
               },
               {
@@ -1378,7 +1379,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "kochen",
-                "ar": "فعل: kochen",
+                "ar": "يطبخ / يطهو",
                 "base": "kochen",
                 "pos": "Verb"
               },
@@ -1402,8 +1403,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Freunde",
-                "ar": "اسم: Freunde",
-                "base": "Freunde",
+                "ar": "أصدقاء",
+                "base": "die Freunde",
                 "pos": "Nomen"
               },
               {
@@ -1414,8 +1415,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Kinder",
-                "ar": "اسم: Kinder",
-                "base": "Kinder",
+                "ar": "أطفال / أولاد",
+                "base": "das Kind",
                 "pos": "Nomen"
               },
               {
@@ -1439,14 +1440,14 @@ window.LESETEXTE = [
               },
               {
                 "w": "Nachmittag",
-                "ar": "اسم: Nachmittag",
-                "base": "Nachmittag",
+                "ar": "بعد الظهر",
+                "base": "der Nachmittag",
                 "pos": "Nomen"
               },
               {
                 "w": "nähte",
-                "ar": "فعل: nähte",
-                "base": "nähte",
+                "ar": "خاطت / حاكت",
+                "base": "nähen",
                 "pos": "Verb"
               },
               {
@@ -1457,9 +1458,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "weiter",
-                "ar": "معنى: weiter",
+                "ar": "مواصلاً / متابعاً",
                 "base": "weiter",
-                "pos": "Wort"
+                "pos": "Adv"
               },
               {
                 "w": "dann",
@@ -1469,9 +1470,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "ging",
-                "ar": "معنى: ging",
-                "base": "ging",
-                "pos": "Wort"
+                "ar": "ذهبَ / سارَ",
+                "base": "gehen",
+                "pos": "Verb"
               },
               {
                 "w": "sie",
@@ -1499,8 +1500,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Küche",
-                "ar": "اسم: Küche",
-                "base": "Küche",
+                "ar": "مطبخ",
+                "base": "die Küche",
                 "pos": "Nomen"
               },
               {
@@ -1523,14 +1524,14 @@ window.LESETEXTE = [
               },
               {
                 "w": "Abendessen",
-                "ar": "اسم: Abendessen",
-                "base": "Abendessen",
+                "ar": "وجبة العشاء",
+                "base": "das Abendessen",
                 "pos": "Nomen"
               },
               {
                 "w": "nähte",
-                "ar": "فعل: nähte",
-                "base": "nähte",
+                "ar": "خاطت / حاكت",
+                "base": "nähen",
                 "pos": "Verb"
               },
               {
@@ -1559,9 +1560,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "spät",
-                "ar": "فعل: spät",
+                "ar": "متأخراً / وقت متأخر",
                 "base": "spät",
-                "pos": "Verb"
+                "pos": "Adj"
               },
               {
                 "w": "in",
@@ -1577,8 +1578,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Nacht",
-                "ar": "اسم: Nacht",
-                "base": "Nacht",
+                "ar": "ليل / ليلة",
+                "base": "die Nacht",
                 "pos": "Nomen"
               }
             ]
@@ -1596,8 +1597,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "arbeitete",
-                "ar": "فعل: arbeitete",
-                "base": "arbeitete",
+                "ar": "عمِلَ / كان يعمل",
+                "base": "arbeiten",
                 "pos": "Verb"
               },
               {
@@ -1608,8 +1609,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Tag",
-                "ar": "اسم: Tag",
-                "base": "Tag",
+                "ar": "يوم / نهار",
+                "base": "der Tag",
                 "pos": "Nomen"
               },
               {
@@ -1632,8 +1633,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Urlaub",
-                "ar": "اسم: Urlaub",
-                "base": "Urlaub",
+                "ar": "إجازة / عطلة",
+                "base": "der Urlaub",
                 "pos": "Nomen"
               },
               {
@@ -1656,9 +1657,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "zufrieden",
-                "ar": "فعل: zufrieden",
+                "ar": "راضٍ / قنوع",
                 "base": "zufrieden",
-                "pos": "Verb"
+                "pos": "Adj"
               }
             ]
           }
@@ -1686,8 +1687,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Kolleginnen",
-                "ar": "اسم: Kolleginnen",
-                "base": "Kolleginnen",
+                "ar": "زميلات عمل",
+                "base": "die Kolleginnen",
                 "pos": "Nomen"
               },
               {
@@ -1698,8 +1699,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Kollegen",
-                "ar": "اسم: Kollegen",
-                "base": "Kollegen",
+                "ar": "زملاء عمل",
+                "base": "die Kollegen",
                 "pos": "Nomen"
               },
               {
@@ -1734,9 +1735,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "36,5-Stunden-Woche",
-                "ar": "معنى: 36,5-Stunden-Woche",
-                "base": "36,5-Stunden-Woche",
-                "pos": "Wort"
+                "ar": "أسبوع عمل 36.5 ساعة",
+                "base": "die 36,5-Stunden-Woche",
+                "pos": "Nomen"
               }
             ]
           },
@@ -1759,14 +1760,14 @@ window.LESETEXTE = [
               },
               {
                 "w": "Spülmaschinen",
-                "ar": "اسم: Spülmaschinen",
-                "base": "Spülmaschinen",
+                "ar": "غسالات أطباق / صحون",
+                "base": "die Spülmaschine",
                 "pos": "Nomen"
               },
               {
                 "w": "Waschmaschinen",
-                "ar": "اسم: Waschmaschinen",
-                "base": "Waschmaschinen",
+                "ar": "غسالات ملابس",
+                "base": "die Waschmaschine",
                 "pos": "Nomen"
               },
               {
@@ -1777,8 +1778,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Staubsauger",
-                "ar": "اسم: Staubsauger",
-                "base": "Staubsauger",
+                "ar": "مكانس كهربائية",
+                "base": "der Staubsauger",
                 "pos": "Nomen"
               },
               {
@@ -1801,14 +1802,14 @@ window.LESETEXTE = [
               },
               {
                 "w": "30",
-                "ar": "معنى: 30",
-                "base": "30",
-                "pos": "Wort"
+                "ar": "ثلاثون",
+                "base": "dreißig",
+                "pos": "Num"
               },
               {
                 "w": "Tage",
-                "ar": "اسم: Tage",
-                "base": "Tage",
+                "ar": "أيام",
+                "base": "die Tage",
                 "pos": "Nomen"
               },
               {
@@ -1819,19 +1820,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Jahr",
-                "ar": "اسم: Jahr",
-                "base": "Jahr",
+                "ar": "سنة / عام",
+                "base": "das Jahr",
                 "pos": "Nomen"
               },
               {
                 "w": "Urlaub",
-                "ar": "اسم: Urlaub",
-                "base": "Urlaub",
+                "ar": "إجازة / عطلة",
+                "base": "der Urlaub",
                 "pos": "Nomen"
               },
               {
                 "w": "machen",
-                "ar": "فعل: machen",
+                "ar": "يفعل / يصنع",
                 "base": "machen",
                 "pos": "Verb"
               },
@@ -1855,9 +1856,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "gestresst",
-                "ar": "فعل: gestresst",
+                "ar": "متوتر / مجهد",
                 "base": "gestresst",
-                "pos": "Verb"
+                "pos": "Adj"
               }
             ]
           }
@@ -1879,8 +1880,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Großeltern",
-                "ar": "اسم: Großeltern",
-                "base": "Großeltern",
+                "ar": "الأجداد",
+                "base": "die Großeltern",
                 "pos": "Nomen"
               },
               {
@@ -1891,9 +1892,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "höchstwahrscheinlich",
-                "ar": "صفة: höchstwahrscheinlich",
+                "ar": "على الأرجح / في الغالب",
                 "base": "höchstwahrscheinlich",
-                "pos": "Adj"
+                "pos": "Adv"
               },
               {
                 "w": "mehr",
@@ -1903,7 +1904,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "gearbeitet",
-                "ar": "فعل: gearbeitet",
+                "ar": "عملت",
                 "base": "gearbeitet",
                 "pos": "Verb"
               },
@@ -1952,9 +1953,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "gestresst",
-                "ar": "فعل: gestresst",
+                "ar": "متوتر / مجهد",
                 "base": "gestresst",
-                "pos": "Verb"
+                "pos": "Adj"
               }
             ]
           },
@@ -1971,8 +1972,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Großmutter",
-                "ar": "اسم: Großmutter",
-                "base": "Großmutter",
+                "ar": "الجدة",
+                "base": "die Großmutter",
                 "pos": "Nomen"
               },
               {
@@ -1989,13 +1990,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "E-Mails",
-                "ar": "اسم: E-Mails",
+                "ar": "رسائل البريد الإلكتروني",
                 "base": "E-Mails",
                 "pos": "Nomen"
               },
               {
                 "w": "beantworten",
-                "ar": "فعل: beantworten",
+                "ar": "إجابة",
                 "base": "beantworten",
                 "pos": "Verb"
               },
@@ -2013,7 +2014,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Freundschaften",
-                "ar": "اسم: Freundschaften",
+                "ar": "الصداقات",
                 "base": "Freundschaften",
                 "pos": "Nomen"
               },
@@ -2025,13 +2026,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Netzwerken",
-                "ar": "اسم: Netzwerken",
+                "ar": "الشبكات",
                 "base": "Netzwerken",
                 "pos": "Nomen"
               },
               {
                 "w": "pflegen",
-                "ar": "فعل: pflegen",
+                "ar": "يحافظ على",
                 "base": "pflegen",
                 "pos": "Verb"
               }
@@ -2074,13 +2075,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Laufenden",
-                "ar": "اسم: Laufenden",
+                "ar": "جري",
                 "base": "Laufenden",
                 "pos": "Nomen"
               },
               {
                 "w": "bleiben",
-                "ar": "فعل: bleiben",
+                "ar": "يبقى",
                 "base": "bleiben",
                 "pos": "Verb"
               }
@@ -2093,7 +2094,7 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Weder",
-                "ar": "اسم: Weder",
+                "ar": "لا",
                 "base": "Weder",
                 "pos": "Nomen"
               },
@@ -2111,7 +2112,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Mode",
-                "ar": "اسم: Mode",
+                "ar": "موضة",
                 "base": "Mode",
                 "pos": "Nomen"
               },
@@ -2135,7 +2136,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Trends",
-                "ar": "اسم: Trends",
+                "ar": "الاتجاهات",
                 "base": "Trends",
                 "pos": "Nomen"
               },
@@ -2159,13 +2160,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "neuesten",
-                "ar": "فعل: neuesten",
-                "base": "neuesten",
-                "pos": "Verb"
+                "ar": "الأحدث / أحدث (صيغة تفضيل)",
+                "base": "neu",
+                "pos": "Adj"
               },
               {
                 "w": "Serien",
-                "ar": "اسم: Serien",
+                "ar": "مسلسل",
                 "base": "Serien",
                 "pos": "Nomen"
               }
@@ -2184,8 +2185,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Leben",
-                "ar": "اسم: Leben",
-                "base": "Leben",
+                "ar": "حياة / معيشة",
+                "base": "das Leben",
                 "pos": "Nomen"
               },
               {
@@ -2214,9 +2215,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "härter",
-                "ar": "معنى: härter",
+                "ar": "أصعب",
                 "base": "härter",
-                "pos": "Wort"
+                "pos": "Adj"
               },
               {
                 "w": "als",
@@ -2232,8 +2233,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Leben",
-                "ar": "اسم: Leben",
-                "base": "Leben",
+                "ar": "حياة / معيشة",
+                "base": "das Leben",
                 "pos": "Nomen"
               },
               {
@@ -2275,7 +2276,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "übersichtlich",
-                "ar": "صفة: übersichtlich",
+                "ar": "واضح",
                 "base": "übersichtlich",
                 "pos": "Adj"
               }
@@ -2294,8 +2295,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Tag",
-                "ar": "اسم: Tag",
-                "base": "Tag",
+                "ar": "يوم / نهار",
+                "base": "der Tag",
                 "pos": "Nomen"
               },
               {
@@ -2306,7 +2307,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "unterteilt",
-                "ar": "فعل: unterteilt",
+                "ar": "مقسم",
                 "base": "unterteilt",
                 "pos": "Verb"
               },
@@ -2318,7 +2319,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Arbeit",
-                "ar": "اسم: Arbeit",
+                "ar": "عمل",
                 "base": "Arbeit",
                 "pos": "Nomen"
               },
@@ -2336,7 +2337,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Pausen",
-                "ar": "اسم: Pausen",
+                "ar": "فواصل",
                 "base": "Pausen",
                 "pos": "Nomen"
               }
@@ -2361,7 +2362,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Pausen",
-                "ar": "اسم: Pausen",
+                "ar": "فواصل",
                 "base": "Pausen",
                 "pos": "Nomen"
               },
@@ -2373,8 +2374,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "geschlafen",
-                "ar": "فعل: geschlafen",
-                "base": "geschlafen",
+                "ar": "نامَ",
+                "base": "schlafen",
                 "pos": "Verb"
               },
               {
@@ -2385,7 +2386,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "gegessen",
-                "ar": "فعل: gegessen",
+                "ar": "أكل",
                 "base": "gegessen",
                 "pos": "Verb"
               }
@@ -2410,7 +2411,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Arbeit",
-                "ar": "اسم: Arbeit",
+                "ar": "عمل",
                 "base": "Arbeit",
                 "pos": "Nomen"
               },
@@ -2422,7 +2423,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "gearbeitet",
-                "ar": "فعل: gearbeitet",
+                "ar": "عملت",
                 "base": "gearbeitet",
                 "pos": "Verb"
               }
@@ -2464,7 +2465,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "anders",
-                "ar": "معنى: anders",
+                "ar": "مختلف",
                 "base": "anders",
                 "pos": "Wort"
               }
@@ -2483,7 +2484,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "arbeiten",
-                "ar": "فعل: arbeiten",
+                "ar": "عمل",
                 "base": "arbeiten",
                 "pos": "Verb"
               },
@@ -2507,7 +2508,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "meistens",
-                "ar": "معنى: meistens",
+                "ar": "في الغالب",
                 "base": "meistens",
                 "pos": "Wort"
               },
@@ -2519,7 +2520,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Schreibtisch",
-                "ar": "اسم: Schreibtisch",
+                "ar": "مكتب",
                 "base": "Schreibtisch",
                 "pos": "Nomen"
               },
@@ -2549,7 +2550,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "arbeiten",
-                "ar": "فعل: arbeiten",
+                "ar": "عمل",
                 "base": "arbeiten",
                 "pos": "Verb"
               },
@@ -2573,7 +2574,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Freizeit",
-                "ar": "اسم: Freizeit",
+                "ar": "وقت الفراغ",
                 "base": "Freizeit",
                 "pos": "Nomen"
               },
@@ -2603,7 +2604,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "anderes",
-                "ar": "معنى: anderes",
+                "ar": "آخر",
                 "base": "anderes",
                 "pos": "Wort"
               },
@@ -2615,7 +2616,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Pause",
-                "ar": "اسم: Pause",
+                "ar": "يوقف",
                 "base": "Pause",
                 "pos": "Nomen"
               }
@@ -2634,7 +2635,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Freizeit",
-                "ar": "اسم: Freizeit",
+                "ar": "وقت الفراغ",
                 "base": "Freizeit",
                 "pos": "Nomen"
               },
@@ -2646,7 +2647,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "stressig",
-                "ar": "صفة: stressig",
+                "ar": "مرهقة",
                 "base": "stressig",
                 "pos": "Adj"
               },
@@ -2676,19 +2677,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "tolle",
-                "ar": "معنى: tolle",
+                "ar": "عظيم",
                 "base": "tolle",
                 "pos": "Wort"
               },
               {
                 "w": "Sachen",
-                "ar": "اسم: Sachen",
+                "ar": "أشياء",
                 "base": "Sachen",
                 "pos": "Nomen"
               },
               {
                 "w": "machen",
-                "ar": "فعل: machen",
+                "ar": "يفعل / يصنع",
                 "base": "machen",
                 "pos": "Verb"
               },
@@ -2712,37 +2713,37 @@ window.LESETEXTE = [
               },
               {
                 "w": "Berge",
-                "ar": "اسم: Berge",
+                "ar": "الجبال",
                 "base": "Berge",
                 "pos": "Nomen"
               },
               {
                 "w": "fahren",
-                "ar": "فعل: fahren",
+                "ar": "يقود",
                 "base": "fahren",
                 "pos": "Verb"
               },
               {
                 "w": "Freunde",
-                "ar": "اسم: Freunde",
-                "base": "Freunde",
+                "ar": "أصدقاء",
+                "base": "die Freunde",
                 "pos": "Nomen"
               },
               {
                 "w": "treffen",
-                "ar": "فعل: treffen",
+                "ar": "يقابل",
                 "base": "treffen",
                 "pos": "Verb"
               },
               {
                 "w": "Filme",
-                "ar": "اسم: Filme",
+                "ar": "أفلام",
                 "base": "Filme",
                 "pos": "Nomen"
               },
               {
                 "w": "sehen",
-                "ar": "فعل: sehen",
+                "ar": "يرى",
                 "base": "sehen",
                 "pos": "Verb"
               },
@@ -2754,7 +2755,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Kino",
-                "ar": "اسم: Kino",
+                "ar": "سينما",
                 "base": "Kino",
                 "pos": "Nomen"
               },
@@ -2766,19 +2767,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Theater",
-                "ar": "اسم: Theater",
+                "ar": "مسرح",
                 "base": "Theater",
                 "pos": "Nomen"
               },
               {
                 "w": "gehen",
-                "ar": "فعل: gehen",
+                "ar": "يذهب",
                 "base": "gehen",
                 "pos": "Verb"
               },
               {
                 "w": "ausgehen",
-                "ar": "فعل: ausgehen",
+                "ar": "الخروج",
                 "base": "ausgehen",
                 "pos": "Verb"
               },
@@ -2809,13 +2810,13 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Manchmal",
-                "ar": "اسم: Manchmal",
+                "ar": "أحيانا",
                 "base": "Manchmal",
                 "pos": "Nomen"
               },
               {
                 "w": "wünsche",
-                "ar": "معنى: wünsche",
+                "ar": "رغبات",
                 "base": "wünsche",
                 "pos": "Wort"
               },
@@ -2839,14 +2840,14 @@ window.LESETEXTE = [
               },
               {
                 "w": "einfacheres",
-                "ar": "معنى: einfacheres",
+                "ar": "أسهل",
                 "base": "einfacheres",
                 "pos": "Wort"
               },
               {
                 "w": "Leben",
-                "ar": "اسم: Leben",
-                "base": "Leben",
+                "ar": "حياة / معيشة",
+                "base": "das Leben",
                 "pos": "Nomen"
               }
             ]
@@ -2858,7 +2859,7 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Eines",
-                "ar": "اسم: Eines",
+                "ar": "واحد",
                 "base": "Eines",
                 "pos": "Nomen"
               },
@@ -2906,13 +2907,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Dinge",
-                "ar": "اسم: Dinge",
+                "ar": "أشياء",
                 "base": "Dinge",
                 "pos": "Nomen"
               },
               {
                 "w": "achten",
-                "ar": "فعل: achten",
+                "ar": "اعتبار",
                 "base": "achten",
                 "pos": "Verb"
               },
@@ -2943,7 +2944,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "klingelt",
-                "ar": "فعل: klingelt",
+                "ar": "حلقات",
                 "base": "klingelt",
                 "pos": "Verb"
               },
@@ -2955,7 +2956,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Handy",
-                "ar": "اسم: Handy",
+                "ar": "الهاتف الخلوي",
                 "base": "Handy",
                 "pos": "Nomen"
               },
@@ -2967,13 +2968,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "neue",
-                "ar": "معنى: neue",
-                "base": "neue",
-                "pos": "Wort"
+                "ar": "جديد / جديدة",
+                "base": "neu",
+                "pos": "Adj"
               },
               {
                 "w": "Nachricht",
-                "ar": "اسم: Nachricht",
+                "ar": "أخبار",
                 "base": "Nachricht",
                 "pos": "Nomen"
               },
@@ -2991,13 +2992,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "sofort",
-                "ar": "فعل: sofort",
+                "ar": "فوراً / في الحال",
                 "base": "sofort",
-                "pos": "Verb"
+                "pos": "Adv"
               },
               {
                 "w": "nachsehen",
-                "ar": "فعل: nachsehen",
+                "ar": "ينظر",
                 "base": "nachsehen",
                 "pos": "Verb"
               },
@@ -3220,7 +3221,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Gegensatz",
-                "ar": "اسم: Gegensatz",
+                "ar": "مقابلة",
                 "base": "Gegensatz",
                 "pos": "Nomen"
               },
@@ -3232,25 +3233,25 @@ window.LESETEXTE = [
               },
               {
                 "w": "Tasten",
-                "ar": "اسم: Tasten",
+                "ar": "أزرار",
                 "base": "Tasten",
                 "pos": "Nomen"
               },
               {
                 "w": "Schmecken",
-                "ar": "اسم: Schmecken",
+                "ar": "طعم جيد",
                 "base": "Schmecken",
                 "pos": "Nomen"
               },
               {
                 "w": "Sehen",
-                "ar": "اسم: Sehen",
-                "base": "Sehen",
-                "pos": "Nomen"
+                "ar": "يرى",
+                "base": "sehen",
+                "pos": "Verb"
               },
               {
                 "w": "Hören",
-                "ar": "اسم: Hören",
+                "ar": "يسمع",
                 "base": "Hören",
                 "pos": "Nomen"
               },
@@ -3262,13 +3263,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Riechen",
-                "ar": "اسم: Riechen",
+                "ar": "يشم",
                 "base": "Riechen",
                 "pos": "Nomen"
               },
               {
                 "w": "gibt",
-                "ar": "فعل: gibt",
+                "ar": "يعطي",
                 "base": "gibt",
                 "pos": "Verb"
               },
@@ -3286,7 +3287,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Sinnesorgan",
-                "ar": "اسم: Sinnesorgan",
+                "ar": "الجهاز الحسي",
                 "base": "Sinnesorgan",
                 "pos": "Nomen"
               },
@@ -3304,7 +3305,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Zeit",
-                "ar": "اسم: Zeit",
+                "ar": "وقت",
                 "base": "Zeit",
                 "pos": "Nomen"
               }
@@ -3323,7 +3324,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "empfinden",
-                "ar": "فعل: empfinden",
+                "ar": "يشعر",
                 "base": "empfinden",
                 "pos": "Verb"
               },
@@ -3335,7 +3336,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Zeit",
-                "ar": "اسم: Zeit",
+                "ar": "وقت",
                 "base": "Zeit",
                 "pos": "Nomen"
               },
@@ -3347,19 +3348,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "erklärt",
-                "ar": "فعل: erklärt",
+                "ar": "وأوضح",
                 "base": "erklärt",
                 "pos": "Verb"
               },
               {
                 "w": "Rolf",
-                "ar": "اسم: Rolf",
+                "ar": "رولف",
                 "base": "Rolf",
                 "pos": "Nomen"
               },
               {
                 "w": "Ulrich",
-                "ar": "اسم: Ulrich",
+                "ar": "أولريش",
                 "base": "Ulrich",
                 "pos": "Nomen"
               },
@@ -3371,7 +3372,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Studierenden",
-                "ar": "اسم: Studierenden",
+                "ar": "طلاب",
                 "base": "Studierenden",
                 "pos": "Nomen"
               },
@@ -3389,13 +3390,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Universität",
-                "ar": "اسم: Universität",
+                "ar": "جامعة",
                 "base": "Universität",
                 "pos": "Nomen"
               },
               {
                 "w": "Tübingen",
-                "ar": "اسم: Tübingen",
+                "ar": "توبنغن",
                 "base": "Tübingen",
                 "pos": "Nomen"
               }
@@ -3408,7 +3409,7 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Ulrich",
-                "ar": "اسم: Ulrich",
+                "ar": "أولريش",
                 "base": "Ulrich",
                 "pos": "Nomen"
               },
@@ -3420,7 +3421,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Professor",
-                "ar": "اسم: Professor",
+                "ar": "أستاذ",
                 "base": "Professor",
                 "pos": "Nomen"
               },
@@ -3432,13 +3433,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "beschäftigt",
-                "ar": "فعل: beschäftigt",
+                "ar": "مشغول",
                 "base": "beschäftigt",
                 "pos": "Verb"
               },
               {
                 "w": "sich",
-                "ar": "معنى: sich",
+                "ar": "نفسها",
                 "base": "sich",
                 "pos": "Wort"
               },
@@ -3456,7 +3457,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Chronobiologie",
-                "ar": "اسم: Chronobiologie",
+                "ar": "علم الأحياء الزمني",
                 "base": "Chronobiologie",
                 "pos": "Nomen"
               }
@@ -3475,7 +3476,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Chronobiologie",
-                "ar": "اسم: Chronobiologie",
+                "ar": "علم الأحياء الزمني",
                 "base": "Chronobiologie",
                 "pos": "Nomen"
               },
@@ -3493,7 +3494,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Lehre",
-                "ar": "اسم: Lehre",
+                "ar": "تعليم",
                 "base": "Lehre",
                 "pos": "Nomen"
               },
@@ -3511,14 +3512,14 @@ window.LESETEXTE = [
               },
               {
                 "w": "inneren",
-                "ar": "فعل: inneren",
+                "ar": "داخلي",
                 "base": "inneren",
                 "pos": "Verb"
               },
               {
                 "w": "Uhr",
-                "ar": "اسم: Uhr",
-                "base": "Uhr",
+                "ar": "ساعة (توقيت)",
+                "base": "die Uhr",
                 "pos": "Nomen"
               },
               {
@@ -3541,13 +3542,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Lebewesen",
-                "ar": "اسم: Lebewesen",
+                "ar": "الكائنات الحية",
                 "base": "Lebewesen",
                 "pos": "Nomen"
               },
               {
                 "w": "verfügen",
-                "ar": "فعل: verfügen",
+                "ar": "يملك",
                 "base": "verfügen",
                 "pos": "Verb"
               },
@@ -3577,13 +3578,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Zeitempfinden",
-                "ar": "اسم: Zeitempfinden",
+                "ar": "الشعور بالوقت",
                 "base": "Zeitempfinden",
                 "pos": "Nomen"
               },
               {
                 "w": "wichtig",
-                "ar": "صفة: wichtig",
+                "ar": "مهم",
                 "base": "wichtig",
                 "pos": "Adj"
               },
@@ -3608,7 +3609,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "beeinflusst",
-                "ar": "فعل: beeinflusst",
+                "ar": "تأثر",
                 "base": "beeinflusst",
                 "pos": "Verb"
               },
@@ -3620,7 +3621,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "reguliert",
-                "ar": "فعل: reguliert",
+                "ar": "ينظم",
                 "base": "reguliert",
                 "pos": "Verb"
               },
@@ -3632,7 +3633,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Vorgänge",
-                "ar": "اسم: Vorgänge",
+                "ar": "العمليات",
                 "base": "Vorgänge",
                 "pos": "Nomen"
               },
@@ -3650,21 +3651,21 @@ window.LESETEXTE = [
               },
               {
                 "w": "Körper",
-                "ar": "اسم: Körper",
+                "ar": "جسم",
                 "base": "Körper",
                 "pos": "Nomen"
               },
               {
                 "w": "z",
-                "ar": "معنى: z",
+                "ar": "على سبيل المثال",
                 "base": "z",
                 "pos": "Wort"
               },
               {
                 "w": "B",
-                "ar": "معنى: B",
+                "ar": "ب",
                 "base": "B",
-                "pos": "Wort"
+                "pos": "Nomen"
               },
               {
                 "w": "unseren",
@@ -3674,7 +3675,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Schlaf-Wach-Rhythmus",
-                "ar": "اسم: Schlaf-Wach-Rhythmus",
+                "ar": "SleepWakeRhythm",
                 "base": "Schlaf-Wach-Rhythmus",
                 "pos": "Nomen"
               }
@@ -3699,14 +3700,14 @@ window.LESETEXTE = [
               },
               {
                 "w": "innere",
-                "ar": "معنى: innere",
+                "ar": "داخلي",
                 "base": "innere",
                 "pos": "Wort"
               },
               {
                 "w": "Uhr",
-                "ar": "اسم: Uhr",
-                "base": "Uhr",
+                "ar": "ساعة (توقيت)",
+                "base": "die Uhr",
                 "pos": "Nomen"
               },
               {
@@ -3723,19 +3724,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "anders",
-                "ar": "معنى: anders",
+                "ar": "مختلف",
                 "base": "anders",
                 "pos": "Wort"
               },
               {
                 "w": "tickt",
-                "ar": "فعل: tickt",
+                "ar": "القراد",
                 "base": "tickt",
                 "pos": "Verb"
               },
               {
                 "w": "unterscheidet",
-                "ar": "فعل: unterscheidet",
+                "ar": "يختلف",
                 "base": "unterscheidet",
                 "pos": "Verb"
               },
@@ -3747,13 +3748,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "unterschiedliche",
-                "ar": "معنى: unterschiedliche",
+                "ar": "مختلف",
                 "base": "unterschiedliche",
                 "pos": "Wort"
               },
               {
                 "w": "Zeit-",
-                "ar": "اسم: Zeit-",
+                "ar": "وقت",
                 "base": "Zeit-",
                 "pos": "Nomen"
               },
@@ -3765,7 +3766,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Chronotypen",
-                "ar": "اسم: Chronotypen",
+                "ar": "أنواع زمنية",
                 "base": "Chronotypen",
                 "pos": "Nomen"
               }
@@ -3778,7 +3779,7 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Frühaufsteher",
-                "ar": "اسم: Frühaufsteher",
+                "ar": "الطيور المبكرة",
                 "base": "Frühaufsteher",
                 "pos": "Nomen"
               },
@@ -3790,7 +3791,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "früh",
-                "ar": "معنى: früh",
+                "ar": "مبكر",
                 "base": "früh",
                 "pos": "Wort"
               },
@@ -3808,7 +3809,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "wach",
-                "ar": "معنى: wach",
+                "ar": "مستيقظ",
                 "base": "wach",
                 "pos": "Wort"
               },
@@ -3820,13 +3821,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "sofort",
-                "ar": "فعل: sofort",
+                "ar": "فوراً / في الحال",
                 "base": "sofort",
-                "pos": "Verb"
+                "pos": "Adv"
               },
               {
                 "w": "topfit",
-                "ar": "فعل: topfit",
+                "ar": "في شكل رائع",
                 "base": "topfit",
                 "pos": "Verb"
               },
@@ -3838,7 +3839,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "finden",
-                "ar": "فعل: finden",
+                "ar": "يجد",
                 "base": "finden",
                 "pos": "Verb"
               },
@@ -3850,13 +3851,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "frühen",
-                "ar": "فعل: frühen",
+                "ar": "مبكر",
                 "base": "frühen",
                 "pos": "Verb"
               },
               {
                 "w": "Schul-",
-                "ar": "اسم: Schul-",
+                "ar": "مدرسة",
                 "base": "Schul-",
                 "pos": "Nomen"
               },
@@ -3868,7 +3869,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Arbeitsbeginn",
-                "ar": "اسم: Arbeitsbeginn",
+                "ar": "بداية العمل",
                 "base": "Arbeitsbeginn",
                 "pos": "Nomen"
               },
@@ -3887,7 +3888,7 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Allerdings",
-                "ar": "اسم: Allerdings",
+                "ar": "لكن",
                 "base": "Allerdings",
                 "pos": "Nomen"
               },
@@ -3905,7 +3906,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "abends",
-                "ar": "معنى: abends",
+                "ar": "في المساء",
                 "base": "abends",
                 "pos": "Wort"
               },
@@ -3923,7 +3924,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "müde",
-                "ar": "معنى: müde",
+                "ar": "مرهق",
                 "base": "müde",
                 "pos": "Wort"
               },
@@ -3935,13 +3936,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "verkraften",
-                "ar": "فعل: verkraften",
+                "ar": "يَتَصدَّى",
                 "base": "verkraften",
                 "pos": "Verb"
               },
               {
                 "w": "Nachtschichten",
-                "ar": "اسم: Nachtschichten",
+                "ar": "نوبات ليلية",
                 "base": "Nachtschichten",
                 "pos": "Nomen"
               },
@@ -3953,7 +3954,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "schlecht",
-                "ar": "فعل: schlecht",
+                "ar": "سيء",
                 "base": "schlecht",
                 "pos": "Verb"
               }
@@ -3966,13 +3967,13 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Langschläfer",
-                "ar": "اسم: Langschläfer",
+                "ar": "الناهضون في وقت متأخر",
                 "base": "Langschläfer",
                 "pos": "Nomen"
               },
               {
                 "w": "dagegen",
-                "ar": "فعل: dagegen",
+                "ar": "ضدها",
                 "base": "dagegen",
                 "pos": "Verb"
               },
@@ -3984,13 +3985,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "abends",
-                "ar": "معنى: abends",
+                "ar": "في المساء",
                 "base": "abends",
                 "pos": "Wort"
               },
               {
                 "w": "hellwach",
-                "ar": "معنى: hellwach",
+                "ar": "مستيقظ تماما",
                 "base": "hellwach",
                 "pos": "Wort"
               },
@@ -4008,7 +4009,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "sich",
-                "ar": "معنى: sich",
+                "ar": "نفسها",
                 "base": "sich",
                 "pos": "Wort"
               },
@@ -4026,7 +4027,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Zeit",
-                "ar": "اسم: Zeit",
+                "ar": "وقت",
                 "base": "Zeit",
                 "pos": "Nomen"
               },
@@ -4056,13 +4057,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Arbeit",
-                "ar": "اسم: Arbeit",
+                "ar": "عمل",
                 "base": "Arbeit",
                 "pos": "Nomen"
               },
               {
                 "w": "konzentrieren",
-                "ar": "فعل: konzentrieren",
+                "ar": "ركز",
                 "base": "konzentrieren",
                 "pos": "Verb"
               }
@@ -4075,13 +4076,13 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Nachtarbeit",
-                "ar": "اسم: Nachtarbeit",
+                "ar": "العمل الليلي",
                 "base": "Nachtarbeit",
                 "pos": "Nomen"
               },
               {
                 "w": "schadet",
-                "ar": "فعل: schadet",
+                "ar": "ضرر",
                 "base": "schadet",
                 "pos": "Verb"
               },
@@ -4093,9 +4094,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "also",
-                "ar": "معنى: also",
+                "ar": "إذن / وبالتالي",
                 "base": "also",
-                "pos": "Wort"
+                "pos": "Adv"
               },
               {
                 "w": "nicht",
@@ -4135,7 +4136,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "müde",
-                "ar": "معنى: müde",
+                "ar": "مرهق",
                 "base": "müde",
                 "pos": "Wort"
               },
@@ -4147,7 +4148,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "unkonzentriert",
-                "ar": "فعل: unkonzentriert",
+                "ar": "غير مركزة",
                 "base": "unkonzentriert",
                 "pos": "Verb"
               }
@@ -4166,19 +4167,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Normaltypen",
-                "ar": "اسم: Normaltypen",
+                "ar": "أنواع عادية",
                 "base": "Normaltypen",
                 "pos": "Nomen"
               },
               {
                 "w": "liegen",
-                "ar": "فعل: liegen",
+                "ar": "يضع",
                 "base": "liegen",
                 "pos": "Verb"
               },
               {
                 "w": "irgendwo",
-                "ar": "معنى: irgendwo",
+                "ar": "مكان ما",
                 "base": "irgendwo",
                 "pos": "Wort"
               },
@@ -4190,7 +4191,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Frühaufsteher",
-                "ar": "اسم: Frühaufsteher",
+                "ar": "الطيور المبكرة",
                 "base": "Frühaufsteher",
                 "pos": "Nomen"
               },
@@ -4202,7 +4203,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Langschläfer",
-                "ar": "اسم: Langschläfer",
+                "ar": "الناهضون في وقت متأخر",
                 "base": "Langschläfer",
                 "pos": "Nomen"
               }
@@ -4227,7 +4228,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "sich",
-                "ar": "معنى: sich",
+                "ar": "نفسها",
                 "base": "sich",
                 "pos": "Wort"
               },
@@ -4239,13 +4240,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "beide",
-                "ar": "معنى: beide",
+                "ar": "كلاهما",
                 "base": "beide",
                 "pos": "Wort"
               },
               {
                 "w": "Richtungen",
-                "ar": "اسم: Richtungen",
+                "ar": "الاتجاهات",
                 "base": "Richtungen",
                 "pos": "Nomen"
               },
@@ -4263,7 +4264,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "anpassen",
-                "ar": "فعل: anpassen",
+                "ar": "يُعدِّل",
                 "base": "anpassen",
                 "pos": "Verb"
               }
@@ -4276,13 +4277,13 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Wissenschaftler",
-                "ar": "اسم: Wissenschaftler",
+                "ar": "عالم",
                 "base": "Wissenschaftler",
                 "pos": "Nomen"
               },
               {
                 "w": "glauben",
-                "ar": "فعل: glauben",
+                "ar": "يعتقد",
                 "base": "glauben",
                 "pos": "Verb"
               },
@@ -4300,19 +4301,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Chronotyp",
-                "ar": "اسم: Chronotyp",
+                "ar": "نوع زمني",
                 "base": "Chronotyp",
                 "pos": "Nomen"
               },
               {
                 "w": "genetisch",
-                "ar": "معنى: genetisch",
+                "ar": "وراثيا",
                 "base": "genetisch",
                 "pos": "Wort"
               },
               {
                 "w": "festgelegt",
-                "ar": "فعل: festgelegt",
+                "ar": "تعيين",
                 "base": "festgelegt",
                 "pos": "Verb"
               },
@@ -4324,7 +4325,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "sich",
-                "ar": "معنى: sich",
+                "ar": "نفسها",
                 "base": "sich",
                 "pos": "Wort"
               },
@@ -4342,25 +4343,25 @@ window.LESETEXTE = [
               },
               {
                 "w": "Verlauf",
-                "ar": "اسم: Verlauf",
+                "ar": "دورة",
                 "base": "Verlauf",
                 "pos": "Nomen"
               },
               {
                 "w": "eines",
-                "ar": "معنى: eines",
+                "ar": "واحد",
                 "base": "eines",
                 "pos": "Wort"
               },
               {
                 "w": "Lebens",
-                "ar": "اسم: Lebens",
+                "ar": "حياة",
                 "base": "Lebens",
                 "pos": "Nomen"
               },
               {
                 "w": "verändern",
-                "ar": "معنى: verändern",
+                "ar": "يتغير",
                 "base": "verändern",
                 "pos": "Wort"
               },
@@ -4390,7 +4391,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Menschen",
-                "ar": "اسم: Menschen",
+                "ar": "الناس",
                 "base": "Menschen",
                 "pos": "Nomen"
               },
@@ -4408,7 +4409,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Gefühl",
-                "ar": "اسم: Gefühl",
+                "ar": "إحساس",
                 "base": "Gefühl",
                 "pos": "Nomen"
               },
@@ -4426,7 +4427,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Arbeitszeit",
-                "ar": "اسم: Arbeitszeit",
+                "ar": "وقت العمل",
                 "base": "Arbeitszeit",
                 "pos": "Nomen"
               },
@@ -4444,7 +4445,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "vergeht",
-                "ar": "فعل: vergeht",
+                "ar": "يتوفى",
                 "base": "vergeht",
                 "pos": "Verb"
               }
@@ -4487,19 +4488,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Freunden",
-                "ar": "اسم: Freunden",
+                "ar": "أصدقاء",
                 "base": "Freunden",
                 "pos": "Nomen"
               },
               {
                 "w": "unternehmen",
-                "ar": "فعل: unternehmen",
+                "ar": "شركة",
                 "base": "unternehmen",
                 "pos": "Verb"
               },
               {
                 "w": "fehlt",
-                "ar": "فعل: fehlt",
+                "ar": "مفتقد",
                 "base": "fehlt",
                 "pos": "Verb"
               },
@@ -4511,7 +4512,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Zeit",
-                "ar": "اسم: Zeit",
+                "ar": "وقت",
                 "base": "Zeit",
                 "pos": "Nomen"
               }
@@ -4530,7 +4531,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "sagen",
-                "ar": "فعل: sagen",
+                "ar": "يقول",
                 "base": "sagen",
                 "pos": "Verb"
               },
@@ -4560,19 +4561,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Alltagsaufgaben",
-                "ar": "اسم: Alltagsaufgaben",
+                "ar": "المهام اليومية",
                 "base": "Alltagsaufgaben",
                 "pos": "Nomen"
               },
               {
                 "w": "Zeit",
-                "ar": "اسم: Zeit",
+                "ar": "وقت",
                 "base": "Zeit",
                 "pos": "Nomen"
               },
               {
                 "w": "stehlen",
-                "ar": "فعل: stehlen",
+                "ar": "يسرق",
                 "base": "stehlen",
                 "pos": "Verb"
               },
@@ -4590,13 +4591,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "wünschen",
-                "ar": "فعل: wünschen",
+                "ar": "يتمنى",
                 "base": "wünschen",
                 "pos": "Verb"
               },
               {
                 "w": "sich",
-                "ar": "معنى: sich",
+                "ar": "نفسها",
                 "base": "sich",
                 "pos": "Wort"
               },
@@ -4620,19 +4621,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "zusätzliche",
-                "ar": "معنى: zusätzliche",
+                "ar": "إضافي",
                 "base": "zusätzliche",
                 "pos": "Wort"
               },
               {
                 "w": "Stunden",
-                "ar": "اسم: Stunden",
+                "ar": "ساعات",
                 "base": "Stunden",
                 "pos": "Nomen"
               },
               {
                 "w": "schenkt",
-                "ar": "فعل: schenkt",
+                "ar": "يعطي",
                 "base": "schenkt",
                 "pos": "Verb"
               }
@@ -4657,13 +4658,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Zeit",
-                "ar": "اسم: Zeit",
+                "ar": "وقت",
                 "base": "Zeit",
                 "pos": "Nomen"
               },
               {
                 "w": "wahrnehmen",
-                "ar": "فعل: wahrnehmen",
+                "ar": "يتصور",
                 "base": "wahrnehmen",
                 "pos": "Verb"
               },
@@ -4681,7 +4682,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "widersprüchlich",
-                "ar": "صفة: widersprüchlich",
+                "ar": "متناقض",
                 "base": "widersprüchlich",
                 "pos": "Adj"
               },
@@ -4699,7 +4700,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "subjektiv",
-                "ar": "معنى: subjektiv",
+                "ar": "شخصي",
                 "base": "subjektiv",
                 "pos": "Wort"
               }
@@ -4712,13 +4713,13 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Entscheidend",
-                "ar": "اسم: Entscheidend",
+                "ar": "حاسم",
                 "base": "Entscheidend",
                 "pos": "Nomen"
               },
               {
                 "w": "dabei",
-                "ar": "معنى: dabei",
+                "ar": "متضمنة",
                 "base": "dabei",
                 "pos": "Wort"
               },
@@ -4742,13 +4743,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "neue",
-                "ar": "معنى: neue",
-                "base": "neue",
-                "pos": "Wort"
+                "ar": "جديد / جديدة",
+                "base": "neu",
+                "pos": "Adj"
               },
               {
                 "w": "Informationen",
-                "ar": "اسم: Informationen",
+                "ar": "معلومة",
                 "base": "Informationen",
                 "pos": "Nomen"
               },
@@ -4760,13 +4761,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Gehirn",
-                "ar": "اسم: Gehirn",
+                "ar": "مخ",
                 "base": "Gehirn",
                 "pos": "Nomen"
               },
               {
                 "w": "verarbeiten",
-                "ar": "فعل: verarbeiten",
+                "ar": "عملية",
                 "base": "verarbeiten",
                 "pos": "Verb"
               },
@@ -4785,7 +4786,7 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Informationen",
-                "ar": "اسم: Informationen",
+                "ar": "معلومة",
                 "base": "Informationen",
                 "pos": "Nomen"
               },
@@ -4803,7 +4804,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "kennen",
-                "ar": "فعل: kennen",
+                "ar": "يعرف",
                 "base": "kennen",
                 "pos": "Verb"
               },
@@ -4815,7 +4816,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "nämlich",
-                "ar": "صفة: nämlich",
+                "ar": "وهي",
                 "base": "nämlich",
                 "pos": "Adj"
               },
@@ -4839,19 +4840,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "bereits",
-                "ar": "معنى: bereits",
+                "ar": "بالفعل",
                 "base": "bereits",
                 "pos": "Wort"
               },
               {
                 "w": "bekannt",
-                "ar": "فعل: bekannt",
+                "ar": "معروف",
                 "base": "bekannt",
                 "pos": "Verb"
               },
               {
                 "w": "eingeordnet",
-                "ar": "فعل: eingeordnet",
+                "ar": "مبوب",
                 "base": "eingeordnet",
                 "pos": "Verb"
               }
@@ -4870,7 +4871,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "hilft",
-                "ar": "فعل: hilft",
+                "ar": "يساعد",
                 "base": "hilft",
                 "pos": "Verb"
               },
@@ -4882,13 +4883,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Gehirn",
-                "ar": "اسم: Gehirn",
+                "ar": "مخ",
                 "base": "Gehirn",
                 "pos": "Nomen"
               },
               {
                 "w": "enorm",
-                "ar": "معنى: enorm",
+                "ar": "ضخم",
                 "base": "enorm",
                 "pos": "Wort"
               },
@@ -4918,7 +4919,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "möglich",
-                "ar": "صفة: möglich",
+                "ar": "ممكن",
                 "base": "möglich",
                 "pos": "Adj"
               },
@@ -4948,25 +4949,25 @@ window.LESETEXTE = [
               },
               {
                 "w": "Informationen",
-                "ar": "اسم: Informationen",
+                "ar": "معلومة",
                 "base": "Informationen",
                 "pos": "Nomen"
               },
               {
                 "w": "bereits",
-                "ar": "معنى: bereits",
+                "ar": "بالفعل",
                 "base": "bereits",
                 "pos": "Wort"
               },
               {
                 "w": "Verbindungen",
-                "ar": "اسم: Verbindungen",
+                "ar": "اتصالات",
                 "base": "Verbindungen",
                 "pos": "Nomen"
               },
               {
                 "w": "gibt",
-                "ar": "فعل: gibt",
+                "ar": "يعطي",
                 "base": "gibt",
                 "pos": "Verb"
               }
@@ -4985,13 +4986,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "neuen",
-                "ar": "فعل: neuen",
-                "base": "neuen",
-                "pos": "Verb"
+                "ar": "جديد / جديدين",
+                "base": "neu",
+                "pos": "Adj"
               },
               {
                 "w": "Informationen",
-                "ar": "اسم: Informationen",
+                "ar": "معلومة",
                 "base": "Informationen",
                 "pos": "Nomen"
               },
@@ -5021,7 +5022,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Fall",
-                "ar": "اسم: Fall",
+                "ar": "قضية",
                 "base": "Fall",
                 "pos": "Nomen"
               },
@@ -5039,13 +5040,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Gehirn",
-                "ar": "اسم: Gehirn",
+                "ar": "مخ",
                 "base": "Gehirn",
                 "pos": "Nomen"
               },
               {
                 "w": "braucht",
-                "ar": "فعل: braucht",
+                "ar": "الاحتياجات",
                 "base": "braucht",
                 "pos": "Verb"
               },
@@ -5057,7 +5058,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Zeit",
-                "ar": "اسم: Zeit",
+                "ar": "وقت",
                 "base": "Zeit",
                 "pos": "Nomen"
               }
@@ -5070,13 +5071,13 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Psychologen",
-                "ar": "اسم: Psychologen",
+                "ar": "علماء النفس",
                 "base": "Psychologen",
                 "pos": "Nomen"
               },
               {
                 "w": "glauben",
-                "ar": "فعل: glauben",
+                "ar": "يعتقد",
                 "base": "glauben",
                 "pos": "Verb"
               },
@@ -5106,13 +5107,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "subjektiven",
-                "ar": "فعل: subjektiven",
+                "ar": "شخصي",
                 "base": "subjektiven",
                 "pos": "Verb"
               },
               {
                 "w": "Zeitempfinden",
-                "ar": "اسم: Zeitempfinden",
+                "ar": "الشعور بالوقت",
                 "base": "Zeitempfinden",
                 "pos": "Nomen"
               },
@@ -5136,13 +5137,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Minuten",
-                "ar": "اسم: Minuten",
+                "ar": "دقائق",
                 "base": "Minuten",
                 "pos": "Nomen"
               },
               {
                 "w": "geht",
-                "ar": "فعل: geht",
+                "ar": "يذهب",
                 "base": "geht",
                 "pos": "Verb"
               },
@@ -5166,7 +5167,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Anzahl",
-                "ar": "اسم: Anzahl",
+                "ar": "رقم",
                 "base": "Anzahl",
                 "pos": "Nomen"
               },
@@ -5178,13 +5179,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "neuen",
-                "ar": "فعل: neuen",
-                "base": "neuen",
-                "pos": "Verb"
+                "ar": "جديد / جديدين",
+                "base": "neu",
+                "pos": "Adj"
               },
               {
                 "w": "Informationen",
-                "ar": "اسم: Informationen",
+                "ar": "معلومة",
                 "base": "Informationen",
                 "pos": "Nomen"
               },
@@ -5202,7 +5203,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Gehirn",
-                "ar": "اسم: Gehirn",
+                "ar": "مخ",
                 "base": "Gehirn",
                 "pos": "Nomen"
               },
@@ -5220,19 +5221,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "bestimmten",
-                "ar": "فعل: bestimmten",
+                "ar": "تأكيد",
                 "base": "bestimmten",
                 "pos": "Verb"
               },
               {
                 "w": "Zeitraum",
-                "ar": "اسم: Zeitraum",
+                "ar": "فترة",
                 "base": "Zeitraum",
                 "pos": "Nomen"
               },
               {
                 "w": "verarbeiten",
-                "ar": "فعل: verarbeiten",
+                "ar": "عملية",
                 "base": "verarbeiten",
                 "pos": "Verb"
               },
@@ -5257,7 +5258,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Effekt",
-                "ar": "اسم: Effekt",
+                "ar": "تأثير",
                 "base": "Effekt",
                 "pos": "Nomen"
               },
@@ -5269,19 +5270,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "sich",
-                "ar": "معنى: sich",
+                "ar": "نفسها",
                 "base": "sich",
                 "pos": "Wort"
               },
               {
                 "w": "daraus",
-                "ar": "معنى: daraus",
+                "ar": "منه",
                 "base": "daraus",
                 "pos": "Wort"
               },
               {
                 "w": "ergibt",
-                "ar": "فعل: ergibt",
+                "ar": "نتائج",
                 "base": "ergibt",
                 "pos": "Verb"
               },
@@ -5293,7 +5294,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "paradox",
-                "ar": "معنى: paradox",
+                "ar": "مفارقة",
                 "base": "paradox",
                 "pos": "Wort"
               },
@@ -5317,13 +5318,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "langweilen",
-                "ar": "فعل: langweilen",
+                "ar": "ممل",
                 "base": "langweilen",
                 "pos": "Verb"
               },
               {
                 "w": "erleben",
-                "ar": "فعل: erleben",
+                "ar": "خبرة",
                 "base": "erleben",
                 "pos": "Verb"
               },
@@ -5341,7 +5342,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Zeit",
-                "ar": "اسم: Zeit",
+                "ar": "وقت",
                 "base": "Zeit",
                 "pos": "Nomen"
               },
@@ -5365,7 +5366,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "glauben",
-                "ar": "فعل: glauben",
+                "ar": "يعتقد",
                 "base": "glauben",
                 "pos": "Verb"
               },
@@ -5377,9 +5378,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "später",
-                "ar": "معنى: später",
+                "ar": "لاحقاً",
                 "base": "später",
-                "pos": "Wort"
+                "pos": "Adj"
               },
               {
                 "w": "dass",
@@ -5401,7 +5402,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "verging",
-                "ar": "معنى: verging",
+                "ar": "توفي",
                 "base": "verging",
                 "pos": "Wort"
               }
@@ -5426,7 +5427,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "dagegen",
-                "ar": "فعل: dagegen",
+                "ar": "ضدها",
                 "base": "dagegen",
                 "pos": "Verb"
               },
@@ -5450,13 +5451,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Neuem",
-                "ar": "اسم: Neuem",
+                "ar": "جديد",
                 "base": "Neuem",
                 "pos": "Nomen"
               },
               {
                 "w": "konfrontiert",
-                "ar": "فعل: konfrontiert",
+                "ar": "واجه",
                 "base": "konfrontiert",
                 "pos": "Verb"
               },
@@ -5474,7 +5475,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "vergeht",
-                "ar": "فعل: vergeht",
+                "ar": "يتوفى",
                 "base": "vergeht",
                 "pos": "Verb"
               },
@@ -5486,7 +5487,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Zeit",
-                "ar": "اسم: Zeit",
+                "ar": "وقت",
                 "base": "Zeit",
                 "pos": "Nomen"
               },
@@ -5528,7 +5529,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "zurückblicken",
-                "ar": "فعل: zurückblicken",
+                "ar": "ننظر إلى الوراء",
                 "base": "zurückblicken",
                 "pos": "Verb"
               },
@@ -5546,19 +5547,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "gefühlt",
-                "ar": "فعل: gefühlt",
+                "ar": "شعر",
                 "base": "gefühlt",
                 "pos": "Verb"
               },
               {
                 "w": "länger",
-                "ar": "معنى: länger",
+                "ar": "لفترة أطول",
                 "base": "länger",
-                "pos": "Wort"
+                "pos": "Adj"
               },
               {
                 "w": "gedauert",
-                "ar": "فعل: gedauert",
+                "ar": "استمر",
                 "base": "gedauert",
                 "pos": "Verb"
               }
@@ -5571,13 +5572,13 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Wissenschaftler",
-                "ar": "اسم: Wissenschaftler",
+                "ar": "عالم",
                 "base": "Wissenschaftler",
                 "pos": "Nomen"
               },
               {
                 "w": "sprechen",
-                "ar": "فعل: sprechen",
+                "ar": "يتكلم",
                 "base": "sprechen",
                 "pos": "Verb"
               },
@@ -5589,21 +5590,21 @@ window.LESETEXTE = [
               },
               {
                 "w": "subjektiven",
-                "ar": "فعل: subjektiven",
+                "ar": "شخصي",
                 "base": "subjektiven",
                 "pos": "Verb"
               },
               {
                 "w": "Zeitparadoxon",
-                "ar": "اسم: Zeitparadoxon",
+                "ar": "مفارقة الوقت",
                 "base": "Zeitparadoxon",
                 "pos": "Nomen"
               },
               {
                 "w": "also",
-                "ar": "معنى: also",
+                "ar": "إذن / وبالتالي",
                 "base": "also",
-                "pos": "Wort"
+                "pos": "Adv"
               },
               {
                 "w": "einem",
@@ -5613,7 +5614,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Widerspruch",
-                "ar": "اسم: Widerspruch",
+                "ar": "تناقض",
                 "base": "Widerspruch",
                 "pos": "Nomen"
               }
@@ -5760,13 +5761,13 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Schweizer",
-                "ar": "اسم: Schweizer",
+                "ar": "سويسري",
                 "base": "Schweizer",
                 "pos": "Nomen"
               },
               {
                 "w": "Uhren",
-                "ar": "اسم: Uhren",
+                "ar": "الساعات",
                 "base": "Uhren",
                 "pos": "Nomen"
               },
@@ -5778,7 +5779,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "weltbekannt",
-                "ar": "فعل: weltbekannt",
+                "ar": "مشهور عالميًا",
                 "base": "weltbekannt",
                 "pos": "Verb"
               },
@@ -5790,7 +5791,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "gelten",
-                "ar": "فعل: gelten",
+                "ar": "يتقدم",
                 "base": "gelten",
                 "pos": "Verb"
               },
@@ -5802,7 +5803,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "präzise",
-                "ar": "معنى: präzise",
+                "ar": "دقيق",
                 "base": "präzise",
                 "pos": "Wort"
               },
@@ -5814,7 +5815,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "zuverlässig",
-                "ar": "صفة: zuverlässig",
+                "ar": "موثوق",
                 "base": "zuverlässig",
                 "pos": "Adj"
               }
@@ -5833,9 +5834,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "kam",
-                "ar": "معنى: kam",
-                "base": "kam",
-                "pos": "Wort"
+                "ar": "أتى / جاءَ",
+                "base": "kommen",
+                "pos": "Verb"
               },
               {
                 "w": "es",
@@ -5845,7 +5846,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "dazu",
-                "ar": "معنى: dazu",
+                "ar": "فضلاً عن ذلك",
                 "base": "dazu",
                 "pos": "Wort"
               },
@@ -5863,7 +5864,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Uhrenindustrie",
-                "ar": "اسم: Uhrenindustrie",
+                "ar": "صناعة الساعات",
                 "base": "Uhrenindustrie",
                 "pos": "Nomen"
               },
@@ -5881,7 +5882,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Schweiz",
-                "ar": "اسم: Schweiz",
+                "ar": "سويسرا",
                 "base": "Schweiz",
                 "pos": "Nomen"
               },
@@ -5893,7 +5894,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "bedeutend",
-                "ar": "معنى: bedeutend",
+                "ar": "بارِز",
                 "base": "bedeutend",
                 "pos": "Wort"
               },
@@ -5912,7 +5913,7 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Angefangen",
-                "ar": "اسم: Angefangen",
+                "ar": "بدأت",
                 "base": "Angefangen",
                 "pos": "Nomen"
               },
@@ -5942,7 +5943,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Mitte",
-                "ar": "اسم: Mitte",
+                "ar": "مركز",
                 "base": "Mitte",
                 "pos": "Nomen"
               },
@@ -5954,13 +5955,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "16",
-                "ar": "معنى: 16",
-                "base": "16",
-                "pos": "Wort"
+                "ar": "ستة عشر (16)",
+                "base": "sechzehn",
+                "pos": "Num"
               },
               {
                 "w": "Jahrhunderts",
-                "ar": "اسم: Jahrhunderts",
+                "ar": "قرن",
                 "base": "Jahrhunderts",
                 "pos": "Nomen"
               },
@@ -5972,7 +5973,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Genf",
-                "ar": "اسم: Genf",
+                "ar": "جنيف",
                 "base": "Genf",
                 "pos": "Nomen"
               },
@@ -5990,19 +5991,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Reformator",
-                "ar": "اسم: Reformator",
+                "ar": "مصلح",
                 "base": "Reformator",
                 "pos": "Nomen"
               },
               {
                 "w": "Jean",
-                "ar": "اسم: Jean",
+                "ar": "جان",
                 "base": "Jean",
                 "pos": "Nomen"
               },
               {
                 "w": "Calvin",
-                "ar": "اسم: Calvin",
+                "ar": "كالفين",
                 "base": "Calvin",
                 "pos": "Nomen"
               },
@@ -6014,7 +6015,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Präsentieren",
-                "ar": "اسم: Präsentieren",
+                "ar": "حاضر",
                 "base": "Präsentieren",
                 "pos": "Nomen"
               },
@@ -6026,7 +6027,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Reichtum",
-                "ar": "اسم: Reichtum",
+                "ar": "ثروة",
                 "base": "Reichtum",
                 "pos": "Nomen"
               },
@@ -6038,19 +6039,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "dazu",
-                "ar": "معنى: dazu",
+                "ar": "فضلاً عن ذلك",
                 "base": "dazu",
                 "pos": "Wort"
               },
               {
                 "w": "zählte",
-                "ar": "فعل: zählte",
+                "ar": "عد",
                 "base": "zählte",
                 "pos": "Verb"
               },
               {
                 "w": "natürlich",
-                "ar": "صفة: natürlich",
+                "ar": "بشكل طبيعي",
                 "base": "natürlich",
                 "pos": "Adj"
               },
@@ -6068,7 +6069,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Tragen",
-                "ar": "اسم: Tragen",
+                "ar": "يحمل",
                 "base": "Tragen",
                 "pos": "Nomen"
               },
@@ -6080,13 +6081,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Schmuck",
-                "ar": "اسم: Schmuck",
+                "ar": "مجوهرات",
                 "base": "Schmuck",
                 "pos": "Nomen"
               },
               {
                 "w": "verbot",
-                "ar": "فعل: verbot",
+                "ar": "حظر",
                 "base": "verbot",
                 "pos": "Verb"
               }
@@ -6111,7 +6112,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "nun",
-                "ar": "معنى: nun",
+                "ar": "لذا",
                 "base": "nun",
                 "pos": "Wort"
               },
@@ -6123,13 +6124,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "vielen",
-                "ar": "فعل: vielen",
+                "ar": "كثير",
                 "base": "vielen",
                 "pos": "Verb"
               },
               {
                 "w": "Goldschmiede",
-                "ar": "اسم: Goldschmiede",
+                "ar": "صاغة",
                 "base": "Goldschmiede",
                 "pos": "Nomen"
               },
@@ -6141,7 +6142,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Juweliere",
-                "ar": "اسم: Juweliere",
+                "ar": "الجواهريون",
                 "base": "Juweliere",
                 "pos": "Nomen"
               },
@@ -6159,13 +6160,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Region",
-                "ar": "اسم: Region",
+                "ar": "منطقة",
                 "base": "Region",
                 "pos": "Nomen"
               },
               {
                 "w": "machen",
-                "ar": "فعل: machen",
+                "ar": "يفعل / يصنع",
                 "base": "machen",
                 "pos": "Verb"
               }
@@ -6196,25 +6197,25 @@ window.LESETEXTE = [
               },
               {
                 "w": "Schmuck",
-                "ar": "اسم: Schmuck",
+                "ar": "مجوهرات",
                 "base": "Schmuck",
                 "pos": "Nomen"
               },
               {
                 "w": "kaufen",
-                "ar": "فعل: kaufen",
+                "ar": "يشتري",
                 "base": "kaufen",
                 "pos": "Verb"
               },
               {
                 "w": "Also",
-                "ar": "اسم: Also",
-                "base": "Also",
-                "pos": "Nomen"
+                "ar": "إذن / هكذا",
+                "base": "also",
+                "pos": "Adv"
               },
               {
                 "w": "begannen",
-                "ar": "فعل: begannen",
+                "ar": "بدأ",
                 "base": "begannen",
                 "pos": "Verb"
               },
@@ -6226,7 +6227,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Uhren",
-                "ar": "اسم: Uhren",
+                "ar": "الساعات",
                 "base": "Uhren",
                 "pos": "Nomen"
               },
@@ -6238,7 +6239,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "fertigen",
-                "ar": "فعل: fertigen",
+                "ar": "تصنيع",
                 "base": "fertigen",
                 "pos": "Verb"
               }
@@ -6263,7 +6264,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "bald",
-                "ar": "معنى: bald",
+                "ar": "قريباً",
                 "base": "bald",
                 "pos": "Wort"
               },
@@ -6281,7 +6282,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Uhren",
-                "ar": "اسم: Uhren",
+                "ar": "الساعات",
                 "base": "Uhren",
                 "pos": "Nomen"
               },
@@ -6293,7 +6294,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Genf",
-                "ar": "اسم: Genf",
+                "ar": "جنيف",
                 "base": "Genf",
                 "pos": "Nomen"
               },
@@ -6311,7 +6312,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Ausland",
-                "ar": "اسم: Ausland",
+                "ar": "في الخارج",
                 "base": "Ausland",
                 "pos": "Nomen"
               },
@@ -6323,7 +6324,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "gefragt",
-                "ar": "فعل: gefragt",
+                "ar": "سأل",
                 "base": "gefragt",
                 "pos": "Verb"
               }
@@ -6342,7 +6343,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Kunst",
-                "ar": "اسم: Kunst",
+                "ar": "فن",
                 "base": "Kunst",
                 "pos": "Nomen"
               },
@@ -6354,19 +6355,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Uhrenmachens",
-                "ar": "اسم: Uhrenmachens",
+                "ar": "صناعة الساعات",
                 "base": "Uhrenmachens",
                 "pos": "Nomen"
               },
               {
                 "w": "breitete",
-                "ar": "فعل: breitete",
+                "ar": "الانتشار",
                 "base": "breitete",
                 "pos": "Verb"
               },
               {
                 "w": "sich",
-                "ar": "معنى: sich",
+                "ar": "نفسها",
                 "base": "sich",
                 "pos": "Wort"
               },
@@ -6378,7 +6379,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Genf",
-                "ar": "اسم: Genf",
+                "ar": "جنيف",
                 "base": "Genf",
                 "pos": "Nomen"
               },
@@ -6396,21 +6397,21 @@ window.LESETEXTE = [
               },
               {
                 "w": "Region",
-                "ar": "اسم: Region",
+                "ar": "منطقة",
                 "base": "Region",
                 "pos": "Nomen"
               },
               {
                 "w": "Jura",
-                "ar": "اسم: Jura",
+                "ar": "قانون",
                 "base": "Jura",
                 "pos": "Nomen"
               },
               {
                 "w": "weiter",
-                "ar": "معنى: weiter",
+                "ar": "مواصلاً / متابعاً",
                 "base": "weiter",
-                "pos": "Wort"
+                "pos": "Adv"
               },
               {
                 "w": "aus",
@@ -6432,7 +6433,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Basel",
-                "ar": "اسم: Basel",
+                "ar": "بازل",
                 "base": "Basel",
                 "pos": "Nomen"
               },
@@ -6450,7 +6451,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "schließlich",
-                "ar": "صفة: schließlich",
+                "ar": "أخيراً",
                 "base": "schließlich",
                 "pos": "Adj"
               },
@@ -6468,13 +6469,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "gesamten",
-                "ar": "فعل: gesamten",
+                "ar": "كامل",
                 "base": "gesamten",
                 "pos": "Verb"
               },
               {
                 "w": "Schweiz",
-                "ar": "اسم: Schweiz",
+                "ar": "سويسرا",
                 "base": "Schweiz",
                 "pos": "Nomen"
               },
@@ -6486,13 +6487,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "wichtiger",
-                "ar": "معنى: wichtiger",
+                "ar": "أكثر أهمية",
                 "base": "wichtiger",
-                "pos": "Wort"
+                "pos": "Adj"
               },
               {
                 "w": "Wirtschaftszweig",
-                "ar": "اسم: Wirtschaftszweig",
+                "ar": "القطاع الاقتصادي",
                 "base": "Wirtschaftszweig",
                 "pos": "Nomen"
               }
@@ -6505,25 +6506,25 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "1926",
-                "ar": "معنى: 1926",
+                "ar": "عام 1926",
                 "base": "1926",
-                "pos": "Wort"
+                "pos": "Num"
               },
               {
                 "w": "entwarfen",
-                "ar": "فعل: entwarfen",
+                "ar": "مصممة",
                 "base": "entwarfen",
                 "pos": "Verb"
               },
               {
                 "w": "Schweizer",
-                "ar": "اسم: Schweizer",
+                "ar": "سويسري",
                 "base": "Schweizer",
                 "pos": "Nomen"
               },
               {
                 "w": "Uhrmacher",
-                "ar": "اسم: Uhrmacher",
+                "ar": "صانع الساعات",
                 "base": "Uhrmacher",
                 "pos": "Nomen"
               },
@@ -6535,13 +6536,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "erste",
-                "ar": "فعل: erste",
+                "ar": "أولاً",
                 "base": "erste",
                 "pos": "Verb"
               },
               {
                 "w": "Armbanduhr",
-                "ar": "اسم: Armbanduhr",
+                "ar": "ساعة يد",
                 "base": "Armbanduhr",
                 "pos": "Nomen"
               },
@@ -6553,19 +6554,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Schweizer",
-                "ar": "اسم: Schweizer",
+                "ar": "سويسري",
                 "base": "Schweizer",
                 "pos": "Nomen"
               },
               {
                 "w": "Uhrenindustrie",
-                "ar": "اسم: Uhrenindustrie",
+                "ar": "صناعة الساعات",
                 "base": "Uhrenindustrie",
                 "pos": "Nomen"
               },
               {
                 "w": "zählte",
-                "ar": "فعل: zählte",
+                "ar": "عد",
                 "base": "zählte",
                 "pos": "Verb"
               },
@@ -6577,7 +6578,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "bald",
-                "ar": "معنى: bald",
+                "ar": "قريباً",
                 "base": "bald",
                 "pos": "Wort"
               },
@@ -6595,19 +6596,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "wichtigsten",
-                "ar": "فعل: wichtigsten",
+                "ar": "الأهم",
                 "base": "wichtigsten",
                 "pos": "Verb"
               },
               {
                 "w": "Uhrenherstellern",
-                "ar": "اسم: Uhrenherstellern",
+                "ar": "مصنعي الساعات",
                 "base": "Uhrenherstellern",
                 "pos": "Nomen"
               },
               {
                 "w": "weltweit",
-                "ar": "فعل: weltweit",
+                "ar": "في جميع أنحاء العالم",
                 "base": "weltweit",
                 "pos": "Verb"
               }
@@ -6637,7 +6638,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Erfindung",
-                "ar": "اسم: Erfindung",
+                "ar": "اختراع",
                 "base": "Erfindung",
                 "pos": "Nomen"
               },
@@ -6649,13 +6650,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "elektrischen",
-                "ar": "فعل: elektrischen",
+                "ar": "كهربائي",
                 "base": "elektrischen",
                 "pos": "Verb"
               },
               {
                 "w": "Armbanduhr",
-                "ar": "اسم: Armbanduhr",
+                "ar": "ساعة يد",
                 "base": "Armbanduhr",
                 "pos": "Nomen"
               },
@@ -6685,13 +6686,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Quarzuhr",
-                "ar": "اسم: Quarzuhr",
+                "ar": "ساعة كوارتز",
                 "base": "Quarzuhr",
                 "pos": "Nomen"
               },
               {
                 "w": "begann",
-                "ar": "معنى: begann",
+                "ar": "بدأ",
                 "base": "begann",
                 "pos": "Wort"
               },
@@ -6703,7 +6704,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Krise",
-                "ar": "اسم: Krise",
+                "ar": "مصيبة",
                 "base": "Krise",
                 "pos": "Nomen"
               },
@@ -6721,7 +6722,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Wirtschaftszweig",
-                "ar": "اسم: Wirtschaftszweig",
+                "ar": "القطاع الاقتصادي",
                 "base": "Wirtschaftszweig",
                 "pos": "Nomen"
               },
@@ -6739,7 +6740,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Schweiz",
-                "ar": "اسم: Schweiz",
+                "ar": "سويسرا",
                 "base": "Schweiz",
                 "pos": "Nomen"
               }
@@ -6752,7 +6753,7 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Mitte",
-                "ar": "اسم: Mitte",
+                "ar": "مركز",
                 "base": "Mitte",
                 "pos": "Nomen"
               },
@@ -6764,13 +6765,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "70er-Jahre",
-                "ar": "معنى: 70er-Jahre",
+                "ar": "eryears",
                 "base": "70er-Jahre",
                 "pos": "Wort"
               },
               {
                 "w": "erreichte",
-                "ar": "فعل: erreichte",
+                "ar": "وصل",
                 "base": "erreichte",
                 "pos": "Verb"
               },
@@ -6782,7 +6783,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Krise",
-                "ar": "اسم: Krise",
+                "ar": "مصيبة",
                 "base": "Krise",
                 "pos": "Nomen"
               },
@@ -6794,7 +6795,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Höhepunkt",
-                "ar": "اسم: Höhepunkt",
+                "ar": "ذروة",
                 "base": "Höhepunkt",
                 "pos": "Nomen"
               },
@@ -6812,19 +6813,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "wenige",
-                "ar": "معنى: wenige",
+                "ar": "عدد قليل",
                 "base": "wenige",
                 "pos": "Wort"
               },
               {
                 "w": "glaubten",
-                "ar": "فعل: glaubten",
+                "ar": "يعتقد",
                 "base": "glaubten",
                 "pos": "Verb"
               },
               {
                 "w": "daran",
-                "ar": "معنى: daran",
+                "ar": "إليها",
                 "base": "daran",
                 "pos": "Wort"
               },
@@ -6842,19 +6843,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Schweizer",
-                "ar": "اسم: Schweizer",
+                "ar": "سويسري",
                 "base": "Schweizer",
                 "pos": "Nomen"
               },
               {
                 "w": "Uhrmacher",
-                "ar": "اسم: Uhrmacher",
+                "ar": "صانع الساعات",
                 "base": "Uhrmacher",
                 "pos": "Nomen"
               },
               {
                 "w": "nochmals",
-                "ar": "معنى: nochmals",
+                "ar": "مرة أخرى",
                 "base": "nochmals",
                 "pos": "Wort"
               },
@@ -6866,13 +6867,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "bedeutenden",
-                "ar": "فعل: bedeutenden",
+                "ar": "بارِز",
                 "base": "bedeutenden",
                 "pos": "Verb"
               },
               {
                 "w": "Platz",
-                "ar": "اسم: Platz",
+                "ar": "مكان",
                 "base": "Platz",
                 "pos": "Nomen"
               },
@@ -6890,19 +6891,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Weltmarkt",
-                "ar": "اسم: Weltmarkt",
+                "ar": "السوق العالمية",
                 "base": "Weltmarkt",
                 "pos": "Nomen"
               },
               {
                 "w": "einnehmen",
-                "ar": "فعل: einnehmen",
+                "ar": "يأخذ",
                 "base": "einnehmen",
                 "pos": "Verb"
               },
               {
                 "w": "würden",
-                "ar": "فعل: würden",
+                "ar": "كان",
                 "base": "würden",
                 "pos": "Verb"
               }
@@ -6927,13 +6928,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Idee",
-                "ar": "اسم: Idee",
+                "ar": "فكرة",
                 "base": "Idee",
                 "pos": "Nomen"
               },
               {
                 "w": "Uhren",
-                "ar": "اسم: Uhren",
+                "ar": "الساعات",
                 "base": "Uhren",
                 "pos": "Nomen"
               },
@@ -6945,7 +6946,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Modeaccessoire",
-                "ar": "اسم: Modeaccessoire",
+                "ar": "اكسسوار للأزياء",
                 "base": "Modeaccessoire",
                 "pos": "Nomen"
               },
@@ -6957,13 +6958,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "vermarkten",
-                "ar": "فعل: vermarkten",
+                "ar": "سوق",
                 "base": "vermarkten",
                 "pos": "Verb"
               },
               {
                 "w": "brachte",
-                "ar": "فعل: brachte",
+                "ar": "أحضر",
                 "base": "brachte",
                 "pos": "Verb"
               },
@@ -6975,13 +6976,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "traditionellen",
-                "ar": "فعل: traditionellen",
+                "ar": "تقليدي",
                 "base": "traditionellen",
                 "pos": "Verb"
               },
               {
                 "w": "Industriezweig",
-                "ar": "اسم: Industriezweig",
+                "ar": "قطاع الصناعة",
                 "base": "Industriezweig",
                 "pos": "Nomen"
               },
@@ -6993,7 +6994,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "zuletzt",
-                "ar": "فعل: zuletzt",
+                "ar": "آخر",
                 "base": "zuletzt",
                 "pos": "Verb"
               },
@@ -7011,13 +7012,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "bunten",
-                "ar": "فعل: bunten",
+                "ar": "ملون",
                 "base": "bunten",
                 "pos": "Verb"
               },
               {
                 "w": "Uhren",
-                "ar": "اسم: Uhren",
+                "ar": "الساعات",
                 "base": "Uhren",
                 "pos": "Nomen"
               },
@@ -7029,13 +7030,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Swatch",
-                "ar": "اسم: Swatch",
+                "ar": "سواتش",
                 "base": "Swatch",
                 "pos": "Nomen"
               },
               {
                 "w": "zurück",
-                "ar": "معنى: zurück",
+                "ar": "خلف",
                 "base": "zurück",
                 "pos": "Wort"
               },
@@ -7053,7 +7054,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Spitze",
-                "ar": "اسم: Spitze",
+                "ar": "عظيم",
                 "base": "Spitze",
                 "pos": "Nomen"
               },
@@ -7065,7 +7066,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Weltmarktes",
-                "ar": "اسم: Weltmarktes",
+                "ar": "السوق العالمية",
                 "base": "Weltmarktes",
                 "pos": "Nomen"
               }
@@ -7083,15 +7084,15 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "90",
-                "ar": "معنى: 90",
-                "base": "90",
-                "pos": "Wort"
+                "ar": "تسعون (90)",
+                "base": "neunzig",
+                "pos": "Num"
               },
               {
                 "w": "%",
-                "ar": "معنى: %",
-                "base": "%",
-                "pos": "Wort"
+                "ar": "بالمئة (%)",
+                "base": "Prozent",
+                "pos": "Symb"
               },
               {
                 "w": "der",
@@ -7101,13 +7102,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Schweizer",
-                "ar": "اسم: Schweizer",
+                "ar": "سويسري",
                 "base": "Schweizer",
                 "pos": "Nomen"
               },
               {
                 "w": "Uhren",
-                "ar": "اسم: Uhren",
+                "ar": "الساعات",
                 "base": "Uhren",
                 "pos": "Nomen"
               },
@@ -7137,7 +7138,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Jura",
-                "ar": "اسم: Jura",
+                "ar": "قانون",
                 "base": "Jura",
                 "pos": "Nomen"
               },
@@ -7149,13 +7150,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Gebirge",
-                "ar": "اسم: Gebirge",
+                "ar": "الجبال",
                 "base": "Gebirge",
                 "pos": "Nomen"
               },
               {
                 "w": "nordwestlich",
-                "ar": "صفة: nordwestlich",
+                "ar": "شمال غرب",
                 "base": "nordwestlich",
                 "pos": "Adj"
               },
@@ -7167,19 +7168,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Schweizer",
-                "ar": "اسم: Schweizer",
+                "ar": "سويسري",
                 "base": "Schweizer",
                 "pos": "Nomen"
               },
               {
                 "w": "Alpen",
-                "ar": "اسم: Alpen",
+                "ar": "جبال الألب",
                 "base": "Alpen",
                 "pos": "Nomen"
               },
               {
                 "w": "gefertigt",
-                "ar": "فعل: gefertigt",
+                "ar": "المصنعة",
                 "base": "gefertigt",
                 "pos": "Verb"
               }
@@ -7204,25 +7205,25 @@ window.LESETEXTE = [
               },
               {
                 "w": "21",
-                "ar": "معنى: 21",
-                "base": "21",
-                "pos": "Wort"
+                "ar": "واحد وعشرون (21)",
+                "base": "einundzwanzig",
+                "pos": "Num"
               },
               {
                 "w": "Jahrhundert",
-                "ar": "اسم: Jahrhundert",
+                "ar": "قرن",
                 "base": "Jahrhundert",
                 "pos": "Nomen"
               },
               {
                 "w": "präsentiert",
-                "ar": "فعل: präsentiert",
+                "ar": "قدم",
                 "base": "präsentiert",
                 "pos": "Verb"
               },
               {
                 "w": "sich",
-                "ar": "معنى: sich",
+                "ar": "نفسها",
                 "base": "sich",
                 "pos": "Wort"
               },
@@ -7234,7 +7235,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Region",
-                "ar": "اسم: Region",
+                "ar": "منطقة",
                 "base": "Region",
                 "pos": "Nomen"
               },
@@ -7252,19 +7253,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Motto",
-                "ar": "اسم: Motto",
+                "ar": "شعار",
                 "base": "Motto",
                 "pos": "Nomen"
               },
               {
                 "w": "Watch",
-                "ar": "اسم: Watch",
+                "ar": "يشاهد",
                 "base": "Watch",
                 "pos": "Nomen"
               },
               {
                 "w": "Valley",
-                "ar": "اسم: Valley",
+                "ar": "الوادي",
                 "base": "Valley",
                 "pos": "Nomen"
               },
@@ -7276,7 +7277,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Land",
-                "ar": "اسم: Land",
+                "ar": "دولة",
                 "base": "Land",
                 "pos": "Nomen"
               },
@@ -7288,7 +7289,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Präzision",
-                "ar": "اسم: Präzision",
+                "ar": "دقة",
                 "base": "Präzision",
                 "pos": "Nomen"
               }
@@ -7301,7 +7302,7 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Entlang",
-                "ar": "اسم: Entlang",
+                "ar": "على امتداد",
                 "base": "Entlang",
                 "pos": "Nomen"
               },
@@ -7313,31 +7314,31 @@ window.LESETEXTE = [
               },
               {
                 "w": "rund",
-                "ar": "معنى: rund",
+                "ar": "حول",
                 "base": "rund",
                 "pos": "Wort"
               },
               {
                 "w": "200",
-                "ar": "معنى: 200",
-                "base": "200",
-                "pos": "Wort"
+                "ar": "مئتان (200)",
+                "base": "zweihundert",
+                "pos": "Num"
               },
               {
                 "w": "km",
-                "ar": "معنى: km",
+                "ar": "كم",
                 "base": "km",
                 "pos": "Wort"
               },
               {
                 "w": "langen",
-                "ar": "فعل: langen",
+                "ar": "طويل",
                 "base": "langen",
                 "pos": "Verb"
               },
               {
                 "w": "Uhrmacherstraße",
-                "ar": "اسم: Uhrmacherstraße",
+                "ar": "شارع الساعاتي",
                 "base": "Uhrmacherstraße",
                 "pos": "Nomen"
               },
@@ -7367,13 +7368,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "38",
-                "ar": "معنى: 38",
-                "base": "38",
-                "pos": "Wort"
+                "ar": "ثمانية وثلاثون (38)",
+                "base": "achtunddreißig",
+                "pos": "Num"
               },
               {
                 "w": "Etappen",
-                "ar": "اسم: Etappen",
+                "ar": "مراحل",
                 "base": "Etappen",
                 "pos": "Nomen"
               },
@@ -7385,13 +7386,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "bekanntesten",
-                "ar": "فعل: bekanntesten",
+                "ar": "الأكثر شهرة",
                 "base": "bekanntesten",
                 "pos": "Verb"
               },
               {
                 "w": "Uhrenfabriken",
-                "ar": "اسم: Uhrenfabriken",
+                "ar": "مشاهدة المصانع",
                 "base": "Uhrenfabriken",
                 "pos": "Nomen"
               },
@@ -7403,13 +7404,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "zahlreiche",
-                "ar": "معنى: zahlreiche",
+                "ar": "عديد",
                 "base": "zahlreiche",
                 "pos": "Wort"
               },
               {
                 "w": "Museen",
-                "ar": "اسم: Museen",
+                "ar": "المتاحف",
                 "base": "Museen",
                 "pos": "Nomen"
               },
@@ -7421,7 +7422,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "sich",
-                "ar": "معنى: sich",
+                "ar": "نفسها",
                 "base": "sich",
                 "pos": "Wort"
               },
@@ -7433,13 +7434,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Uhren",
-                "ar": "اسم: Uhren",
+                "ar": "الساعات",
                 "base": "Uhren",
                 "pos": "Nomen"
               },
               {
                 "w": "spezialisiert",
-                "ar": "فعل: spezialisiert",
+                "ar": "متخصص",
                 "base": "spezialisiert",
                 "pos": "Verb"
               },
@@ -7451,7 +7452,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "besuchen",
-                "ar": "فعل: besuchen",
+                "ar": "يزور",
                 "base": "besuchen",
                 "pos": "Verb"
               }
@@ -7482,7 +7483,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Geheimnisse",
-                "ar": "اسم: Geheimnisse",
+                "ar": "أسرار",
                 "base": "Geheimnisse",
                 "pos": "Nomen"
               },
@@ -7494,13 +7495,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Uhrmacher",
-                "ar": "اسم: Uhrmacher",
+                "ar": "صانع الساعات",
                 "base": "Uhrmacher",
                 "pos": "Nomen"
               },
               {
                 "w": "erfahren",
-                "ar": "فعل: erfahren",
+                "ar": "خبرة",
                 "base": "erfahren",
                 "pos": "Verb"
               },
@@ -7512,19 +7513,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "einzigartige",
-                "ar": "معنى: einzigartige",
+                "ar": "فريد",
                 "base": "einzigartige",
                 "pos": "Wort"
               },
               {
                 "w": "Meisterwerke",
-                "ar": "اسم: Meisterwerke",
+                "ar": "روائع",
                 "base": "Meisterwerke",
                 "pos": "Nomen"
               },
               {
                 "w": "bewundern",
-                "ar": "معنى: bewundern",
+                "ar": "يُعجَب ب",
                 "base": "bewundern",
                 "pos": "Wort"
               }
@@ -7561,7 +7562,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Zeit",
-                "ar": "اسم: Zeit",
+                "ar": "وقت",
                 "base": "Zeit",
                 "pos": "Nomen"
               },
@@ -7573,7 +7574,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Uhren",
-                "ar": "اسم: Uhren",
+                "ar": "الساعات",
                 "base": "Uhren",
                 "pos": "Nomen"
               },
@@ -7591,7 +7592,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Besonderheit",
-                "ar": "اسم: Besonderheit",
+                "ar": "ميزة خاصة",
                 "base": "Besonderheit",
                 "pos": "Nomen"
               },
@@ -7603,7 +7604,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Region",
-                "ar": "اسم: Region",
+                "ar": "منطقة",
                 "base": "Region",
                 "pos": "Nomen"
               },
@@ -7621,7 +7622,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Berglandschaft",
-                "ar": "اسم: Berglandschaft",
+                "ar": "المناظر الطبيعية الجبلية",
                 "base": "Berglandschaft",
                 "pos": "Nomen"
               },
@@ -7633,7 +7634,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Seen",
-                "ar": "اسم: Seen",
+                "ar": "البحيرات",
                 "base": "Seen",
                 "pos": "Nomen"
               },
@@ -7645,13 +7646,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "traditionsreichen",
-                "ar": "فعل: traditionsreichen",
+                "ar": "غنية بالتقاليد",
                 "base": "traditionsreichen",
                 "pos": "Verb"
               },
               {
                 "w": "Dörfern",
-                "ar": "اسم: Dörfern",
+                "ar": "القرى",
                 "base": "Dörfern",
                 "pos": "Nomen"
               },
@@ -7669,13 +7670,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Reise",
-                "ar": "اسم: Reise",
+                "ar": "رحلة",
                 "base": "Reise",
                 "pos": "Nomen"
               },
               {
                 "w": "wert",
-                "ar": "فعل: wert",
+                "ar": "قيمة",
                 "base": "wert",
                 "pos": "Verb"
               }
@@ -7801,13 +7802,13 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Trier",
-                "ar": "اسم: Trier",
+                "ar": "ترير",
                 "base": "Trier",
                 "pos": "Nomen"
               },
               {
                 "w": "gilt",
-                "ar": "فعل: gilt",
+                "ar": "ينطبق",
                 "base": "gilt",
                 "pos": "Verb"
               },
@@ -7825,19 +7826,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "älteste",
-                "ar": "فعل: älteste",
+                "ar": "الأقدم",
                 "base": "älteste",
                 "pos": "Verb"
               },
               {
                 "w": "Stadt",
-                "ar": "اسم: Stadt",
+                "ar": "مدينة",
                 "base": "Stadt",
                 "pos": "Nomen"
               },
               {
                 "w": "Deutschlands",
-                "ar": "اسم: Deutschlands",
+                "ar": "ألمانيا",
                 "base": "Deutschlands",
                 "pos": "Nomen"
               },
@@ -7855,9 +7856,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "17",
-                "ar": "معنى: 17",
-                "base": "17",
-                "pos": "Wort"
+                "ar": "سبعة عشر (17)",
+                "base": "siebzehn",
+                "pos": "Num"
               },
               {
                 "w": "vor",
@@ -7867,7 +7868,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Christus",
-                "ar": "اسم: Christus",
+                "ar": "المسيح",
                 "base": "Christus",
                 "pos": "Nomen"
               },
@@ -7885,25 +7886,25 @@ window.LESETEXTE = [
               },
               {
                 "w": "römischen",
-                "ar": "فعل: römischen",
+                "ar": "روماني",
                 "base": "römischen",
                 "pos": "Verb"
               },
               {
                 "w": "Kaiser",
-                "ar": "اسم: Kaiser",
+                "ar": "الإمبراطور",
                 "base": "Kaiser",
                 "pos": "Nomen"
               },
               {
                 "w": "Augustus",
-                "ar": "اسم: Augustus",
+                "ar": "أغسطس",
                 "base": "Augustus",
                 "pos": "Nomen"
               },
               {
                 "w": "gegründet",
-                "ar": "فعل: gegründet",
+                "ar": "تأسست",
                 "base": "gegründet",
                 "pos": "Verb"
               }
@@ -7916,25 +7917,25 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Später",
-                "ar": "اسم: Später",
-                "base": "Später",
-                "pos": "Nomen"
+                "ar": "لاحقاً",
+                "base": "später",
+                "pos": "Adj"
               },
               {
                 "w": "machte",
-                "ar": "فعل: machte",
+                "ar": "صنع",
                 "base": "machte",
                 "pos": "Verb"
               },
               {
                 "w": "Kaiser",
-                "ar": "اسم: Kaiser",
+                "ar": "الإمبراطور",
                 "base": "Kaiser",
                 "pos": "Nomen"
               },
               {
                 "w": "Konstantin",
-                "ar": "اسم: Konstantin",
+                "ar": "قسنطينة",
                 "base": "Konstantin",
                 "pos": "Nomen"
               },
@@ -7946,7 +7947,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Stadt",
-                "ar": "اسم: Stadt",
+                "ar": "مدينة",
                 "base": "Stadt",
                 "pos": "Nomen"
               },
@@ -7964,7 +7965,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Regierungssitz",
-                "ar": "اسم: Regierungssitz",
+                "ar": "مقر الحكومة",
                 "base": "Regierungssitz",
                 "pos": "Nomen"
               },
@@ -7976,7 +7977,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "baute",
-                "ar": "فعل: baute",
+                "ar": "بنيت",
                 "base": "baute",
                 "pos": "Verb"
               },
@@ -7988,7 +7989,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "prachtvoll",
-                "ar": "صفة: prachtvoll",
+                "ar": "عظيم",
                 "base": "prachtvoll",
                 "pos": "Adj"
               },
@@ -8025,7 +8026,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Stadtführung",
-                "ar": "اسم: Stadtführung",
+                "ar": "جولة في المدينة",
                 "base": "Stadtführung",
                 "pos": "Nomen"
               },
@@ -8037,25 +8038,25 @@ window.LESETEXTE = [
               },
               {
                 "w": "Legionär",
-                "ar": "اسم: Legionär",
+                "ar": "الفيلق",
                 "base": "Legionär",
                 "pos": "Nomen"
               },
               {
                 "w": "Quintus",
-                "ar": "اسم: Quintus",
+                "ar": "كوينتوس",
                 "base": "Quintus",
                 "pos": "Nomen"
               },
               {
                 "w": "unternimmt",
-                "ar": "فعل: unternimmt",
+                "ar": "يتعهد",
                 "base": "unternimmt",
                 "pos": "Verb"
               },
               {
                 "w": "erlebt",
-                "ar": "فعل: erlebt",
+                "ar": "ذوي الخبرة",
                 "base": "erlebt",
                 "pos": "Verb"
               },
@@ -8067,13 +8068,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "echte",
-                "ar": "فعل: echte",
+                "ar": "حقيقي",
                 "base": "echte",
                 "pos": "Verb"
               },
               {
                 "w": "Zeitreise",
-                "ar": "اسم: Zeitreise",
+                "ar": "السفر عبر الزمن",
                 "base": "Zeitreise",
                 "pos": "Nomen"
               },
@@ -8091,7 +8092,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Antike",
-                "ar": "اسم: Antike",
+                "ar": "العصور القديمة",
                 "base": "Antike",
                 "pos": "Nomen"
               }
@@ -8115,7 +8116,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Wahrzeichen",
-                "ar": "اسم: Wahrzeichen",
+                "ar": "معلم",
                 "base": "Wahrzeichen",
                 "pos": "Nomen"
               },
@@ -8127,7 +8128,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Trier",
-                "ar": "اسم: Trier",
+                "ar": "ترير",
                 "base": "Trier",
                 "pos": "Nomen"
               },
@@ -8145,19 +8146,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "berühmte",
-                "ar": "فعل: berühmte",
+                "ar": "مشهور",
                 "base": "berühmte",
                 "pos": "Verb"
               },
               {
                 "w": "Porta",
-                "ar": "اسم: Porta",
+                "ar": "بورتا",
                 "base": "Porta",
                 "pos": "Nomen"
               },
               {
                 "w": "Nigra",
-                "ar": "اسم: Nigra",
+                "ar": "نيجرا",
                 "base": "Nigra",
                 "pos": "Nomen"
               },
@@ -8175,31 +8176,31 @@ window.LESETEXTE = [
               },
               {
                 "w": "besten",
-                "ar": "فعل: besten",
+                "ar": "أفضل",
                 "base": "besten",
                 "pos": "Verb"
               },
               {
                 "w": "erhaltene",
-                "ar": "معنى: erhaltene",
+                "ar": "تلقى",
                 "base": "erhaltene",
                 "pos": "Wort"
               },
               {
                 "w": "römische",
-                "ar": "معنى: römische",
+                "ar": "روماني",
                 "base": "römische",
                 "pos": "Wort"
               },
               {
                 "w": "Stadttor",
-                "ar": "اسم: Stadttor",
+                "ar": "بوابة المدينة",
                 "base": "Stadttor",
                 "pos": "Nomen"
               },
               {
                 "w": "nördlich",
-                "ar": "صفة: nördlich",
+                "ar": "شمال",
                 "base": "nördlich",
                 "pos": "Adj"
               },
@@ -8211,7 +8212,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Alpen",
-                "ar": "اسم: Alpen",
+                "ar": "جبال الألب",
                 "base": "Alpen",
                 "pos": "Nomen"
               }
@@ -8230,7 +8231,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Nordtor",
-                "ar": "اسم: Nordtor",
+                "ar": "البوابة الشمالية",
                 "base": "Nordtor",
                 "pos": "Nomen"
               },
@@ -8242,7 +8243,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Stadtmauer",
-                "ar": "اسم: Stadtmauer",
+                "ar": "سور المدينة",
                 "base": "Stadtmauer",
                 "pos": "Nomen"
               },
@@ -8254,7 +8255,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Mitte",
-                "ar": "اسم: Mitte",
+                "ar": "مركز",
                 "base": "Mitte",
                 "pos": "Nomen"
               },
@@ -8266,13 +8267,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "2",
-                "ar": "معنى: 2",
-                "base": "2",
-                "pos": "Wort"
+                "ar": "اثنان (2)",
+                "base": "zwei",
+                "pos": "Num"
               },
               {
                 "w": "Jahrhunderts",
-                "ar": "اسم: Jahrhunderts",
+                "ar": "قرن",
                 "base": "Jahrhunderts",
                 "pos": "Nomen"
               },
@@ -8284,7 +8285,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Christus",
-                "ar": "اسم: Christus",
+                "ar": "المسيح",
                 "base": "Christus",
                 "pos": "Nomen"
               },
@@ -8296,13 +8297,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "gewaltigen",
-                "ar": "فعل: gewaltigen",
+                "ar": "ضخم",
                 "base": "gewaltigen",
                 "pos": "Verb"
               },
               {
                 "w": "Sandsteinquadern",
-                "ar": "اسم: Sandsteinquadern",
+                "ar": "كتل الحجر الرملي",
                 "base": "Sandsteinquadern",
                 "pos": "Nomen"
               },
@@ -8314,13 +8315,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Mörtel",
-                "ar": "اسم: Mörtel",
+                "ar": "هاون",
                 "base": "Mörtel",
                 "pos": "Nomen"
               },
               {
                 "w": "erbaut",
-                "ar": "فعل: erbaut",
+                "ar": "بنيت",
                 "base": "erbaut",
                 "pos": "Verb"
               }
@@ -8345,19 +8346,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "eisernen",
-                "ar": "فعل: eisernen",
+                "ar": "حديد",
                 "base": "eisernen",
                 "pos": "Verb"
               },
               {
                 "w": "Klammern",
-                "ar": "اسم: Klammern",
+                "ar": "بين قوسين",
                 "base": "Klammern",
                 "pos": "Nomen"
               },
               {
                 "w": "hielten",
-                "ar": "فعل: hielten",
+                "ar": "محتجز",
                 "base": "hielten",
                 "pos": "Verb"
               },
@@ -8369,13 +8370,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "römischen",
-                "ar": "فعل: römischen",
+                "ar": "روماني",
                 "base": "römischen",
                 "pos": "Verb"
               },
               {
                 "w": "Baumeister",
-                "ar": "اسم: Baumeister",
+                "ar": "منشئ",
                 "base": "Baumeister",
                 "pos": "Nomen"
               },
@@ -8387,13 +8388,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "tonnenschweren",
-                "ar": "فعل: tonnenschweren",
+                "ar": "طن ثقيل",
                 "base": "tonnenschweren",
                 "pos": "Verb"
               },
               {
                 "w": "Steine",
-                "ar": "اسم: Steine",
+                "ar": "الحجارة",
                 "base": "Steine",
                 "pos": "Nomen"
               },
@@ -8423,19 +8424,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "weit",
-                "ar": "فعل: weit",
+                "ar": "بعيد",
                 "base": "weit",
                 "pos": "Verb"
               },
               {
                 "w": "entfernt",
-                "ar": "فعل: entfernt",
+                "ar": "تمت إزالته",
                 "base": "entfernt",
                 "pos": "Verb"
               },
               {
                 "w": "liegt",
-                "ar": "فعل: liegt",
+                "ar": "الأكاذيب",
                 "base": "liegt",
                 "pos": "Verb"
               },
@@ -8447,13 +8448,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "antike",
-                "ar": "معنى: antike",
+                "ar": "القديمة",
                 "base": "antike",
                 "pos": "Wort"
               },
               {
                 "w": "Amphitheater",
-                "ar": "اسم: Amphitheater",
+                "ar": "المدرج",
                 "base": "Amphitheater",
                 "pos": "Nomen"
               },
@@ -8471,7 +8472,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "einst",
-                "ar": "فعل: einst",
+                "ar": "مرة واحدة",
                 "base": "einst",
                 "pos": "Verb"
               },
@@ -8489,13 +8490,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "20.000",
-                "ar": "معنى: 20.000",
-                "base": "20.000",
-                "pos": "Wort"
+                "ar": "عشرون ألفاً (20,000)",
+                "base": "zwanzigtausend",
+                "pos": "Num"
               },
               {
                 "w": "Zuschauer",
-                "ar": "اسم: Zuschauer",
+                "ar": "المتفرجين",
                 "base": "Zuschauer",
                 "pos": "Nomen"
               },
@@ -8507,13 +8508,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Gladiatorenkämpfen",
-                "ar": "اسم: Gladiatorenkämpfen",
+                "ar": "معارك المصارع",
                 "base": "Gladiatorenkämpfen",
                 "pos": "Nomen"
               },
               {
                 "w": "zusahen",
-                "ar": "فعل: zusahen",
+                "ar": "شاهد",
                 "base": "zusahen",
                 "pos": "Verb"
               }
@@ -8526,13 +8527,13 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Uralte",
-                "ar": "اسم: Uralte",
+                "ar": "القديمة",
                 "base": "Uralte",
                 "pos": "Nomen"
               },
               {
                 "w": "Gänge",
-                "ar": "اسم: Gänge",
+                "ar": "التروس",
                 "base": "Gänge",
                 "pos": "Nomen"
               },
@@ -8544,19 +8545,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Treppen",
-                "ar": "اسم: Treppen",
+                "ar": "السلالم",
                 "base": "Treppen",
                 "pos": "Nomen"
               },
               {
                 "w": "führen",
-                "ar": "فعل: führen",
+                "ar": "الرصاص",
                 "base": "führen",
                 "pos": "Verb"
               },
               {
                 "w": "hinab",
-                "ar": "معنى: hinab",
+                "ar": "أسفل",
                 "base": "hinab",
                 "pos": "Wort"
               },
@@ -8574,13 +8575,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "unterirdischen",
-                "ar": "فعل: unterirdischen",
+                "ar": "تحت الأرض",
                 "base": "unterirdischen",
                 "pos": "Verb"
               },
               {
                 "w": "Bereich",
-                "ar": "اسم: Bereich",
+                "ar": "المنطقة",
                 "base": "Bereich",
                 "pos": "Nomen"
               },
@@ -8592,7 +8593,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "hinauf",
-                "ar": "معنى: hinauf",
+                "ar": "فوق",
                 "base": "hinauf",
                 "pos": "Wort"
               },
@@ -8610,13 +8611,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "steinernen",
-                "ar": "فعل: steinernen",
+                "ar": "حجر",
                 "base": "steinernen",
                 "pos": "Verb"
               },
               {
                 "w": "Zuschauertribünen",
-                "ar": "اسم: Zuschauertribünen",
+                "ar": "يقف المتفرج",
                 "base": "Zuschauertribünen",
                 "pos": "Nomen"
               }
@@ -8641,13 +8642,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "monumentalen",
-                "ar": "فعل: monumentalen",
+                "ar": "ضخم",
                 "base": "monumentalen",
                 "pos": "Verb"
               },
               {
                 "w": "Kaiserthermen",
-                "ar": "اسم: Kaiserthermen",
+                "ar": "الحمامات الحرارية الإمبراطورية",
                 "base": "Kaiserthermen",
                 "pos": "Nomen"
               },
@@ -8665,19 +8666,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "riesige",
-                "ar": "معنى: riesige",
+                "ar": "ضخمة",
                 "base": "riesige",
                 "pos": "Wort"
               },
               {
                 "w": "Konstantin-Basilika",
-                "ar": "اسم: Konstantin-Basilika",
+                "ar": "كنيسة قسطنطين",
                 "base": "Konstantin-Basilika",
                 "pos": "Nomen"
               },
               {
                 "w": "zeugen",
-                "ar": "فعل: zeugen",
+                "ar": "شاهد",
                 "base": "zeugen",
                 "pos": "Verb"
               },
@@ -8695,13 +8696,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "großen",
-                "ar": "فعل: großen",
+                "ar": "كبير",
                 "base": "großen",
                 "pos": "Verb"
               },
               {
                 "w": "Macht",
-                "ar": "اسم: Macht",
+                "ar": "القوة",
                 "base": "Macht",
                 "pos": "Nomen"
               },
@@ -8713,13 +8714,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Römischen",
-                "ar": "اسم: Römischen",
+                "ar": "روماني",
                 "base": "Römischen",
                 "pos": "Nomen"
               },
               {
                 "w": "Reiches",
-                "ar": "اسم: Reiches",
+                "ar": "غني",
                 "base": "Reiches",
                 "pos": "Nomen"
               },
@@ -8737,13 +8738,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "geschichtsträchtigen",
-                "ar": "فعل: geschichtsträchtigen",
+                "ar": "غارق في التاريخ",
                 "base": "geschichtsträchtigen",
                 "pos": "Verb"
               },
               {
                 "w": "Stadt",
-                "ar": "اسم: Stadt",
+                "ar": "مدينة",
                 "base": "Stadt",
                 "pos": "Nomen"
               }
@@ -8843,7 +8844,7 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Heutzutage",
-                "ar": "اسم: Heutzutage",
+                "ar": "في الوقت الحاضر",
                 "base": "Heutzutage",
                 "pos": "Nomen"
               },
@@ -8867,19 +8868,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Internet",
-                "ar": "اسم: Internet",
+                "ar": "الإنترنت",
                 "base": "Internet",
                 "pos": "Nomen"
               },
               {
                 "w": "riesige",
-                "ar": "معنى: riesige",
+                "ar": "ضخمة",
                 "base": "riesige",
                 "pos": "Wort"
               },
               {
                 "w": "Mengen",
-                "ar": "اسم: Mengen",
+                "ar": "الكميات",
                 "base": "Mengen",
                 "pos": "Nomen"
               },
@@ -8891,7 +8892,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Informationen",
-                "ar": "اسم: Informationen",
+                "ar": "معلومة",
                 "base": "Informationen",
                 "pos": "Nomen"
               },
@@ -8909,19 +8910,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "möglichen",
-                "ar": "فعل: möglichen",
+                "ar": "ممكن",
                 "base": "möglichen",
                 "pos": "Verb"
               },
               {
                 "w": "Themen",
-                "ar": "اسم: Themen",
+                "ar": "المواضيع",
                 "base": "Themen",
                 "pos": "Nomen"
               },
               {
                 "w": "kostenlos",
-                "ar": "معنى: kostenlos",
+                "ar": "مجانا",
                 "base": "kostenlos",
                 "pos": "Wort"
               },
@@ -8939,19 +8940,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "fast",
-                "ar": "فعل: fast",
+                "ar": "تقريبا",
                 "base": "fast",
                 "pos": "Verb"
               },
               {
                 "w": "überall",
-                "ar": "معنى: überall",
+                "ar": "في كل مكان",
                 "base": "überall",
                 "pos": "Wort"
               },
               {
                 "w": "bekommen",
-                "ar": "فعل: bekommen",
+                "ar": "احصل على",
                 "base": "bekommen",
                 "pos": "Verb"
               }
@@ -8976,13 +8977,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "deutsche",
-                "ar": "معنى: deutsche",
+                "ar": "الألمانية",
                 "base": "deutsche",
                 "pos": "Wort"
               },
               {
                 "w": "Version",
-                "ar": "اسم: Version",
+                "ar": "النسخة",
                 "base": "Version",
                 "pos": "Nomen"
               },
@@ -8994,19 +8995,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Internet-Lexikons",
-                "ar": "اسم: Internet-Lexikons",
+                "ar": "موسوعات الإنترنت",
                 "base": "Internet-Lexikons",
                 "pos": "Nomen"
               },
               {
                 "w": "Wikipedia",
-                "ar": "اسم: Wikipedia",
+                "ar": "ويكيبيديا",
                 "base": "Wikipedia",
                 "pos": "Nomen"
               },
               {
                 "w": "enthält",
-                "ar": "فعل: enthält",
+                "ar": "يحتوي على",
                 "base": "enthält",
                 "pos": "Verb"
               },
@@ -9024,19 +9025,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "1,2",
-                "ar": "معنى: 1,2",
+                "ar": "1.2",
                 "base": "1,2",
                 "pos": "Wort"
               },
               {
                 "w": "Millionen",
-                "ar": "اسم: Millionen",
+                "ar": "الملايين",
                 "base": "Millionen",
                 "pos": "Nomen"
               },
               {
                 "w": "Artikel",
-                "ar": "اسم: Artikel",
+                "ar": "مقالة",
                 "base": "Artikel",
                 "pos": "Nomen"
               }
@@ -9049,13 +9050,13 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Zahlen",
-                "ar": "اسم: Zahlen",
+                "ar": "أرقام",
                 "base": "Zahlen",
                 "pos": "Nomen"
               },
               {
                 "w": "Formeln",
-                "ar": "اسم: Formeln",
+                "ar": "الصيغ",
                 "base": "Formeln",
                 "pos": "Nomen"
               },
@@ -9067,7 +9068,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Daten",
-                "ar": "اسم: Daten",
+                "ar": "البيانات",
                 "base": "Daten",
                 "pos": "Nomen"
               },
@@ -9085,13 +9086,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "leicht",
-                "ar": "فعل: leicht",
+                "ar": "بسهولة",
                 "base": "leicht",
                 "pos": "Verb"
               },
               {
                 "w": "googeln",
-                "ar": "معنى: googeln",
+                "ar": "جوجل ذلك",
                 "base": "googeln",
                 "pos": "Wort"
               }
@@ -9110,7 +9111,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Meinung",
-                "ar": "اسم: Meinung",
+                "ar": "الرأي",
                 "base": "Meinung",
                 "pos": "Nomen"
               },
@@ -9134,7 +9135,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Informationen",
-                "ar": "اسم: Informationen",
+                "ar": "معلومة",
                 "base": "Informationen",
                 "pos": "Nomen"
               },
@@ -9152,19 +9153,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Länge",
-                "ar": "اسم: Länge",
+                "ar": "الطول",
                 "base": "Länge",
                 "pos": "Nomen"
               },
               {
                 "w": "eines",
-                "ar": "معنى: eines",
+                "ar": "واحد",
                 "base": "eines",
                 "pos": "Wort"
               },
               {
                 "w": "Flusses",
-                "ar": "اسم: Flusses",
+                "ar": "نهر",
                 "base": "Flusses",
                 "pos": "Nomen"
               },
@@ -9176,7 +9177,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Einwohnerzahl",
-                "ar": "اسم: Einwohnerzahl",
+                "ar": "عدد السكان",
                 "base": "Einwohnerzahl",
                 "pos": "Nomen"
               },
@@ -9188,7 +9189,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Stadt",
-                "ar": "اسم: Stadt",
+                "ar": "مدينة",
                 "base": "Stadt",
                 "pos": "Nomen"
               },
@@ -9206,7 +9207,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Geburtsdatum",
-                "ar": "اسم: Geburtsdatum",
+                "ar": "تاريخ الميلاد",
                 "base": "Geburtsdatum",
                 "pos": "Nomen"
               },
@@ -9218,7 +9219,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Goethe",
-                "ar": "اسم: Goethe",
+                "ar": "جوته",
                 "base": "Goethe",
                 "pos": "Nomen"
               },
@@ -9236,13 +9237,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "auswendig",
-                "ar": "صفة: auswendig",
+                "ar": "عن ظهر قلب",
                 "base": "auswendig",
                 "pos": "Adj"
               },
               {
                 "w": "lernen",
-                "ar": "فعل: lernen",
+                "ar": "تعلم",
                 "base": "lernen",
                 "pos": "Verb"
               },
@@ -9266,7 +9267,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "recherchieren",
-                "ar": "فعل: recherchieren",
+                "ar": "بحث",
                 "base": "recherchieren",
                 "pos": "Verb"
               }
@@ -9285,13 +9286,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "manchen",
-                "ar": "فعل: manchen",
+                "ar": "بعض",
                 "base": "manchen",
                 "pos": "Verb"
               },
               {
                 "w": "Situationen",
-                "ar": "اسم: Situationen",
+                "ar": "المواقف",
                 "base": "Situationen",
                 "pos": "Nomen"
               },
@@ -9315,13 +9316,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "durchaus",
-                "ar": "معنى: durchaus",
+                "ar": "على الاطلاق",
                 "base": "durchaus",
                 "pos": "Wort"
               },
               {
                 "w": "notwendig",
-                "ar": "صفة: notwendig",
+                "ar": "ضروري",
                 "base": "notwendig",
                 "pos": "Adj"
               },
@@ -9333,13 +9334,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "gewisse",
-                "ar": "معنى: gewisse",
+                "ar": "معينة",
                 "base": "gewisse",
                 "pos": "Wort"
               },
               {
                 "w": "Allgemeinbildung",
-                "ar": "اسم: Allgemeinbildung",
+                "ar": "التعليم العام",
                 "base": "Allgemeinbildung",
                 "pos": "Nomen"
               },
@@ -9370,13 +9371,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Beispiel",
-                "ar": "اسم: Beispiel",
+                "ar": "مثال",
                 "base": "Beispiel",
                 "pos": "Nomen"
               },
               {
                 "w": "hierfür",
-                "ar": "معنى: hierfür",
+                "ar": "لهذا",
                 "base": "hierfür",
                 "pos": "Wort"
               },
@@ -9388,7 +9389,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Gespräche",
-                "ar": "اسم: Gespräche",
+                "ar": "المحادثات",
                 "base": "Gespräche",
                 "pos": "Nomen"
               },
@@ -9424,19 +9425,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Unterhaltung",
-                "ar": "اسم: Unterhaltung",
+                "ar": "الترفيه",
                 "base": "Unterhaltung",
                 "pos": "Nomen"
               },
               {
                 "w": "ständig",
-                "ar": "صفة: ständig",
+                "ar": "باستمرار",
                 "base": "ständig",
                 "pos": "Adj"
               },
               {
                 "w": "Informationen",
-                "ar": "اسم: Informationen",
+                "ar": "معلومة",
                 "base": "Informationen",
                 "pos": "Nomen"
               },
@@ -9454,13 +9455,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Netz",
-                "ar": "اسم: Netz",
+                "ar": "صافي",
                 "base": "Netz",
                 "pos": "Nomen"
               },
               {
                 "w": "recherchieren",
-                "ar": "فعل: recherchieren",
+                "ar": "بحث",
                 "base": "recherchieren",
                 "pos": "Verb"
               },
@@ -9478,13 +9479,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Argumente",
-                "ar": "اسم: Argumente",
+                "ar": "الحجج",
                 "base": "Argumente",
                 "pos": "Nomen"
               },
               {
                 "w": "sucht",
-                "ar": "فعل: sucht",
+                "ar": "يبحث",
                 "base": "sucht",
                 "pos": "Verb"
               }
@@ -9497,19 +9498,19 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Matilda",
-                "ar": "اسم: Matilda",
+                "ar": "ماتيلدا",
                 "base": "Matilda",
                 "pos": "Nomen"
               },
               {
                 "w": "Krohn",
-                "ar": "اسم: Krohn",
+                "ar": "كرون",
                 "base": "Krohn",
                 "pos": "Nomen"
               },
               {
                 "w": "Medienexpertin",
-                "ar": "اسم: Medienexpertin",
+                "ar": "خبير إعلامي",
                 "base": "Medienexpertin",
                 "pos": "Nomen"
               }
@@ -9539,7 +9540,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Informationen",
-                "ar": "اسم: Informationen",
+                "ar": "معلومة",
                 "base": "Informationen",
                 "pos": "Nomen"
               },
@@ -9551,7 +9552,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "gesellschaftlichen",
-                "ar": "فعل: gesellschaftlichen",
+                "ar": "اجتماعي",
                 "base": "gesellschaftlichen",
                 "pos": "Verb"
               },
@@ -9563,13 +9564,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "politischen",
-                "ar": "فعل: politischen",
+                "ar": "سياسي",
                 "base": "politischen",
                 "pos": "Verb"
               },
               {
                 "w": "Themen",
-                "ar": "اسم: Themen",
+                "ar": "المواضيع",
                 "base": "Themen",
                 "pos": "Nomen"
               },
@@ -9593,13 +9594,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Netz",
-                "ar": "اسم: Netz",
+                "ar": "صافي",
                 "base": "Netz",
                 "pos": "Nomen"
               },
               {
                 "w": "findet",
-                "ar": "فعل: findet",
+                "ar": "يجد",
                 "base": "findet",
                 "pos": "Verb"
               },
@@ -9611,7 +9612,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "richtig",
-                "ar": "صفة: richtig",
+                "ar": "صحيح",
                 "base": "richtig",
                 "pos": "Adj"
               }
@@ -9624,7 +9625,7 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Wichtig",
-                "ar": "اسم: Wichtig",
+                "ar": "مهم",
                 "base": "Wichtig",
                 "pos": "Nomen"
               },
@@ -9642,7 +9643,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "kritisch",
-                "ar": "معنى: kritisch",
+                "ar": "حرجة",
                 "base": "kritisch",
                 "pos": "Wort"
               },
@@ -9654,7 +9655,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "betrachten",
-                "ar": "فعل: betrachten",
+                "ar": "اعتبر",
                 "base": "betrachten",
                 "pos": "Verb"
               },
@@ -9666,13 +9667,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "stimmt",
-                "ar": "فعل: stimmt",
+                "ar": "صحيح",
                 "base": "stimmt",
                 "pos": "Verb"
               },
               {
                 "w": "wirklich",
-                "ar": "صفة: wirklich",
+                "ar": "حقا",
                 "base": "wirklich",
                 "pos": "Adj"
               },
@@ -9696,7 +9697,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "richtig",
-                "ar": "صفة: richtig",
+                "ar": "صحيح",
                 "base": "richtig",
                 "pos": "Adj"
               },
@@ -9708,7 +9709,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "kommen",
-                "ar": "فعل: kommen",
+                "ar": "تعال",
                 "base": "kommen",
                 "pos": "Verb"
               },
@@ -9720,7 +9721,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Informationen",
-                "ar": "اسم: Informationen",
+                "ar": "معلومة",
                 "base": "Informationen",
                 "pos": "Nomen"
               },
@@ -9732,7 +9733,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Ziel",
-                "ar": "اسم: Ziel",
+                "ar": "الهدف",
                 "base": "Ziel",
                 "pos": "Nomen"
               },
@@ -9750,7 +9751,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Seite",
-                "ar": "اسم: Seite",
+                "ar": "الصفحة",
                 "base": "Seite",
                 "pos": "Nomen"
               },
@@ -9780,13 +9781,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Information",
-                "ar": "اسم: Information",
+                "ar": "معلومات",
                 "base": "Information",
                 "pos": "Nomen"
               },
               {
                 "w": "gefunden",
-                "ar": "فعل: gefunden",
+                "ar": "وجدت",
                 "base": "gefunden",
                 "pos": "Verb"
               },
@@ -9817,7 +9818,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "hinterfragen",
-                "ar": "فعل: hinterfragen",
+                "ar": "سؤال",
                 "base": "hinterfragen",
                 "pos": "Verb"
               },
@@ -9835,7 +9836,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "braucht",
-                "ar": "فعل: braucht",
+                "ar": "الاحتياجات",
                 "base": "braucht",
                 "pos": "Verb"
               },
@@ -9847,7 +9848,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Allgemeinbildung",
-                "ar": "اسم: Allgemeinbildung",
+                "ar": "التعليم العام",
                 "base": "Allgemeinbildung",
                 "pos": "Nomen"
               }
@@ -9872,7 +9873,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Zusammenhänge",
-                "ar": "اسم: Zusammenhänge",
+                "ar": "اتصالات",
                 "base": "Zusammenhänge",
                 "pos": "Nomen"
               },
@@ -9884,13 +9885,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "verschiedenen",
-                "ar": "فعل: verschiedenen",
+                "ar": "مختلفة",
                 "base": "verschiedenen",
                 "pos": "Verb"
               },
               {
                 "w": "Informationen",
-                "ar": "اسم: Informationen",
+                "ar": "معلومة",
                 "base": "Informationen",
                 "pos": "Nomen"
               },
@@ -9902,7 +9903,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "verstehen",
-                "ar": "فعل: verstehen",
+                "ar": "فهم",
                 "base": "verstehen",
                 "pos": "Verb"
               },
@@ -9926,13 +9927,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Wissen",
-                "ar": "اسم: Wissen",
+                "ar": "المعرفة",
                 "base": "Wissen",
                 "pos": "Nomen"
               },
               {
                 "w": "verfügen",
-                "ar": "فعل: verfügen",
+                "ar": "يملك",
                 "base": "verfügen",
                 "pos": "Verb"
               }
@@ -9951,7 +9952,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Suchmaschinen",
-                "ar": "اسم: Suchmaschinen",
+                "ar": "محركات البحث",
                 "base": "Suchmaschinen",
                 "pos": "Nomen"
               },
@@ -9963,13 +9964,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "benutzen",
-                "ar": "فعل: benutzen",
+                "ar": "استخدام",
                 "base": "benutzen",
                 "pos": "Verb"
               },
               {
                 "w": "reicht",
-                "ar": "فعل: reicht",
+                "ar": "يكفي",
                 "base": "reicht",
                 "pos": "Verb"
               },
@@ -9994,13 +9995,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "wichtiger",
-                "ar": "معنى: wichtiger",
+                "ar": "أكثر أهمية",
                 "base": "wichtiger",
-                "pos": "Wort"
+                "pos": "Adj"
               },
               {
                 "w": "Aspekt",
-                "ar": "اسم: Aspekt",
+                "ar": "الجانب",
                 "base": "Aspekt",
                 "pos": "Nomen"
               },
@@ -10018,7 +10019,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Beispiel",
-                "ar": "اسم: Beispiel",
+                "ar": "مثال",
                 "base": "Beispiel",
                 "pos": "Nomen"
               },
@@ -10036,13 +10037,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Datenflut",
-                "ar": "اسم: Datenflut",
+                "ar": "طوفان من البيانات",
                 "base": "Datenflut",
                 "pos": "Nomen"
               },
               {
                 "w": "heutzutage",
-                "ar": "معنى: heutzutage",
+                "ar": "في الوقت الحاضر",
                 "base": "heutzutage",
                 "pos": "Wort"
               }
@@ -10061,13 +10062,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "bekommen",
-                "ar": "فعل: bekommen",
+                "ar": "احصل على",
                 "base": "bekommen",
                 "pos": "Verb"
               },
               {
                 "w": "täglich",
-                "ar": "صفة: täglich",
+                "ar": "يوميا",
                 "base": "täglich",
                 "pos": "Adj"
               },
@@ -10085,7 +10086,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Informationen",
-                "ar": "اسم: Informationen",
+                "ar": "معلومة",
                 "base": "Informationen",
                 "pos": "Nomen"
               },
@@ -10115,7 +10116,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Lage",
-                "ar": "اسم: Lage",
+                "ar": "الموقع",
                 "base": "Lage",
                 "pos": "Nomen"
               },
@@ -10133,7 +10134,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "wichtige",
-                "ar": "معنى: wichtige",
+                "ar": "مهم",
                 "base": "wichtige",
                 "pos": "Wort"
               },
@@ -10145,13 +10146,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "unwichtige",
-                "ar": "معنى: unwichtige",
+                "ar": "غير مهم",
                 "base": "unwichtige",
                 "pos": "Wort"
               },
               {
                 "w": "Informationen",
-                "ar": "اسم: Informationen",
+                "ar": "معلومة",
                 "base": "Informationen",
                 "pos": "Nomen"
               },
@@ -10163,7 +10164,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "unterscheiden",
-                "ar": "فعل: unterscheiden",
+                "ar": "تفرق",
                 "base": "unterscheiden",
                 "pos": "Verb"
               }
@@ -10182,7 +10183,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "bin",
-                "ar": "معنى: bin",
+                "ar": "صباحا",
                 "base": "bin",
                 "pos": "Wort"
               },
@@ -10194,7 +10195,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Ansicht",
-                "ar": "اسم: Ansicht",
+                "ar": "عرض",
                 "base": "Ansicht",
                 "pos": "Nomen"
               },
@@ -10230,19 +10231,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "gewissen",
-                "ar": "فعل: gewissen",
+                "ar": "معينة",
                 "base": "gewissen",
                 "pos": "Verb"
               },
               {
                 "w": "Allgemeinbildung",
-                "ar": "اسم: Allgemeinbildung",
+                "ar": "التعليم العام",
                 "base": "Allgemeinbildung",
                 "pos": "Nomen"
               },
               {
                 "w": "funktioniert",
-                "ar": "فعل: funktioniert",
+                "ar": "يعمل",
                 "base": "funktioniert",
                 "pos": "Verb"
               }
@@ -10255,19 +10256,19 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Oskar",
-                "ar": "اسم: Oskar",
+                "ar": "أوسكار",
                 "base": "Oskar",
                 "pos": "Nomen"
               },
               {
                 "w": "Hofmann",
-                "ar": "اسم: Hofmann",
+                "ar": "هوفمان",
                 "base": "Hofmann",
                 "pos": "Nomen"
               },
               {
                 "w": "Journalist",
-                "ar": "اسم: Journalist",
+                "ar": "صحافي",
                 "base": "Journalist",
                 "pos": "Nomen"
               }
@@ -10395,7 +10396,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "braucht",
-                "ar": "فعل: braucht",
+                "ar": "الاحتياجات",
                 "base": "braucht",
                 "pos": "Verb"
               },
@@ -10419,7 +10420,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Instrument",
-                "ar": "اسم: Instrument",
+                "ar": "أداة",
                 "base": "Instrument",
                 "pos": "Nomen"
               },
@@ -10431,7 +10432,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Handwerk",
-                "ar": "اسم: Handwerk",
+                "ar": "الحرف اليدوية",
                 "base": "Handwerk",
                 "pos": "Nomen"
               },
@@ -10449,13 +10450,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Sportart",
-                "ar": "اسم: Sportart",
+                "ar": "رياضة",
                 "base": "Sportart",
                 "pos": "Nomen"
               },
               {
                 "w": "richtig",
-                "ar": "صفة: richtig",
+                "ar": "صحيح",
                 "base": "richtig",
                 "pos": "Adj"
               },
@@ -10473,7 +10474,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "beherrschen",
-                "ar": "فعل: beherrschen",
+                "ar": "سيد",
                 "base": "beherrschen",
                 "pos": "Verb"
               }
@@ -10504,7 +10505,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "dazu",
-                "ar": "معنى: dazu",
+                "ar": "فضلاً عن ذلك",
                 "base": "dazu",
                 "pos": "Wort"
               },
@@ -10516,19 +10517,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "interessanten",
-                "ar": "فعل: interessanten",
+                "ar": "مثيرة للاهتمام",
                 "base": "interessanten",
                 "pos": "Verb"
               },
               {
                 "w": "Artikel",
-                "ar": "اسم: Artikel",
+                "ar": "مقالة",
                 "base": "Artikel",
                 "pos": "Nomen"
               },
               {
                 "w": "gelesen",
-                "ar": "فعل: gelesen",
+                "ar": "قراءة",
                 "base": "gelesen",
                 "pos": "Verb"
               }
@@ -10541,7 +10542,7 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Wissenschaftler",
-                "ar": "اسم: Wissenschaftler",
+                "ar": "عالم",
                 "base": "Wissenschaftler",
                 "pos": "Nomen"
               },
@@ -10553,13 +10554,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "nämlich",
-                "ar": "صفة: nämlich",
+                "ar": "وهي",
                 "base": "nämlich",
                 "pos": "Adj"
               },
               {
                 "w": "herausgefunden",
-                "ar": "فعل: herausgefunden",
+                "ar": "اكتشفت",
                 "base": "herausgefunden",
                 "pos": "Verb"
               },
@@ -10577,13 +10578,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "angeborenes",
-                "ar": "معنى: angeborenes",
+                "ar": "فطري",
                 "base": "angeborenes",
                 "pos": "Wort"
               },
               {
                 "w": "Talent",
-                "ar": "اسم: Talent",
+                "ar": "الموهبة",
                 "base": "Talent",
                 "pos": "Nomen"
               },
@@ -10595,13 +10596,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "jahrelange",
-                "ar": "معنى: jahrelange",
+                "ar": "سنوات",
                 "base": "jahrelange",
                 "pos": "Wort"
               },
               {
                 "w": "Übung",
-                "ar": "اسم: Übung",
+                "ar": "تمرين",
                 "base": "Übung",
                 "pos": "Nomen"
               },
@@ -10613,7 +10614,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Grund",
-                "ar": "اسم: Grund",
+                "ar": "السبب",
                 "base": "Grund",
                 "pos": "Nomen"
               },
@@ -10625,7 +10626,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "außergewöhnliches",
-                "ar": "معنى: außergewöhnliches",
+                "ar": "غير عادي",
                 "base": "außergewöhnliches",
                 "pos": "Wort"
               },
@@ -10656,7 +10657,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Menschen",
-                "ar": "اسم: Menschen",
+                "ar": "الناس",
                 "base": "Menschen",
                 "pos": "Nomen"
               },
@@ -10668,9 +10669,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "also",
-                "ar": "معنى: also",
+                "ar": "إذن / وبالتالي",
                 "base": "also",
-                "pos": "Wort"
+                "pos": "Adv"
               },
               {
                 "w": "in",
@@ -10686,7 +10687,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Lage",
-                "ar": "اسم: Lage",
+                "ar": "الموقع",
                 "base": "Lage",
                 "pos": "Nomen"
               },
@@ -10710,7 +10711,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "erreichen",
-                "ar": "فعل: erreichen",
+                "ar": "الوصول",
                 "base": "erreichen",
                 "pos": "Verb"
               },
@@ -10728,7 +10729,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "glauben",
-                "ar": "فعل: glauben",
+                "ar": "يعتقد",
                 "base": "glauben",
                 "pos": "Verb"
               }
@@ -10747,7 +10748,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "bedeutet",
-                "ar": "فعل: bedeutet",
+                "ar": "يعني",
                 "base": "bedeutet",
                 "pos": "Verb"
               },
@@ -10771,7 +10772,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Fähigkeit",
-                "ar": "اسم: Fähigkeit",
+                "ar": "القدرة",
                 "base": "Fähigkeit",
                 "pos": "Nomen"
               },
@@ -10795,13 +10796,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Dinge",
-                "ar": "اسم: Dinge",
+                "ar": "أشياء",
                 "base": "Dinge",
                 "pos": "Nomen"
               },
               {
                 "w": "richtig",
-                "ar": "صفة: richtig",
+                "ar": "صحيح",
                 "base": "richtig",
                 "pos": "Adj"
               },
@@ -10819,7 +10820,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "beherrschen",
-                "ar": "فعل: beherrschen",
+                "ar": "سيد",
                 "base": "beherrschen",
                 "pos": "Verb"
               },
@@ -10849,7 +10850,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "üben",
-                "ar": "فعل: üben",
+                "ar": "ممارسة",
                 "base": "üben",
                 "pos": "Verb"
               }
@@ -10874,7 +10875,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "realistisch",
-                "ar": "معنى: realistisch",
+                "ar": "واقعية",
                 "base": "realistisch",
                 "pos": "Wort"
               },
@@ -10892,7 +10893,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Beispiel",
-                "ar": "اسم: Beispiel",
+                "ar": "مثال",
                 "base": "Beispiel",
                 "pos": "Nomen"
               },
@@ -10910,7 +10911,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "lange",
-                "ar": "معنى: lange",
+                "ar": "طويل",
                 "base": "lange",
                 "pos": "Wort"
               },
@@ -10922,7 +10923,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Wunsch",
-                "ar": "اسم: Wunsch",
+                "ar": "الرغبة",
                 "base": "Wunsch",
                 "pos": "Nomen"
               },
@@ -10934,7 +10935,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Geige",
-                "ar": "اسم: Geige",
+                "ar": "كمان",
                 "base": "Geige",
                 "pos": "Nomen"
               },
@@ -10946,7 +10947,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "spielen",
-                "ar": "فعل: spielen",
+                "ar": "لعب",
                 "base": "spielen",
                 "pos": "Verb"
               },
@@ -10958,13 +10959,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "leider",
-                "ar": "معنى: leider",
+                "ar": "لسوء الحظ",
                 "base": "leider",
-                "pos": "Wort"
+                "pos": "Adj"
               },
               {
                 "w": "fehlt",
-                "ar": "فعل: fehlt",
+                "ar": "مفتقد",
                 "base": "fehlt",
                 "pos": "Verb"
               },
@@ -10982,7 +10983,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Ohr",
-                "ar": "اسم: Ohr",
+                "ar": "الأذن",
                 "base": "Ohr",
                 "pos": "Nomen"
               },
@@ -11000,7 +11001,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Musik",
-                "ar": "اسم: Musik",
+                "ar": "موسيقى",
                 "base": "Musik",
                 "pos": "Nomen"
               }
@@ -11043,13 +11044,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "lange",
-                "ar": "معنى: lange",
+                "ar": "طويل",
                 "base": "lange",
                 "pos": "Wort"
               },
               {
                 "w": "üben",
-                "ar": "فعل: üben",
+                "ar": "ممارسة",
                 "base": "üben",
                 "pos": "Verb"
               },
@@ -11079,13 +11080,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Talent",
-                "ar": "اسم: Talent",
+                "ar": "الموهبة",
                 "base": "Talent",
                 "pos": "Nomen"
               },
               {
                 "w": "dafür",
-                "ar": "معنى: dafür",
+                "ar": "لذلك",
                 "base": "dafür",
                 "pos": "Wort"
               },
@@ -11103,7 +11104,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "meint",
-                "ar": "فعل: meint",
+                "ar": "يعني",
                 "base": "meint",
                 "pos": "Verb"
               },
@@ -11115,7 +11116,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Cedrella",
-                "ar": "اسم: Cedrella",
+                "ar": "سيدريلا",
                 "base": "Cedrella",
                 "pos": "Nomen"
               }
@@ -11133,9 +11134,9 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Also",
-                "ar": "اسم: Also",
-                "base": "Also",
-                "pos": "Nomen"
+                "ar": "إذن / هكذا",
+                "base": "also",
+                "pos": "Adv"
               },
               {
                 "w": "als",
@@ -11145,7 +11146,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Handwerksmeister",
-                "ar": "اسم: Handwerksmeister",
+                "ar": "حرفي ماهر",
                 "base": "Handwerksmeister",
                 "pos": "Nomen"
               },
@@ -11169,7 +11170,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "sagen",
-                "ar": "فعل: sagen",
+                "ar": "يقول",
                 "base": "sagen",
                 "pos": "Verb"
               },
@@ -11187,7 +11188,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "möglich",
-                "ar": "صفة: möglich",
+                "ar": "ممكن",
                 "base": "möglich",
                 "pos": "Adj"
               },
@@ -11199,13 +11200,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Handwerk",
-                "ar": "اسم: Handwerk",
+                "ar": "الحرف اليدوية",
                 "base": "Handwerk",
                 "pos": "Nomen"
               },
               {
                 "w": "unabhängig",
-                "ar": "صفة: unabhängig",
+                "ar": "مستقل",
                 "base": "unabhängig",
                 "pos": "Adj"
               },
@@ -11217,7 +11218,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Talent",
-                "ar": "اسم: Talent",
+                "ar": "الموهبة",
                 "base": "Talent",
                 "pos": "Nomen"
               },
@@ -11229,7 +11230,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "erlernen",
-                "ar": "فعل: erlernen",
+                "ar": "تعلم",
                 "base": "erlernen",
                 "pos": "Verb"
               }
@@ -11242,13 +11243,13 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Beruflich",
-                "ar": "اسم: Beruflich",
+                "ar": "مهنيا",
                 "base": "Beruflich",
                 "pos": "Nomen"
               },
               {
                 "w": "bilde",
-                "ar": "معنى: bilde",
+                "ar": "شكل",
                 "base": "bilde",
                 "pos": "Wort"
               },
@@ -11260,7 +11261,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Azubis",
-                "ar": "اسم: Azubis",
+                "ar": "المتدربين",
                 "base": "Azubis",
                 "pos": "Nomen"
               },
@@ -11290,13 +11291,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "bringt",
-                "ar": "فعل: bringt",
+                "ar": "يجلب",
                 "base": "bringt",
                 "pos": "Verb"
               },
               {
                 "w": "Talent",
-                "ar": "اسم: Talent",
+                "ar": "الموهبة",
                 "base": "Talent",
                 "pos": "Nomen"
               },
@@ -11314,7 +11315,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Interesse",
-                "ar": "اسم: Interesse",
+                "ar": "الفائدة",
                 "base": "Interesse",
                 "pos": "Nomen"
               },
@@ -11338,7 +11339,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Talent",
-                "ar": "اسم: Talent",
+                "ar": "الموهبة",
                 "base": "Talent",
                 "pos": "Nomen"
               }
@@ -11357,7 +11358,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "finde",
-                "ar": "معنى: finde",
+                "ar": "تجد",
                 "base": "finde",
                 "pos": "Wort"
               },
@@ -11387,7 +11388,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Recht",
-                "ar": "اسم: Recht",
+                "ar": "صحيح",
                 "base": "Recht",
                 "pos": "Nomen"
               },
@@ -11405,7 +11406,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Wunschberuf",
-                "ar": "اسم: Wunschberuf",
+                "ar": "الوظيفة المرغوبة",
                 "base": "Wunschberuf",
                 "pos": "Nomen"
               },
@@ -11417,7 +11418,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "erlernen",
-                "ar": "فعل: erlernen",
+                "ar": "تعلم",
                 "base": "erlernen",
                 "pos": "Verb"
               }
@@ -11430,7 +11431,7 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Natürlich",
-                "ar": "اسم: Natürlich",
+                "ar": "بالطبع",
                 "base": "Natürlich",
                 "pos": "Nomen"
               },
@@ -11454,21 +11455,21 @@ window.LESETEXTE = [
               },
               {
                 "w": "begabten",
-                "ar": "فعل: begabten",
+                "ar": "موهوب",
                 "base": "begabten",
                 "pos": "Verb"
               },
               {
                 "w": "Azubis",
-                "ar": "اسم: Azubis",
+                "ar": "المتدربين",
                 "base": "Azubis",
                 "pos": "Nomen"
               },
               {
                 "w": "leichter",
-                "ar": "معنى: leichter",
+                "ar": "أخف وزنا",
                 "base": "leichter",
-                "pos": "Wort"
+                "pos": "Adj"
               },
               {
                 "w": "Die",
@@ -11478,7 +11479,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "anderen",
-                "ar": "فعل: anderen",
+                "ar": "الآخرين",
                 "base": "anderen",
                 "pos": "Verb"
               },
@@ -11490,13 +11491,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "härter",
-                "ar": "معنى: härter",
+                "ar": "أصعب",
                 "base": "härter",
-                "pos": "Wort"
+                "pos": "Adj"
               },
               {
                 "w": "arbeiten",
-                "ar": "فعل: arbeiten",
+                "ar": "عمل",
                 "base": "arbeiten",
                 "pos": "Verb"
               }
@@ -11527,7 +11528,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Talent",
-                "ar": "اسم: Talent",
+                "ar": "الموهبة",
                 "base": "Talent",
                 "pos": "Nomen"
               },
@@ -11545,19 +11546,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "also",
-                "ar": "معنى: also",
+                "ar": "إذن / وبالتالي",
                 "base": "also",
-                "pos": "Wort"
+                "pos": "Adv"
               },
               {
                 "w": "notwendig",
-                "ar": "صفة: notwendig",
+                "ar": "ضروري",
                 "base": "notwendig",
                 "pos": "Adj"
               },
               {
                 "w": "fleißig",
-                "ar": "صفة: fleißig",
+                "ar": "المجتهد",
                 "base": "fleißig",
                 "pos": "Adj"
               },
@@ -11569,7 +11570,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "lernen",
-                "ar": "فعل: lernen",
+                "ar": "تعلم",
                 "base": "lernen",
                 "pos": "Verb"
               },
@@ -11587,19 +11588,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "üben",
-                "ar": "فعل: üben",
+                "ar": "ممارسة",
                 "base": "üben",
                 "pos": "Verb"
               },
               {
                 "w": "Übung",
-                "ar": "اسم: Übung",
+                "ar": "تمرين",
                 "base": "Übung",
                 "pos": "Nomen"
               },
               {
                 "w": "macht",
-                "ar": "فعل: macht",
+                "ar": "يجعل",
                 "base": "macht",
                 "pos": "Verb"
               },
@@ -11617,7 +11618,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Meister",
-                "ar": "اسم: Meister",
+                "ar": "سيد",
                 "base": "Meister",
                 "pos": "Nomen"
               },
@@ -11635,7 +11636,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Handwerksmeister",
-                "ar": "اسم: Handwerksmeister",
+                "ar": "حرفي ماهر",
                 "base": "Handwerksmeister",
                 "pos": "Nomen"
               }
@@ -11672,7 +11673,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Sport",
-                "ar": "اسم: Sport",
+                "ar": "الرياضة",
                 "base": "Sport",
                 "pos": "Nomen"
               },
@@ -11684,13 +11685,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Kunst",
-                "ar": "اسم: Kunst",
+                "ar": "فن",
                 "base": "Kunst",
                 "pos": "Nomen"
               },
               {
                 "w": "denke",
-                "ar": "معنى: denke",
+                "ar": "أعتقد",
                 "base": "denke",
                 "pos": "Wort"
               },
@@ -11702,7 +11703,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "glaube",
-                "ar": "معنى: glaube",
+                "ar": "صدق",
                 "base": "glaube",
                 "pos": "Wort"
               },
@@ -11732,7 +11733,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "talentiert",
-                "ar": "فعل: talentiert",
+                "ar": "موهوب",
                 "base": "talentiert",
                 "pos": "Verb"
               },
@@ -11750,13 +11751,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Allerdings",
-                "ar": "اسم: Allerdings",
+                "ar": "لكن",
                 "base": "Allerdings",
                 "pos": "Nomen"
               },
               {
                 "w": "erwartet",
-                "ar": "فعل: erwartet",
+                "ar": "المتوقع",
                 "base": "erwartet",
                 "pos": "Verb"
               },
@@ -11780,7 +11781,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Profisportlern",
-                "ar": "اسم: Profisportlern",
+                "ar": "الرياضيين المحترفين",
                 "base": "Profisportlern",
                 "pos": "Nomen"
               },
@@ -11792,7 +11793,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "-sportlerinnen",
-                "ar": "فعل: -sportlerinnen",
+                "ar": "الرياضيات",
                 "base": "-sportlerinnen",
                 "pos": "Verb"
               },
@@ -11810,7 +11811,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "regelmäßig",
-                "ar": "صفة: regelmäßig",
+                "ar": "بانتظام",
                 "base": "regelmäßig",
                 "pos": "Adj"
               },
@@ -11822,19 +11823,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "hart",
-                "ar": "فعل: hart",
+                "ar": "صعب",
                 "base": "hart",
                 "pos": "Verb"
               },
               {
                 "w": "trainieren",
-                "ar": "فعل: trainieren",
+                "ar": "قطار",
                 "base": "trainieren",
                 "pos": "Verb"
               },
               {
                 "w": "MEISTRO",
-                "ar": "اسم: MEISTRO",
+                "ar": "سيد",
                 "base": "MEISTRO",
                 "pos": "Nomen"
               }
@@ -11852,9 +11853,9 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Also",
-                "ar": "اسم: Also",
-                "base": "Also",
-                "pos": "Nomen"
+                "ar": "إذن / هكذا",
+                "base": "also",
+                "pos": "Adv"
               },
               {
                 "w": "ganz",
@@ -11864,7 +11865,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "ehrlich",
-                "ar": "صفة: ehrlich",
+                "ar": "بصراحة",
                 "base": "ehrlich",
                 "pos": "Adj"
               },
@@ -11888,7 +11889,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "gar",
-                "ar": "معنى: gar",
+                "ar": "حتى",
                 "base": "gar",
                 "pos": "Wort"
               },
@@ -11900,13 +11901,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "erforderlich",
-                "ar": "صفة: erforderlich",
+                "ar": "مطلوب",
                 "base": "erforderlich",
                 "pos": "Adj"
               },
               {
                 "w": "ständig",
-                "ar": "صفة: ständig",
+                "ar": "باستمرار",
                 "base": "ständig",
                 "pos": "Adj"
               },
@@ -11924,13 +11925,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Thema",
-                "ar": "اسم: Thema",
+                "ar": "الموضوع",
                 "base": "Thema",
                 "pos": "Nomen"
               },
               {
                 "w": "Talent",
-                "ar": "اسم: Talent",
+                "ar": "الموهبة",
                 "base": "Talent",
                 "pos": "Nomen"
               },
@@ -11942,7 +11943,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "diskutieren",
-                "ar": "فعل: diskutieren",
+                "ar": "ناقش",
                 "base": "diskutieren",
                 "pos": "Verb"
               }
@@ -11961,7 +11962,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "wissen",
-                "ar": "فعل: wissen",
+                "ar": "أعرف",
                 "base": "wissen",
                 "pos": "Verb"
               },
@@ -11991,7 +11992,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Übung",
-                "ar": "اسم: Übung",
+                "ar": "تمرين",
                 "base": "Übung",
                 "pos": "Nomen"
               },
@@ -12009,13 +12010,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "starkes",
-                "ar": "معنى: starkes",
+                "ar": "قوي",
                 "base": "starkes",
                 "pos": "Wort"
               },
               {
                 "w": "Durchhaltevermögen",
-                "ar": "اسم: Durchhaltevermögen",
+                "ar": "المثابرة",
                 "base": "Durchhaltevermögen",
                 "pos": "Nomen"
               },
@@ -12027,7 +12028,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Profi",
-                "ar": "اسم: Profi",
+                "ar": "محترف",
                 "base": "Profi",
                 "pos": "Nomen"
               },
@@ -12052,7 +12053,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "gilt",
-                "ar": "فعل: gilt",
+                "ar": "ينطبق",
                 "base": "gilt",
                 "pos": "Verb"
               },
@@ -12064,13 +12065,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "alte",
-                "ar": "فعل: alte",
+                "ar": "القديمة",
                 "base": "alte",
                 "pos": "Verb"
               },
               {
                 "w": "Spruch",
-                "ar": "اسم: Spruch",
+                "ar": "قائلا",
                 "base": "Spruch",
                 "pos": "Nomen"
               },
@@ -12088,7 +12089,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "kommt",
-                "ar": "فعل: kommt",
+                "ar": "يأتي",
                 "base": "kommt",
                 "pos": "Verb"
               },
@@ -12107,13 +12108,13 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Vielmehr",
-                "ar": "اسم: Vielmehr",
+                "ar": "بل",
                 "base": "Vielmehr",
                 "pos": "Nomen"
               },
               {
                 "w": "gibt",
-                "ar": "فعل: gibt",
+                "ar": "يعطي",
                 "base": "gibt",
                 "pos": "Verb"
               },
@@ -12131,13 +12132,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "wenige",
-                "ar": "معنى: wenige",
+                "ar": "عدد قليل",
                 "base": "wenige",
                 "pos": "Wort"
               },
               {
                 "w": "Menschen",
-                "ar": "اسم: Menschen",
+                "ar": "الناس",
                 "base": "Menschen",
                 "pos": "Nomen"
               },
@@ -12155,7 +12156,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Durchhaltevermögen",
-                "ar": "اسم: Durchhaltevermögen",
+                "ar": "المثابرة",
                 "base": "Durchhaltevermögen",
                 "pos": "Nomen"
               },
@@ -12173,7 +12174,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "sich",
-                "ar": "معنى: sich",
+                "ar": "نفسها",
                 "base": "sich",
                 "pos": "Wort"
               },
@@ -12185,19 +12186,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Sache",
-                "ar": "اسم: Sache",
+                "ar": "الشيء",
                 "base": "Sache",
                 "pos": "Nomen"
               },
               {
                 "w": "komplett",
-                "ar": "فعل: komplett",
+                "ar": "كامل",
                 "base": "komplett",
                 "pos": "Verb"
               },
               {
                 "w": "hingeben",
-                "ar": "فعل: hingeben",
+                "ar": "الاستسلام",
                 "base": "hingeben",
                 "pos": "Verb"
               },
@@ -12215,19 +12216,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "braucht",
-                "ar": "فعل: braucht",
+                "ar": "الاحتياجات",
                 "base": "braucht",
                 "pos": "Verb"
               },
               {
                 "w": "dafür",
-                "ar": "معنى: dafür",
+                "ar": "لذلك",
                 "base": "dafür",
                 "pos": "Wort"
               },
               {
                 "w": "Begeisterung",
-                "ar": "اسم: Begeisterung",
+                "ar": "الحماس",
                 "base": "Begeisterung",
                 "pos": "Nomen"
               }
@@ -12246,7 +12247,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "glaube",
-                "ar": "معنى: glaube",
+                "ar": "صدق",
                 "base": "glaube",
                 "pos": "Wort"
               },
@@ -12264,13 +12265,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "ganze",
-                "ar": "معنى: ganze",
+                "ar": "كله",
                 "base": "ganze",
                 "pos": "Wort"
               },
               {
                 "w": "Diskussion",
-                "ar": "اسم: Diskussion",
+                "ar": "مناقشة",
                 "base": "Diskussion",
                 "pos": "Nomen"
               },
@@ -12288,7 +12289,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Frage",
-                "ar": "اسم: Frage",
+                "ar": "سؤال",
                 "base": "Frage",
                 "pos": "Nomen"
               },
@@ -12306,13 +12307,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Talent",
-                "ar": "اسم: Talent",
+                "ar": "الموهبة",
                 "base": "Talent",
                 "pos": "Nomen"
               },
               {
                 "w": "gibt",
-                "ar": "فعل: gibt",
+                "ar": "يعطي",
                 "base": "gibt",
                 "pos": "Verb"
               },
@@ -12342,19 +12343,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Menschen",
-                "ar": "اسم: Menschen",
+                "ar": "الناس",
                 "base": "Menschen",
                 "pos": "Nomen"
               },
               {
                 "w": "eher",
-                "ar": "معنى: eher",
+                "ar": "بالأحرى",
                 "base": "eher",
-                "pos": "Wort"
+                "pos": "Adj"
               },
               {
                 "w": "demotivierend",
-                "ar": "معنى: demotivierend",
+                "ar": "محبط",
                 "base": "demotivierend",
                 "pos": "Wort"
               },
@@ -12379,7 +12380,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "gibt",
-                "ar": "فعل: gibt",
+                "ar": "يعطي",
                 "base": "gibt",
                 "pos": "Verb"
               },
@@ -12397,7 +12398,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Menschen",
-                "ar": "اسم: Menschen",
+                "ar": "الناس",
                 "base": "Menschen",
                 "pos": "Nomen"
               },
@@ -12409,7 +12410,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "vorhaben",
-                "ar": "فعل: vorhaben",
+                "ar": "خطة",
                 "base": "vorhaben",
                 "pos": "Verb"
               },
@@ -12421,7 +12422,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Instrument",
-                "ar": "اسم: Instrument",
+                "ar": "أداة",
                 "base": "Instrument",
                 "pos": "Nomen"
               },
@@ -12433,7 +12434,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "lernen",
-                "ar": "فعل: lernen",
+                "ar": "تعلم",
                 "base": "lernen",
                 "pos": "Verb"
               },
@@ -12457,19 +12458,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "kurzer",
-                "ar": "معنى: kurzer",
+                "ar": "أقصر",
                 "base": "kurzer",
-                "pos": "Wort"
+                "pos": "Adj"
               },
               {
                 "w": "Zeit",
-                "ar": "اسم: Zeit",
+                "ar": "وقت",
                 "base": "Zeit",
                 "pos": "Nomen"
               },
               {
                 "w": "aufgeben",
-                "ar": "فعل: aufgeben",
+                "ar": "استسلم",
                 "base": "aufgeben",
                 "pos": "Verb"
               },
@@ -12487,7 +12488,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Ausrede",
-                "ar": "اسم: Ausrede",
+                "ar": "عذر",
                 "base": "Ausrede",
                 "pos": "Nomen"
               },
@@ -12511,13 +12512,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Talent",
-                "ar": "اسم: Talent",
+                "ar": "الموهبة",
                 "base": "Talent",
                 "pos": "Nomen"
               },
               {
                 "w": "YOKO",
-                "ar": "اسم: YOKO",
+                "ar": "يوكو",
                 "base": "YOKO",
                 "pos": "Nomen"
               }
@@ -12621,19 +12622,19 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Lernen",
-                "ar": "اسم: Lernen",
+                "ar": "تعلم",
                 "base": "Lernen",
                 "pos": "Nomen"
               },
               {
                 "w": "bedeutet",
-                "ar": "فعل: bedeutet",
+                "ar": "يعني",
                 "base": "bedeutet",
                 "pos": "Verb"
               },
               {
                 "w": "neugierig",
-                "ar": "صفة: neugierig",
+                "ar": "فضولي",
                 "base": "neugierig",
                 "pos": "Adj"
               },
@@ -12657,7 +12658,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Antworten",
-                "ar": "اسم: Antworten",
+                "ar": "الإجابات",
                 "base": "Antworten",
                 "pos": "Nomen"
               },
@@ -12669,7 +12670,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "suchen",
-                "ar": "فعل: suchen",
+                "ar": "بحث",
                 "base": "suchen",
                 "pos": "Verb"
               },
@@ -12681,7 +12682,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "erfahren",
-                "ar": "فعل: erfahren",
+                "ar": "خبرة",
                 "base": "erfahren",
                 "pos": "Verb"
               },
@@ -12724,19 +12725,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Europäischen",
-                "ar": "اسم: Europäischen",
+                "ar": "الأوروبية",
                 "base": "Europäischen",
                 "pos": "Nomen"
               },
               {
                 "w": "Union",
-                "ar": "اسم: Union",
+                "ar": "الاتحاد",
                 "base": "Union",
                 "pos": "Nomen"
               },
               {
                 "w": "lebt",
-                "ar": "فعل: lebt",
+                "ar": "حياة",
                 "base": "lebt",
                 "pos": "Verb"
               },
@@ -12748,7 +12749,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "stehen",
-                "ar": "فعل: stehen",
+                "ar": "الوقوف",
                 "base": "stehen",
                 "pos": "Verb"
               },
@@ -12766,7 +12767,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Austausch",
-                "ar": "اسم: Austausch",
+                "ar": "تبادل",
                 "base": "Austausch",
                 "pos": "Nomen"
               },
@@ -12778,7 +12779,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Menschen",
-                "ar": "اسم: Menschen",
+                "ar": "الناس",
                 "base": "Menschen",
                 "pos": "Nomen"
               },
@@ -12790,25 +12791,25 @@ window.LESETEXTE = [
               },
               {
                 "w": "anderen",
-                "ar": "فعل: anderen",
+                "ar": "الآخرين",
                 "base": "anderen",
                 "pos": "Verb"
               },
               {
                 "w": "Ländern",
-                "ar": "اسم: Ländern",
+                "ar": "البلدان",
                 "base": "Ländern",
                 "pos": "Nomen"
               },
               {
                 "w": "anderen",
-                "ar": "فعل: anderen",
+                "ar": "الآخرين",
                 "base": "anderen",
                 "pos": "Verb"
               },
               {
                 "w": "Sprachen",
-                "ar": "اسم: Sprachen",
+                "ar": "اللغات",
                 "base": "Sprachen",
                 "pos": "Nomen"
               },
@@ -12820,7 +12821,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Kulturen",
-                "ar": "اسم: Kulturen",
+                "ar": "الثقافات",
                 "base": "Kulturen",
                 "pos": "Nomen"
               },
@@ -12832,7 +12833,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Türen",
-                "ar": "اسم: Türen",
+                "ar": "أبواب",
                 "base": "Türen",
                 "pos": "Nomen"
               },
@@ -12850,7 +12851,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Mitgliedsländern",
-                "ar": "اسم: Mitgliedsländern",
+                "ar": "الدول الأعضاء",
                 "base": "Mitgliedsländern",
                 "pos": "Nomen"
               },
@@ -12862,13 +12863,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "EU",
-                "ar": "اسم: EU",
+                "ar": "الاتحاد الأوروبي",
                 "base": "EU",
                 "pos": "Nomen"
               },
               {
                 "w": "offen",
-                "ar": "فعل: offen",
+                "ar": "مفتوح",
                 "base": "offen",
                 "pos": "Verb"
               }
@@ -12887,7 +12888,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Erasmus-Programm",
-                "ar": "اسم: Erasmus-Programm",
+                "ar": "برنامج ايراسموس",
                 "base": "Erasmus-Programm",
                 "pos": "Nomen"
               },
@@ -12899,19 +12900,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Europäischen",
-                "ar": "اسم: Europäischen",
+                "ar": "الأوروبية",
                 "base": "Europäischen",
                 "pos": "Nomen"
               },
               {
                 "w": "Union",
-                "ar": "اسم: Union",
+                "ar": "الاتحاد",
                 "base": "Union",
                 "pos": "Nomen"
               },
               {
                 "w": "fördert",
-                "ar": "فعل: fördert",
+                "ar": "يروج",
                 "base": "fördert",
                 "pos": "Verb"
               },
@@ -12923,7 +12924,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Austausch",
-                "ar": "اسم: Austausch",
+                "ar": "تبادل",
                 "base": "Austausch",
                 "pos": "Nomen"
               },
@@ -12935,13 +12936,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Bereich",
-                "ar": "اسم: Bereich",
+                "ar": "المنطقة",
                 "base": "Bereich",
                 "pos": "Nomen"
               },
               {
                 "w": "Lehren",
-                "ar": "اسم: Lehren",
+                "ar": "التدريس",
                 "base": "Lehren",
                 "pos": "Nomen"
               },
@@ -12953,7 +12954,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Lernen",
-                "ar": "اسم: Lernen",
+                "ar": "تعلم",
                 "base": "Lernen",
                 "pos": "Nomen"
               },
@@ -12971,13 +12972,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "gesamten",
-                "ar": "فعل: gesamten",
+                "ar": "كامل",
                 "base": "gesamten",
                 "pos": "Verb"
               },
               {
                 "w": "EU",
-                "ar": "اسم: EU",
+                "ar": "الاتحاد الأوروبي",
                 "base": "EU",
                 "pos": "Nomen"
               },
@@ -13001,13 +13002,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "weiteren",
-                "ar": "فعل: weiteren",
+                "ar": "كذلك",
                 "base": "weiteren",
                 "pos": "Verb"
               },
               {
                 "w": "Ländern",
-                "ar": "اسم: Ländern",
+                "ar": "البلدان",
                 "base": "Ländern",
                 "pos": "Nomen"
               },
@@ -13019,7 +13020,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Norwegen",
-                "ar": "اسم: Norwegen",
+                "ar": "النرويج",
                 "base": "Norwegen",
                 "pos": "Nomen"
               },
@@ -13031,7 +13032,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Island",
-                "ar": "اسم: Island",
+                "ar": "أيسلندا",
                 "base": "Island",
                 "pos": "Nomen"
               }
@@ -13056,13 +13057,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "30",
-                "ar": "معنى: 30",
-                "base": "30",
-                "pos": "Wort"
+                "ar": "ثلاثون",
+                "base": "dreißig",
+                "pos": "Num"
               },
               {
                 "w": "Jahren",
-                "ar": "اسم: Jahren",
+                "ar": "سنوات",
                 "base": "Jahren",
                 "pos": "Nomen"
               },
@@ -13086,19 +13087,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "weltweit",
-                "ar": "فعل: weltweit",
+                "ar": "في جميع أنحاء العالم",
                 "base": "weltweit",
                 "pos": "Verb"
               },
               {
                 "w": "größten",
-                "ar": "فعل: größten",
+                "ar": "أكبر",
                 "base": "größten",
                 "pos": "Verb"
               },
               {
                 "w": "Förderprogramm",
-                "ar": "اسم: Förderprogramm",
+                "ar": "برنامج التمويل",
                 "base": "Förderprogramm",
                 "pos": "Nomen"
               },
@@ -13110,7 +13111,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Studium",
-                "ar": "اسم: Studium",
+                "ar": "دراسة",
                 "base": "Studium",
                 "pos": "Nomen"
               },
@@ -13122,13 +13123,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Beruf",
-                "ar": "اسم: Beruf",
-                "base": "Beruf",
+                "ar": "مهنة / وظيفة",
+                "base": "der Beruf",
                 "pos": "Nomen"
               },
               {
                 "w": "Erfahrungen",
-                "ar": "اسم: Erfahrungen",
+                "ar": "الخبرات",
                 "base": "Erfahrungen",
                 "pos": "Nomen"
               },
@@ -13140,19 +13141,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "anderen",
-                "ar": "فعل: anderen",
+                "ar": "الآخرين",
                 "base": "anderen",
                 "pos": "Verb"
               },
               {
                 "w": "Ländern",
-                "ar": "اسم: Ländern",
+                "ar": "البلدان",
                 "base": "Ländern",
                 "pos": "Nomen"
               },
               {
                 "w": "gesammelt",
-                "ar": "فعل: gesammelt",
+                "ar": "تم جمعها",
                 "base": "gesammelt",
                 "pos": "Verb"
               },
@@ -13182,7 +13183,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Semester",
-                "ar": "اسم: Semester",
+                "ar": "الفصل الدراسي",
                 "base": "Semester",
                 "pos": "Nomen"
               },
@@ -13194,7 +13195,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Nizza",
-                "ar": "اسم: Nizza",
+                "ar": "لطيف",
                 "base": "Nizza",
                 "pos": "Nomen"
               },
@@ -13206,7 +13207,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "studieren",
-                "ar": "فعل: studieren",
+                "ar": "دراسة",
                 "base": "studieren",
                 "pos": "Verb"
               },
@@ -13224,13 +13225,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "beste",
-                "ar": "فعل: beste",
+                "ar": "الأفضل",
                 "base": "beste",
                 "pos": "Verb"
               },
               {
                 "w": "Entscheidung",
-                "ar": "اسم: Entscheidung",
+                "ar": "القرار",
                 "base": "Entscheidung",
                 "pos": "Nomen"
               },
@@ -13273,7 +13274,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Aufenthalt",
-                "ar": "اسم: Aufenthalt",
+                "ar": "البقاء",
                 "base": "Aufenthalt",
                 "pos": "Nomen"
               },
@@ -13285,7 +13286,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Nizza",
-                "ar": "اسم: Nizza",
+                "ar": "لطيف",
                 "base": "Nizza",
                 "pos": "Nomen"
               },
@@ -13303,7 +13304,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "empfehlen",
-                "ar": "فعل: empfehlen",
+                "ar": "يوصي",
                 "base": "empfehlen",
                 "pos": "Verb"
               },
@@ -13321,7 +13322,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Universität",
-                "ar": "اسم: Universität",
+                "ar": "جامعة",
                 "base": "Universität",
                 "pos": "Nomen"
               },
@@ -13345,13 +13346,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Studierenden",
-                "ar": "اسم: Studierenden",
+                "ar": "طلاب",
                 "base": "Studierenden",
                 "pos": "Nomen"
               },
               {
                 "w": "erwartet",
-                "ar": "فعل: erwartet",
+                "ar": "المتوقع",
                 "base": "erwartet",
                 "pos": "Verb"
               },
@@ -13387,13 +13388,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Studium",
-                "ar": "اسم: Studium",
+                "ar": "دراسة",
                 "base": "Studium",
                 "pos": "Nomen"
               },
               {
                 "w": "tun",
-                "ar": "معنى: tun",
+                "ar": "افعل",
                 "base": "tun",
                 "pos": "Wort"
               },
@@ -13418,7 +13419,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Anfang",
-                "ar": "اسم: Anfang",
+                "ar": "البداية",
                 "base": "Anfang",
                 "pos": "Nomen"
               },
@@ -13448,7 +13449,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Probleme",
-                "ar": "اسم: Probleme",
+                "ar": "مشاكل",
                 "base": "Probleme",
                 "pos": "Nomen"
               },
@@ -13466,7 +13467,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Sprache",
-                "ar": "اسم: Sprache",
+                "ar": "لغة",
                 "base": "Sprache",
                 "pos": "Nomen"
               },
@@ -13490,7 +13491,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Vorlesungen",
-                "ar": "اسم: Vorlesungen",
+                "ar": "محاضرات",
                 "base": "Vorlesungen",
                 "pos": "Nomen"
               },
@@ -13514,7 +13515,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "einfach",
-                "ar": "معنى: einfach",
+                "ar": "سهل",
                 "base": "einfach",
                 "pos": "Wort"
               },
@@ -13526,7 +13527,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "gibt",
-                "ar": "فعل: gibt",
+                "ar": "يعطي",
                 "base": "gibt",
                 "pos": "Verb"
               },
@@ -13550,7 +13551,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Präsentationen",
-                "ar": "اسم: Präsentationen",
+                "ar": "العروض التقديمية",
                 "base": "Präsentationen",
                 "pos": "Nomen"
               },
@@ -13562,7 +13563,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Bildern",
-                "ar": "اسم: Bildern",
+                "ar": "الصور",
                 "base": "Bildern",
                 "pos": "Nomen"
               },
@@ -13580,13 +13581,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Verstehen",
-                "ar": "اسم: Verstehen",
+                "ar": "افهم",
                 "base": "Verstehen",
                 "pos": "Nomen"
               },
               {
                 "w": "helfen",
-                "ar": "فعل: helfen",
+                "ar": "مساعدة",
                 "base": "helfen",
                 "pos": "Verb"
               }
@@ -13623,7 +13624,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Prüfungen",
-                "ar": "اسم: Prüfungen",
+                "ar": "الامتحانات",
                 "base": "Prüfungen",
                 "pos": "Nomen"
               },
@@ -13647,20 +13648,20 @@ window.LESETEXTE = [
               },
               {
                 "w": "große",
-                "ar": "معنى: große",
+                "ar": "كبير",
                 "base": "große",
                 "pos": "Wort"
               },
               {
                 "w": "Fortschritte",
-                "ar": "اسم: Fortschritte",
+                "ar": "التقدم",
                 "base": "Fortschritte",
                 "pos": "Nomen"
               },
               {
                 "w": "gemacht",
-                "ar": "فعل: gemacht",
-                "base": "gemacht",
+                "ar": "فعلَ / صنعَ",
+                "base": "machen",
                 "pos": "Verb"
               },
               {
@@ -13683,7 +13684,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "sogar",
-                "ar": "معنى: sogar",
+                "ar": "حتى",
                 "base": "sogar",
                 "pos": "Wort"
               },
@@ -13695,13 +13696,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Präsentation",
-                "ar": "اسم: Präsentation",
+                "ar": "العرض التقديمي",
                 "base": "Präsentation",
                 "pos": "Nomen"
               },
               {
                 "w": "erfolgreich",
-                "ar": "معنى: erfolgreich",
+                "ar": "ناجح",
                 "base": "erfolgreich",
                 "pos": "Wort"
               },
@@ -13713,13 +13714,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Französisch",
-                "ar": "اسم: Französisch",
+                "ar": "الفرنسية",
                 "base": "Französisch",
                 "pos": "Nomen"
               },
               {
                 "w": "gehalten",
-                "ar": "فعل: gehalten",
+                "ar": "عقد",
                 "base": "gehalten",
                 "pos": "Verb"
               }
@@ -13756,7 +13757,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "gefallen",
-                "ar": "فعل: gefallen",
+                "ar": "أحب",
                 "base": "gefallen",
                 "pos": "Verb"
               },
@@ -13780,7 +13781,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Lebensart",
-                "ar": "اسم: Lebensart",
+                "ar": "طريقة الحياة",
                 "base": "Lebensart",
                 "pos": "Nomen"
               },
@@ -13792,7 +13793,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Südfrankreich",
-                "ar": "اسم: Südfrankreich",
+                "ar": "جنوب فرنسا",
                 "base": "Südfrankreich",
                 "pos": "Nomen"
               },
@@ -13816,19 +13817,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "leicht",
-                "ar": "فعل: leicht",
+                "ar": "بسهولة",
                 "base": "leicht",
                 "pos": "Verb"
               },
               {
                 "w": "Leute",
-                "ar": "اسم: Leute",
-                "base": "Leute",
+                "ar": "ناس / أشخاص",
+                "base": "die Leute",
                 "pos": "Nomen"
               },
               {
                 "w": "kennengelernt",
-                "ar": "فعل: kennengelernt",
+                "ar": "التقى",
                 "base": "kennengelernt",
                 "pos": "Verb"
               },
@@ -13840,7 +13841,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Erfahrung",
-                "ar": "اسم: Erfahrung",
+                "ar": "الخبرة",
                 "base": "Erfahrung",
                 "pos": "Nomen"
               },
@@ -13864,7 +13865,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Menschen",
-                "ar": "اسم: Menschen",
+                "ar": "الناس",
                 "base": "Menschen",
                 "pos": "Nomen"
               },
@@ -13876,7 +13877,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "offen",
-                "ar": "فعل: offen",
+                "ar": "مفتوح",
                 "base": "offen",
                 "pos": "Verb"
               },
@@ -13918,13 +13919,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Leben",
-                "ar": "اسم: Leben",
-                "base": "Leben",
+                "ar": "حياة / معيشة",
+                "base": "das Leben",
                 "pos": "Nomen"
               },
               {
                 "w": "Gespräche",
-                "ar": "اسم: Gespräche",
+                "ar": "المحادثات",
                 "base": "Gespräche",
                 "pos": "Nomen"
               },
@@ -13942,13 +13943,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Zusammensein",
-                "ar": "اسم: Zusammensein",
+                "ar": "أن نكون معًا",
                 "base": "Zusammensein",
                 "pos": "Nomen"
               },
               {
                 "w": "liebt",
-                "ar": "فعل: liebt",
+                "ar": "يحب",
                 "base": "liebt",
                 "pos": "Verb"
               },
@@ -13966,7 +13967,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "verbessert",
-                "ar": "فعل: verbessert",
+                "ar": "تحسين",
                 "base": "verbessert",
                 "pos": "Verb"
               },
@@ -14002,7 +14003,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "leicht",
-                "ar": "فعل: leicht",
+                "ar": "بسهولة",
                 "base": "leicht",
                 "pos": "Verb"
               },
@@ -14014,13 +14015,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Sprachkenntnisse",
-                "ar": "اسم: Sprachkenntnisse",
+                "ar": "المهارات اللغوية",
                 "base": "Sprachkenntnisse",
                 "pos": "Nomen"
               },
               {
                 "w": "Julia",
-                "ar": "اسم: Julia",
+                "ar": "جوليا",
                 "base": "Julia",
                 "pos": "Nomen"
               }
@@ -14044,7 +14045,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Traum",
-                "ar": "اسم: Traum",
+                "ar": "حلم",
                 "base": "Traum",
                 "pos": "Nomen"
               },
@@ -14062,19 +14063,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "einmal",
-                "ar": "معنى: einmal",
+                "ar": "مرة واحدة",
                 "base": "einmal",
-                "pos": "Wort"
+                "pos": "Adv"
               },
               {
                 "w": "ganze",
-                "ar": "معنى: ganze",
+                "ar": "كله",
                 "base": "ganze",
                 "pos": "Wort"
               },
               {
                 "w": "Häuser",
-                "ar": "اسم: Häuser",
+                "ar": "منازل",
                 "base": "Häuser",
                 "pos": "Nomen"
               },
@@ -14086,7 +14087,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Holz",
-                "ar": "اسم: Holz",
+                "ar": "خشب",
                 "base": "Holz",
                 "pos": "Nomen"
               },
@@ -14098,7 +14099,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "bauen",
-                "ar": "فعل: bauen",
+                "ar": "بناء",
                 "base": "bauen",
                 "pos": "Verb"
               },
@@ -14116,7 +14117,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Ausbildung",
-                "ar": "اسم: Ausbildung",
+                "ar": "التدريب",
                 "base": "Ausbildung",
                 "pos": "Nomen"
               },
@@ -14140,13 +14141,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "kurze",
-                "ar": "معنى: kurze",
+                "ar": "قصيرة",
                 "base": "kurze",
                 "pos": "Wort"
               },
               {
                 "w": "Zeit",
-                "ar": "اسم: Zeit",
+                "ar": "وقت",
                 "base": "Zeit",
                 "pos": "Nomen"
               },
@@ -14164,13 +14165,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Ausland",
-                "ar": "اسم: Ausland",
+                "ar": "في الخارج",
                 "base": "Ausland",
                 "pos": "Nomen"
               },
               {
                 "w": "gehen",
-                "ar": "فعل: gehen",
+                "ar": "يذهب",
                 "base": "gehen",
                 "pos": "Verb"
               },
@@ -14182,7 +14183,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "wusste",
-                "ar": "فعل: wusste",
+                "ar": "عرف",
                 "base": "wusste",
                 "pos": "Verb"
               },
@@ -14206,7 +14207,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Betrieb",
-                "ar": "اسم: Betrieb",
+                "ar": "العملية",
                 "base": "Betrieb",
                 "pos": "Nomen"
               },
@@ -14224,13 +14225,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "super",
-                "ar": "معنى: super",
+                "ar": "عظيم",
                 "base": "super",
-                "pos": "Wort"
+                "pos": "Adj"
               },
               {
                 "w": "unterstützt",
-                "ar": "فعل: unterstützt",
+                "ar": "مدعومة",
                 "base": "unterstützt",
                 "pos": "Verb"
               }
@@ -14267,7 +14268,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Monat",
-                "ar": "اسم: Monat",
+                "ar": "شهر",
                 "base": "Monat",
                 "pos": "Nomen"
               },
@@ -14279,13 +14280,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Finnland",
-                "ar": "اسم: Finnland",
+                "ar": "فنلندا",
                 "base": "Finnland",
                 "pos": "Nomen"
               },
               {
                 "w": "gehen",
-                "ar": "فعل: gehen",
+                "ar": "يذهب",
                 "base": "gehen",
                 "pos": "Verb"
               },
@@ -14297,7 +14298,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Finnland",
-                "ar": "اسم: Finnland",
+                "ar": "فنلندا",
                 "base": "Finnland",
                 "pos": "Nomen"
               },
@@ -14309,7 +14310,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "einfach",
-                "ar": "معنى: einfach",
+                "ar": "سهل",
                 "base": "einfach",
                 "pos": "Wort"
               },
@@ -14321,7 +14322,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "gibt",
-                "ar": "فعل: gibt",
+                "ar": "يعطي",
                 "base": "gibt",
                 "pos": "Verb"
               },
@@ -14339,13 +14340,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "große",
-                "ar": "معنى: große",
+                "ar": "كبير",
                 "base": "große",
                 "pos": "Wort"
               },
               {
                 "w": "Holzindustrie",
-                "ar": "اسم: Holzindustrie",
+                "ar": "صناعة الخشب",
                 "base": "Holzindustrie",
                 "pos": "Nomen"
               },
@@ -14363,13 +14364,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "lange",
-                "ar": "معنى: lange",
+                "ar": "طويل",
                 "base": "lange",
                 "pos": "Wort"
               },
               {
                 "w": "Tradition",
-                "ar": "اسم: Tradition",
+                "ar": "التقليد",
                 "base": "Tradition",
                 "pos": "Nomen"
               },
@@ -14387,7 +14388,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Bauen",
-                "ar": "اسم: Bauen",
+                "ar": "بناء",
                 "base": "Bauen",
                 "pos": "Nomen"
               },
@@ -14399,7 +14400,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Holz",
-                "ar": "اسم: Holz",
+                "ar": "خشب",
                 "base": "Holz",
                 "pos": "Nomen"
               }
@@ -14430,13 +14431,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Firma",
-                "ar": "اسم: Firma",
+                "ar": "شركة",
                 "base": "Firma",
                 "pos": "Nomen"
               },
               {
                 "w": "gefunden",
-                "ar": "فعل: gefunden",
+                "ar": "وجدت",
                 "base": "gefunden",
                 "pos": "Verb"
               },
@@ -14454,14 +14455,14 @@ window.LESETEXTE = [
               },
               {
                 "w": "junge",
-                "ar": "معنى: junge",
+                "ar": "صبي",
                 "base": "junge",
                 "pos": "Wort"
               },
               {
                 "w": "Leute",
-                "ar": "اسم: Leute",
-                "base": "Leute",
+                "ar": "ناس / أشخاص",
+                "base": "die Leute",
                 "pos": "Nomen"
               },
               {
@@ -14472,7 +14473,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Hausbau",
-                "ar": "اسم: Hausbau",
+                "ar": "بناء المنزل",
                 "base": "Hausbau",
                 "pos": "Nomen"
               },
@@ -14484,7 +14485,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Anfang",
-                "ar": "اسم: Anfang",
+                "ar": "البداية",
                 "base": "Anfang",
                 "pos": "Nomen"
               },
@@ -14496,13 +14497,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Ende",
-                "ar": "اسم: Ende",
-                "base": "Ende",
+                "ar": "نهاية / ختام",
+                "base": "das Ende",
                 "pos": "Nomen"
               },
               {
                 "w": "mitmachen",
-                "ar": "فعل: mitmachen",
+                "ar": "انضم",
                 "base": "mitmachen",
                 "pos": "Verb"
               },
@@ -14514,7 +14515,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Endlich",
-                "ar": "اسم: Endlich",
+                "ar": "أخيرا",
                 "base": "Endlich",
                 "pos": "Nomen"
               },
@@ -14538,7 +14539,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "ausprobieren",
-                "ar": "فعل: ausprobieren",
+                "ar": "جربه",
                 "base": "ausprobieren",
                 "pos": "Verb"
               },
@@ -14556,9 +14557,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "super",
-                "ar": "معنى: super",
+                "ar": "عظيم",
                 "base": "super",
-                "pos": "Wort"
+                "pos": "Adj"
               }
             ]
           },
@@ -14581,7 +14582,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "nämlich",
-                "ar": "صفة: nämlich",
+                "ar": "وهي",
                 "base": "nämlich",
                 "pos": "Adj"
               },
@@ -14617,13 +14618,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "selbst",
-                "ar": "فعل: selbst",
+                "ar": "نفسك",
                 "base": "selbst",
                 "pos": "Verb"
               },
               {
                 "w": "organisiert",
-                "ar": "فعل: organisiert",
+                "ar": "منظمة",
                 "base": "organisiert",
                 "pos": "Verb"
               },
@@ -14653,13 +14654,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Arbeit",
-                "ar": "اسم: Arbeit",
+                "ar": "عمل",
                 "base": "Arbeit",
                 "pos": "Nomen"
               },
               {
                 "w": "integriert",
-                "ar": "فعل: integriert",
+                "ar": "متكامل",
                 "base": "integriert",
                 "pos": "Verb"
               },
@@ -14671,7 +14672,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "bin",
-                "ar": "معنى: bin",
+                "ar": "صباحا",
                 "base": "bin",
                 "pos": "Wort"
               },
@@ -14689,9 +14690,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "selbstständiger",
-                "ar": "معنى: selbstständiger",
+                "ar": "أكثر استقلالية",
                 "base": "selbstständiger",
-                "pos": "Wort"
+                "pos": "Adj"
               },
               {
                 "w": "als",
@@ -14719,7 +14720,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Gastfamilie",
-                "ar": "اسم: Gastfamilie",
+                "ar": "العائلة المضيفة",
                 "base": "Gastfamilie",
                 "pos": "Nomen"
               },
@@ -14743,7 +14744,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Arbeit",
-                "ar": "اسم: Arbeit",
+                "ar": "عمل",
                 "base": "Arbeit",
                 "pos": "Nomen"
               },
@@ -14767,25 +14768,25 @@ window.LESETEXTE = [
               },
               {
                 "w": "finnische",
-                "ar": "معنى: finnische",
+                "ar": "الفنلندية",
                 "base": "finnische",
                 "pos": "Wort"
               },
               {
                 "w": "Kultur",
-                "ar": "اسم: Kultur",
+                "ar": "الثقافة",
                 "base": "Kultur",
                 "pos": "Nomen"
               },
               {
                 "w": "intensiv",
-                "ar": "معنى: intensiv",
+                "ar": "مكثفة",
                 "base": "intensiv",
                 "pos": "Wort"
               },
               {
                 "w": "kennengelernt",
-                "ar": "فعل: kennengelernt",
+                "ar": "التقى",
                 "base": "kennengelernt",
                 "pos": "Verb"
               },
@@ -14809,7 +14810,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Erfahrungen",
-                "ar": "اسم: Erfahrungen",
+                "ar": "الخبرات",
                 "base": "Erfahrungen",
                 "pos": "Nomen"
               },
@@ -14833,7 +14834,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "empfehlen",
-                "ar": "فعل: empfehlen",
+                "ar": "يوصي",
                 "base": "empfehlen",
                 "pos": "Verb"
               },
@@ -14845,7 +14846,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Marius",
-                "ar": "اسم: Marius",
+                "ar": "ماريوس",
                 "base": "Marius",
                 "pos": "Nomen"
               }
@@ -14969,13 +14970,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Menschen",
-                "ar": "اسم: Menschen",
+                "ar": "الناس",
                 "base": "Menschen",
                 "pos": "Nomen"
               },
               {
                 "w": "unterwegs",
-                "ar": "معنى: unterwegs",
+                "ar": "على الطريق",
                 "base": "unterwegs",
                 "pos": "Wort"
               }
@@ -14994,7 +14995,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "nehmen",
-                "ar": "فعل: nehmen",
+                "ar": "خذ",
                 "base": "nehmen",
                 "pos": "Verb"
               },
@@ -15012,7 +15013,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Flugzeug",
-                "ar": "اسم: Flugzeug",
+                "ar": "طائرة",
                 "base": "Flugzeug",
                 "pos": "Nomen"
               },
@@ -15030,7 +15031,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Auto",
-                "ar": "اسم: Auto",
+                "ar": "سيارة",
                 "base": "Auto",
                 "pos": "Nomen"
               },
@@ -15048,7 +15049,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Ziele",
-                "ar": "اسم: Ziele",
+                "ar": "الأهداف",
                 "base": "Ziele",
                 "pos": "Nomen"
               },
@@ -15060,7 +15061,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "erreichen",
-                "ar": "فعل: erreichen",
+                "ar": "الوصول",
                 "base": "erreichen",
                 "pos": "Verb"
               },
@@ -15072,7 +15073,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "saß",
-                "ar": "معنى: saß",
+                "ar": "جلس",
                 "base": "saß",
                 "pos": "Wort"
               },
@@ -15096,7 +15097,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Kutsche",
-                "ar": "اسم: Kutsche",
+                "ar": "النقل",
                 "base": "Kutsche",
                 "pos": "Nomen"
               },
@@ -15108,7 +15109,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "ritt",
-                "ar": "فعل: ritt",
+                "ar": "ركب",
                 "base": "ritt",
                 "pos": "Verb"
               },
@@ -15126,7 +15127,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Pferd",
-                "ar": "اسم: Pferd",
+                "ar": "حصان",
                 "base": "Pferd",
                 "pos": "Nomen"
               },
@@ -15144,7 +15145,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Wege",
-                "ar": "اسم: Wege",
+                "ar": "طرق",
                 "base": "Wege",
                 "pos": "Nomen"
               },
@@ -15162,7 +15163,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "einfach",
-                "ar": "معنى: einfach",
+                "ar": "سهل",
                 "base": "einfach",
                 "pos": "Wort"
               },
@@ -15174,13 +15175,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Fuß",
-                "ar": "اسم: Fuß",
+                "ar": "قدم",
                 "base": "Fuß",
                 "pos": "Nomen"
               },
               {
                 "w": "zurückgelegt",
-                "ar": "فعل: zurückgelegt",
+                "ar": "عاد",
                 "base": "zurückgelegt",
                 "pos": "Verb"
               }
@@ -15199,25 +15200,25 @@ window.LESETEXTE = [
               },
               {
                 "w": "vielen",
-                "ar": "فعل: vielen",
+                "ar": "كثير",
                 "base": "vielen",
                 "pos": "Verb"
               },
               {
                 "w": "Jahrhunderten",
-                "ar": "اسم: Jahrhunderten",
+                "ar": "قرون",
                 "base": "Jahrhunderten",
                 "pos": "Nomen"
               },
               {
                 "w": "machten",
-                "ar": "فعل: machten",
+                "ar": "صنع",
                 "base": "machten",
                 "pos": "Verb"
               },
               {
                 "w": "sich",
-                "ar": "معنى: sich",
+                "ar": "نفسها",
                 "base": "sich",
                 "pos": "Wort"
               },
@@ -15229,7 +15230,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Menschen",
-                "ar": "اسم: Menschen",
+                "ar": "الناس",
                 "base": "Menschen",
                 "pos": "Nomen"
               },
@@ -15241,13 +15242,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "anderen",
-                "ar": "فعل: anderen",
+                "ar": "الآخرين",
                 "base": "anderen",
                 "pos": "Verb"
               },
               {
                 "w": "Gründen",
-                "ar": "اسم: Gründen",
+                "ar": "الأسباب",
                 "base": "Gründen",
                 "pos": "Nomen"
               },
@@ -15265,7 +15266,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Weg",
-                "ar": "اسم: Weg",
+                "ar": "الطريق",
                 "base": "Weg",
                 "pos": "Nomen"
               },
@@ -15313,19 +15314,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "500",
-                "ar": "معنى: 500",
-                "base": "500",
-                "pos": "Wort"
+                "ar": "خمسمئة (500)",
+                "base": "fünfhundert",
+                "pos": "Num"
               },
               {
                 "w": "Jahren",
-                "ar": "اسم: Jahren",
+                "ar": "سنوات",
                 "base": "Jahren",
                 "pos": "Nomen"
               },
               {
                 "w": "reiste",
-                "ar": "فعل: reiste",
+                "ar": "سافر",
                 "base": "reiste",
                 "pos": "Verb"
               },
@@ -15337,9 +15338,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "eher",
-                "ar": "معنى: eher",
+                "ar": "بالأحرى",
                 "base": "eher",
-                "pos": "Wort"
+                "pos": "Adj"
               },
               {
                 "w": "selten",
@@ -15349,7 +15350,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Reisen",
-                "ar": "اسم: Reisen",
+                "ar": "السفر",
                 "base": "Reisen",
                 "pos": "Nomen"
               },
@@ -15361,7 +15362,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "hart",
-                "ar": "فعل: hart",
+                "ar": "صعب",
                 "base": "hart",
                 "pos": "Verb"
               },
@@ -15373,7 +15374,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "gefährlich",
-                "ar": "صفة: gefährlich",
+                "ar": "خطير",
                 "base": "gefährlich",
                 "pos": "Adj"
               },
@@ -15409,13 +15410,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Männer",
-                "ar": "اسم: Männer",
+                "ar": "الرجال",
                 "base": "Männer",
                 "pos": "Nomen"
               },
               {
                 "w": "unterwegs",
-                "ar": "معنى: unterwegs",
+                "ar": "على الطريق",
                 "base": "unterwegs",
                 "pos": "Wort"
               }
@@ -15428,7 +15429,7 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Einerseits",
-                "ar": "اسم: Einerseits",
+                "ar": "من ناحية",
                 "base": "Einerseits",
                 "pos": "Nomen"
               },
@@ -15452,7 +15453,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Kaufleute",
-                "ar": "اسم: Kaufleute",
+                "ar": "التجار",
                 "base": "Kaufleute",
                 "pos": "Nomen"
               },
@@ -15470,7 +15471,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Verkauf",
-                "ar": "اسم: Verkauf",
+                "ar": "بيع",
                 "base": "Verkauf",
                 "pos": "Nomen"
               },
@@ -15488,19 +15489,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "andere",
-                "ar": "معنى: andere",
+                "ar": "الآخرين",
                 "base": "andere",
                 "pos": "Wort"
               },
               {
                 "w": "Orte",
-                "ar": "اسم: Orte",
+                "ar": "الأماكن",
                 "base": "Orte",
                 "pos": "Nomen"
               },
               {
                 "w": "besuchen",
-                "ar": "فعل: besuchen",
+                "ar": "يزور",
                 "base": "besuchen",
                 "pos": "Verb"
               },
@@ -15512,19 +15513,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Andererseits",
-                "ar": "اسم: Andererseits",
+                "ar": "من ناحية أخرى",
                 "base": "Andererseits",
                 "pos": "Nomen"
               },
               {
                 "w": "reisten",
-                "ar": "فعل: reisten",
+                "ar": "سافر",
                 "base": "reisten",
                 "pos": "Verb"
               },
               {
                 "w": "Menschen",
-                "ar": "اسم: Menschen",
+                "ar": "الناس",
                 "base": "Menschen",
                 "pos": "Nomen"
               },
@@ -15536,13 +15537,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "religiösen",
-                "ar": "فعل: religiösen",
+                "ar": "دينية",
                 "base": "religiösen",
                 "pos": "Verb"
               },
               {
                 "w": "Gründen",
-                "ar": "اسم: Gründen",
+                "ar": "الأسباب",
                 "base": "Gründen",
                 "pos": "Nomen"
               }
@@ -15561,7 +15562,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Wege",
-                "ar": "اسم: Wege",
+                "ar": "طرق",
                 "base": "Wege",
                 "pos": "Nomen"
               },
@@ -15573,7 +15574,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "schlecht",
-                "ar": "فعل: schlecht",
+                "ar": "سيء",
                 "base": "schlecht",
                 "pos": "Verb"
               },
@@ -15591,9 +15592,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "kam",
-                "ar": "معنى: kam",
-                "base": "kam",
-                "pos": "Wort"
+                "ar": "أتى / جاءَ",
+                "base": "kommen",
+                "pos": "Verb"
               },
               {
                 "w": "nur",
@@ -15603,19 +15604,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "mühsam",
-                "ar": "صفة: mühsam",
+                "ar": "شاقة",
                 "base": "mühsam",
                 "pos": "Adj"
               },
               {
                 "w": "vorwärts",
-                "ar": "معنى: vorwärts",
+                "ar": "إلى الأمام",
                 "base": "vorwärts",
                 "pos": "Wort"
               },
               {
                 "w": "Außerdem",
-                "ar": "اسم: Außerdem",
+                "ar": "الى جانب ذلك",
                 "base": "Außerdem",
                 "pos": "Nomen"
               },
@@ -15639,13 +15640,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "gute",
-                "ar": "فعل: gute",
+                "ar": "جيد",
                 "base": "gute",
                 "pos": "Verb"
               },
               {
                 "w": "Orientierung",
-                "ar": "اسم: Orientierung",
+                "ar": "التوجه",
                 "base": "Orientierung",
                 "pos": "Nomen"
               },
@@ -15663,7 +15664,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Schilder",
-                "ar": "اسم: Schilder",
+                "ar": "علامات",
                 "base": "Schilder",
                 "pos": "Nomen"
               },
@@ -15675,13 +15676,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Wegweiser",
-                "ar": "اسم: Wegweiser",
+                "ar": "علامة",
                 "base": "Wegweiser",
                 "pos": "Nomen"
               },
               {
                 "w": "gab",
-                "ar": "معنى: gab",
+                "ar": "أعطى",
                 "base": "gab",
                 "pos": "Wort"
               },
@@ -15706,31 +15707,31 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Kaufleute",
-                "ar": "اسم: Kaufleute",
+                "ar": "التجار",
                 "base": "Kaufleute",
                 "pos": "Nomen"
               },
               {
                 "w": "nahmen",
-                "ar": "فعل: nahmen",
+                "ar": "استغرق",
                 "base": "nahmen",
                 "pos": "Verb"
               },
               {
                 "w": "meist",
-                "ar": "فعل: meist",
+                "ar": "في الغالب",
                 "base": "meist",
                 "pos": "Verb"
               },
               {
                 "w": "bekannte",
-                "ar": "فعل: bekannte",
+                "ar": "معروف",
                 "base": "bekannte",
                 "pos": "Verb"
               },
               {
                 "w": "Wege",
-                "ar": "اسم: Wege",
+                "ar": "طرق",
                 "base": "Wege",
                 "pos": "Nomen"
               },
@@ -15748,13 +15749,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "viae",
-                "ar": "معنى: viae",
+                "ar": "عبر",
                 "base": "viae",
                 "pos": "Wort"
               },
               {
                 "w": "regiae",
-                "ar": "معنى: regiae",
+                "ar": "ريجيا",
                 "base": "regiae",
                 "pos": "Wort"
               },
@@ -15766,7 +15767,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Königswege",
-                "ar": "اسم: Königswege",
+                "ar": "الطرق الملكية",
                 "base": "Königswege",
                 "pos": "Nomen"
               },
@@ -15814,7 +15815,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Glück",
-                "ar": "اسم: Glück",
+                "ar": "السعادة",
                 "base": "Glück",
                 "pos": "Nomen"
               },
@@ -15838,15 +15839,15 @@ window.LESETEXTE = [
               },
               {
                 "w": "Regen",
-                "ar": "اسم: Regen",
+                "ar": "المطر",
                 "base": "Regen",
                 "pos": "Nomen"
               },
               {
                 "w": "stand",
-                "ar": "معنى: stand",
-                "base": "stand",
-                "pos": "Wort"
+                "ar": "وقفَ / استيقظ (stand auf)",
+                "base": "stehen",
+                "pos": "Verb"
               },
               {
                 "w": "man",
@@ -15862,7 +15863,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Matsch",
-                "ar": "اسم: Matsch",
+                "ar": "الطين",
                 "base": "Matsch",
                 "pos": "Nomen"
               },
@@ -15880,13 +15881,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "persönlichen",
-                "ar": "فعل: persönlichen",
+                "ar": "شخصي",
                 "base": "persönlichen",
                 "pos": "Verb"
               },
               {
                 "w": "Schutz",
-                "ar": "اسم: Schutz",
+                "ar": "الحماية",
                 "base": "Schutz",
                 "pos": "Nomen"
               },
@@ -15916,19 +15917,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Räubern",
-                "ar": "اسم: Räubern",
+                "ar": "لصوص",
                 "base": "Räubern",
                 "pos": "Nomen"
               },
               {
                 "w": "überfallen",
-                "ar": "فعل: überfallen",
+                "ar": "كمين",
                 "base": "überfallen",
                 "pos": "Verb"
               },
               {
                 "w": "Tiere",
-                "ar": "اسم: Tiere",
+                "ar": "الحيوانات",
                 "base": "Tiere",
                 "pos": "Nomen"
               },
@@ -15940,13 +15941,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Bären",
-                "ar": "اسم: Bären",
+                "ar": "الدببة",
                 "base": "Bären",
                 "pos": "Nomen"
               },
               {
                 "w": "Wölfe",
-                "ar": "اسم: Wölfe",
+                "ar": "الذئاب",
                 "base": "Wölfe",
                 "pos": "Nomen"
               },
@@ -15958,7 +15959,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Wildschweine",
-                "ar": "اسم: Wildschweine",
+                "ar": "الخنازير البرية",
                 "base": "Wildschweine",
                 "pos": "Nomen"
               },
@@ -15970,7 +15971,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "ebenfalls",
-                "ar": "معنى: ebenfalls",
+                "ar": "ايضا",
                 "base": "ebenfalls",
                 "pos": "Wort"
               },
@@ -15982,13 +15983,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "tödliche",
-                "ar": "معنى: tödliche",
+                "ar": "قاتلة",
                 "base": "tödliche",
                 "pos": "Wort"
               },
               {
                 "w": "Gefahr",
-                "ar": "اسم: Gefahr",
+                "ar": "خطر",
                 "base": "Gefahr",
                 "pos": "Nomen"
               },
@@ -16012,25 +16013,25 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Lange",
-                "ar": "اسم: Lange",
+                "ar": "طويل",
                 "base": "Lange",
                 "pos": "Nomen"
               },
               {
                 "w": "Zeit",
-                "ar": "اسم: Zeit",
+                "ar": "وقت",
                 "base": "Zeit",
                 "pos": "Nomen"
               },
               {
                 "w": "änderte",
-                "ar": "فعل: änderte",
+                "ar": "تغير",
                 "base": "änderte",
                 "pos": "Verb"
               },
               {
                 "w": "sich",
-                "ar": "معنى: sich",
+                "ar": "نفسها",
                 "base": "sich",
                 "pos": "Wort"
               },
@@ -16060,7 +16061,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Gründen",
-                "ar": "اسم: Gründen",
+                "ar": "الأسباب",
                 "base": "Gründen",
                 "pos": "Nomen"
               },
@@ -16078,7 +16079,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Reisen",
-                "ar": "اسم: Reisen",
+                "ar": "السفر",
                 "base": "Reisen",
                 "pos": "Nomen"
               },
@@ -16096,25 +16097,25 @@ window.LESETEXTE = [
               },
               {
                 "w": "18",
-                "ar": "معنى: 18",
-                "base": "18",
-                "pos": "Wort"
+                "ar": "ثمانية عشر (18)",
+                "base": "achtzehn",
+                "pos": "Num"
               },
               {
                 "w": "Jahrhundert",
-                "ar": "اسم: Jahrhundert",
+                "ar": "قرن",
                 "base": "Jahrhundert",
                 "pos": "Nomen"
               },
               {
                 "w": "entdeckten",
-                "ar": "فعل: entdeckten",
+                "ar": "اكتشف",
                 "base": "entdeckten",
                 "pos": "Verb"
               },
               {
                 "w": "Adelige",
-                "ar": "اسم: Adelige",
+                "ar": "النبلاء",
                 "base": "Adelige",
                 "pos": "Nomen"
               },
@@ -16126,7 +16127,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Reiche",
-                "ar": "اسم: Reiche",
+                "ar": "غني",
                 "base": "Reiche",
                 "pos": "Nomen"
               },
@@ -16138,7 +16139,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Bildungsreise",
-                "ar": "اسم: Bildungsreise",
+                "ar": "رحلة تعليمية",
                 "base": "Bildungsreise",
                 "pos": "Nomen"
               }
@@ -16157,13 +16158,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Anfang",
-                "ar": "اسم: Anfang",
+                "ar": "البداية",
                 "base": "Anfang",
                 "pos": "Nomen"
               },
               {
                 "w": "machten",
-                "ar": "فعل: machten",
+                "ar": "صنع",
                 "base": "machten",
                 "pos": "Verb"
               },
@@ -16175,7 +16176,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Engländer",
-                "ar": "اسم: Engländer",
+                "ar": "إنجليزي",
                 "base": "Engländer",
                 "pos": "Nomen"
               },
@@ -16199,8 +16200,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Leben",
-                "ar": "اسم: Leben",
-                "base": "Leben",
+                "ar": "حياة / معيشة",
+                "base": "das Leben",
                 "pos": "Nomen"
               },
               {
@@ -16217,7 +16218,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Kulturen",
-                "ar": "اسم: Kulturen",
+                "ar": "الثقافات",
                 "base": "Kulturen",
                 "pos": "Nomen"
               },
@@ -16235,25 +16236,25 @@ window.LESETEXTE = [
               },
               {
                 "w": "europäischen",
-                "ar": "فعل: europäischen",
+                "ar": "الأوروبية",
                 "base": "europäischen",
                 "pos": "Verb"
               },
               {
                 "w": "Festland",
-                "ar": "اسم: Festland",
+                "ar": "البر الرئيسى",
                 "base": "Festland",
                 "pos": "Nomen"
               },
               {
                 "w": "genauer",
-                "ar": "معنى: genauer",
+                "ar": "أكثر دقة",
                 "base": "genauer",
-                "pos": "Wort"
+                "pos": "Adj"
               },
               {
                 "w": "kennenlernen",
-                "ar": "فعل: kennenlernen",
+                "ar": "تعرف على",
                 "base": "kennenlernen",
                 "pos": "Verb"
               }
@@ -16272,13 +16273,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "beliebte",
-                "ar": "فعل: beliebte",
+                "ar": "شعبية",
                 "base": "beliebte",
                 "pos": "Verb"
               },
               {
                 "w": "Orte",
-                "ar": "اسم: Orte",
+                "ar": "الأماكن",
                 "base": "Orte",
                 "pos": "Nomen"
               },
@@ -16290,31 +16291,31 @@ window.LESETEXTE = [
               },
               {
                 "w": "z.B",
-                "ar": "معنى: z.B",
+                "ar": "على سبيل المثال",
                 "base": "z.B",
                 "pos": "Wort"
               },
               {
                 "w": "Venedig",
-                "ar": "اسم: Venedig",
+                "ar": "البندقية",
                 "base": "Venedig",
                 "pos": "Nomen"
               },
               {
                 "w": "Florenz",
-                "ar": "اسم: Florenz",
+                "ar": "فلورنسا",
                 "base": "Florenz",
                 "pos": "Nomen"
               },
               {
                 "w": "Wien",
-                "ar": "اسم: Wien",
+                "ar": "فيينا",
                 "base": "Wien",
                 "pos": "Nomen"
               },
               {
                 "w": "Paris",
-                "ar": "اسم: Paris",
+                "ar": "باريس",
                 "base": "Paris",
                 "pos": "Nomen"
               },
@@ -16326,13 +16327,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "andere",
-                "ar": "معنى: andere",
+                "ar": "الآخرين",
                 "base": "andere",
                 "pos": "Wort"
               },
               {
                 "w": "Hauptstädte",
-                "ar": "اسم: Hauptstädte",
+                "ar": "العواصم",
                 "base": "Hauptstädte",
                 "pos": "Nomen"
               },
@@ -16344,13 +16345,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "europäischen",
-                "ar": "فعل: europäischen",
+                "ar": "الأوروبية",
                 "base": "europäischen",
                 "pos": "Verb"
               },
               {
                 "w": "Kultur",
-                "ar": "اسم: Kultur",
+                "ar": "الثقافة",
                 "base": "Kultur",
                 "pos": "Nomen"
               }
@@ -16375,13 +16376,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "bekanntesten",
-                "ar": "فعل: bekanntesten",
+                "ar": "الأكثر شهرة",
                 "base": "bekanntesten",
                 "pos": "Verb"
               },
               {
                 "w": "Deutschen",
-                "ar": "اسم: Deutschen",
+                "ar": "الألمان",
                 "base": "Deutschen",
                 "pos": "Nomen"
               },
@@ -16393,7 +16394,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Bildungsreisen",
-                "ar": "اسم: Bildungsreisen",
+                "ar": "الرحلات التعليمية",
                 "base": "Bildungsreisen",
                 "pos": "Nomen"
               },
@@ -16405,13 +16406,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Johann",
-                "ar": "اسم: Johann",
+                "ar": "جون",
                 "base": "Johann",
                 "pos": "Nomen"
               },
               {
                 "w": "Wolfgang",
-                "ar": "اسم: Wolfgang",
+                "ar": "وولفجانج",
                 "base": "Wolfgang",
                 "pos": "Nomen"
               },
@@ -16423,7 +16424,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Goethe",
-                "ar": "اسم: Goethe",
+                "ar": "جوته",
                 "base": "Goethe",
                 "pos": "Nomen"
               },
@@ -16435,9 +16436,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "1786",
-                "ar": "معنى: 1786",
+                "ar": "عام 1786",
                 "base": "1786",
-                "pos": "Wort"
+                "pos": "Num"
               },
               {
                 "w": "nach",
@@ -16447,13 +16448,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Italien",
-                "ar": "اسم: Italien",
+                "ar": "إيطاليا",
                 "base": "Italien",
                 "pos": "Nomen"
               },
               {
                 "w": "reiste",
-                "ar": "فعل: reiste",
+                "ar": "سافر",
                 "base": "reiste",
                 "pos": "Verb"
               },
@@ -16489,13 +16490,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "paar",
-                "ar": "معنى: paar",
+                "ar": "زوجين",
                 "base": "paar",
                 "pos": "Wort"
               },
               {
                 "w": "Monate",
-                "ar": "اسم: Monate",
+                "ar": "أشهر",
                 "base": "Monate",
                 "pos": "Nomen"
               },
@@ -16507,7 +16508,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "bleiben",
-                "ar": "فعل: bleiben",
+                "ar": "يبقى",
                 "base": "bleiben",
                 "pos": "Verb"
               },
@@ -16519,8 +16520,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Ende",
-                "ar": "اسم: Ende",
-                "base": "Ende",
+                "ar": "نهاية / ختام",
+                "base": "das Ende",
                 "pos": "Nomen"
               },
               {
@@ -16537,14 +16538,14 @@ window.LESETEXTE = [
               },
               {
                 "w": "zwei",
-                "ar": "معنى: zwei",
+                "ar": "اثنان",
                 "base": "zwei",
-                "pos": "Wort"
+                "pos": "Num"
               },
               {
                 "w": "Jahre",
-                "ar": "اسم: Jahre",
-                "base": "Jahre",
+                "ar": "سنوات / أعوام",
+                "base": "die Jahre",
                 "pos": "Nomen"
               }
             ]
@@ -16567,7 +16568,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "dauerte",
-                "ar": "فعل: dauerte",
+                "ar": "استمر",
                 "base": "dauerte",
                 "pos": "Verb"
               },
@@ -16579,13 +16580,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "einige",
-                "ar": "معنى: einige",
+                "ar": "بعض",
                 "base": "einige",
                 "pos": "Wort"
               },
               {
                 "w": "Zeit",
-                "ar": "اسم: Zeit",
+                "ar": "وقت",
                 "base": "Zeit",
                 "pos": "Nomen"
               },
@@ -16603,19 +16604,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "ersten",
-                "ar": "فعل: ersten",
+                "ar": "أولا",
                 "base": "ersten",
                 "pos": "Verb"
               },
               {
                 "w": "Reisen",
-                "ar": "اسم: Reisen",
+                "ar": "السفر",
                 "base": "Reisen",
                 "pos": "Nomen"
               },
               {
                 "w": "unternommen",
-                "ar": "فعل: unternommen",
+                "ar": "تم القيام بها",
                 "base": "unternommen",
                 "pos": "Verb"
               },
@@ -16633,7 +16634,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "sich",
-                "ar": "معنى: sich",
+                "ar": "نفسها",
                 "base": "sich",
                 "pos": "Wort"
               },
@@ -16645,7 +16646,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "erholen",
-                "ar": "فعل: erholen",
+                "ar": "يتعافى",
                 "base": "erholen",
                 "pos": "Verb"
               },
@@ -16675,7 +16676,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "erleben",
-                "ar": "فعل: erleben",
+                "ar": "خبرة",
                 "base": "erleben",
                 "pos": "Verb"
               }
@@ -16694,7 +16695,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Reisen",
-                "ar": "اسم: Reisen",
+                "ar": "السفر",
                 "base": "Reisen",
                 "pos": "Nomen"
               },
@@ -16706,7 +16707,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "sich",
-                "ar": "معنى: sich",
+                "ar": "نفسها",
                 "base": "sich",
                 "pos": "Wort"
               },
@@ -16718,8 +16719,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Leute",
-                "ar": "اسم: Leute",
-                "base": "Leute",
+                "ar": "ناس / أشخاص",
+                "base": "die Leute",
                 "pos": "Nomen"
               },
               {
@@ -16736,13 +16737,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Geld",
-                "ar": "اسم: Geld",
+                "ar": "المال",
                 "base": "Geld",
                 "pos": "Nomen"
               },
               {
                 "w": "leisten",
-                "ar": "فعل: leisten",
+                "ar": "تحمل",
                 "base": "leisten",
                 "pos": "Verb"
               },
@@ -16754,7 +16755,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "fuhren",
-                "ar": "فعل: fuhren",
+                "ar": "قاد",
                 "base": "fuhren",
                 "pos": "Verb"
               },
@@ -16772,13 +16773,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "luxuriösen",
-                "ar": "فعل: luxuriösen",
+                "ar": "فاخر",
                 "base": "luxuriösen",
                 "pos": "Verb"
               },
               {
                 "w": "Orient-Express",
-                "ar": "اسم: Orient-Express",
+                "ar": "اورينت اكسبريس",
                 "base": "Orient-Express",
                 "pos": "Nomen"
               },
@@ -16790,7 +16791,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Istanbul",
-                "ar": "اسم: Istanbul",
+                "ar": "اسطنبول",
                 "base": "Istanbul",
                 "pos": "Nomen"
               },
@@ -16814,7 +16815,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Schiff",
-                "ar": "اسم: Schiff",
+                "ar": "سفينة",
                 "base": "Schiff",
                 "pos": "Nomen"
               },
@@ -16832,7 +16833,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Nil",
-                "ar": "اسم: Nil",
+                "ar": "النيل",
                 "base": "Nil",
                 "pos": "Nomen"
               }
@@ -16857,13 +16858,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "1950er-Jahren",
-                "ar": "فعل: 1950er-Jahren",
+                "ar": "سنوات",
                 "base": "1950er-Jahren",
                 "pos": "Verb"
               },
               {
                 "w": "begann",
-                "ar": "معنى: begann",
+                "ar": "بدأ",
                 "base": "begann",
                 "pos": "Wort"
               },
@@ -16875,7 +16876,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Massentourismus",
-                "ar": "اسم: Massentourismus",
+                "ar": "السياحة الجماعية",
                 "base": "Massentourismus",
                 "pos": "Nomen"
               },
@@ -16893,7 +16894,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Familien",
-                "ar": "اسم: Familien",
+                "ar": "العائلات",
                 "base": "Familien",
                 "pos": "Nomen"
               },
@@ -16905,7 +16906,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "sich",
-                "ar": "معنى: sich",
+                "ar": "نفسها",
                 "base": "sich",
                 "pos": "Wort"
               },
@@ -16923,13 +16924,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "eigenen",
-                "ar": "فعل: eigenen",
+                "ar": "الخاصة",
                 "base": "eigenen",
                 "pos": "Verb"
               },
               {
                 "w": "Auto",
-                "ar": "اسم: Auto",
+                "ar": "سيارة",
                 "base": "Auto",
                 "pos": "Nomen"
               },
@@ -16953,7 +16954,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Zug",
-                "ar": "اسم: Zug",
+                "ar": "قطار",
                 "base": "Zug",
                 "pos": "Nomen"
               },
@@ -16965,13 +16966,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Reise",
-                "ar": "اسم: Reise",
+                "ar": "رحلة",
                 "base": "Reise",
                 "pos": "Nomen"
               },
               {
                 "w": "leisten",
-                "ar": "فعل: leisten",
+                "ar": "تحمل",
                 "base": "leisten",
                 "pos": "Verb"
               },
@@ -16983,7 +16984,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "beliebt",
-                "ar": "فعل: beliebt",
+                "ar": "شعبية",
                 "base": "beliebt",
                 "pos": "Verb"
               },
@@ -16995,7 +16996,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Italien",
-                "ar": "اسم: Italien",
+                "ar": "إيطاليا",
                 "base": "Italien",
                 "pos": "Nomen"
               },
@@ -17013,7 +17014,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Ostsee",
-                "ar": "اسم: Ostsee",
+                "ar": "بحر البلطيق",
                 "base": "Ostsee",
                 "pos": "Nomen"
               },
@@ -17031,7 +17032,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Reisen",
-                "ar": "اسم: Reisen",
+                "ar": "السفر",
                 "base": "Reisen",
                 "pos": "Nomen"
               },
@@ -17049,19 +17050,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Menschen",
-                "ar": "اسم: Menschen",
+                "ar": "الناس",
                 "base": "Menschen",
                 "pos": "Nomen"
               },
               {
                 "w": "selbstverständlich",
-                "ar": "صفة: selbstverständlich",
+                "ar": "بالطبع",
                 "base": "selbstverständlich",
                 "pos": "Adj"
               },
               {
                 "w": "geworden",
-                "ar": "فعل: geworden",
+                "ar": "تصبح",
                 "base": "geworden",
                 "pos": "Verb"
               },
@@ -17073,19 +17074,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "per",
-                "ar": "معنى: per",
+                "ar": "لكل",
                 "base": "per",
-                "pos": "Wort"
+                "pos": "Adj"
               },
               {
                 "w": "Mausklick",
-                "ar": "اسم: Mausklick",
+                "ar": "انقر بالماوس",
                 "base": "Mausklick",
                 "pos": "Nomen"
               },
               {
                 "w": "buchbar",
-                "ar": "صفة: buchbar",
+                "ar": "قابل للحجز",
                 "base": "buchbar",
                 "pos": "Adj"
               }
@@ -17201,7 +17202,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Abitur",
-                "ar": "اسم: Abitur",
+                "ar": "شهادة الثانوية العامة",
                 "base": "Abitur",
                 "pos": "Nomen"
               },
@@ -17219,7 +17220,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "unbedingt",
-                "ar": "فعل: unbedingt",
+                "ar": "على الاطلاق",
                 "base": "unbedingt",
                 "pos": "Verb"
               },
@@ -17231,13 +17232,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "München",
-                "ar": "اسم: München",
+                "ar": "ميونيخ",
                 "base": "München",
                 "pos": "Nomen"
               },
               {
                 "w": "studieren",
-                "ar": "فعل: studieren",
+                "ar": "دراسة",
                 "base": "studieren",
                 "pos": "Verb"
               },
@@ -17267,7 +17268,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Studienplatz",
-                "ar": "اسم: Studienplatz",
+                "ar": "مكان الدراسة",
                 "base": "Studienplatz",
                 "pos": "Nomen"
               },
@@ -17279,7 +17280,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "bekommen",
-                "ar": "فعل: bekommen",
+                "ar": "احصل على",
                 "base": "bekommen",
                 "pos": "Verb"
               }
@@ -17298,9 +17299,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "leider",
-                "ar": "معنى: leider",
+                "ar": "لسوء الحظ",
                 "base": "leider",
-                "pos": "Wort"
+                "pos": "Adj"
               },
               {
                 "w": "habe",
@@ -17328,13 +17329,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Zimmer",
-                "ar": "اسم: Zimmer",
+                "ar": "غرفة",
                 "base": "Zimmer",
                 "pos": "Nomen"
               },
               {
                 "w": "gefunden",
-                "ar": "فعل: gefunden",
+                "ar": "وجدت",
                 "base": "gefunden",
                 "pos": "Verb"
               },
@@ -17352,7 +17353,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Semester",
-                "ar": "اسم: Semester",
+                "ar": "الفصل الدراسي",
                 "base": "Semester",
                 "pos": "Nomen"
               },
@@ -17364,7 +17365,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "angefangen",
-                "ar": "فعل: angefangen",
+                "ar": "بدأ",
                 "base": "angefangen",
                 "pos": "Verb"
               },
@@ -17376,7 +17377,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "irgendwo",
-                "ar": "معنى: irgendwo",
+                "ar": "مكان ما",
                 "base": "irgendwo",
                 "pos": "Wort"
               },
@@ -17400,15 +17401,15 @@ window.LESETEXTE = [
               },
               {
                 "w": "übernachten",
-                "ar": "فعل: übernachten",
+                "ar": "البقاء بين عشية وضحاها",
                 "base": "übernachten",
                 "pos": "Verb"
               },
               {
                 "w": "Also",
-                "ar": "اسم: Also",
-                "base": "Also",
-                "pos": "Nomen"
+                "ar": "إذن / هكذا",
+                "base": "also",
+                "pos": "Adv"
               },
               {
                 "w": "habe",
@@ -17430,7 +17431,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "entschieden",
-                "ar": "فعل: entschieden",
+                "ar": "قررت",
                 "base": "entschieden",
                 "pos": "Verb"
               },
@@ -17454,7 +17455,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Zug",
-                "ar": "اسم: Zug",
+                "ar": "قطار",
                 "base": "Zug",
                 "pos": "Nomen"
               },
@@ -17466,7 +17467,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "wohnen",
-                "ar": "فعل: wohnen",
+                "ar": "يعيش",
                 "base": "wohnen",
                 "pos": "Verb"
               }
@@ -17503,19 +17504,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Bahncard",
-                "ar": "اسم: Bahncard",
+                "ar": "باهنكارد",
                 "base": "Bahncard",
                 "pos": "Nomen"
               },
               {
                 "w": "100",
-                "ar": "معنى: 100",
-                "base": "100",
-                "pos": "Wort"
+                "ar": "مئة (100)",
+                "base": "hundert",
+                "pos": "Num"
               },
               {
                 "w": "besorgt",
-                "ar": "فعل: besorgt",
+                "ar": "قلق",
                 "base": "besorgt",
                 "pos": "Verb"
               },
@@ -17527,7 +17528,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "kostet",
-                "ar": "فعل: kostet",
+                "ar": "التكاليف",
                 "base": "kostet",
                 "pos": "Verb"
               },
@@ -17539,25 +17540,25 @@ window.LESETEXTE = [
               },
               {
                 "w": "Jahr",
-                "ar": "اسم: Jahr",
-                "base": "Jahr",
+                "ar": "سنة / عام",
+                "base": "das Jahr",
                 "pos": "Nomen"
               },
               {
                 "w": "ca",
-                "ar": "معنى: ca",
+                "ar": "تقريبا",
                 "base": "ca",
                 "pos": "Wort"
               },
               {
                 "w": "4000",
-                "ar": "معنى: 4000",
-                "base": "4000",
-                "pos": "Wort"
+                "ar": "أربعة آلاف (4,000)",
+                "base": "viertausend",
+                "pos": "Num"
               },
               {
                 "w": "Euro",
-                "ar": "اسم: Euro",
+                "ar": "يورو",
                 "base": "Euro",
                 "pos": "Nomen"
               },
@@ -17599,13 +17600,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Zug",
-                "ar": "اسم: Zug",
+                "ar": "قطار",
                 "base": "Zug",
                 "pos": "Nomen"
               },
               {
                 "w": "einsteigen",
-                "ar": "فعل: einsteigen",
+                "ar": "ادخل",
                 "base": "einsteigen",
                 "pos": "Verb"
               }
@@ -17624,7 +17625,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "fahre",
-                "ar": "معنى: fahre",
+                "ar": "محرك الأقراص",
                 "base": "fahre",
                 "pos": "Wort"
               },
@@ -17636,7 +17637,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Abend",
-                "ar": "اسم: Abend",
+                "ar": "مساء",
                 "base": "Abend",
                 "pos": "Nomen"
               },
@@ -17654,25 +17655,25 @@ window.LESETEXTE = [
               },
               {
                 "w": "Uni",
-                "ar": "اسم: Uni",
+                "ar": "الجامعة",
                 "base": "Uni",
                 "pos": "Nomen"
               },
               {
                 "w": "Richtung",
-                "ar": "اسم: Richtung",
+                "ar": "الاتجاه",
                 "base": "Richtung",
                 "pos": "Nomen"
               },
               {
                 "w": "Norden",
-                "ar": "اسم: Norden",
+                "ar": "الشمال",
                 "base": "Norden",
                 "pos": "Nomen"
               },
               {
                 "w": "steige",
-                "ar": "معنى: steige",
+                "ar": "الارتفاع",
                 "base": "steige",
                 "pos": "Wort"
               },
@@ -17696,7 +17697,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "fahre",
-                "ar": "معنى: fahre",
+                "ar": "محرك الأقراص",
                 "base": "fahre",
                 "pos": "Wort"
               },
@@ -17708,7 +17709,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "zurück",
-                "ar": "معنى: zurück",
+                "ar": "خلف",
                 "base": "zurück",
                 "pos": "Wort"
               },
@@ -17720,7 +17721,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "München",
-                "ar": "اسم: München",
+                "ar": "ميونيخ",
                 "base": "München",
                 "pos": "Nomen"
               },
@@ -17738,9 +17739,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "morgens",
-                "ar": "معنى: morgens",
+                "ar": "صباحاً / كل صباح",
                 "base": "morgens",
-                "pos": "Wort"
+                "pos": "Adv"
               },
               {
                 "w": "dort",
@@ -17750,7 +17751,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "ankomme",
-                "ar": "معنى: ankomme",
+                "ar": "يصل",
                 "base": "ankomme",
                 "pos": "Wort"
               },
@@ -17762,7 +17763,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "rechtzeitig",
-                "ar": "صفة: rechtzeitig",
+                "ar": "في الوقت المناسب",
                 "base": "rechtzeitig",
                 "pos": "Adj"
               },
@@ -17780,7 +17781,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Vorlesungen",
-                "ar": "اسم: Vorlesungen",
+                "ar": "محاضرات",
                 "base": "Vorlesungen",
                 "pos": "Nomen"
               },
@@ -17798,13 +17799,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Uni",
-                "ar": "اسم: Uni",
+                "ar": "الجامعة",
                 "base": "Uni",
                 "pos": "Nomen"
               },
               {
                 "w": "teilnehmen",
-                "ar": "فعل: teilnehmen",
+                "ar": "المشاركة",
                 "base": "teilnehmen",
                 "pos": "Verb"
               },
@@ -17829,7 +17830,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "gefällt",
-                "ar": "فعل: gefällt",
+                "ar": "يحب",
                 "base": "gefällt",
                 "pos": "Verb"
               },
@@ -17847,8 +17848,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Leben",
-                "ar": "اسم: Leben",
-                "base": "Leben",
+                "ar": "حياة / معيشة",
+                "base": "das Leben",
                 "pos": "Nomen"
               },
               {
@@ -17859,7 +17860,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Zug",
-                "ar": "اسم: Zug",
+                "ar": "قطار",
                 "base": "Zug",
                 "pos": "Nomen"
               },
@@ -17889,7 +17890,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "hoffe",
-                "ar": "معنى: hoffe",
+                "ar": "أمل",
                 "base": "hoffe",
                 "pos": "Wort"
               },
@@ -17913,7 +17914,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "bald",
-                "ar": "معنى: bald",
+                "ar": "قريباً",
                 "base": "bald",
                 "pos": "Wort"
               },
@@ -17925,13 +17926,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Zimmer",
-                "ar": "اسم: Zimmer",
+                "ar": "غرفة",
                 "base": "Zimmer",
                 "pos": "Nomen"
               },
               {
                 "w": "finde",
-                "ar": "معنى: finde",
+                "ar": "تجد",
                 "base": "finde",
                 "pos": "Wort"
               },
@@ -17943,7 +17944,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "unterwegs",
-                "ar": "معنى: unterwegs",
+                "ar": "على الطريق",
                 "base": "unterwegs",
                 "pos": "Wort"
               },
@@ -17973,7 +17974,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Dauer",
-                "ar": "اسم: Dauer",
+                "ar": "المدة",
                 "base": "Dauer",
                 "pos": "Nomen"
               },
@@ -17985,33 +17986,33 @@ window.LESETEXTE = [
               },
               {
                 "w": "wirklich",
-                "ar": "صفة: wirklich",
+                "ar": "حقا",
                 "base": "wirklich",
                 "pos": "Adj"
               },
               {
                 "w": "anstrengend",
-                "ar": "معنى: anstrengend",
+                "ar": "متعب",
                 "base": "anstrengend",
                 "pos": "Wort"
               },
               {
                 "w": "Laura",
-                "ar": "اسم: Laura",
+                "ar": "لورا",
                 "base": "Laura",
                 "pos": "Nomen"
               },
               {
                 "w": "N",
-                "ar": "معنى: N",
+                "ar": "ن",
                 "base": "N",
                 "pos": "Wort"
               },
               {
                 "w": "19",
-                "ar": "معنى: 19",
-                "base": "19",
-                "pos": "Wort"
+                "ar": "تسعة عشر (19)",
+                "base": "neunzehn",
+                "pos": "Num"
               }
             ]
           }
@@ -18033,7 +18034,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "bin",
-                "ar": "معنى: bin",
+                "ar": "صباحا",
                 "base": "bin",
                 "pos": "Wort"
               },
@@ -18051,13 +18052,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "9",
-                "ar": "معنى: 9",
-                "base": "9",
-                "pos": "Wort"
+                "ar": "تسعة (9)",
+                "base": "neun",
+                "pos": "Num"
               },
               {
                 "w": "Jahren",
-                "ar": "اسم: Jahren",
+                "ar": "سنوات",
                 "base": "Jahren",
                 "pos": "Nomen"
               },
@@ -18069,13 +18070,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Reisen",
-                "ar": "اسم: Reisen",
+                "ar": "السفر",
                 "base": "Reisen",
                 "pos": "Nomen"
               },
               {
                 "w": "Ursprünglich",
-                "ar": "اسم: Ursprünglich",
+                "ar": "أصلا",
                 "base": "Ursprünglich",
                 "pos": "Nomen"
               },
@@ -18111,7 +18112,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Ausbildung",
-                "ar": "اسم: Ausbildung",
+                "ar": "التدريب",
                 "base": "Ausbildung",
                 "pos": "Nomen"
               },
@@ -18135,8 +18136,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Jahr",
-                "ar": "اسم: Jahr",
-                "base": "Jahr",
+                "ar": "سنة / عام",
+                "base": "das Jahr",
                 "pos": "Nomen"
               },
               {
@@ -18147,13 +18148,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Auszeit",
-                "ar": "اسم: Auszeit",
+                "ar": "مهلة",
                 "base": "Auszeit",
                 "pos": "Nomen"
               },
               {
                 "w": "nehmen",
-                "ar": "فعل: nehmen",
+                "ar": "خذ",
                 "base": "nehmen",
                 "pos": "Verb"
               },
@@ -18171,7 +18172,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "bisschen",
-                "ar": "فعل: bisschen",
+                "ar": "قليلا",
                 "base": "bisschen",
                 "pos": "Verb"
               },
@@ -18195,13 +18196,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Welt",
-                "ar": "اسم: Welt",
+                "ar": "العالم",
                 "base": "Welt",
                 "pos": "Nomen"
               },
               {
                 "w": "sehen",
-                "ar": "فعل: sehen",
+                "ar": "يرى",
                 "base": "sehen",
                 "pos": "Verb"
               }
@@ -18250,7 +18251,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "entschließen",
-                "ar": "فعل: entschließen",
+                "ar": "تقرر",
                 "base": "entschließen",
                 "pos": "Verb"
               },
@@ -18262,13 +18263,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Reise",
-                "ar": "اسم: Reise",
+                "ar": "رحلة",
                 "base": "Reise",
                 "pos": "Nomen"
               },
               {
                 "w": "abzubrechen",
-                "ar": "فعل: abzubrechen",
+                "ar": "للإلغاء",
                 "base": "abzubrechen",
                 "pos": "Verb"
               },
@@ -18286,13 +18287,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Hause",
-                "ar": "اسم: Hause",
+                "ar": "المنزل",
                 "base": "Hause",
                 "pos": "Nomen"
               },
               {
                 "w": "zurückzukehren",
-                "ar": "فعل: zurückzukehren",
+                "ar": "للعودة",
                 "base": "zurückzukehren",
                 "pos": "Verb"
               },
@@ -18304,13 +18305,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "bin",
-                "ar": "معنى: bin",
+                "ar": "صباحا",
                 "base": "bin",
                 "pos": "Wort"
               },
               {
                 "w": "einfach",
-                "ar": "معنى: einfach",
+                "ar": "سهل",
                 "base": "einfach",
                 "pos": "Wort"
               },
@@ -18322,13 +18323,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "weitergefahren",
-                "ar": "فعل: weitergefahren",
+                "ar": "تابع",
                 "base": "weitergefahren",
                 "pos": "Verb"
               },
               {
                 "w": "Mittlerweile",
-                "ar": "اسم: Mittlerweile",
+                "ar": "وفي الوقت نفسه",
                 "base": "Mittlerweile",
                 "pos": "Nomen"
               },
@@ -18352,13 +18353,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "86",
-                "ar": "معنى: 86",
-                "base": "86",
-                "pos": "Wort"
+                "ar": "ستة وثمانون (86)",
+                "base": "sechsundachtzig",
+                "pos": "Num"
               },
               {
                 "w": "Ländern",
-                "ar": "اسم: Ländern",
+                "ar": "البلدان",
                 "base": "Ländern",
                 "pos": "Nomen"
               }
@@ -18371,13 +18372,13 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Zwischendurch",
-                "ar": "اسم: Zwischendurch",
+                "ar": "بينهما",
                 "base": "Zwischendurch",
                 "pos": "Nomen"
               },
               {
                 "w": "bleibe",
-                "ar": "معنى: bleibe",
+                "ar": "البقاء",
                 "base": "bleibe",
                 "pos": "Wort"
               },
@@ -18407,9 +18408,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "länger",
-                "ar": "معنى: länger",
+                "ar": "لفترة أطول",
                 "base": "länger",
-                "pos": "Wort"
+                "pos": "Adj"
               },
               {
                 "w": "an",
@@ -18425,7 +18426,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Ort",
-                "ar": "اسم: Ort",
+                "ar": "الموقع",
                 "base": "Ort",
                 "pos": "Nomen"
               },
@@ -18437,9 +18438,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "jobbe",
-                "ar": "معنى: jobbe",
-                "base": "jobbe",
-                "pos": "Wort"
+                "ar": "أعملُ / أشتغلُ (في وظيفة جانبية)",
+                "base": "jobben",
+                "pos": "Verb"
               },
               {
                 "w": "um",
@@ -18461,7 +18462,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Weiterreise",
-                "ar": "اسم: Weiterreise",
+                "ar": "السفر إلى الأمام",
                 "base": "Weiterreise",
                 "pos": "Nomen"
               },
@@ -18473,7 +18474,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "finanzieren",
-                "ar": "فعل: finanzieren",
+                "ar": "تمويل",
                 "base": "finanzieren",
                 "pos": "Verb"
               }
@@ -18492,19 +18493,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "bin",
-                "ar": "معنى: bin",
+                "ar": "صباحا",
                 "base": "bin",
                 "pos": "Wort"
               },
               {
                 "w": "gerne",
-                "ar": "معنى: gerne",
+                "ar": "بكل سرور",
                 "base": "gerne",
                 "pos": "Wort"
               },
               {
                 "w": "unterwegs",
-                "ar": "معنى: unterwegs",
+                "ar": "على الطريق",
                 "base": "unterwegs",
                 "pos": "Wort"
               },
@@ -18516,7 +18517,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "überall",
-                "ar": "معنى: überall",
+                "ar": "في كل مكان",
                 "base": "überall",
                 "pos": "Wort"
               },
@@ -18528,7 +18529,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Hause",
-                "ar": "اسم: Hause",
+                "ar": "المنزل",
                 "base": "Hause",
                 "pos": "Nomen"
               },
@@ -18546,7 +18547,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "nirgends",
-                "ar": "معنى: nirgends",
+                "ar": "في أي مكان",
                 "base": "nirgends",
                 "pos": "Wort"
               },
@@ -18558,13 +18559,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "alten",
-                "ar": "فعل: alten",
+                "ar": "قديم",
                 "base": "alten",
                 "pos": "Verb"
               },
               {
                 "w": "Freunden",
-                "ar": "اسم: Freunden",
+                "ar": "أصدقاء",
                 "base": "Freunden",
                 "pos": "Nomen"
               },
@@ -18582,7 +18583,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "natürlich",
-                "ar": "صفة: natürlich",
+                "ar": "بشكل طبيعي",
                 "base": "natürlich",
                 "pos": "Adj"
               },
@@ -18612,7 +18613,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Kontakt",
-                "ar": "اسم: Kontakt",
+                "ar": "الاتصال",
                 "base": "Kontakt",
                 "pos": "Nomen"
               },
@@ -18624,13 +18625,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "dafür",
-                "ar": "معنى: dafür",
+                "ar": "لذلك",
                 "base": "dafür",
                 "pos": "Wort"
               },
               {
                 "w": "begegne",
-                "ar": "معنى: begegne",
+                "ar": "يجتمع",
                 "base": "begegne",
                 "pos": "Wort"
               },
@@ -18648,39 +18649,39 @@ window.LESETEXTE = [
               },
               {
                 "w": "vielen",
-                "ar": "فعل: vielen",
+                "ar": "كثير",
                 "base": "vielen",
                 "pos": "Verb"
               },
               {
                 "w": "anderen",
-                "ar": "فعل: anderen",
+                "ar": "الآخرين",
                 "base": "anderen",
                 "pos": "Verb"
               },
               {
                 "w": "Menschen",
-                "ar": "اسم: Menschen",
+                "ar": "الناس",
                 "base": "Menschen",
                 "pos": "Nomen"
               },
               {
                 "w": "Ben",
-                "ar": "اسم: Ben",
+                "ar": "بن",
                 "base": "Ben",
                 "pos": "Nomen"
               },
               {
                 "w": "K",
-                "ar": "معنى: K",
+                "ar": "ك",
                 "base": "K",
                 "pos": "Wort"
               },
               {
                 "w": "28",
-                "ar": "معنى: 28",
-                "base": "28",
-                "pos": "Wort"
+                "ar": "ثمانية وعشرون (28)",
+                "base": "achtundzwanzig",
+                "pos": "Num"
               }
             ]
           }
@@ -18702,13 +18703,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "bin",
-                "ar": "معنى: bin",
+                "ar": "صباحا",
                 "base": "bin",
                 "pos": "Wort"
               },
               {
                 "w": "Pilotin",
-                "ar": "اسم: Pilotin",
+                "ar": "طيار",
                 "base": "Pilotin",
                 "pos": "Nomen"
               },
@@ -18726,19 +18727,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "meines",
-                "ar": "معنى: meines",
+                "ar": "خاصتي",
                 "base": "meines",
                 "pos": "Wort"
               },
               {
                 "w": "Berufs",
-                "ar": "اسم: Berufs",
+                "ar": "محترف",
                 "base": "Berufs",
                 "pos": "Nomen"
               },
               {
                 "w": "wenig",
-                "ar": "صفة: wenig",
+                "ar": "قليلا",
                 "base": "wenig",
                 "pos": "Adj"
               },
@@ -18750,7 +18751,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Hause",
-                "ar": "اسم: Hause",
+                "ar": "المنزل",
                 "base": "Hause",
                 "pos": "Nomen"
               },
@@ -18762,7 +18763,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "liebe",
-                "ar": "معنى: liebe",
+                "ar": "الحب",
                 "base": "liebe",
                 "pos": "Wort"
               },
@@ -18774,7 +18775,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Arbeit",
-                "ar": "اسم: Arbeit",
+                "ar": "عمل",
                 "base": "Arbeit",
                 "pos": "Nomen"
               },
@@ -18786,7 +18787,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "finde",
-                "ar": "معنى: finde",
+                "ar": "تجد",
                 "base": "finde",
                 "pos": "Wort"
               },
@@ -18798,9 +18799,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "super",
-                "ar": "معنى: super",
+                "ar": "عظيم",
                 "base": "super",
-                "pos": "Wort"
+                "pos": "Adj"
               },
               {
                 "w": "in",
@@ -18816,13 +18817,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "internationalen",
-                "ar": "فعل: internationalen",
+                "ar": "دولي",
                 "base": "internationalen",
                 "pos": "Verb"
               },
               {
                 "w": "Umfeld",
-                "ar": "اسم: Umfeld",
+                "ar": "البيئة",
                 "base": "Umfeld",
                 "pos": "Nomen"
               },
@@ -18834,7 +18835,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "arbeiten",
-                "ar": "فعل: arbeiten",
+                "ar": "عمل",
                 "base": "arbeiten",
                 "pos": "Verb"
               }
@@ -18853,13 +18854,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Fliegen",
-                "ar": "اسم: Fliegen",
+                "ar": "يطير",
                 "base": "Fliegen",
                 "pos": "Nomen"
               },
               {
                 "w": "begeistert",
-                "ar": "فعل: begeistert",
+                "ar": "بسعادة غامرة",
                 "base": "begeistert",
                 "pos": "Verb"
               },
@@ -18907,7 +18908,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "langweilig",
-                "ar": "صفة: langweilig",
+                "ar": "مملة",
                 "base": "langweilig",
                 "pos": "Adj"
               },
@@ -18919,13 +18920,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "manchmal",
-                "ar": "معنى: manchmal",
+                "ar": "في بعض الأحيان",
                 "base": "manchmal",
-                "pos": "Wort"
+                "pos": "Adv"
               },
               {
                 "w": "empfinde",
-                "ar": "معنى: empfinde",
+                "ar": "يشعر",
                 "base": "empfinde",
                 "pos": "Wort"
               },
@@ -18955,7 +18956,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Belastung",
-                "ar": "اسم: Belastung",
+                "ar": "عبء",
                 "base": "Belastung",
                 "pos": "Nomen"
               },
@@ -18967,7 +18968,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "unterwegs",
-                "ar": "معنى: unterwegs",
+                "ar": "على الطريق",
                 "base": "unterwegs",
                 "pos": "Wort"
               },
@@ -18985,7 +18986,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Gerade",
-                "ar": "اسم: Gerade",
+                "ar": "مستقيم",
                 "base": "Gerade",
                 "pos": "Nomen"
               },
@@ -18997,13 +18998,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Langstreckenflügen",
-                "ar": "اسم: Langstreckenflügen",
+                "ar": "رحلات طويلة المدى",
                 "base": "Langstreckenflügen",
                 "pos": "Nomen"
               },
               {
                 "w": "bin",
-                "ar": "معنى: bin",
+                "ar": "صباحا",
                 "base": "bin",
                 "pos": "Wort"
               },
@@ -19027,14 +19028,14 @@ window.LESETEXTE = [
               },
               {
                 "w": "paar",
-                "ar": "معنى: paar",
+                "ar": "زوجين",
                 "base": "paar",
                 "pos": "Wort"
               },
               {
                 "w": "Tage",
-                "ar": "اسم: Tage",
-                "base": "Tage",
+                "ar": "أيام",
+                "base": "die Tage",
                 "pos": "Nomen"
               },
               {
@@ -19045,15 +19046,15 @@ window.LESETEXTE = [
               },
               {
                 "w": "Stück",
-                "ar": "اسم: Stück",
+                "ar": "قطعة",
                 "base": "Stück",
                 "pos": "Nomen"
               },
               {
                 "w": "weg",
-                "ar": "معنى: weg",
+                "ar": "ذهبَ / مضى (der Bus war weg: فاتني الباص)",
                 "base": "weg",
-                "pos": "Wort"
+                "pos": "Adv"
               }
             ]
           },
@@ -19064,7 +19065,7 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Klar",
-                "ar": "اسم: Klar",
+                "ar": "بالتأكيد",
                 "base": "Klar",
                 "pos": "Nomen"
               },
@@ -19082,7 +19083,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "toll",
-                "ar": "معنى: toll",
+                "ar": "عظيم",
                 "base": "toll",
                 "pos": "Wort"
               },
@@ -19100,7 +19101,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Singapur",
-                "ar": "اسم: Singapur",
+                "ar": "سنغافورة",
                 "base": "Singapur",
                 "pos": "Nomen"
               },
@@ -19112,25 +19113,25 @@ window.LESETEXTE = [
               },
               {
                 "w": "Rio",
-                "ar": "اسم: Rio",
+                "ar": "ريو",
                 "base": "Rio",
                 "pos": "Nomen"
               },
               {
                 "w": "de",
-                "ar": "معنى: de",
+                "ar": "دي",
                 "base": "de",
                 "pos": "Wort"
               },
               {
                 "w": "Janeiro",
-                "ar": "اسم: Janeiro",
+                "ar": "جانيرو",
                 "base": "Janeiro",
                 "pos": "Nomen"
               },
               {
                 "w": "einzukaufen",
-                "ar": "فعل: einzukaufen",
+                "ar": "للتسوق",
                 "base": "einzukaufen",
                 "pos": "Verb"
               },
@@ -19142,13 +19143,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "meistens",
-                "ar": "معنى: meistens",
+                "ar": "في الغالب",
                 "base": "meistens",
                 "pos": "Wort"
               },
               {
                 "w": "sehe",
-                "ar": "معنى: sehe",
+                "ar": "انظر",
                 "base": "sehe",
                 "pos": "Wort"
               },
@@ -19160,9 +19161,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "außer",
-                "ar": "معنى: außer",
+                "ar": "باستثناء",
                 "base": "außer",
-                "pos": "Wort"
+                "pos": "Adj"
               },
               {
                 "w": "dem",
@@ -19172,7 +19173,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Hotel",
-                "ar": "اسم: Hotel",
+                "ar": "فندق",
                 "base": "Hotel",
                 "pos": "Nomen"
               },
@@ -19190,7 +19191,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Flughafen",
-                "ar": "اسم: Flughafen",
+                "ar": "المطار",
                 "base": "Flughafen",
                 "pos": "Nomen"
               },
@@ -19202,7 +19203,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "sonderlich",
-                "ar": "صفة: sonderlich",
+                "ar": "خاص",
                 "base": "sonderlich",
                 "pos": "Adj"
               },
@@ -19226,19 +19227,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Städten",
-                "ar": "اسم: Städten",
+                "ar": "المدن",
                 "base": "Städten",
                 "pos": "Nomen"
               },
               {
                 "w": "Gleichzeitig",
-                "ar": "اسم: Gleichzeitig",
+                "ar": "في نفس الوقت",
                 "base": "Gleichzeitig",
                 "pos": "Nomen"
               },
               {
                 "w": "verpasse",
-                "ar": "معنى: verpasse",
+                "ar": "يغيب",
                 "base": "verpasse",
                 "pos": "Wort"
               },
@@ -19262,27 +19263,27 @@ window.LESETEXTE = [
               },
               {
                 "w": "Hause",
-                "ar": "اسم: Hause",
+                "ar": "المنزل",
                 "base": "Hause",
                 "pos": "Nomen"
               },
               {
                 "w": "Eliza",
-                "ar": "اسم: Eliza",
+                "ar": "إليزا",
                 "base": "Eliza",
                 "pos": "Nomen"
               },
               {
                 "w": "P",
-                "ar": "معنى: P",
+                "ar": "ص",
                 "base": "P",
                 "pos": "Wort"
               },
               {
                 "w": "36",
-                "ar": "معنى: 36",
-                "base": "36",
-                "pos": "Wort"
+                "ar": "ستة وثلاثون (36)",
+                "base": "sechsunddreißig",
+                "pos": "Num"
               }
             ]
           }
@@ -19392,13 +19393,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Nacht",
-                "ar": "اسم: Nacht",
-                "base": "Nacht",
+                "ar": "ليل / ليلة",
+                "base": "die Nacht",
                 "pos": "Nomen"
               },
               {
                 "w": "scheint",
-                "ar": "فعل: scheint",
+                "ar": "يبدو",
                 "base": "scheint",
                 "pos": "Verb"
               },
@@ -19410,13 +19411,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "ganze",
-                "ar": "معنى: ganze",
+                "ar": "كله",
                 "base": "ganze",
                 "pos": "Wort"
               },
               {
                 "w": "Stadt",
-                "ar": "اسم: Stadt",
+                "ar": "مدينة",
                 "base": "Stadt",
                 "pos": "Nomen"
               },
@@ -19428,7 +19429,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "schlafen",
-                "ar": "فعل: schlafen",
+                "ar": "نوم",
                 "base": "schlafen",
                 "pos": "Verb"
               },
@@ -19446,13 +19447,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "dunklen",
-                "ar": "فعل: dunklen",
+                "ar": "داكن",
                 "base": "dunklen",
                 "pos": "Verb"
               },
               {
                 "w": "Straßen",
-                "ar": "اسم: Straßen",
+                "ar": "الشوارع",
                 "base": "Straßen",
                 "pos": "Nomen"
               },
@@ -19470,7 +19471,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "ruhig",
-                "ar": "صفة: ruhig",
+                "ar": "الهدوء",
                 "base": "ruhig",
                 "pos": "Adj"
               },
@@ -19488,13 +19489,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Wohnungen",
-                "ar": "اسم: Wohnungen",
+                "ar": "شقق",
                 "base": "Wohnungen",
                 "pos": "Nomen"
               },
               {
                 "w": "gehen",
-                "ar": "فعل: gehen",
+                "ar": "يذهب",
                 "base": "gehen",
                 "pos": "Verb"
               },
@@ -19506,7 +19507,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Lichter",
-                "ar": "اسم: Lichter",
+                "ar": "أضواء",
                 "base": "Lichter",
                 "pos": "Nomen"
               },
@@ -19525,7 +19526,7 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Zeit",
-                "ar": "اسم: Zeit",
+                "ar": "وقت",
                 "base": "Zeit",
                 "pos": "Nomen"
               },
@@ -19537,7 +19538,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "sich",
-                "ar": "معنى: sich",
+                "ar": "نفسها",
                 "base": "sich",
                 "pos": "Wort"
               },
@@ -19555,13 +19556,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "gemütliches",
-                "ar": "معنى: gemütliches",
+                "ar": "مريح",
                 "base": "gemütliches",
                 "pos": "Wort"
               },
               {
                 "w": "Bett",
-                "ar": "اسم: Bett",
+                "ar": "سرير",
                 "base": "Bett",
                 "pos": "Nomen"
               },
@@ -19573,7 +19574,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "kuscheln",
-                "ar": "معنى: kuscheln",
+                "ar": "احتضان",
                 "base": "kuscheln",
                 "pos": "Wort"
               },
@@ -19591,13 +19592,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Stadt",
-                "ar": "اسم: Stadt",
+                "ar": "مدينة",
                 "base": "Stadt",
                 "pos": "Nomen"
               },
               {
                 "w": "schläft",
-                "ar": "فعل: schläft",
+                "ar": "ينام",
                 "base": "schläft",
                 "pos": "Verb"
               },
@@ -19609,19 +19610,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Überall",
-                "ar": "اسم: Überall",
+                "ar": "في كل مكان",
                 "base": "Überall",
                 "pos": "Nomen"
               },
               {
                 "w": "arbeiten",
-                "ar": "فعل: arbeiten",
+                "ar": "عمل",
                 "base": "arbeiten",
                 "pos": "Verb"
               },
               {
                 "w": "Menschen",
-                "ar": "اسم: Menschen",
+                "ar": "الناس",
                 "base": "Menschen",
                 "pos": "Nomen"
               },
@@ -19657,13 +19658,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Nacht",
-                "ar": "اسم: Nacht",
-                "base": "Nacht",
+                "ar": "ليل / ليلة",
+                "base": "die Nacht",
                 "pos": "Nomen"
               },
               {
                 "w": "bringen",
-                "ar": "فعل: bringen",
+                "ar": "إحضار",
                 "base": "bringen",
                 "pos": "Verb"
               }
@@ -19681,19 +19682,19 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Saskia",
-                "ar": "اسم: Saskia",
+                "ar": "ساسكيا",
                 "base": "Saskia",
                 "pos": "Nomen"
               },
               {
                 "w": "Schöne",
-                "ar": "اسم: Schöne",
+                "ar": "جميل",
                 "base": "Schöne",
                 "pos": "Nomen"
               },
               {
                 "w": "beginnt",
-                "ar": "فعل: beginnt",
+                "ar": "يبدأ",
                 "base": "beginnt",
                 "pos": "Verb"
               },
@@ -19711,7 +19712,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Stadtwerken",
-                "ar": "اسم: Stadtwerken",
+                "ar": "المرافق البلدية",
                 "base": "Stadtwerken",
                 "pos": "Nomen"
               },
@@ -19723,14 +19724,14 @@ window.LESETEXTE = [
               },
               {
                 "w": "21.30",
-                "ar": "معنى: 21.30",
+                "ar": "9.30 مساءً",
                 "base": "21.30",
                 "pos": "Wort"
               },
               {
                 "w": "Uhr",
-                "ar": "اسم: Uhr",
-                "base": "Uhr",
+                "ar": "ساعة (توقيت)",
+                "base": "die Uhr",
                 "pos": "Nomen"
               },
               {
@@ -19741,7 +19742,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "sitzt",
-                "ar": "فعل: sitzt",
+                "ar": "يجلس",
                 "base": "sitzt",
                 "pos": "Verb"
               },
@@ -19753,13 +19754,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "verschiedenen",
-                "ar": "فعل: verschiedenen",
+                "ar": "مختلفة",
                 "base": "verschiedenen",
                 "pos": "Verb"
               },
               {
                 "w": "Monitoren",
-                "ar": "اسم: Monitoren",
+                "ar": "المراقبين",
                 "base": "Monitoren",
                 "pos": "Nomen"
               },
@@ -19771,7 +19772,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "kontrolliert",
-                "ar": "فعل: kontrolliert",
+                "ar": "تسيطر عليها",
                 "base": "kontrolliert",
                 "pos": "Verb"
               },
@@ -19789,7 +19790,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Strom",
-                "ar": "اسم: Strom",
+                "ar": "كهرباء",
                 "base": "Strom",
                 "pos": "Nomen"
               },
@@ -19801,13 +19802,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "richtig",
-                "ar": "صفة: richtig",
+                "ar": "صحيح",
                 "base": "richtig",
                 "pos": "Adj"
               },
               {
                 "w": "fließt",
-                "ar": "فعل: fließt",
+                "ar": "يتدفق",
                 "base": "fließt",
                 "pos": "Verb"
               }
@@ -19820,7 +19821,7 @@ window.LESETEXTE = [
             "tokens": [
               {
                 "w": "Manchmal",
-                "ar": "اسم: Manchmal",
+                "ar": "أحيانا",
                 "base": "Manchmal",
                 "pos": "Nomen"
               },
@@ -19850,13 +19851,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "vielen",
-                "ar": "فعل: vielen",
+                "ar": "كثير",
                 "base": "vielen",
                 "pos": "Verb"
               },
               {
                 "w": "Leitungen",
-                "ar": "اسم: Leitungen",
+                "ar": "خطوط",
                 "base": "Leitungen",
                 "pos": "Nomen"
               },
@@ -19874,7 +19875,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Stadtteil",
-                "ar": "اسم: Stadtteil",
+                "ar": "منطقة",
                 "base": "Stadtteil",
                 "pos": "Nomen"
               },
@@ -19886,7 +19887,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Schaden",
-                "ar": "اسم: Schaden",
+                "ar": "الضرر",
                 "base": "Schaden",
                 "pos": "Nomen"
               },
@@ -19898,19 +19899,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "schaltet",
-                "ar": "فعل: schaltet",
+                "ar": "مفاتيح",
                 "base": "schaltet",
                 "pos": "Verb"
               },
               {
                 "w": "Saskia",
-                "ar": "اسم: Saskia",
+                "ar": "ساسكيا",
                 "base": "Saskia",
                 "pos": "Nomen"
               },
               {
                 "w": "Schöne",
-                "ar": "اسم: Schöne",
+                "ar": "جميل",
                 "base": "Schöne",
                 "pos": "Nomen"
               },
@@ -19934,13 +19935,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "neues",
-                "ar": "معنى: neues",
-                "base": "neues",
-                "pos": "Wort"
+                "ar": "جديد",
+                "base": "neu",
+                "pos": "Adj"
               },
               {
                 "w": "Netz",
-                "ar": "اسم: Netz",
+                "ar": "صافي",
                 "base": "Netz",
                 "pos": "Nomen"
               }
@@ -19965,13 +19966,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Hause",
-                "ar": "اسم: Hause",
+                "ar": "المنزل",
                 "base": "Hause",
                 "pos": "Nomen"
               },
               {
                 "w": "merken",
-                "ar": "فعل: merken",
+                "ar": "تذكر",
                 "base": "merken",
                 "pos": "Verb"
               },
@@ -19983,7 +19984,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "gar",
-                "ar": "معنى: gar",
+                "ar": "حتى",
                 "base": "gar",
                 "pos": "Wort"
               },
@@ -20001,13 +20002,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "notwendigen",
-                "ar": "فعل: notwendigen",
+                "ar": "ضروري",
                 "base": "notwendigen",
                 "pos": "Verb"
               },
               {
                 "w": "Änderungen",
-                "ar": "اسم: Änderungen",
+                "ar": "التغييرات",
                 "base": "Änderungen",
                 "pos": "Nomen"
               },
@@ -20019,21 +20020,21 @@ window.LESETEXTE = [
               },
               {
                 "w": "Netz",
-                "ar": "اسم: Netz",
+                "ar": "صافي",
                 "base": "Netz",
                 "pos": "Nomen"
               },
               {
                 "w": "dauern",
-                "ar": "معنى: dauern",
+                "ar": "الاخير",
                 "base": "dauern",
                 "pos": "Wort"
               },
               {
                 "w": "weniger",
-                "ar": "معنى: weniger",
+                "ar": "أقل",
                 "base": "weniger",
-                "pos": "Wort"
+                "pos": "Adj"
               },
               {
                 "w": "als",
@@ -20049,7 +20050,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Sekunde",
-                "ar": "اسم: Sekunde",
+                "ar": "ثانيا",
                 "base": "Sekunde",
                 "pos": "Nomen"
               },
@@ -20067,7 +20068,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "gibt",
-                "ar": "فعل: gibt",
+                "ar": "يعطي",
                 "base": "gibt",
                 "pos": "Verb"
               },
@@ -20085,13 +20086,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "große",
-                "ar": "معنى: große",
+                "ar": "كبير",
                 "base": "große",
                 "pos": "Wort"
               },
               {
                 "w": "Störung",
-                "ar": "اسم: Störung",
+                "ar": "اضطراب",
                 "base": "Störung",
                 "pos": "Nomen"
               },
@@ -20115,7 +20116,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Straße",
-                "ar": "اسم: Straße",
+                "ar": "شارع",
                 "base": "Straße",
                 "pos": "Nomen"
               },
@@ -20127,13 +20128,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "lange",
-                "ar": "معنى: lange",
+                "ar": "طويل",
                 "base": "lange",
                 "pos": "Wort"
               },
               {
                 "w": "Zeit",
-                "ar": "اسم: Zeit",
+                "ar": "وقت",
                 "base": "Zeit",
                 "pos": "Nomen"
               },
@@ -20145,7 +20146,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Strom",
-                "ar": "اسم: Strom",
+                "ar": "كهرباء",
                 "base": "Strom",
                 "pos": "Nomen"
               },
@@ -20170,7 +20171,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "finde",
-                "ar": "معنى: finde",
+                "ar": "تجد",
                 "base": "finde",
                 "pos": "Wort"
               },
@@ -20194,13 +20195,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "spannenden",
-                "ar": "فعل: spannenden",
+                "ar": "مثيرة",
                 "base": "spannenden",
                 "pos": "Verb"
               },
               {
                 "w": "Job",
-                "ar": "اسم: Job",
+                "ar": "وظيفة",
                 "base": "Job",
                 "pos": "Nomen"
               },
@@ -20212,19 +20213,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "sagt",
-                "ar": "فعل: sagt",
+                "ar": "يقول",
                 "base": "sagt",
                 "pos": "Verb"
               },
               {
                 "w": "Saskia",
-                "ar": "اسم: Saskia",
+                "ar": "ساسكيا",
                 "base": "Saskia",
                 "pos": "Nomen"
               },
               {
                 "w": "Schöne",
-                "ar": "اسم: Schöne",
+                "ar": "جميل",
                 "base": "Schöne",
                 "pos": "Nomen"
               },
@@ -20236,7 +20237,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Arbeit",
-                "ar": "اسم: Arbeit",
+                "ar": "عمل",
                 "base": "Arbeit",
                 "pos": "Nomen"
               },
@@ -20254,8 +20255,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Nacht",
-                "ar": "اسم: Nacht",
-                "base": "Nacht",
+                "ar": "ليل / ليلة",
+                "base": "die Nacht",
                 "pos": "Nomen"
               },
               {
@@ -20296,13 +20297,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "okay",
-                "ar": "معنى: okay",
+                "ar": "حسنا",
                 "base": "okay",
                 "pos": "Wort"
               },
               {
                 "w": "Meistens",
-                "ar": "اسم: Meistens",
+                "ar": "في الغالب",
                 "base": "Meistens",
                 "pos": "Nomen"
               },
@@ -20332,31 +20333,31 @@ window.LESETEXTE = [
               },
               {
                 "w": "normale",
-                "ar": "معنى: normale",
-                "base": "normale",
-                "pos": "Wort"
+                "ar": "طبيعي / عادي",
+                "base": "normal",
+                "pos": "Adj"
               },
               {
                 "w": "Arbeitszeiten",
-                "ar": "اسم: Arbeitszeiten",
+                "ar": "ساعات العمل",
                 "base": "Arbeitszeiten",
                 "pos": "Nomen"
               },
               {
                 "w": "Saskia",
-                "ar": "اسم: Saskia",
+                "ar": "ساسكيا",
                 "base": "Saskia",
                 "pos": "Nomen"
               },
               {
                 "w": "Schöne",
-                "ar": "اسم: Schöne",
+                "ar": "جميل",
                 "base": "Schöne",
                 "pos": "Nomen"
               },
               {
                 "w": "Elektroingenieurin",
-                "ar": "اسم: Elektroingenieurin",
+                "ar": "مهندس كهربائي",
                 "base": "Elektroingenieurin",
                 "pos": "Nomen"
               }
@@ -20398,13 +20399,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Stadt",
-                "ar": "اسم: Stadt",
+                "ar": "مدينة",
                 "base": "Stadt",
                 "pos": "Nomen"
               },
               {
                 "w": "wohnt",
-                "ar": "فعل: wohnt",
+                "ar": "حياة",
                 "base": "wohnt",
                 "pos": "Verb"
               },
@@ -20422,13 +20423,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "lange",
-                "ar": "معنى: lange",
+                "ar": "طويل",
                 "base": "lange",
                 "pos": "Wort"
               },
               {
                 "w": "feiern",
-                "ar": "معنى: feiern",
+                "ar": "احتفل",
                 "base": "feiern",
                 "pos": "Wort"
               },
@@ -20458,19 +20459,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Lukas",
-                "ar": "اسم: Lukas",
+                "ar": "لوقا",
                 "base": "Lukas",
                 "pos": "Nomen"
               },
               {
                 "w": "Roth",
-                "ar": "اسم: Roth",
+                "ar": "روث",
                 "base": "Roth",
                 "pos": "Nomen"
               },
               {
                 "w": "richtig",
-                "ar": "صفة: richtig",
+                "ar": "صحيح",
                 "base": "richtig",
                 "pos": "Adj"
               }
@@ -20489,7 +20490,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "fährt",
-                "ar": "فعل: fährt",
+                "ar": "محركات الأقراص",
                 "base": "fährt",
                 "pos": "Verb"
               },
@@ -20501,19 +20502,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "beliebten",
-                "ar": "فعل: beliebten",
+                "ar": "شعبية",
                 "base": "beliebten",
                 "pos": "Verb"
               },
               {
                 "w": "Bus",
-                "ar": "اسم: Bus",
-                "base": "Bus",
+                "ar": "حافلة / باص",
+                "base": "der Bus",
                 "pos": "Nomen"
               },
               {
                 "w": "N40",
-                "ar": "اسم: N40",
+                "ar": "ن",
                 "base": "N40",
                 "pos": "Nomen"
               },
@@ -20543,19 +20544,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "kurzer",
-                "ar": "معنى: kurzer",
+                "ar": "أقصر",
                 "base": "kurzer",
-                "pos": "Wort"
+                "pos": "Adj"
               },
               {
                 "w": "Zeit",
-                "ar": "اسم: Zeit",
+                "ar": "وقت",
                 "base": "Zeit",
                 "pos": "Nomen"
               },
               {
                 "w": "gibt",
-                "ar": "فعل: gibt",
+                "ar": "يعطي",
                 "base": "gibt",
                 "pos": "Verb"
               },
@@ -20579,14 +20580,14 @@ window.LESETEXTE = [
               },
               {
                 "w": "1.00",
-                "ar": "معنى: 1.00",
-                "base": "1.00",
-                "pos": "Wort"
+                "ar": "الساعة الواحدة (01:00)",
+                "base": "ein Uhr",
+                "pos": "Zeit"
               },
               {
                 "w": "Uhr",
-                "ar": "اسم: Uhr",
-                "base": "Uhr",
+                "ar": "ساعة (توقيت)",
+                "base": "die Uhr",
                 "pos": "Nomen"
               },
               {
@@ -20597,14 +20598,14 @@ window.LESETEXTE = [
               },
               {
                 "w": "6.30",
-                "ar": "معنى: 6.30",
-                "base": "6.30",
-                "pos": "Wort"
+                "ar": "السادسة والنصف (06:30)",
+                "base": "halb sieben",
+                "pos": "Zeit"
               },
               {
                 "w": "Uhr",
-                "ar": "اسم: Uhr",
-                "base": "Uhr",
+                "ar": "ساعة (توقيت)",
+                "base": "die Uhr",
                 "pos": "Nomen"
               },
               {
@@ -20615,13 +20616,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "müden",
-                "ar": "فعل: müden",
+                "ar": "متعب",
                 "base": "müden",
                 "pos": "Verb"
               },
               {
                 "w": "Fahrgäste",
-                "ar": "اسم: Fahrgäste",
+                "ar": "الركاب",
                 "base": "Fahrgäste",
                 "pos": "Nomen"
               },
@@ -20639,7 +20640,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Zentrum",
-                "ar": "اسم: Zentrum",
+                "ar": "مركز",
                 "base": "Zentrum",
                 "pos": "Nomen"
               },
@@ -20657,13 +20658,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Stadtrand",
-                "ar": "اسم: Stadtrand",
+                "ar": "الضواحي",
                 "base": "Stadtrand",
                 "pos": "Nomen"
               },
               {
                 "w": "bringt",
-                "ar": "فعل: bringt",
+                "ar": "يجلب",
                 "base": "bringt",
                 "pos": "Verb"
               }
@@ -20700,9 +20701,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "einmal",
-                "ar": "معنى: einmal",
+                "ar": "مرة واحدة",
                 "base": "einmal",
-                "pos": "Wort"
+                "pos": "Adv"
               },
               {
                 "w": "sein",
@@ -20712,7 +20713,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Auto",
-                "ar": "اسم: Auto",
+                "ar": "سيارة",
                 "base": "Auto",
                 "pos": "Nomen"
               },
@@ -20724,19 +20725,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Hause",
-                "ar": "اسم: Hause",
+                "ar": "المنزل",
                 "base": "Hause",
                 "pos": "Nomen"
               },
               {
                 "w": "stehen",
-                "ar": "فعل: stehen",
+                "ar": "الوقوف",
                 "base": "stehen",
                 "pos": "Verb"
               },
               {
                 "w": "lassen",
-                "ar": "فعل: lassen",
+                "ar": "دعونا",
                 "base": "lassen",
                 "pos": "Verb"
               },
@@ -20748,7 +20749,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Kunden",
-                "ar": "اسم: Kunden",
+                "ar": "العملاء",
                 "base": "Kunden",
                 "pos": "Nomen"
               },
@@ -20760,7 +20761,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "froh",
-                "ar": "معنى: froh",
+                "ar": "سعيد",
                 "base": "froh",
                 "pos": "Wort"
               },
@@ -20778,13 +20779,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "neuen",
-                "ar": "فعل: neuen",
-                "base": "neuen",
-                "pos": "Verb"
+                "ar": "جديد / جديدين",
+                "base": "neu",
+                "pos": "Adj"
               },
               {
                 "w": "Nachtbusse",
-                "ar": "اسم: Nachtbusse",
+                "ar": "الحافلات الليلية",
                 "base": "Nachtbusse",
                 "pos": "Nomen"
               },
@@ -20796,13 +20797,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Nachtbus",
-                "ar": "اسم: Nachtbus",
+                "ar": "حافلة ليلية",
                 "base": "Nachtbus",
                 "pos": "Nomen"
               },
               {
                 "w": "nutzen",
-                "ar": "فعل: nutzen",
+                "ar": "استخدام",
                 "base": "nutzen",
                 "pos": "Verb"
               },
@@ -20820,13 +20821,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Leute",
-                "ar": "اسم: Leute",
-                "base": "Leute",
+                "ar": "ناس / أشخاص",
+                "base": "die Leute",
                 "pos": "Nomen"
               },
               {
                 "w": "Jugendliche",
-                "ar": "اسم: Jugendliche",
+                "ar": "المراهقين",
                 "base": "Jugendliche",
                 "pos": "Nomen"
               },
@@ -20844,13 +20845,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "alte",
-                "ar": "فعل: alte",
+                "ar": "القديمة",
                 "base": "alte",
                 "pos": "Verb"
               },
               {
                 "w": "Menschen",
-                "ar": "اسم: Menschen",
+                "ar": "الناس",
                 "base": "Menschen",
                 "pos": "Nomen"
               }
@@ -20875,8 +20876,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Bus",
-                "ar": "اسم: Bus",
-                "base": "Bus",
+                "ar": "حافلة / باص",
+                "base": "der Bus",
                 "pos": "Nomen"
               },
               {
@@ -20893,25 +20894,25 @@ window.LESETEXTE = [
               },
               {
                 "w": "Gäste",
-                "ar": "اسم: Gäste",
+                "ar": "الضيوف",
                 "base": "Gäste",
                 "pos": "Nomen"
               },
               {
                 "w": "meistens",
-                "ar": "معنى: meistens",
+                "ar": "في الغالب",
                 "base": "meistens",
                 "pos": "Wort"
               },
               {
                 "w": "gute",
-                "ar": "فعل: gute",
+                "ar": "جيد",
                 "base": "gute",
                 "pos": "Verb"
               },
               {
                 "w": "Laune",
-                "ar": "اسم: Laune",
+                "ar": "المزاج",
                 "base": "Laune",
                 "pos": "Nomen"
               },
@@ -20923,7 +20924,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "reden",
-                "ar": "فعل: reden",
+                "ar": "تحدث",
                 "base": "reden",
                 "pos": "Verb"
               },
@@ -20935,13 +20936,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "lachen",
-                "ar": "فعل: lachen",
+                "ar": "اضحك",
                 "base": "lachen",
                 "pos": "Verb"
               },
               {
                 "w": "gerne",
-                "ar": "معنى: gerne",
+                "ar": "بكل سرور",
                 "base": "gerne",
                 "pos": "Wort"
               },
@@ -20959,9 +20960,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "bisher",
-                "ar": "معنى: bisher",
+                "ar": "حتى الآن",
                 "base": "bisher",
-                "pos": "Wort"
+                "pos": "Adj"
               },
               {
                 "w": "nur",
@@ -20971,37 +20972,37 @@ window.LESETEXTE = [
               },
               {
                 "w": "positive",
-                "ar": "معنى: positive",
+                "ar": "إيجابي",
                 "base": "positive",
                 "pos": "Wort"
               },
               {
                 "w": "Erfahrungen",
-                "ar": "اسم: Erfahrungen",
+                "ar": "الخبرات",
                 "base": "Erfahrungen",
                 "pos": "Nomen"
               },
               {
                 "w": "gemacht",
-                "ar": "فعل: gemacht",
-                "base": "gemacht",
+                "ar": "فعلَ / صنعَ",
+                "base": "machen",
                 "pos": "Verb"
               },
               {
                 "w": "Lukas",
-                "ar": "اسم: Lukas",
+                "ar": "لوقا",
                 "base": "Lukas",
                 "pos": "Nomen"
               },
               {
                 "w": "Roth",
-                "ar": "اسم: Roth",
+                "ar": "روث",
                 "base": "Roth",
                 "pos": "Nomen"
               },
               {
                 "w": "Busfahrer",
-                "ar": "اسم: Busfahrer",
+                "ar": "سائق الحافلة",
                 "base": "Busfahrer",
                 "pos": "Nomen"
               }
@@ -21037,7 +21038,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "klingelt",
-                "ar": "فعل: klingelt",
+                "ar": "حلقات",
                 "base": "klingelt",
                 "pos": "Verb"
               },
@@ -21049,7 +21050,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Telefon",
-                "ar": "اسم: Telefon",
+                "ar": "هاتف",
                 "base": "Telefon",
                 "pos": "Nomen"
               },
@@ -21061,13 +21062,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Stefan",
-                "ar": "اسم: Stefan",
+                "ar": "ستيفن",
                 "base": "Stefan",
                 "pos": "Nomen"
               },
               {
                 "w": "Kampmann",
-                "ar": "اسم: Kampmann",
+                "ar": "كامبمان",
                 "base": "Kampmann",
                 "pos": "Nomen"
               },
@@ -21091,15 +21092,15 @@ window.LESETEXTE = [
               },
               {
                 "w": "Notruf",
-                "ar": "اسم: Notruf",
+                "ar": "مكالمة طوارئ",
                 "base": "Notruf",
                 "pos": "Nomen"
               },
               {
                 "w": "112",
-                "ar": "معنى: 112",
-                "base": "112",
-                "pos": "Wort"
+                "ar": "رقم الطوارئ الألماني 112",
+                "base": "Notruf 112",
+                "pos": "Num"
               },
               {
                 "w": "bei",
@@ -21115,13 +21116,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Feuerwehr",
-                "ar": "اسم: Feuerwehr",
+                "ar": "قسم الإطفاء",
                 "base": "Feuerwehr",
                 "pos": "Nomen"
               },
               {
                 "w": "gewählt",
-                "ar": "فعل: gewählt",
+                "ar": "منتخب",
                 "base": "gewählt",
                 "pos": "Verb"
               }
@@ -21140,37 +21141,37 @@ window.LESETEXTE = [
               },
               {
                 "w": "Notfällen",
-                "ar": "اسم: Notfällen",
+                "ar": "حالات الطوارئ",
                 "base": "Notfällen",
                 "pos": "Nomen"
               },
               {
                 "w": "schickt",
-                "ar": "فعل: schickt",
+                "ar": "يرسل",
                 "base": "schickt",
                 "pos": "Verb"
               },
               {
                 "w": "Kampmann",
-                "ar": "اسم: Kampmann",
+                "ar": "كامبمان",
                 "base": "Kampmann",
                 "pos": "Nomen"
               },
               {
                 "w": "sofort",
-                "ar": "فعل: sofort",
+                "ar": "فوراً / في الحال",
                 "base": "sofort",
-                "pos": "Verb"
+                "pos": "Adv"
               },
               {
                 "w": "Hilfe",
-                "ar": "اسم: Hilfe",
+                "ar": "مساعدة",
                 "base": "Hilfe",
                 "pos": "Nomen"
               },
               {
                 "w": "Krankenwagen",
-                "ar": "اسم: Krankenwagen",
+                "ar": "سيارة إسعاف",
                 "base": "Krankenwagen",
                 "pos": "Nomen"
               },
@@ -21182,7 +21183,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Feuerwehr",
-                "ar": "اسم: Feuerwehr",
+                "ar": "قسم الإطفاء",
                 "base": "Feuerwehr",
                 "pos": "Nomen"
               },
@@ -21194,19 +21195,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "24",
-                "ar": "معنى: 24",
-                "base": "24",
-                "pos": "Wort"
+                "ar": "أربع وعشرون (24)",
+                "base": "vierundzwanzig",
+                "pos": "Num"
               },
               {
                 "w": "Stunden",
-                "ar": "اسم: Stunden",
+                "ar": "ساعات",
                 "base": "Stunden",
                 "pos": "Nomen"
               },
               {
                 "w": "Dienst",
-                "ar": "اسم: Dienst",
+                "ar": "الخدمة",
                 "base": "Dienst",
                 "pos": "Nomen"
               },
@@ -21230,7 +21231,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "dunkel",
-                "ar": "معنى: dunkel",
+                "ar": "داكن",
                 "base": "dunkel",
                 "pos": "Wort"
               },
@@ -21248,25 +21249,25 @@ window.LESETEXTE = [
               },
               {
                 "w": "melden",
-                "ar": "فعل: melden",
+                "ar": "تقرير",
                 "base": "melden",
                 "pos": "Verb"
               },
               {
                 "w": "sich",
-                "ar": "معنى: sich",
+                "ar": "نفسها",
                 "base": "sich",
                 "pos": "Wort"
               },
               {
                 "w": "andere",
-                "ar": "معنى: andere",
+                "ar": "الآخرين",
                 "base": "andere",
                 "pos": "Wort"
               },
               {
                 "w": "Menschen",
-                "ar": "اسم: Menschen",
+                "ar": "الناس",
                 "base": "Menschen",
                 "pos": "Nomen"
               },
@@ -21284,8 +21285,8 @@ window.LESETEXTE = [
               },
               {
                 "w": "Tag",
-                "ar": "اسم: Tag",
-                "base": "Tag",
+                "ar": "يوم / نهار",
+                "base": "der Tag",
                 "pos": "Nomen"
               }
             ]
@@ -21309,19 +21310,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Nacht",
-                "ar": "اسم: Nacht",
-                "base": "Nacht",
+                "ar": "ليل / ليلة",
+                "base": "die Nacht",
                 "pos": "Nomen"
               },
               {
                 "w": "rufen",
-                "ar": "فعل: rufen",
+                "ar": "اتصل",
                 "base": "rufen",
                 "pos": "Verb"
               },
               {
                 "w": "sogar",
-                "ar": "معنى: sogar",
+                "ar": "حتى",
                 "base": "sogar",
                 "pos": "Wort"
               },
@@ -21345,7 +21346,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Personen",
-                "ar": "اسم: Personen",
+                "ar": "الناس",
                 "base": "Personen",
                 "pos": "Nomen"
               },
@@ -21369,19 +21370,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "echten",
-                "ar": "فعل: echten",
+                "ar": "حقيقي",
                 "base": "echten",
                 "pos": "Verb"
               },
               {
                 "w": "Notfall",
-                "ar": "اسم: Notfall",
+                "ar": "الطوارئ",
                 "base": "Notfall",
                 "pos": "Nomen"
               },
               {
                 "w": "melden",
-                "ar": "فعل: melden",
+                "ar": "تقرير",
                 "base": "melden",
                 "pos": "Verb"
               },
@@ -21405,13 +21406,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "manchmal",
-                "ar": "معنى: manchmal",
+                "ar": "في بعض الأحيان",
                 "base": "manchmal",
-                "pos": "Wort"
+                "pos": "Adv"
               },
               {
                 "w": "verzweifelte",
-                "ar": "فعل: verzweifelte",
+                "ar": "يائسة",
                 "base": "verzweifelte",
                 "pos": "Verb"
               },
@@ -21423,13 +21424,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "einsame",
-                "ar": "معنى: einsame",
+                "ar": "وحيدا",
                 "base": "einsame",
                 "pos": "Wort"
               },
               {
                 "w": "Menschen",
-                "ar": "اسم: Menschen",
+                "ar": "الناس",
                 "base": "Menschen",
                 "pos": "Nomen"
               },
@@ -21441,7 +21442,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "brauchen",
-                "ar": "فعل: brauchen",
+                "ar": "حاجة",
                 "base": "brauchen",
                 "pos": "Verb"
               },
@@ -21453,13 +21454,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "kompetente",
-                "ar": "فعل: kompetente",
+                "ar": "المختصة",
                 "base": "kompetente",
                 "pos": "Verb"
               },
               {
                 "w": "Person",
-                "ar": "اسم: Person",
+                "ar": "شخص",
                 "base": "Person",
                 "pos": "Nomen"
               },
@@ -21477,7 +21478,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "weiterhilft",
-                "ar": "فعل: weiterhilft",
+                "ar": "يساعد",
                 "base": "weiterhilft",
                 "pos": "Verb"
               },
@@ -21489,7 +21490,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "sich",
-                "ar": "معنى: sich",
+                "ar": "نفسها",
                 "base": "sich",
                 "pos": "Wort"
               },
@@ -21501,19 +21502,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "kleine",
-                "ar": "معنى: kleine",
+                "ar": "صغير",
                 "base": "kleine",
                 "pos": "Wort"
               },
               {
                 "w": "Sorgen",
-                "ar": "اسم: Sorgen",
+                "ar": "هموم",
                 "base": "Sorgen",
                 "pos": "Nomen"
               },
               {
                 "w": "anhört",
-                "ar": "فعل: anhört",
+                "ar": "يستمع",
                 "base": "anhört",
                 "pos": "Verb"
               }
@@ -21538,13 +21539,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "rufen",
-                "ar": "فعل: rufen",
+                "ar": "اتصل",
                 "base": "rufen",
                 "pos": "Verb"
               },
               {
                 "w": "Personen",
-                "ar": "اسم: Personen",
+                "ar": "الناس",
                 "base": "Personen",
                 "pos": "Nomen"
               },
@@ -21568,13 +21569,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "offene",
-                "ar": "معنى: offene",
+                "ar": "مفتوح",
                 "base": "offene",
                 "pos": "Wort"
               },
               {
                 "w": "Apotheke",
-                "ar": "اسم: Apotheke",
+                "ar": "صيدلية",
                 "base": "Apotheke",
                 "pos": "Nomen"
               },
@@ -21592,7 +21593,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Handwerker",
-                "ar": "اسم: Handwerker",
+                "ar": "حرفي",
                 "base": "Handwerker",
                 "pos": "Nomen"
               },
@@ -21604,19 +21605,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Notdienst",
-                "ar": "اسم: Notdienst",
+                "ar": "خدمة الطوارئ",
                 "base": "Notdienst",
                 "pos": "Nomen"
               },
               {
                 "w": "suchen",
-                "ar": "فعل: suchen",
+                "ar": "بحث",
                 "base": "suchen",
                 "pos": "Verb"
               },
               {
                 "w": "Hierfür",
-                "ar": "اسم: Hierfür",
+                "ar": "لهذا",
                 "base": "Hierfür",
                 "pos": "Nomen"
               },
@@ -21628,13 +21629,13 @@ window.LESETEXTE = [
               },
               {
                 "w": "Stefan",
-                "ar": "اسم: Stefan",
+                "ar": "ستيفن",
                 "base": "Stefan",
                 "pos": "Nomen"
               },
               {
                 "w": "Kampmann",
-                "ar": "اسم: Kampmann",
+                "ar": "كامبمان",
                 "base": "Kampmann",
                 "pos": "Nomen"
               },
@@ -21646,7 +21647,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Verständnis",
-                "ar": "اسم: Verständnis",
+                "ar": "فهم",
                 "base": "Verständnis",
                 "pos": "Nomen"
               },
@@ -21664,7 +21665,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "Leitung",
-                "ar": "اسم: Leitung",
+                "ar": "الإدارة",
                 "base": "Leitung",
                 "pos": "Nomen"
               },
@@ -21682,7 +21683,7 @@ window.LESETEXTE = [
               },
               {
                 "w": "mitten",
-                "ar": "فعل: mitten",
+                "ar": "وسط",
                 "base": "mitten",
                 "pos": "Verb"
               },
@@ -21700,19 +21701,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "Nacht",
-                "ar": "اسم: Nacht",
-                "base": "Nacht",
+                "ar": "ليل / ليلة",
+                "base": "die Nacht",
                 "pos": "Nomen"
               },
               {
                 "w": "frei",
-                "ar": "معنى: frei",
+                "ar": "مجانا",
                 "base": "frei",
                 "pos": "Wort"
               },
               {
                 "w": "bleiben",
-                "ar": "فعل: bleiben",
+                "ar": "يبقى",
                 "base": "bleiben",
                 "pos": "Verb"
               },
@@ -21730,9 +21731,9 @@ window.LESETEXTE = [
               },
               {
                 "w": "112",
-                "ar": "معنى: 112",
-                "base": "112",
-                "pos": "Wort"
+                "ar": "رقم الطوارئ الألماني 112",
+                "base": "Notruf 112",
+                "pos": "Num"
               },
               {
                 "w": "mit",
@@ -21742,19 +21743,19 @@ window.LESETEXTE = [
               },
               {
                 "w": "unwichtigen",
-                "ar": "فعل: unwichtigen",
+                "ar": "غير مهم",
                 "base": "unwichtigen",
                 "pos": "Verb"
               },
               {
                 "w": "Fragen",
-                "ar": "اسم: Fragen",
+                "ar": "أسئلة",
                 "base": "Fragen",
                 "pos": "Nomen"
               },
               {
                 "w": "blockiert",
-                "ar": "فعل: blockiert",
+                "ar": "محظور",
                 "base": "blockiert",
                 "pos": "Verb"
               },
@@ -21766,43 +21767,43 @@ window.LESETEXTE = [
               },
               {
                 "w": "sich",
-                "ar": "معنى: sich",
+                "ar": "نفسها",
                 "base": "sich",
                 "pos": "Wort"
               },
               {
                 "w": "sogar",
-                "ar": "معنى: sogar",
+                "ar": "حتى",
                 "base": "sogar",
                 "pos": "Wort"
               },
               {
                 "w": "strafbar",
-                "ar": "صفة: strafbar",
+                "ar": "يعاقب عليه",
                 "base": "strafbar",
                 "pos": "Adj"
               },
               {
                 "w": "machen",
-                "ar": "فعل: machen",
+                "ar": "يفعل / يصنع",
                 "base": "machen",
                 "pos": "Verb"
               },
               {
                 "w": "Stefan",
-                "ar": "اسم: Stefan",
+                "ar": "ستيفن",
                 "base": "Stefan",
                 "pos": "Nomen"
               },
               {
                 "w": "Kampmann",
-                "ar": "اسم: Kampmann",
+                "ar": "كامبمان",
                 "base": "Kampmann",
                 "pos": "Nomen"
               },
               {
                 "w": "Feuerwehrmann",
-                "ar": "اسم: Feuerwehrmann",
+                "ar": "رجل الاطفاء",
                 "base": "Feuerwehrmann",
                 "pos": "Nomen"
               }
@@ -21870,3 +21871,4 @@ window.LESETEXTE = [
     ]
   }
 ];
+})();
