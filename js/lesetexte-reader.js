@@ -14,7 +14,7 @@
   const LesetexteReader = {
     currentText: null,
     fontSize: 'md', // 'sm', 'md', 'lg'
-    showSentenceTranslations: true,
+    showSentenceTranslations: false,
     activeTab: 'text', // 'text', 'exercises', 'vocab'
     isPlayingFullText: false,
     currentSentenceIndex: -1,
@@ -61,9 +61,19 @@
           <span style="color:var(--text-muted); font-size:0.75rem;">Grundform:</span>
           <strong id="popover-lemma" style="color:var(--text-primary);"></strong>
         </div>
+        <div class="popover-sentence-box" id="popover-sentence-box" style="display:none;">
+          <div style="font-size:0.75rem; font-weight:700; color:var(--text-muted); margin-bottom:2px;">ترجمة الجملة كاملة:</div>
+          <div id="popover-sentence-ar" style="font-size:0.92rem; color:var(--text-secondary); line-height:1.45;"></div>
+        </div>
         <div class="popover-actions">
-          <button type="button" class="popover-speak-btn" id="popover-speak-btn">
+          <button type="button" class="popover-speak-btn" id="popover-speak-btn" title="استمع لنطق الكلمة">
             🔊 نطق الكلمة
+          </button>
+          <button type="button" class="popover-speak-btn" id="popover-sent-speak-btn" title="استمع لنطق الجملة">
+            🎧 نطق الجملة
+          </button>
+          <button type="button" class="popover-tool-btn" id="popover-toggle-trans-btn" title="إظهار / إخفاء ترجمة الجملة">
+            👁️ ترجمة الجملة
           </button>
         </div>
       `;
@@ -320,25 +330,18 @@
               data-pos="${Utils.escapeHtml(tok.pos || 'Wort')}">${Utils.escapeHtml(tok.w)}</span>`;
           }).join(' ');
 
-          return `
-            <span class="reader-sentence" id="sentence-${s.id}" data-sentence-id="${s.id}">
-              ${tokensHTML}
-              <button type="button" class="sentence-audio-btn" data-audio-text="${Utils.escapeHtml(s.de)}" onclick="LesetexteReader.playSingleSentence('${s.id}')" title="استمع لهذه الجملة">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.08"/></svg>
-              </button>
-              <button type="button" class="sentence-audio-btn" style="font-size:0.75rem;" onclick="LesetexteReader.playSingleSentence('${s.id}', true)" title="استمع ببطء (0.75x)">
-                🐢
-              </button>
-              ${s.ar ? `
-                <div class="sentence-translation-box sentence-trans-${s.id}" style="display: ${this.showSentenceTranslations ? 'block' : 'none'};">
-                  ${Utils.escapeHtml(s.ar)}
-                </div>
-              ` : ''}
-            </span>
-          `;
+          return `<span class="reader-sentence" id="sentence-${s.id}" data-sentence-id="${s.id}">${tokensHTML}<button type="button" class="inline-listen-pill" onclick="LesetexteReader.playSingleSentence('${s.id}', false, event)" title="استمع لهذه الجملة">🔊</button></span>`;
         }).join(' ');
 
-        return `<div class="reader-paragraph">${sentencesHTML}</div>`;
+        // Paragraph Arabic translation (hidden by default, toggled via toolbar button)
+        const pArabic = (p.sentences || []).map(s => s.ar).filter(Boolean).join(' ');
+        const transBoxHTML = pArabic ? `
+          <div class="paragraph-translation-box p-trans-box" id="p-trans-${pIdx}" style="display: ${this.showSentenceTranslations ? 'block' : 'none'};">
+            ${Utils.escapeHtml(pArabic)}
+          </div>
+        ` : '';
+
+        return `<p class="reader-paragraph">${sentencesHTML}</p>${transBoxHTML}`;
       }).join('');
     },
 
@@ -367,11 +370,20 @@
       const wordBase = wordSpan.getAttribute('data-base') || wordDe;
       const wordPos = wordSpan.getAttribute('data-pos') || 'Wort';
 
+      // Find sentence context
+      const sentenceSpan = wordSpan.closest('.reader-sentence');
+      const sentenceId = sentenceSpan ? sentenceSpan.getAttribute('data-sentence-id') : null;
+      const sentence = this.flatSentences.find(s => s.id === sentenceId);
+
       const deEl = document.getElementById('popover-word-de');
       const arEl = document.getElementById('popover-ar-translation');
       const lemmaEl = document.getElementById('popover-lemma');
       const posBadge = document.getElementById('popover-pos-badge');
       const speakBtn = document.getElementById('popover-speak-btn');
+      const sentSpeakBtn = document.getElementById('popover-sent-speak-btn');
+      const toggleTransBtn = document.getElementById('popover-toggle-trans-btn');
+      const sentBox = document.getElementById('popover-sentence-box');
+      const sentArEl = document.getElementById('popover-sentence-ar');
 
       if (deEl) deEl.textContent = wordDe;
       if (arEl) arEl.textContent = wordAr || 'ترجمة الكلمة';
@@ -381,6 +393,9 @@
         posBadge.className = `popover-pos-badge popover-pos-${wordPos.replace(/[^a-zA-Z]/g, '')}`;
       }
 
+      if (sentBox) sentBox.style.display = 'none';
+      if (sentArEl && sentence) sentArEl.textContent = sentence.ar || '';
+
       if (speakBtn) {
         speakBtn.onclick = () => {
           if (window.Speech && Speech.speak) {
@@ -389,9 +404,34 @@
         };
       }
 
+      if (sentSpeakBtn) {
+        if (sentence) {
+          sentSpeakBtn.style.display = 'inline-flex';
+          sentSpeakBtn.onclick = () => {
+            this.playSingleSentence(sentence.id);
+          };
+        } else {
+          sentSpeakBtn.style.display = 'none';
+        }
+      }
+
+      if (toggleTransBtn) {
+        if (sentence && sentence.ar) {
+          toggleTransBtn.style.display = 'inline-flex';
+          toggleTransBtn.onclick = () => {
+            if (sentBox) {
+              const isHidden = (sentBox.style.display === 'none');
+              sentBox.style.display = isHidden ? 'block' : 'none';
+            }
+          };
+        } else {
+          toggleTransBtn.style.display = 'none';
+        }
+      }
+
       // Position the popover dynamically
       const rect = wordSpan.getBoundingClientRect();
-      const popoverWidth = 290;
+      const popoverWidth = 320;
       let left = rect.left + (rect.width / 2);
       let top = rect.top;
 
@@ -429,15 +469,20 @@
     /* =========================================================================
        AUDIO PLAYBACK & HIGHLIGHTING
        ========================================================================= */
-    playSingleSentence(sentenceId, isSlow = false) {
+    playSingleSentence(sentenceId, isSlow = false, evt) {
+      if (evt && evt.stopPropagation) evt.stopPropagation();
       const sentence = this.flatSentences.find(s => s.id === sentenceId);
       if (!sentence) return;
 
       this.highlightSentence(sentenceId);
 
+      const pillBtn = document.querySelector(`#sentence-${sentenceId} .inline-listen-pill`);
+      if (pillBtn) pillBtn.classList.add('playing');
+
       if (window.Speech && Speech.speak) {
         Speech.speak(sentence.de, isSlow, () => {
           this.unhighlightSentence(sentenceId);
+          if (pillBtn) pillBtn.classList.remove('playing');
         });
       }
     },
@@ -456,6 +501,8 @@
       if (target) {
         target.classList.remove('is-playing');
       }
+      const pillBtn = document.querySelector(`#sentence-${sentenceId} .inline-listen-pill`);
+      if (pillBtn) pillBtn.classList.remove('playing');
     },
 
     toggleFullAudioPlay() {
@@ -581,7 +628,7 @@
       const btn = document.getElementById('trans-toggle-btn');
       if (btn) btn.classList.toggle('active', this.showSentenceTranslations);
 
-      document.querySelectorAll('.sentence-translation-box').forEach(box => {
+      document.querySelectorAll('.p-trans-box, .sentence-translation-box').forEach(box => {
         box.style.display = this.showSentenceTranslations ? 'block' : 'none';
       });
     },

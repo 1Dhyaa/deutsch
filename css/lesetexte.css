@@ -389,63 +389,66 @@
 .reader-body.font-lg { font-size: 1.34rem; line-height: 2.3; }
 
 .reader-paragraph {
-  margin-bottom: 28px;
-  padding: 14px 18px;
-  background: rgba(248, 250, 252, 0.5);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-light);
-  transition: background var(--transition-fast);
+  margin-bottom: 24px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  line-height: 2.2;
+  font-size: 1.18rem;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 [data-theme="dark"] .reader-paragraph {
-  background: rgba(17, 24, 39, 0.4);
+  background: transparent;
 }
 
 /* Sentences & Blocks */
 .reader-sentence {
   display: inline;
   position: relative;
-  padding: 3px 2px;
+  padding: 2px 2px;
   border-radius: 4px;
   transition: all var(--transition-fast);
 }
 
 .reader-sentence:hover {
-  background: rgba(79, 70, 229, 0.05);
+  background: rgba(79, 70, 229, 0.06);
 }
 
 .reader-sentence.is-playing {
-  background: rgba(79, 70, 229, 0.16) !important;
+  background: rgba(79, 70, 229, 0.18) !important;
   box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.25);
   border-radius: 6px;
 }
 
-.sentence-audio-btn {
+.inline-listen-pill {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 26px;
-  height: 26px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  border: 1px solid var(--border);
-  background: var(--bg-card);
+  border: none;
+  background: rgba(79, 70, 229, 0.08);
   color: var(--accent);
   cursor: pointer;
-  margin: 0 4px;
+  margin-left: 2px;
+  margin-right: 6px;
   vertical-align: middle;
   transition: all var(--transition-fast);
-  opacity: 0.65;
+  opacity: 0.55;
+  padding: 0;
 }
 
-.sentence-audio-btn:hover {
+.inline-listen-pill:hover {
   opacity: 1;
   background: var(--accent);
   color: #fff;
-  border-color: var(--accent);
-  transform: scale(1.1);
+  transform: scale(1.18);
 }
 
-.sentence-audio-btn.playing {
+.inline-listen-pill.playing {
   opacity: 1;
   background: var(--accent);
   color: #fff;
@@ -456,6 +459,25 @@
   0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4); }
   70% { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(79, 70, 229, 0); }
   100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
+}
+
+.paragraph-translation-box {
+  font-family: var(--font-ar);
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  direction: rtl;
+  text-align: right;
+  padding: 12px 18px;
+  margin: 10px 0 26px;
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(14, 165, 233, 0.04) 100%);
+  border-radius: var(--radius-md);
+  border-right: 4px solid var(--accent);
+  border-left: 1px solid var(--border-light);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  line-height: 1.75;
+  box-shadow: var(--shadow-sm);
+  animation: fadeIn 0.25s ease;
 }
 
 .sentence-translation-box {
@@ -503,7 +525,7 @@
 .word-popover {
   position: fixed;
   z-index: 1050;
-  width: 290px;
+  width: 320px;
   background: var(--bg-card);
   border: 1.5px solid var(--accent);
   border-radius: var(--radius-lg);
@@ -596,14 +618,29 @@
   gap: 6px;
   direction: ltr;
   text-align: left;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
+}
+
+.popover-sentence-box {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  margin: 8px 0 10px;
+  font-family: var(--font-ar);
+  direction: rtl;
+  text-align: right;
+  line-height: 1.5;
+  border-right: 3px solid var(--accent);
+  animation: fadeIn 0.15s ease;
 }
 
 .popover-actions {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px;
+  justify-content: flex-start;
+  gap: 6px;
+  flex-wrap: wrap;
   border-top: 1px solid var(--border-light);
   padding-top: 10px;
 }
@@ -611,13 +648,13 @@
 .popover-speak-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
+  gap: 4px;
+  padding: 6px 10px;
   border-radius: var(--radius-sm);
   background: var(--accent-light);
   color: var(--accent);
   border: 1px solid var(--accent);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 700;
   cursor: pointer;
   transition: all var(--transition-fast);
@@ -626,6 +663,27 @@
 .popover-speak-btn:hover {
   background: var(--accent);
   color: #fff;
+}
+
+.popover-tool-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.popover-tool-btn:hover {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .popover-close-btn {
