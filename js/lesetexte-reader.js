@@ -321,13 +321,19 @@
 
       return text.paragraphs.map((p, pIdx) => {
         const sentencesHTML = (p.sentences || []).map(s => {
-          // Tokenized words
+          // Tokenized words preserving 100% of punctuation (commas, quotes, dashes, etc.)
           const tokensHTML = (s.tokens || []).map(tok => {
-            return `<span class="read-word" 
+            const pre = tok.pre ? Utils.escapeHtml(tok.pre) : '';
+            const post = tok.post ? Utils.escapeHtml(tok.post) : '';
+            if (!tok.w) {
+              return `${pre}${post}`;
+            }
+            const wordSpan = `<span class="read-word" 
               data-w="${Utils.escapeHtml(tok.w)}" 
               data-ar="${Utils.escapeHtml(tok.ar || '')}" 
               data-base="${Utils.escapeHtml(tok.base || tok.w)}" 
               data-pos="${Utils.escapeHtml(tok.pos || 'Wort')}">${Utils.escapeHtml(tok.w)}</span>`;
+            return `${pre}${wordSpan}${post}`;
           }).join(' ');
 
           return `<span class="reader-sentence" id="sentence-${s.id}" data-sentence-id="${s.id}">${tokensHTML}<button type="button" class="inline-listen-pill" onclick="LesetexteReader.playSingleSentence('${s.id}', false, event)" title="استمع لهذه الجملة">🔊</button></span>`;
